@@ -5,17 +5,33 @@
 
 int main(int argc, char** argv)
 {
-	
-	QWidget* mWindow = SoQt::init(argc, argv, argv[0]);
-	SoSeparator* mRoot = new SoSeparator;
-	mRoot->ref();
-	SoCone* mCone = new SoCone;
-	mRoot->addChild(mCone);
-	SoQtExaminerViewer eviewer(mWindow);
-	eviewer.setSceneGraph(mRoot);
-	eviewer.show();
-	SoQt::show(mWindow);
-	SoQt::mainLoop();
-	mRoot->unref();
-	return 0;
+  if (argc < 2) {
+    (void)fprintf(stderr, "\n\n\tUsage: %s <modelfilename>\n\n",
+                  argc > 0 ? argv[0] : "viewerapp");
+    exit(1);
+  }
+  // Initialize SoQt and Inventor API libraries. This returns a main
+  // window to use.
+  QWidget* mainwin = SoQt::init(argc, argv, argv[0]);
+  // Open the argument file..
+  SoInput in;
+  SbBool ok = in.openFile(argv[1]);
+  if (!ok) { exit(1); }
+  // ..and import it.
+  SoSeparator * root = SoDB::readAll(&in);
+  if (root == NULL) { exit(1); }
+  root->ref();
+  // Use the ExaminerViewer, for a nice interface for 3D model
+  // inspection.
+  SoQtExaminerViewer * viewer = new SoQtExaminerViewer(mainwin);
+  viewer->setSceneGraph(root);
+  viewer->show();
+  // Pop up the main window.
+  SoQt::show(mainwin);
+  // Loop until exit.
+  SoQt::mainLoop();
+  // Clean up resources.
+  delete viewer;
+  root->unref();
+  return 0;
 }
