@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named APP_NAME
+# Target rules for targets named gamos_gui
 
 # Build rule for target.
-APP_NAME: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 APP_NAME
-.PHONY : APP_NAME
+gamos_gui: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gamos_gui
+.PHONY : gamos_gui
 
 # fast build rule for target.
-APP_NAME/fast:
-	$(MAKE) -f CMakeFiles/APP_NAME.dir/build.make CMakeFiles/APP_NAME.dir/build
-.PHONY : APP_NAME/fast
+gamos_gui/fast:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/build
+.PHONY : gamos_gui/fast
 
 main_app.o: main_app.cpp.o
 
@@ -129,7 +129,7 @@ main_app.o: main_app.cpp.o
 
 # target to build an object file
 main_app.cpp.o:
-	$(MAKE) -f CMakeFiles/APP_NAME.dir/build.make CMakeFiles/APP_NAME.dir/main_app.cpp.o
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.o
 .PHONY : main_app.cpp.o
 
 main_app.i: main_app.cpp.i
@@ -138,7 +138,7 @@ main_app.i: main_app.cpp.i
 
 # target to preprocess a source file
 main_app.cpp.i:
-	$(MAKE) -f CMakeFiles/APP_NAME.dir/build.make CMakeFiles/APP_NAME.dir/main_app.cpp.i
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.i
 .PHONY : main_app.cpp.i
 
 main_app.s: main_app.cpp.s
@@ -147,7 +147,7 @@ main_app.s: main_app.cpp.s
 
 # target to generate assembly for a file
 main_app.cpp.s:
-	$(MAKE) -f CMakeFiles/APP_NAME.dir/build.make CMakeFiles/APP_NAME.dir/main_app.cpp.s
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.s
 .PHONY : main_app.cpp.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... APP_NAME"
+	@echo "... gamos_gui"
 	@echo "... main_app.o"
 	@echo "... main_app.i"
 	@echo "... main_app.s"
