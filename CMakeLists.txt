@@ -6,6 +6,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" CONFIGURE_DEPEND)
 file(GLOB_RECURSE HEADERS "src/*.h" CONFIGURE_DEPEND)
 set(MOC_HEADERS
 "src/BMainWindow.h"
+"src/widget/BPhantomTab.h"
 )
 find_package (Coin COMPONENTS Coin4 REQUIRED)
 find_package (SoQt COMPONENTS SoQt REQUIRED)

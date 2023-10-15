@@ -244,6 +244,33 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
+src/widget/BPhantomTab.o: src/widget/BPhantomTab.cpp.o
+
+.PHONY : src/widget/BPhantomTab.o
+
+# target to build an object file
+src/widget/BPhantomTab.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.o
+.PHONY : src/widget/BPhantomTab.cpp.o
+
+src/widget/BPhantomTab.i: src/widget/BPhantomTab.cpp.i
+
+.PHONY : src/widget/BPhantomTab.i
+
+# target to preprocess a source file
+src/widget/BPhantomTab.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.i
+.PHONY : src/widget/BPhantomTab.cpp.i
+
+src/widget/BPhantomTab.s: src/widget/BPhantomTab.cpp.s
+
+.PHONY : src/widget/BPhantomTab.s
+
+# target to generate assembly for a file
+src/widget/BPhantomTab.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.s
+.PHONY : src/widget/BPhantomTab.cpp.s
+
 src/widget/BStackWidget.o: src/widget/BStackWidget.cpp.o
 
 .PHONY : src/widget/BStackWidget.o
@@ -271,6 +298,33 @@ src/widget/BStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.s
 .PHONY : src/widget/BStackWidget.cpp.s
 
+src/widget/moc_BPhantomTab.o: src/widget/moc_BPhantomTab.cpp.o
+
+.PHONY : src/widget/moc_BPhantomTab.o
+
+# target to build an object file
+src/widget/moc_BPhantomTab.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPhantomTab.cpp.o
+.PHONY : src/widget/moc_BPhantomTab.cpp.o
+
+src/widget/moc_BPhantomTab.i: src/widget/moc_BPhantomTab.cpp.i
+
+.PHONY : src/widget/moc_BPhantomTab.i
+
+# target to preprocess a source file
+src/widget/moc_BPhantomTab.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPhantomTab.cpp.i
+.PHONY : src/widget/moc_BPhantomTab.cpp.i
+
+src/widget/moc_BPhantomTab.s: src/widget/moc_BPhantomTab.cpp.s
+
+.PHONY : src/widget/moc_BPhantomTab.s
+
+# target to generate assembly for a file
+src/widget/moc_BPhantomTab.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPhantomTab.cpp.s
+.PHONY : src/widget/moc_BPhantomTab.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -293,9 +347,15 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/widget/BPhantomTab.o"
+	@echo "... src/widget/BPhantomTab.i"
+	@echo "... src/widget/BPhantomTab.s"
 	@echo "... src/widget/BStackWidget.o"
 	@echo "... src/widget/BStackWidget.i"
 	@echo "... src/widget/BStackWidget.s"
+	@echo "... src/widget/moc_BPhantomTab.o"
+	@echo "... src/widget/moc_BPhantomTab.i"
+	@echo "... src/widget/moc_BPhantomTab.s"
 .PHONY : help
 
 

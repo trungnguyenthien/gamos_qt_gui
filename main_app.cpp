@@ -4,12 +4,12 @@
 int main(int argc, char **argv)
 {
     QApplication a(argc, argv);
-    BMainWindow *widget = new BMainWindow(nullptr);
-    widget->setWindowTitle("APPLICATION TITLE");
+    BMainWindow *mainWidget = new BMainWindow(nullptr);
+    mainWidget->setWindowTitle("APPLICATION TITLE");
     // widget.adjustSize();
-    widget->setWindowState(Qt::WindowMaximized);
+    mainWidget->setWindowState(Qt::WindowMaximized);
     // widget.move(QApplication::desktop()->screen()->rect().center() - widget.rect().center());
-    widget->show();
+    mainWidget->show();
     return a.exec();
 }
 
