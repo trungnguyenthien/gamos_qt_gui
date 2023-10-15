@@ -1,3 +1,20 @@
+#include <QtWidgets/QApplication>
+#include "src/BMainWindow.h"
+
+int main(int argc, char **argv)
+{
+    QApplication a(argc, argv);
+    BMainWindow *widget = new BMainWindow(nullptr);
+    widget->setWindowTitle("APPLICATION TITLE");
+    // widget.adjustSize();
+    widget->setWindowState(Qt::WindowMaximized);
+    // widget.move(QApplication::desktop()->screen()->rect().center() - widget.rect().center());
+    widget->show();
+    return a.exec();
+}
+
+/*
+
 #include <Inventor/Qt/SoQt.h>
 #include <Inventor/Qt/viewers/SoQtExaminerViewer.h>
 #include <Inventor/nodes/SoSeparator.h>
@@ -35,3 +52,5 @@ int main(int argc, char** argv)
   root->unref();
   return 0;
 }
+
+*/

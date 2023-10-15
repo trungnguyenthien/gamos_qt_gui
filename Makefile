@@ -123,6 +123,46 @@ gamos_gui/fast:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/build
 .PHONY : gamos_gui/fast
 
+#=============================================================================
+# Target rules for targets named gamos_gui_autogen
+
+# Build rule for target.
+gamos_gui_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gamos_gui_autogen
+.PHONY : gamos_gui_autogen
+
+# fast build rule for target.
+gamos_gui_autogen/fast:
+	$(MAKE) -f CMakeFiles/gamos_gui_autogen.dir/build.make CMakeFiles/gamos_gui_autogen.dir/build
+.PHONY : gamos_gui_autogen/fast
+
+gamos_gui_autogen/mocs_compilation.o: gamos_gui_autogen/mocs_compilation.cpp.o
+
+.PHONY : gamos_gui_autogen/mocs_compilation.o
+
+# target to build an object file
+gamos_gui_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/gamos_gui_autogen/mocs_compilation.cpp.o
+.PHONY : gamos_gui_autogen/mocs_compilation.cpp.o
+
+gamos_gui_autogen/mocs_compilation.i: gamos_gui_autogen/mocs_compilation.cpp.i
+
+.PHONY : gamos_gui_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+gamos_gui_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/gamos_gui_autogen/mocs_compilation.cpp.i
+.PHONY : gamos_gui_autogen/mocs_compilation.cpp.i
+
+gamos_gui_autogen/mocs_compilation.s: gamos_gui_autogen/mocs_compilation.cpp.s
+
+.PHONY : gamos_gui_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+gamos_gui_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/gamos_gui_autogen/mocs_compilation.cpp.s
+.PHONY : gamos_gui_autogen/mocs_compilation.cpp.s
+
 main_app.o: main_app.cpp.o
 
 .PHONY : main_app.o
@@ -150,6 +190,87 @@ main_app.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.s
 .PHONY : main_app.cpp.s
 
+src/BMainWindow.o: src/BMainWindow.cpp.o
+
+.PHONY : src/BMainWindow.o
+
+# target to build an object file
+src/BMainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.o
+.PHONY : src/BMainWindow.cpp.o
+
+src/BMainWindow.i: src/BMainWindow.cpp.i
+
+.PHONY : src/BMainWindow.i
+
+# target to preprocess a source file
+src/BMainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.i
+.PHONY : src/BMainWindow.cpp.i
+
+src/BMainWindow.s: src/BMainWindow.cpp.s
+
+.PHONY : src/BMainWindow.s
+
+# target to generate assembly for a file
+src/BMainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.s
+.PHONY : src/BMainWindow.cpp.s
+
+src/moc_BMainWindow.o: src/moc_BMainWindow.cpp.o
+
+.PHONY : src/moc_BMainWindow.o
+
+# target to build an object file
+src/moc_BMainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.o
+.PHONY : src/moc_BMainWindow.cpp.o
+
+src/moc_BMainWindow.i: src/moc_BMainWindow.cpp.i
+
+.PHONY : src/moc_BMainWindow.i
+
+# target to preprocess a source file
+src/moc_BMainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.i
+.PHONY : src/moc_BMainWindow.cpp.i
+
+src/moc_BMainWindow.s: src/moc_BMainWindow.cpp.s
+
+.PHONY : src/moc_BMainWindow.s
+
+# target to generate assembly for a file
+src/moc_BMainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
+.PHONY : src/moc_BMainWindow.cpp.s
+
+src/widget/BStackWidget.o: src/widget/BStackWidget.cpp.o
+
+.PHONY : src/widget/BStackWidget.o
+
+# target to build an object file
+src/widget/BStackWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.o
+.PHONY : src/widget/BStackWidget.cpp.o
+
+src/widget/BStackWidget.i: src/widget/BStackWidget.cpp.i
+
+.PHONY : src/widget/BStackWidget.i
+
+# target to preprocess a source file
+src/widget/BStackWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.i
+.PHONY : src/widget/BStackWidget.cpp.i
+
+src/widget/BStackWidget.s: src/widget/BStackWidget.cpp.s
+
+.PHONY : src/widget/BStackWidget.s
+
+# target to generate assembly for a file
+src/widget/BStackWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.s
+.PHONY : src/widget/BStackWidget.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +280,22 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... gamos_gui"
+	@echo "... gamos_gui_autogen"
+	@echo "... gamos_gui_autogen/mocs_compilation.o"
+	@echo "... gamos_gui_autogen/mocs_compilation.i"
+	@echo "... gamos_gui_autogen/mocs_compilation.s"
 	@echo "... main_app.o"
 	@echo "... main_app.i"
 	@echo "... main_app.s"
+	@echo "... src/BMainWindow.o"
+	@echo "... src/BMainWindow.i"
+	@echo "... src/BMainWindow.s"
+	@echo "... src/moc_BMainWindow.o"
+	@echo "... src/moc_BMainWindow.i"
+	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/widget/BStackWidget.o"
+	@echo "... src/widget/BStackWidget.i"
+	@echo "... src/widget/BStackWidget.s"
 .PHONY : help
 
 
