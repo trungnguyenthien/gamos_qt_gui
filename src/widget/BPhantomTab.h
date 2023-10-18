@@ -1,9 +1,10 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 
-class BPhantomTab: public QHBoxLayout {
+class BPhantomTab : public QHBoxLayout
+{
     Q_OBJECT
-    public:
+public:
     QVBoxLayout *left;
     QVBoxLayout *right;
     BPhantomTab(QWidget *parent);

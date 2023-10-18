@@ -7,6 +7,9 @@ file(GLOB_RECURSE HEADERS "src/*.h" CONFIGURE_DEPEND)
 set(MOC_HEADERS
 "src/BMainWindow.h"
 "src/widget/BPhantomTab.h"
+"src/widget/BHStackWidget.h"
+"src/widget/BVStackWidget.h"
+"src/widget/BStyleLabel.h"
 )
 find_package (Coin COMPONENTS Coin4 REQUIRED)
 find_package (SoQt COMPONENTS SoQt REQUIRED)

@@ -244,6 +244,33 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
+src/widget/BHStackWidget.o: src/widget/BHStackWidget.cpp.o
+
+.PHONY : src/widget/BHStackWidget.o
+
+# target to build an object file
+src/widget/BHStackWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BHStackWidget.cpp.o
+.PHONY : src/widget/BHStackWidget.cpp.o
+
+src/widget/BHStackWidget.i: src/widget/BHStackWidget.cpp.i
+
+.PHONY : src/widget/BHStackWidget.i
+
+# target to preprocess a source file
+src/widget/BHStackWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BHStackWidget.cpp.i
+.PHONY : src/widget/BHStackWidget.cpp.i
+
+src/widget/BHStackWidget.s: src/widget/BHStackWidget.cpp.s
+
+.PHONY : src/widget/BHStackWidget.s
+
+# target to generate assembly for a file
+src/widget/BHStackWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BHStackWidget.cpp.s
+.PHONY : src/widget/BHStackWidget.cpp.s
+
 src/widget/BPhantomTab.o: src/widget/BPhantomTab.cpp.o
 
 .PHONY : src/widget/BPhantomTab.o
@@ -271,32 +298,86 @@ src/widget/BPhantomTab.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.s
 .PHONY : src/widget/BPhantomTab.cpp.s
 
-src/widget/BStackWidget.o: src/widget/BStackWidget.cpp.o
+src/widget/BStyleLabel.o: src/widget/BStyleLabel.cpp.o
 
-.PHONY : src/widget/BStackWidget.o
+.PHONY : src/widget/BStyleLabel.o
 
 # target to build an object file
-src/widget/BStackWidget.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.o
-.PHONY : src/widget/BStackWidget.cpp.o
+src/widget/BStyleLabel.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStyleLabel.cpp.o
+.PHONY : src/widget/BStyleLabel.cpp.o
 
-src/widget/BStackWidget.i: src/widget/BStackWidget.cpp.i
+src/widget/BStyleLabel.i: src/widget/BStyleLabel.cpp.i
 
-.PHONY : src/widget/BStackWidget.i
+.PHONY : src/widget/BStyleLabel.i
 
 # target to preprocess a source file
-src/widget/BStackWidget.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.i
-.PHONY : src/widget/BStackWidget.cpp.i
+src/widget/BStyleLabel.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStyleLabel.cpp.i
+.PHONY : src/widget/BStyleLabel.cpp.i
 
-src/widget/BStackWidget.s: src/widget/BStackWidget.cpp.s
+src/widget/BStyleLabel.s: src/widget/BStyleLabel.cpp.s
 
-.PHONY : src/widget/BStackWidget.s
+.PHONY : src/widget/BStyleLabel.s
 
 # target to generate assembly for a file
-src/widget/BStackWidget.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStackWidget.cpp.s
-.PHONY : src/widget/BStackWidget.cpp.s
+src/widget/BStyleLabel.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BStyleLabel.cpp.s
+.PHONY : src/widget/BStyleLabel.cpp.s
+
+src/widget/BVStackWidget.o: src/widget/BVStackWidget.cpp.o
+
+.PHONY : src/widget/BVStackWidget.o
+
+# target to build an object file
+src/widget/BVStackWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.o
+.PHONY : src/widget/BVStackWidget.cpp.o
+
+src/widget/BVStackWidget.i: src/widget/BVStackWidget.cpp.i
+
+.PHONY : src/widget/BVStackWidget.i
+
+# target to preprocess a source file
+src/widget/BVStackWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.i
+.PHONY : src/widget/BVStackWidget.cpp.i
+
+src/widget/BVStackWidget.s: src/widget/BVStackWidget.cpp.s
+
+.PHONY : src/widget/BVStackWidget.s
+
+# target to generate assembly for a file
+src/widget/BVStackWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.s
+.PHONY : src/widget/BVStackWidget.cpp.s
+
+src/widget/moc_BHStackWidget.o: src/widget/moc_BHStackWidget.cpp.o
+
+.PHONY : src/widget/moc_BHStackWidget.o
+
+# target to build an object file
+src/widget/moc_BHStackWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BHStackWidget.cpp.o
+.PHONY : src/widget/moc_BHStackWidget.cpp.o
+
+src/widget/moc_BHStackWidget.i: src/widget/moc_BHStackWidget.cpp.i
+
+.PHONY : src/widget/moc_BHStackWidget.i
+
+# target to preprocess a source file
+src/widget/moc_BHStackWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BHStackWidget.cpp.i
+.PHONY : src/widget/moc_BHStackWidget.cpp.i
+
+src/widget/moc_BHStackWidget.s: src/widget/moc_BHStackWidget.cpp.s
+
+.PHONY : src/widget/moc_BHStackWidget.s
+
+# target to generate assembly for a file
+src/widget/moc_BHStackWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BHStackWidget.cpp.s
+.PHONY : src/widget/moc_BHStackWidget.cpp.s
 
 src/widget/moc_BPhantomTab.o: src/widget/moc_BPhantomTab.cpp.o
 
@@ -325,6 +406,60 @@ src/widget/moc_BPhantomTab.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPhantomTab.cpp.s
 .PHONY : src/widget/moc_BPhantomTab.cpp.s
 
+src/widget/moc_BStyleLabel.o: src/widget/moc_BStyleLabel.cpp.o
+
+.PHONY : src/widget/moc_BStyleLabel.o
+
+# target to build an object file
+src/widget/moc_BStyleLabel.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BStyleLabel.cpp.o
+.PHONY : src/widget/moc_BStyleLabel.cpp.o
+
+src/widget/moc_BStyleLabel.i: src/widget/moc_BStyleLabel.cpp.i
+
+.PHONY : src/widget/moc_BStyleLabel.i
+
+# target to preprocess a source file
+src/widget/moc_BStyleLabel.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BStyleLabel.cpp.i
+.PHONY : src/widget/moc_BStyleLabel.cpp.i
+
+src/widget/moc_BStyleLabel.s: src/widget/moc_BStyleLabel.cpp.s
+
+.PHONY : src/widget/moc_BStyleLabel.s
+
+# target to generate assembly for a file
+src/widget/moc_BStyleLabel.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BStyleLabel.cpp.s
+.PHONY : src/widget/moc_BStyleLabel.cpp.s
+
+src/widget/moc_BVStackWidget.o: src/widget/moc_BVStackWidget.cpp.o
+
+.PHONY : src/widget/moc_BVStackWidget.o
+
+# target to build an object file
+src/widget/moc_BVStackWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BVStackWidget.cpp.o
+.PHONY : src/widget/moc_BVStackWidget.cpp.o
+
+src/widget/moc_BVStackWidget.i: src/widget/moc_BVStackWidget.cpp.i
+
+.PHONY : src/widget/moc_BVStackWidget.i
+
+# target to preprocess a source file
+src/widget/moc_BVStackWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BVStackWidget.cpp.i
+.PHONY : src/widget/moc_BVStackWidget.cpp.i
+
+src/widget/moc_BVStackWidget.s: src/widget/moc_BVStackWidget.cpp.s
+
+.PHONY : src/widget/moc_BVStackWidget.s
+
+# target to generate assembly for a file
+src/widget/moc_BVStackWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BVStackWidget.cpp.s
+.PHONY : src/widget/moc_BVStackWidget.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -347,15 +482,30 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/widget/BHStackWidget.o"
+	@echo "... src/widget/BHStackWidget.i"
+	@echo "... src/widget/BHStackWidget.s"
 	@echo "... src/widget/BPhantomTab.o"
 	@echo "... src/widget/BPhantomTab.i"
 	@echo "... src/widget/BPhantomTab.s"
-	@echo "... src/widget/BStackWidget.o"
-	@echo "... src/widget/BStackWidget.i"
-	@echo "... src/widget/BStackWidget.s"
+	@echo "... src/widget/BStyleLabel.o"
+	@echo "... src/widget/BStyleLabel.i"
+	@echo "... src/widget/BStyleLabel.s"
+	@echo "... src/widget/BVStackWidget.o"
+	@echo "... src/widget/BVStackWidget.i"
+	@echo "... src/widget/BVStackWidget.s"
+	@echo "... src/widget/moc_BHStackWidget.o"
+	@echo "... src/widget/moc_BHStackWidget.i"
+	@echo "... src/widget/moc_BHStackWidget.s"
 	@echo "... src/widget/moc_BPhantomTab.o"
 	@echo "... src/widget/moc_BPhantomTab.i"
 	@echo "... src/widget/moc_BPhantomTab.s"
+	@echo "... src/widget/moc_BStyleLabel.o"
+	@echo "... src/widget/moc_BStyleLabel.i"
+	@echo "... src/widget/moc_BStyleLabel.s"
+	@echo "... src/widget/moc_BVStackWidget.o"
+	@echo "... src/widget/moc_BVStackWidget.i"
+	@echo "... src/widget/moc_BVStackWidget.s"
 .PHONY : help
 
 
