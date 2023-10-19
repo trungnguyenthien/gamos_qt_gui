@@ -13,6 +13,7 @@ set(MOC_HEADERS
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"
     "src/widget/BStyleLabel.h"
+    "src/widget/BNumberInput.h"
 )
 find_package(Coin COMPONENTS Coin4 REQUIRED)
 find_package(SoQt COMPONENTS SoQt REQUIRED)

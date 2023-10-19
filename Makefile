@@ -339,6 +339,60 @@ src/widget/BHStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BHStackWidget.cpp.s
 .PHONY : src/widget/BHStackWidget.cpp.s
 
+src/widget/BNumberInput.o: src/widget/BNumberInput.cpp.o
+
+.PHONY : src/widget/BNumberInput.o
+
+# target to build an object file
+src/widget/BNumberInput.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BNumberInput.cpp.o
+.PHONY : src/widget/BNumberInput.cpp.o
+
+src/widget/BNumberInput.i: src/widget/BNumberInput.cpp.i
+
+.PHONY : src/widget/BNumberInput.i
+
+# target to preprocess a source file
+src/widget/BNumberInput.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BNumberInput.cpp.i
+.PHONY : src/widget/BNumberInput.cpp.i
+
+src/widget/BNumberInput.s: src/widget/BNumberInput.cpp.s
+
+.PHONY : src/widget/BNumberInput.s
+
+# target to generate assembly for a file
+src/widget/BNumberInput.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BNumberInput.cpp.s
+.PHONY : src/widget/BNumberInput.cpp.s
+
+src/widget/BPathInput.o: src/widget/BPathInput.cpp.o
+
+.PHONY : src/widget/BPathInput.o
+
+# target to build an object file
+src/widget/BPathInput.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPathInput.cpp.o
+.PHONY : src/widget/BPathInput.cpp.o
+
+src/widget/BPathInput.i: src/widget/BPathInput.cpp.i
+
+.PHONY : src/widget/BPathInput.i
+
+# target to preprocess a source file
+src/widget/BPathInput.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPathInput.cpp.i
+.PHONY : src/widget/BPathInput.cpp.i
+
+src/widget/BPathInput.s: src/widget/BPathInput.cpp.s
+
+.PHONY : src/widget/BPathInput.s
+
+# target to generate assembly for a file
+src/widget/BPathInput.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPathInput.cpp.s
+.PHONY : src/widget/BPathInput.cpp.s
+
 src/widget/BPhantomTab.o: src/widget/BPhantomTab.cpp.o
 
 .PHONY : src/widget/BPhantomTab.o
@@ -446,6 +500,33 @@ src/widget/moc_BHStackWidget.s: src/widget/moc_BHStackWidget.cpp.s
 src/widget/moc_BHStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BHStackWidget.cpp.s
 .PHONY : src/widget/moc_BHStackWidget.cpp.s
+
+src/widget/moc_BNumberInput.o: src/widget/moc_BNumberInput.cpp.o
+
+.PHONY : src/widget/moc_BNumberInput.o
+
+# target to build an object file
+src/widget/moc_BNumberInput.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BNumberInput.cpp.o
+.PHONY : src/widget/moc_BNumberInput.cpp.o
+
+src/widget/moc_BNumberInput.i: src/widget/moc_BNumberInput.cpp.i
+
+.PHONY : src/widget/moc_BNumberInput.i
+
+# target to preprocess a source file
+src/widget/moc_BNumberInput.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BNumberInput.cpp.i
+.PHONY : src/widget/moc_BNumberInput.cpp.i
+
+src/widget/moc_BNumberInput.s: src/widget/moc_BNumberInput.cpp.s
+
+.PHONY : src/widget/moc_BNumberInput.s
+
+# target to generate assembly for a file
+src/widget/moc_BNumberInput.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BNumberInput.cpp.s
+.PHONY : src/widget/moc_BNumberInput.cpp.s
 
 src/widget/moc_BPhantomTab.o: src/widget/moc_BPhantomTab.cpp.o
 
@@ -559,6 +640,12 @@ help:
 	@echo "... src/widget/BHStackWidget.o"
 	@echo "... src/widget/BHStackWidget.i"
 	@echo "... src/widget/BHStackWidget.s"
+	@echo "... src/widget/BNumberInput.o"
+	@echo "... src/widget/BNumberInput.i"
+	@echo "... src/widget/BNumberInput.s"
+	@echo "... src/widget/BPathInput.o"
+	@echo "... src/widget/BPathInput.i"
+	@echo "... src/widget/BPathInput.s"
 	@echo "... src/widget/BPhantomTab.o"
 	@echo "... src/widget/BPhantomTab.i"
 	@echo "... src/widget/BPhantomTab.s"
@@ -571,6 +658,9 @@ help:
 	@echo "... src/widget/moc_BHStackWidget.o"
 	@echo "... src/widget/moc_BHStackWidget.i"
 	@echo "... src/widget/moc_BHStackWidget.s"
+	@echo "... src/widget/moc_BNumberInput.o"
+	@echo "... src/widget/moc_BNumberInput.i"
+	@echo "... src/widget/moc_BNumberInput.s"
 	@echo "... src/widget/moc_BPhantomTab.o"
 	@echo "... src/widget/moc_BPhantomTab.i"
 	@echo "... src/widget/moc_BPhantomTab.s"
