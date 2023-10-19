@@ -1,4 +1,4 @@
-#ifndef BPathInput_H // ensuring that this object is only initialized once
+#ifndef BPathInput_H
 #define BPathInput_H
 
 #include <QtWidgets/QLabel>
