@@ -40,3 +40,9 @@ CMakeCache.txt
 /CMakeFiles
 moc_*
 Makefile
+
+CPackConfig.cmake
+CPackSourceConfig.cmake
+gamos_gui-1.0.0-Linux.zip
+install_manifest.txt
+/_CPack_Packages
