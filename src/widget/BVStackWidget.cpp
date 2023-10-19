@@ -5,6 +5,9 @@ BVStackWidget::BVStackWidget(QWidget *parent) : QWidget(parent)
     mainLayout = new QVBoxLayout(parent);
     setLayout(mainLayout);
     mainLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    mainLayout->setSpacing(5);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setMargin(0);
 }
 
 void BVStackWidget::addSubLayout(QLayout *layout)

@@ -13,6 +13,8 @@ BNumberInput::BNumberInput(QWidget *parent, const QString &labelText, const QStr
 
     addSubWidget(content);
     addSubWidget(label);
+
+    setStyleSheet("background-color:#EAEAEA;");
 }
 
 void BNumberInput::turnOnIntValidator(int min, int max)

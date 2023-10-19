@@ -6,30 +6,27 @@
 
 BPhantomTab::BPhantomTab(QWidget *parent) : QHBoxLayout(parent)
 {
-    left = new QVBoxLayout(parent);
-    right = new QVBoxLayout(parent);
-    left->setAlignment(Qt::AlignTop);
-    right->setAlignment(Qt::AlignTop);
+    left = new BVStackWidget(parent);
+    right = new BVStackWidget(parent);
 
     // Render Left
     QLabel *lbl01 = new QLabel(parent);
     lbl01->setText("1) HELLO WORLD");
-    left->addWidget(lbl01);
-    lbl01->setStyleSheet("background-color:blue;");
+    left->addSubWidget(lbl01);
 
     BNumberInput *number1 = new BNumberInput(parent, "POS_X", "0.00");
     number1->turnOnIntValidator(10, 77);
-    left->addWidget(number1);
+    left->addSubWidget(number1);
 
     BPathInput *pathInput = new BPathInput(parent, "...");
-    left->addWidget(pathInput);
+    left->addSubWidget(pathInput);
 
     // Render Right
     QLabel *lbl02 = new QLabel(parent);
     lbl02->setText("1) HELLO WORLD");
-    right->addWidget(lbl02);
-    lbl02->setStyleSheet("background-color:yellow;");
+    right->addSubWidget(lbl02);
+    lbl02->setStyleSheet("background-color:#EAEAEA;");
 
-    addLayout(left, 1);
-    addLayout(right, 1);
+    addWidget(left, 1);
+    addWidget(right, 1);
 }

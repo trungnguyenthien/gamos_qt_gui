@@ -32,4 +32,5 @@ BStyleLabel::BStyleLabel(QWidget *parent, BLabelStyle style, const QString &text
         break;
     }
     this->setFont(f);
+    setStyleSheet("background-color:#EAEAEA;");
 }

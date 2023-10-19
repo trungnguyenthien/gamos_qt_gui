@@ -13,6 +13,8 @@ BPathInput::BPathInput(QWidget *parent, const QString &hint) : BHStackWidget(par
     QPushButton *button = new QPushButton("Select", parent);
     button->setFixedWidth(50);
     addSubWidget(button);
+
+    setStyleSheet("background-color:#EAEAEA;");
 }
 
 QString BPathInput::getPath()
