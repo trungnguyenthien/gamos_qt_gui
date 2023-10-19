@@ -1,3 +1,6 @@
+#ifndef BPhantomTab_H
+#define BPhantomTab_H
+
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 
@@ -9,3 +12,5 @@ public:
     QVBoxLayout *right;
     BPhantomTab(QWidget *parent);
 };
+
+#endif

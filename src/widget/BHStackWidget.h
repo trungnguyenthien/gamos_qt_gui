@@ -1,3 +1,6 @@
+#ifndef BHStackWidget_H
+#define BHStackWidget_H
+
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLayout>
@@ -13,3 +16,5 @@ public:
     void addSubWidget(QWidget *widget);
     void addSubLayout(QLayout *layout);
 };
+
+#endif

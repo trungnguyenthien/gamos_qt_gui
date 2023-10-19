@@ -1,3 +1,6 @@
+#ifndef BNumberInput_H
+#define BNumberInput_H
+
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QLineEdit>
@@ -14,3 +17,5 @@ public:
     void turnOnIntValidator(int min, int max);
     void turnOnDoubleValidator(int min, int max, int decimals);
 };
+
+#endif

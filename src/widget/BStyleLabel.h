@@ -1,3 +1,6 @@
+#ifndef BStyleLabel_H
+#define BStyleLabel_H
+
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 #include <QtCore/QString>
@@ -20,3 +23,5 @@ private:
 public:
     BStyleLabel(QWidget *parent, BLabelStyle style, const QString &text);
 };
+
+#endif

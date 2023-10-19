@@ -2,6 +2,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLabel>
 #include "BNumberInput.h"
+#include "BPathInput.h"
 
 BPhantomTab::BPhantomTab(QWidget *parent) : QHBoxLayout(parent)
 {
@@ -19,6 +20,9 @@ BPhantomTab::BPhantomTab(QWidget *parent) : QHBoxLayout(parent)
     BNumberInput *number1 = new BNumberInput(parent, "POS_X", "0.00");
     number1->turnOnIntValidator(10, 77);
     left->addWidget(number1);
+
+    BPathInput *pathInput = new BPathInput(parent, "...");
+    left->addWidget(pathInput);
 
     // Render Right
     QLabel *lbl02 = new QLabel(parent);

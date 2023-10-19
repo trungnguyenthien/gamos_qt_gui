@@ -1,3 +1,6 @@
+#ifndef BVStackWidget_H
+#define BVStackWidget_H
+
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLayout>
@@ -13,3 +16,5 @@ public:
     void addSubWidget(QWidget *widget);
     void addSubLayout(QLayout *layout);
 };
+
+#endif

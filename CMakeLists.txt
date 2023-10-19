@@ -14,6 +14,7 @@ set(MOC_HEADERS
     "src/widget/BVStackWidget.h"
     "src/widget/BStyleLabel.h"
     "src/widget/BNumberInput.h"
+    "src/widget/BPathInput.h"
 )
 find_package(Coin COMPONENTS Coin4 REQUIRED)
 find_package(SoQt COMPONENTS SoQt REQUIRED)
