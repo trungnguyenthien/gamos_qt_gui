@@ -312,6 +312,33 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
+src/utils/Helper.o: src/utils/Helper.cpp.o
+
+.PHONY : src/utils/Helper.o
+
+# target to build an object file
+src/utils/Helper.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.o
+.PHONY : src/utils/Helper.cpp.o
+
+src/utils/Helper.i: src/utils/Helper.cpp.i
+
+.PHONY : src/utils/Helper.i
+
+# target to preprocess a source file
+src/utils/Helper.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.i
+.PHONY : src/utils/Helper.cpp.i
+
+src/utils/Helper.s: src/utils/Helper.cpp.s
+
+.PHONY : src/utils/Helper.s
+
+# target to generate assembly for a file
+src/utils/Helper.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.s
+.PHONY : src/utils/Helper.cpp.s
+
 src/widget/BHStackWidget.o: src/widget/BHStackWidget.cpp.o
 
 .PHONY : src/widget/BHStackWidget.o
@@ -664,6 +691,9 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/utils/Helper.o"
+	@echo "... src/utils/Helper.i"
+	@echo "... src/utils/Helper.s"
 	@echo "... src/widget/BHStackWidget.o"
 	@echo "... src/widget/BHStackWidget.i"
 	@echo "... src/widget/BHStackWidget.s"
