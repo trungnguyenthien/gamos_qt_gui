@@ -1,0 +1,100 @@
+{
+    "label": "Mathematical Phantom",
+    "options": [
+        {
+            "id": "box",
+            "label": "Box",
+            "input_values": [
+                {
+                    "id": "hlenx",
+                    "type": "mm",
+                    "label": "HALF_LENGTH_X"
+                },
+                {
+                    "id": "hleny",
+                    "type": "mm",
+                    "label": "HALF_LENGTH_Y"
+                },
+                {
+                    "id": "hlenz",
+                    "type": "mm",
+                    "label": "HALF_LENGTH_Z"
+                }
+            ]
+        },
+        {
+            "id": "tube",
+            "label": "Tube",
+            "input_values": [
+                {
+                    "id": "innrad",
+                    "type": "mm",
+                    "label": "INNER_RADIUS"
+                },
+                {
+                    "id": "outrad",
+                    "type": "mm",
+                    "label": "OUTER_RADIUS"
+                },
+                {
+                    "id": "hlenz",
+                    "type": "mm",
+                    "label": "HALF_LENGTH_Z"
+                }
+            ]
+        },
+        {
+            "id": "sphere",
+            "label": "Sphere",
+            "input_values": [
+                {
+                    "id": "rad",
+                    "type": "mm",
+                    "label": "RADIUS"
+                }
+            ]
+        },
+        {
+            "id": "fsolidsphere",
+            "label": "Full solid sphere",
+            "input_values": [
+                {
+                    "id": "outrad",
+                    "type": "mm",
+                    "label": "RADIUS"
+                }
+            ]
+        },
+        {
+            "id": "esolid",
+            "label": "Ellipse solid",
+            "input_values": [
+                {
+                    "id": "s_axis_x",
+                    "type": "mm",
+                    "label": "SEMIAXIS_X"
+                },
+                {
+                    "id": "s_axis_y",
+                    "type": "mm",
+                    "label": "SEMIAXIS_Y"
+                },
+                {
+                    "id": "s_axis_z",
+                    "type": "mm",
+                    "label": "SEMIAXIS_Z"
+                },
+                {
+                    "id": "low_cut_plane_z",
+                    "type": "mm",
+                    "label": "LOWER_CUT_PLANE_LEVEL, Z"
+                },
+                {
+                    "id": "up_cut_plane_z",
+                    "type": "mm",
+                    "label": "UPPER_CUT_PLANE_LEVEL, Z"
+                }
+            ]
+        }
+    ]
+}

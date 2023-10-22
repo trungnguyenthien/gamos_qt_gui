@@ -1,0 +1,85 @@
+{
+    "label": "Material",
+    "options": [
+        {
+            "value": "",
+            "label": "WATER"
+        },
+        {
+            "value": "",
+            "label": "CONCRETE"
+        },
+        {
+            "value": "",
+            "label": "PARAFFIN"
+        },
+        {
+            "value": "",
+            "label": "METHANOL"
+        },
+        {
+            "value": "",
+            "label": "GLUCOSE"
+        },
+        {
+            "value": "",
+            "label": "ALUMINUM"
+        },
+        {
+            "value": "",
+            "label": "AIR"
+        },
+        {
+            "value": "",
+            "label": "CADMIUM"
+        },
+        {
+            "value": "",
+            "label": "TELLURIDE"
+        },
+        {
+            "value": "",
+            "label": "LEAD"
+        },
+        {
+            "value": "",
+            "label": "SILVER"
+        },
+        {
+            "value": "",
+            "label": "LUNG_ICRP"
+        },
+        {
+            "value": "",
+            "label": "TISSUE_SOFT_ICRP"
+        },
+        {
+            "value": "",
+            "label": "BREAST"
+        },
+        {
+            "value": "",
+            "label": "TISSUE"
+        },
+        {
+            "value": "",
+            "label": "GRAPHITE"
+        },
+        {
+            "value": "",
+            "label": "SKIN_ICRP"
+        },
+        {
+            "value": "",
+            "label": "BLOOD_ICRP"
+        },
+        {
+            "value": "",
+            "label": "BORON"
+        },
+        {
+            "value": "",
+            "label": "MUSCLE"
+        }
+    ]
+}

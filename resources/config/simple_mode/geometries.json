@@ -1,0 +1,101 @@
+{
+    "situations": [
+        {
+            "sit_label": "Distances",
+            "sit_id": "distances",
+            "sit_select_label": "Distance to shield",
+            "values": [
+                {
+                    "value": "1",
+                    "type": "mm",
+                    "label": "1mm"
+                },
+                {
+                    "value": "1",
+                    "type": "cm",
+                    "label": "1cm"
+                },
+                {
+                    "value": "10",
+                    "type": "cm",
+                    "label": "10cm"
+                },
+                {
+                    "value": "1",
+                    "type": "m",
+                    "label": "1m"
+                }
+            ]
+        },
+        {
+            "sit_label": "Shielding Box",
+            "sit_id": "sbox",
+            "sit_select_label": "Shape of the shielding box",
+            "shapes": [
+                {
+                    "shape_name": "Box",
+                    "shape_value_select_label": "Dimensions of the box",
+                    "values": [
+                        {
+                            "value": "1 1 1",
+                            "type": "xyz_m",
+                            "label": "1m x 1m x 1m"
+                        },
+                        {
+                            "value": "1.5 1.5 1.5",
+                            "type": "xyz_m",
+                            "label": "1.5m x 1.5m x 1.5m"
+                        },
+                        {
+                            "value": "2 2 2",
+                            "type": "xyz_m",
+                            "label": "2m x 2m x 2m"
+                        }
+                    ]
+                },
+                {
+                    "shape_name": "Sphere",
+                    "shape_value_select_label": "Radius of the sphere",
+                    "values": [
+                        {
+                            "value": "1",
+                            "type": "m",
+                            "label": "1m"
+                        },
+                        {
+                            "value": "1.5",
+                            "type": "m",
+                            "label": "1.5m"
+                        },
+                        {
+                            "value": "2",
+                            "type": "m",
+                            "label": "2m"
+                        }
+                    ]
+                },
+                {
+                    "shape_name": "Tube",
+                    "shape_value_select_label": "Dimensions of the tube",
+                    "values": [
+                        {
+                            "value": "0.5 1 0.5",
+                            "type": "xyz_m",
+                            "label": "0.5m x 1m x 0.5m"
+                        },
+                        {
+                            "value": "1 1.5 1",
+                            "type": "xyz_m",
+                            "label": "1m x 1.5m x 1m"
+                        },
+                        {
+                            "value": "1.5 2 1.5",
+                            "type": "xyz_m",
+                            "label": "1.5m x 2m x 1.5m"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

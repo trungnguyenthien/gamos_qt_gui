@@ -1,0 +1,40 @@
+{
+    "label": "Kinetic energy of particle",
+    "options": [
+        {
+            "value": "atrest",
+            "type": "",
+            "label": "At rest (not for gamma)"
+        },
+        {
+            "value": "1",
+            "type": "kev",
+            "label": "1 keV"
+        },
+        {
+            "value": "10",
+            "type": "kev",
+            "label": "10 keV"
+        },
+        {
+            "value": "100",
+            "type": "kev",
+            "label": "100 keV"
+        },
+        {
+            "value": "1",
+            "type": "mev",
+            "label": "1 MeV"
+        },
+        {
+            "value": "10",
+            "type": "mev",
+            "label": "10 MeV"
+        },
+        {
+            "value": "100",
+            "type": "mev",
+            "label": "100 MeV"
+        }
+    ]
+}

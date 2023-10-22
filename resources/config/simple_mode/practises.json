@@ -1,0 +1,35 @@
+{
+    "label": "Single particles",
+    "options": [
+        {
+            "value": "",
+            "type": "",
+            "label": "gamma"
+        },
+        {
+            "value": "",
+            "type": "",
+            "label": "e-"
+        },
+        {
+            "value": "",
+            "type": "",
+            "label": "e+"
+        },
+        {
+            "value": "",
+            "type": "",
+            "label": "neutron"
+        },
+        {
+            "value": "",
+            "type": "",
+            "label": "alpha"
+        },
+        {
+            "value": "",
+            "type": "",
+            "label": "isotope"
+        }
+    ]
+}
