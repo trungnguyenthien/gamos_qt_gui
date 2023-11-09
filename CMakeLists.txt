@@ -13,7 +13,7 @@ file(COPY ${RESOURCE_SOURCE_DIR} DESTINATION ${RESOURCE_DEST_DIR})
 file(GLOB_RECURSE SOURCES "src/*.cpp" CONFIGURE_DEPEND)
 file(GLOB_RECURSE HEADERS "src/*.h" CONFIGURE_DEPEND)
 set(MOC_HEADERS
-    "src/BMainWindow.h"
+    "src/BExpertWindow.h"
     "src/widget/BPhantomTab.h"
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"

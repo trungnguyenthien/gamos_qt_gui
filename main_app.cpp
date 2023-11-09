@@ -1,16 +1,16 @@
 #include <QtWidgets/QApplication>
-#include "src/BMainWindow.h"
+#include "src/BExpertWindow.h"
 
 int main(int argc, char **argv)
 {
-    QApplication a(argc, argv);
-    BMainWindow *mainWidget = new BMainWindow(nullptr);
-    mainWidget->setWindowTitle("APPLICATION TITLE");
-    // widget.adjustSize();
-    mainWidget->setWindowState(Qt::WindowMaximized);
-    // widget.move(QApplication::desktop()->screen()->rect().center() - widget.rect().center());
-    mainWidget->show();
-    return a.exec();
+  QApplication a(argc, argv);
+  BExpertWindow *mainWidget = new BExpertWindow(nullptr);
+  mainWidget->setWindowTitle("APPLICATION TITLE");
+  // widget.adjustSize();
+  mainWidget->setWindowState(Qt::WindowMaximized);
+  // widget.move(QApplication::desktop()->screen()->rect().center() - widget.rect().center());
+  mainWidget->show();
+  return a.exec();
 }
 
 /*

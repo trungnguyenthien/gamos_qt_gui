@@ -1,17 +1,17 @@
-#ifndef BMainWindow_H
-#define BMainWindow_H
+#ifndef BExpertWindow_H
+#define BExpertWindow_H
 
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 
-class BMainWindow : public QTabWidget
+class BExpertWindow : public QTabWidget
 {
     Q_OBJECT
 public:
     QWidget *phantomLayout;
     QWidget *sourceLayout;
     QWidget *outputLayout;
-    BMainWindow(QWidget *parent);
+    BExpertWindow(QWidget *parent);
 };
 
 #endif

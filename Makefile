@@ -258,59 +258,59 @@ main_app.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.s
 .PHONY : main_app.cpp.s
 
-src/BMainWindow.o: src/BMainWindow.cpp.o
+src/BExpertWindow.o: src/BExpertWindow.cpp.o
 
-.PHONY : src/BMainWindow.o
-
-# target to build an object file
-src/BMainWindow.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.o
-.PHONY : src/BMainWindow.cpp.o
-
-src/BMainWindow.i: src/BMainWindow.cpp.i
-
-.PHONY : src/BMainWindow.i
-
-# target to preprocess a source file
-src/BMainWindow.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.i
-.PHONY : src/BMainWindow.cpp.i
-
-src/BMainWindow.s: src/BMainWindow.cpp.s
-
-.PHONY : src/BMainWindow.s
-
-# target to generate assembly for a file
-src/BMainWindow.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.s
-.PHONY : src/BMainWindow.cpp.s
-
-src/moc_BMainWindow.o: src/moc_BMainWindow.cpp.o
-
-.PHONY : src/moc_BMainWindow.o
+.PHONY : src/BExpertWindow.o
 
 # target to build an object file
-src/moc_BMainWindow.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.o
-.PHONY : src/moc_BMainWindow.cpp.o
+src/BExpertWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BExpertWindow.cpp.o
+.PHONY : src/BExpertWindow.cpp.o
 
-src/moc_BMainWindow.i: src/moc_BMainWindow.cpp.i
+src/BExpertWindow.i: src/BExpertWindow.cpp.i
 
-.PHONY : src/moc_BMainWindow.i
+.PHONY : src/BExpertWindow.i
 
 # target to preprocess a source file
-src/moc_BMainWindow.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.i
-.PHONY : src/moc_BMainWindow.cpp.i
+src/BExpertWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BExpertWindow.cpp.i
+.PHONY : src/BExpertWindow.cpp.i
 
-src/moc_BMainWindow.s: src/moc_BMainWindow.cpp.s
+src/BExpertWindow.s: src/BExpertWindow.cpp.s
 
-.PHONY : src/moc_BMainWindow.s
+.PHONY : src/BExpertWindow.s
 
 # target to generate assembly for a file
-src/moc_BMainWindow.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
-.PHONY : src/moc_BMainWindow.cpp.s
+src/BExpertWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BExpertWindow.cpp.s
+.PHONY : src/BExpertWindow.cpp.s
+
+src/moc_BExpertWindow.o: src/moc_BExpertWindow.cpp.o
+
+.PHONY : src/moc_BExpertWindow.o
+
+# target to build an object file
+src/moc_BExpertWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BExpertWindow.cpp.o
+.PHONY : src/moc_BExpertWindow.cpp.o
+
+src/moc_BExpertWindow.i: src/moc_BExpertWindow.cpp.i
+
+.PHONY : src/moc_BExpertWindow.i
+
+# target to preprocess a source file
+src/moc_BExpertWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BExpertWindow.cpp.i
+.PHONY : src/moc_BExpertWindow.cpp.i
+
+src/moc_BExpertWindow.s: src/moc_BExpertWindow.cpp.s
+
+.PHONY : src/moc_BExpertWindow.s
+
+# target to generate assembly for a file
+src/moc_BExpertWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BExpertWindow.cpp.s
+.PHONY : src/moc_BExpertWindow.cpp.s
 
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
@@ -685,12 +685,12 @@ help:
 	@echo "... main_app.o"
 	@echo "... main_app.i"
 	@echo "... main_app.s"
-	@echo "... src/BMainWindow.o"
-	@echo "... src/BMainWindow.i"
-	@echo "... src/BMainWindow.s"
-	@echo "... src/moc_BMainWindow.o"
-	@echo "... src/moc_BMainWindow.i"
-	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/BExpertWindow.o"
+	@echo "... src/BExpertWindow.i"
+	@echo "... src/BExpertWindow.s"
+	@echo "... src/moc_BExpertWindow.o"
+	@echo "... src/moc_BExpertWindow.i"
+	@echo "... src/moc_BExpertWindow.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
