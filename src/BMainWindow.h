@@ -7,13 +7,13 @@
 #include "widget/BHStackWidget.h"
 #include <QtWidgets/QLabel>
 #include <memory>
-
+#include <QStackedWidget>
 using namespace std;
 class BMainWindow : public BVStackWidget
 {
     Q_OBJECT
 public:
-    unique_ptr<QWidget> rootPlaceHolder;
+    unique_ptr<QStackedWidget> stackedWidget;
     unique_ptr<BHStackWidget> topPlaceHolder;
     unique_ptr<QPushButton> backButton;
     unique_ptr<QLabel> titleLabel;

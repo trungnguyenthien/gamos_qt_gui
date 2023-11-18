@@ -4,6 +4,7 @@
 #include <QFont>
 #include <QSizePolicy>
 #include "utils/Helper.h"
+#include "BChooseModeWindow.h"
 
 BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
 {
@@ -24,4 +25,12 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
 
     ds_pushButton(backButton.get(), 40, 40, "ic-back-button.png");
     ds_pushButton_removeBorder(backButton.get());
+
+    stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
+    this->addSubWidget(stackedWidget.get());
+
+    unique_ptr<QWidget> rootWindows = unique_ptr<QWidget>(new BChooseModeWindow(this));
+    stackedWidget.get()->addWidget(rootWindows.get());
+
+    stackedWidget.get()->setCurrentWidget(rootWindows.get());
 }

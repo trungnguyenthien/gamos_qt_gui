@@ -258,6 +258,33 @@ main_app.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/main_app.cpp.s
 .PHONY : main_app.cpp.s
 
+src/BChooseModeWindow.o: src/BChooseModeWindow.cpp.o
+
+.PHONY : src/BChooseModeWindow.o
+
+# target to build an object file
+src/BChooseModeWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BChooseModeWindow.cpp.o
+.PHONY : src/BChooseModeWindow.cpp.o
+
+src/BChooseModeWindow.i: src/BChooseModeWindow.cpp.i
+
+.PHONY : src/BChooseModeWindow.i
+
+# target to preprocess a source file
+src/BChooseModeWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BChooseModeWindow.cpp.i
+.PHONY : src/BChooseModeWindow.cpp.i
+
+src/BChooseModeWindow.s: src/BChooseModeWindow.cpp.s
+
+.PHONY : src/BChooseModeWindow.s
+
+# target to generate assembly for a file
+src/BChooseModeWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BChooseModeWindow.cpp.s
+.PHONY : src/BChooseModeWindow.cpp.s
+
 src/BExpertWindow.o: src/BExpertWindow.cpp.o
 
 .PHONY : src/BExpertWindow.o
@@ -311,6 +338,33 @@ src/BMainWindow.s: src/BMainWindow.cpp.s
 src/BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.s
 .PHONY : src/BMainWindow.cpp.s
+
+src/moc_BChooseModeWindow.o: src/moc_BChooseModeWindow.cpp.o
+
+.PHONY : src/moc_BChooseModeWindow.o
+
+# target to build an object file
+src/moc_BChooseModeWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BChooseModeWindow.cpp.o
+.PHONY : src/moc_BChooseModeWindow.cpp.o
+
+src/moc_BChooseModeWindow.i: src/moc_BChooseModeWindow.cpp.i
+
+.PHONY : src/moc_BChooseModeWindow.i
+
+# target to preprocess a source file
+src/moc_BChooseModeWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BChooseModeWindow.cpp.i
+.PHONY : src/moc_BChooseModeWindow.cpp.i
+
+src/moc_BChooseModeWindow.s: src/moc_BChooseModeWindow.cpp.s
+
+.PHONY : src/moc_BChooseModeWindow.s
+
+# target to generate assembly for a file
+src/moc_BChooseModeWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BChooseModeWindow.cpp.s
+.PHONY : src/moc_BChooseModeWindow.cpp.s
 
 src/moc_BExpertWindow.o: src/moc_BExpertWindow.cpp.o
 
@@ -739,12 +793,18 @@ help:
 	@echo "... main_app.o"
 	@echo "... main_app.i"
 	@echo "... main_app.s"
+	@echo "... src/BChooseModeWindow.o"
+	@echo "... src/BChooseModeWindow.i"
+	@echo "... src/BChooseModeWindow.s"
 	@echo "... src/BExpertWindow.o"
 	@echo "... src/BExpertWindow.i"
 	@echo "... src/BExpertWindow.s"
 	@echo "... src/BMainWindow.o"
 	@echo "... src/BMainWindow.i"
 	@echo "... src/BMainWindow.s"
+	@echo "... src/moc_BChooseModeWindow.o"
+	@echo "... src/moc_BChooseModeWindow.i"
+	@echo "... src/moc_BChooseModeWindow.s"
 	@echo "... src/moc_BExpertWindow.o"
 	@echo "... src/moc_BExpertWindow.i"
 	@echo "... src/moc_BExpertWindow.s"
