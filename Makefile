@@ -366,33 +366,6 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
-src/moc_BMainWindows.o: src/moc_BMainWindows.cpp.o
-
-.PHONY : src/moc_BMainWindows.o
-
-# target to build an object file
-src/moc_BMainWindows.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.o
-.PHONY : src/moc_BMainWindows.cpp.o
-
-src/moc_BMainWindows.i: src/moc_BMainWindows.cpp.i
-
-.PHONY : src/moc_BMainWindows.i
-
-# target to preprocess a source file
-src/moc_BMainWindows.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.i
-.PHONY : src/moc_BMainWindows.cpp.i
-
-src/moc_BMainWindows.s: src/moc_BMainWindows.cpp.s
-
-.PHONY : src/moc_BMainWindows.s
-
-# target to generate assembly for a file
-src/moc_BMainWindows.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.s
-.PHONY : src/moc_BMainWindows.cpp.s
-
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
 .PHONY : src/utils/Helper.o
@@ -778,9 +751,6 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
-	@echo "... src/moc_BMainWindows.o"
-	@echo "... src/moc_BMainWindows.i"
-	@echo "... src/moc_BMainWindows.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"

@@ -4,4 +4,4 @@ clear
 cmake .
 cmake --build .
 cpack
-# ./dist/gamos_gui "images/lung20mm(source).wrl"
+./dist/gamos_gui "images/lung20mm(source).wrl"

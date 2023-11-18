@@ -15,6 +15,7 @@ public:
     BHStackWidget(QWidget *parent);
     void addSubWidget(QWidget *widget);
     void addSubLayout(QLayout *layout);
+    QHBoxLayout *getLayout();
 };
 
 #endif

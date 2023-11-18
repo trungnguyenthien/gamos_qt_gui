@@ -16,6 +16,11 @@ void BHStackWidget::addSubLayout(QLayout *layout)
     mainLayout->addLayout(layout);
 }
 
+QHBoxLayout *BHStackWidget::getLayout()
+{
+    return this->mainLayout;
+}
+
 void BHStackWidget::addSubWidget(QWidget *widget)
 {
     mainLayout->addWidget(widget);
