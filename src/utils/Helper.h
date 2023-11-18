@@ -6,6 +6,8 @@
 #include <QtCore/QJsonObject>
 #include <QPushButton>
 #include <QFont>
+#include <QSpacerItem>
+#include <QWidget>
 
 QJsonObject loadRootJson(QString file);
 QFont font_default();
@@ -13,6 +15,15 @@ QFont font_normal();
 QFont font_title();
 QFont font_header();
 QFont font_subHeader();
+
+QWidget *h_blankWidget();
+QWidget *v_blankWidget();
+// Widget Util
+void ds_wg_set_expading_w(QWidget *wid);
+void ds_wg_set_expading_h(QWidget *wid);
+void ds_wg_set_expading_wh(QWidget *wid);
+void ds_wg_set_fixed_h(QWidget *wid, int value);
+void ds_wg_set_fixed_w(QWidget *wid, int value);
 
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName);
 void ds_pushButton_removeBorder(QPushButton *button);

@@ -15,6 +15,7 @@ public:
     BVStackWidget(QWidget *parent);
     void addSubWidget(QWidget *widget);
     void addSubLayout(QLayout *layout);
+    QVBoxLayout *getLayout();
 };
 
 #endif

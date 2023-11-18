@@ -14,11 +14,10 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
 
     addSubWidget(topPlaceHolder.get());
     topPlaceHolder.get()->getLayout()->setContentsMargins(-1, -1, -1, -1);
-    titleLabel = unique_ptr<QLabel>(new QLabel(this));
+    titleLabel = unique_ptr<QLabel>(new QLabel());
     titleLabel.get()->setText("Heelllo");
     titleLabel->setAlignment(Qt::AlignCenter);
     titleLabel->setFont(font_title());
-    // titleLabel->setStyleSheet("QLabel{margin-left: 10px; border-radius: 25px; background: red; color: #4A0C46;}");
     titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     topPlaceHolder.get()->getLayout()->addWidget(titleLabel.get(), 1);
@@ -27,9 +26,9 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
     ds_pushButton_removeBorder(backButton.get());
 
     stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
-    this->addSubWidget(stackedWidget.get());
+    getLayout()->addWidget(stackedWidget.get(), 1);
 
-    unique_ptr<QWidget> rootWindows = unique_ptr<QWidget>(new BChooseModeWindow(this));
+    rootWindows = unique_ptr<QWidget>(new BChooseModeWindow(this));
     stackedWidget.get()->addWidget(rootWindows.get());
 
     stackedWidget.get()->setCurrentWidget(rootWindows.get());

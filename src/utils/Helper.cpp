@@ -50,7 +50,8 @@ QFont font_title()
 QFont font_header()
 {
     QFont def = font_default();
-    def.setPointSize(16);
+    def.setPointSize(17);
+    def.setBold(true);
     return def;
 }
 
@@ -59,6 +60,45 @@ QFont font_subHeader()
     QFont def = font_default();
     def.setPointSize(15);
     return def;
+}
+
+QWidget *h_blankWidget()
+{
+    QWidget *spacer = new QWidget();
+    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    return spacer;
+}
+
+QWidget *v_blankWidget()
+{
+    QWidget *spacer = new QWidget();
+    spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    return spacer;
+}
+
+void ds_wg_set_expading_w(QWidget *wid)
+{
+    wid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+}
+
+void ds_wg_set_expading_h(QWidget *wid)
+{
+    wid->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+}
+
+void ds_wg_set_expading_wh(QWidget *wid)
+{
+    wid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+}
+
+void ds_wg_set_fixed_h(QWidget *wid, int value)
+{
+    wid->setFixedHeight(value);
+}
+
+void ds_wg_set_fixed_w(QWidget *wid, int value)
+{
+    wid->setFixedWidth(value);
 }
 
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName)

@@ -4,6 +4,7 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QLabel>
 #include <memory>
 
 using namespace std;
@@ -13,6 +14,8 @@ private:
     unique_ptr<QGridLayout> grid;
 
 public:
+    unique_ptr<QLabel> lb_description;
+    unique_ptr<QLabel> lb_welcome;
     unique_ptr<QPushButton> btn_demo;
     unique_ptr<QPushButton> btn_simple;
     unique_ptr<QPushButton> btn_expert;
