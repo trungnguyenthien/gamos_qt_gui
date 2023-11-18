@@ -14,6 +14,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" CONFIGURE_DEPEND)
 file(GLOB_RECURSE HEADERS "src/*.h" CONFIGURE_DEPEND)
 set(MOC_HEADERS
     "src/BExpertWindow.h"
+    "src/BMainWindow.h"
     "src/widget/BPhantomTab.h"
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"

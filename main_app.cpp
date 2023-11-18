@@ -1,10 +1,11 @@
 #include <QtWidgets/QApplication>
-#include "src/BExpertWindow.h"
+// #include "src/BExpertWindow.h"
+#include "src/BMainWindow.h"
 
 int main(int argc, char **argv)
 {
   QApplication a(argc, argv);
-  BExpertWindow *mainWidget = new BExpertWindow(nullptr);
+  BMainWindow *mainWidget = new BMainWindow(nullptr);
   mainWidget->setWindowTitle("APPLICATION TITLE");
   // widget.adjustSize();
   mainWidget->setWindowState(Qt::WindowMaximized);

@@ -285,6 +285,33 @@ src/BExpertWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BExpertWindow.cpp.s
 .PHONY : src/BExpertWindow.cpp.s
 
+src/BMainWindow.o: src/BMainWindow.cpp.o
+
+.PHONY : src/BMainWindow.o
+
+# target to build an object file
+src/BMainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.o
+.PHONY : src/BMainWindow.cpp.o
+
+src/BMainWindow.i: src/BMainWindow.cpp.i
+
+.PHONY : src/BMainWindow.i
+
+# target to preprocess a source file
+src/BMainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.i
+.PHONY : src/BMainWindow.cpp.i
+
+src/BMainWindow.s: src/BMainWindow.cpp.s
+
+.PHONY : src/BMainWindow.s
+
+# target to generate assembly for a file
+src/BMainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.s
+.PHONY : src/BMainWindow.cpp.s
+
 src/moc_BExpertWindow.o: src/moc_BExpertWindow.cpp.o
 
 .PHONY : src/moc_BExpertWindow.o
@@ -311,6 +338,60 @@ src/moc_BExpertWindow.s: src/moc_BExpertWindow.cpp.s
 src/moc_BExpertWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BExpertWindow.cpp.s
 .PHONY : src/moc_BExpertWindow.cpp.s
+
+src/moc_BMainWindow.o: src/moc_BMainWindow.cpp.o
+
+.PHONY : src/moc_BMainWindow.o
+
+# target to build an object file
+src/moc_BMainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.o
+.PHONY : src/moc_BMainWindow.cpp.o
+
+src/moc_BMainWindow.i: src/moc_BMainWindow.cpp.i
+
+.PHONY : src/moc_BMainWindow.i
+
+# target to preprocess a source file
+src/moc_BMainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.i
+.PHONY : src/moc_BMainWindow.cpp.i
+
+src/moc_BMainWindow.s: src/moc_BMainWindow.cpp.s
+
+.PHONY : src/moc_BMainWindow.s
+
+# target to generate assembly for a file
+src/moc_BMainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
+.PHONY : src/moc_BMainWindow.cpp.s
+
+src/moc_BMainWindows.o: src/moc_BMainWindows.cpp.o
+
+.PHONY : src/moc_BMainWindows.o
+
+# target to build an object file
+src/moc_BMainWindows.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.o
+.PHONY : src/moc_BMainWindows.cpp.o
+
+src/moc_BMainWindows.i: src/moc_BMainWindows.cpp.i
+
+.PHONY : src/moc_BMainWindows.i
+
+# target to preprocess a source file
+src/moc_BMainWindows.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.i
+.PHONY : src/moc_BMainWindows.cpp.i
+
+src/moc_BMainWindows.s: src/moc_BMainWindows.cpp.s
+
+.PHONY : src/moc_BMainWindows.s
+
+# target to generate assembly for a file
+src/moc_BMainWindows.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindows.cpp.s
+.PHONY : src/moc_BMainWindows.cpp.s
 
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
@@ -688,9 +769,18 @@ help:
 	@echo "... src/BExpertWindow.o"
 	@echo "... src/BExpertWindow.i"
 	@echo "... src/BExpertWindow.s"
+	@echo "... src/BMainWindow.o"
+	@echo "... src/BMainWindow.i"
+	@echo "... src/BMainWindow.s"
 	@echo "... src/moc_BExpertWindow.o"
 	@echo "... src/moc_BExpertWindow.i"
 	@echo "... src/moc_BExpertWindow.s"
+	@echo "... src/moc_BMainWindow.o"
+	@echo "... src/moc_BMainWindow.i"
+	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/moc_BMainWindows.o"
+	@echo "... src/moc_BMainWindows.i"
+	@echo "... src/moc_BMainWindows.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
