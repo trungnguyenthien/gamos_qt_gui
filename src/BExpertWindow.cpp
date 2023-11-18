@@ -17,6 +17,16 @@ BExpertWindow::BExpertWindow(QWidget *parent) : QTabWidget(parent)
     this->addTab(outputLayout, "Output");
 }
 
+string BExpertWindow::title()
+{
+    return "Expert Mode";
+}
+
+string BExpertWindow::description()
+{
+    return "";
+}
+
 // QWidget* buildPhantomLayout() {
 
 // }

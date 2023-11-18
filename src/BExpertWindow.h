@@ -3,8 +3,9 @@
 
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
+#include "virtual/BWindow.h"
 
-class BExpertWindow : public QTabWidget
+class BExpertWindow : public QTabWidget, public BWindow
 {
     Q_OBJECT
 public:
@@ -12,6 +13,9 @@ public:
     QWidget *sourceLayout;
     QWidget *outputLayout;
     BExpertWindow(QWidget *parent);
+
+    string title() override;
+    string description() override;
 };
 
 #endif
