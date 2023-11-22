@@ -21,6 +21,7 @@ public:
     unique_ptr<QPushButton> btn_simple;
     unique_ptr<QPushButton> btn_expert;
     BChooseModeWindow(QWidget *parent);
+    ~BChooseModeWindow();
 
     // Virtual class BWindow
     string title() override;

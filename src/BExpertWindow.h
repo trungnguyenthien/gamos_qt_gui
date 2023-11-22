@@ -13,6 +13,7 @@ public:
     QWidget *sourceLayout;
     QWidget *outputLayout;
     BExpertWindow(QWidget *parent);
+    ~BExpertWindow();
 
     // Virtual class BWindow
     string title() override;

@@ -42,6 +42,10 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent)
     grid.get()->addWidget(v_blankWidget(), 3, 0);
 }
 
+BChooseModeWindow::~BChooseModeWindow()
+{
+}
+
 string BChooseModeWindow::title()
 {
     return "";

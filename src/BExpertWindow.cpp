@@ -17,6 +17,13 @@ BExpertWindow::BExpertWindow(QWidget *parent) : QTabWidget(parent)
     this->addTab(outputLayout, "Output");
 }
 
+BExpertWindow::~BExpertWindow()
+{
+    delete phantomLayout;
+    delete sourceLayout;
+    delete outputLayout;
+}
+
 string BExpertWindow::title()
 {
     return "Expert Mode";
