@@ -8,6 +8,7 @@
 
 BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
 {
+    shared_mainwindow = this;
     topPlaceHolder = unique_ptr<BHStackWidget>(new BHStackWidget(this));
     backButton = unique_ptr<QPushButton>(new QPushButton(this));
     topPlaceHolder.get()->addSubWidget(backButton.get());
@@ -15,7 +16,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
     addSubWidget(topPlaceHolder.get());
     topPlaceHolder.get()->getLayout()->setContentsMargins(-1, -1, -1, -1);
     titleLabel = unique_ptr<QLabel>(new QLabel());
-    titleLabel.get()->setText("Heelllo");
+    // titleLabel.get()->setText("Heelllo");
     titleLabel->setAlignment(Qt::AlignCenter);
     titleLabel->setFont(font_title());
     titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -28,8 +29,25 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
     stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
     getLayout()->addWidget(stackedWidget.get(), 1);
 
-    rootWindows = unique_ptr<QWidget>(new BChooseModeWindow(this));
-    stackedWidget.get()->addWidget(rootWindows.get());
+    push(new BChooseModeWindow(this));
+}
 
-    stackedWidget.get()->setCurrentWidget(rootWindows.get());
+void BMainWindow::push(BWindow *wd)
+{
+    windows.push_back(unique_ptr<BWindow>(wd));
+    BWindow *back = windows.back().get();
+
+    stackedWidget.get()->addWidget(back->self_widget());
+    stackedWidget.get()->setCurrentWidget(back->self_widget());
+
+    titleLabel.get()->setText(back->title().data());
+}
+
+void BMainWindow::pop_back()
+{
+}
+
+vector<unique_ptr<BWindow>> BMainWindow::getContentWindows()
+{
+    return this->windows;
 }

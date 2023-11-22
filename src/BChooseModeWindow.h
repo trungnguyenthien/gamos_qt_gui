@@ -6,9 +6,10 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QLabel>
 #include <memory>
+#include "virtual/BWindow.h"
 
 using namespace std;
-class BChooseModeWindow : public QWidget
+class BChooseModeWindow : public QWidget, public BWindow
 {
 private:
     unique_ptr<QGridLayout> grid;
@@ -20,5 +21,10 @@ public:
     unique_ptr<QPushButton> btn_simple;
     unique_ptr<QPushButton> btn_expert;
     BChooseModeWindow(QWidget *parent);
+
+    // Virtual class BWindow
+    string title() override;
+    string description() override;
+    QWidget *self_widget() override;
 };
 #endif // __BCHOOSEMODEWINDOWS_H__

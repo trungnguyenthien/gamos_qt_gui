@@ -27,6 +27,11 @@ string BExpertWindow::description()
     return "";
 }
 
+QWidget *BExpertWindow::self_widget()
+{
+    return this;
+}
+
 // QWidget* buildPhantomLayout() {
 
 // }

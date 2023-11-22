@@ -41,3 +41,18 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent)
     grid.get()->addWidget(h_blankWidget(), 2, 4);
     grid.get()->addWidget(v_blankWidget(), 3, 0);
 }
+
+string BChooseModeWindow::title()
+{
+    return "";
+}
+
+string BChooseModeWindow::description()
+{
+    return "";
+}
+
+QWidget *BChooseModeWindow::self_widget()
+{
+    return this;
+}

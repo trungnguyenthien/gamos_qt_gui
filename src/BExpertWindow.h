@@ -14,8 +14,10 @@ public:
     QWidget *outputLayout;
     BExpertWindow(QWidget *parent);
 
+    // Virtual class BWindow
     string title() override;
     string description() override;
+    QWidget *self_widget() override;
 };
 
 #endif
