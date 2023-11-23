@@ -12,7 +12,9 @@ using namespace std;
 class BComboBox : public BHStackWidget {
   Q_OBJECT
  public:
-  unique_ptr <
+  BComboBox(QWidget *parent, string title);
+  unique_ptr<QComboBox> combobox;
+  unique_ptr<QLabel> label;
 }
 
 #endif  // __BCOMBOBOX_H__

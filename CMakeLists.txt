@@ -20,7 +20,7 @@ set(MOC_HEADERS
     "src/BChooseModeWindow.h"
     "src/BExpertWindow.h"
     "src/BMainWindow.h"
-    "src/widget/BCombobox.h"
+    "src/widget/BComboBox.h"
     "src/widget/BPhantomTab.h"
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"
