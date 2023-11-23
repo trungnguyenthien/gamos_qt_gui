@@ -33,8 +33,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
   getLayout()->addWidget(stackedWidget.get(), 1);
 
-  QObject::connect(backButton.get(), &QPushButton::clicked,
-                   [this]() { this->pop_back(); });
+  connectButtonClicked(backButton.get(), [this]() { this->pop_back(); });
 
   //   push(new BDemo1Window(this));
   push(new BChooseModeWindow(this));
@@ -59,7 +58,7 @@ void BMainWindow::pop_back() {
   cout << windows.size() << endl;
   stackedWidget.get()->removeWidget(last->self_widget());
   // delete last->self_widget();
-  delete last;
+  //   delete last;
 
   if (windows.empty()) {
     titleLabel.get()->setText("{ BYE BYE ^_^ }");

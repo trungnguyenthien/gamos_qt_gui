@@ -19,3 +19,25 @@ QHBoxLayout *BHStackWidget::getLayout() { return this->mainLayout; }
 void BHStackWidget::addSubWidget(QWidget *widget) {
   mainLayout->addWidget(widget);
 }
+
+void BHStackWidget::addSubWidget(QWidget *widget, int width, int fixedHeight) {
+  widget->setFixedHeight(fixedHeight);
+
+  if (width < 0) {
+    QSizePolicy policy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+    widget->setSizePolicy(policy);
+  }
+
+  if (width == 0) {
+    QSizePolicy policy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    widget->setSizePolicy(policy);
+  }
+
+  if (width > 0) {
+    QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    widget->setFixedWidth(width);
+    widget->setSizePolicy(policy);
+  }
+
+  mainLayout->addWidget(widget);
+}

@@ -717,6 +717,33 @@ src/widget/BVStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.s
 .PHONY : src/widget/BVStackWidget.cpp.s
 
+src/widget/moc_BCombobox.o: src/widget/moc_BCombobox.cpp.o
+
+.PHONY : src/widget/moc_BCombobox.o
+
+# target to build an object file
+src/widget/moc_BCombobox.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BCombobox.cpp.o
+.PHONY : src/widget/moc_BCombobox.cpp.o
+
+src/widget/moc_BCombobox.i: src/widget/moc_BCombobox.cpp.i
+
+.PHONY : src/widget/moc_BCombobox.i
+
+# target to preprocess a source file
+src/widget/moc_BCombobox.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BCombobox.cpp.i
+.PHONY : src/widget/moc_BCombobox.cpp.i
+
+src/widget/moc_BCombobox.s: src/widget/moc_BCombobox.cpp.s
+
+.PHONY : src/widget/moc_BCombobox.s
+
+# target to generate assembly for a file
+src/widget/moc_BCombobox.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BCombobox.cpp.s
+.PHONY : src/widget/moc_BCombobox.cpp.s
+
 src/widget/moc_BHStackWidget.o: src/widget/moc_BHStackWidget.cpp.o
 
 .PHONY : src/widget/moc_BHStackWidget.o
@@ -952,6 +979,9 @@ help:
 	@echo "... src/widget/BVStackWidget.o"
 	@echo "... src/widget/BVStackWidget.i"
 	@echo "... src/widget/BVStackWidget.s"
+	@echo "... src/widget/moc_BCombobox.o"
+	@echo "... src/widget/moc_BCombobox.i"
+	@echo "... src/widget/moc_BCombobox.s"
 	@echo "... src/widget/moc_BHStackWidget.o"
 	@echo "... src/widget/moc_BHStackWidget.i"
 	@echo "... src/widget/moc_BHStackWidget.s"
