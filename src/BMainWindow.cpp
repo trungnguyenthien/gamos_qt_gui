@@ -32,12 +32,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent)
     getLayout()->addWidget(stackedWidget.get(), 1);
 
     QObject::connect(backButton.get(), &QPushButton::clicked, [this]()
-                     {
-                         this->pop_back();
-                         // if (stackedWidget.count() > 0) {
-                         //     stackedWidget.removeWidget(stackedWidget.widget(stackedWidget.count() - 1));
-                         // }
-                     });
+                     { this->pop_back(); });
 
     push(new BChooseModeWindow(this));
     // push(new BChooseModeWindow(this));
@@ -69,10 +64,11 @@ void BMainWindow::pop_back()
 
     if (windows.empty())
     {
-        titleLabel.get()->setText("{EMPTY}");
+        titleLabel.get()->setText("{ BYE BYE ^_^ }");
+        backButton.get()->hide();
         return;
     }
-
+    backButton.get()->show();
     BWindow *back = windows.back();
     stackedWidget.get()->setCurrentWidget(back->self_widget());
     titleLabel.get()->setText(back->title().data());
