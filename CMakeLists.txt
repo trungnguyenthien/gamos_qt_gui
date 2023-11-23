@@ -15,6 +15,8 @@ file(GLOB_RECURSE HEADERS "src/*.h" CONFIGURE_DEPEND)
 set(MOC_HEADERS
 
     # "src/virtual/BWindow.h"
+    "src/BDemo1Window.h"
+    "src/BDemo2Window.h"
     "src/BChooseModeWindow.h"
     "src/BExpertWindow.h"
     "src/BMainWindow.h"

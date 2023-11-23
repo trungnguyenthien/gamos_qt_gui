@@ -1,5 +1,7 @@
 #include "BChooseModeWindow.h"
 
+#include "BDemo1Window.h"
+#include "BMainWindow.h"
 #include "utils/Helper.h"
 
 BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
@@ -18,17 +20,17 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
 
   btn_demo = unique_ptr<QPushButton>(new QPushButton(this));
   btn_demo.get()->setText("Demo");
-  ds_wg_set_expading_w(btn_demo.get());
+  ds_wg_set_expanding_w(btn_demo.get());
   ds_wg_set_fixed_h(btn_demo.get(), 50);
 
   btn_simple = unique_ptr<QPushButton>(new QPushButton(this));
   btn_simple.get()->setText("Simple");
-  ds_wg_set_expading_w(btn_simple.get());
+  ds_wg_set_expanding_w(btn_simple.get());
   ds_wg_set_fixed_h(btn_simple.get(), 50);
 
   btn_expert = unique_ptr<QPushButton>(new QPushButton(this));
   btn_expert.get()->setText("Expert");
-  ds_wg_set_expading_w(btn_expert.get());
+  ds_wg_set_expanding_w(btn_expert.get());
   ds_wg_set_fixed_h(btn_expert.get(), 50);
 
   grid.get()->addWidget(lb_welcome.get(), 0, 1, 1, 3);
@@ -39,6 +41,10 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
   grid.get()->addWidget(btn_expert.get(), 2, 3);
   grid.get()->addWidget(h_blankWidget(), 2, 4);
   grid.get()->addWidget(v_blankWidget(), 3, 0);
+
+  connectButtonClicked(btn_demo.get(), [this]() {
+    BMainWindow::shared->push(new BDemo1Window(this));
+  });
 }
 
 BChooseModeWindow::~BChooseModeWindow() {}

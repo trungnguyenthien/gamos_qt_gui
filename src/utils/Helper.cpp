@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QPixmap>
 #include <QSize>
+#include <QSpacerItem>
 #include <QtCore/QByteArray>
 #include <QtCore/QJsonParseError>
 
@@ -70,7 +71,15 @@ QWidget *v_blankWidget() {
   return spacer;
 }
 
-void ds_wg_set_expading_w(QWidget *wid) {
+QSpacerItem *h_blank() {
+  return new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
+}
+
+QSpacerItem *v_blank() {
+  return new QSpacerItem(0, 0, QSizePolicy::Fixed, QSizePolicy::Expanding);
+}
+
+void ds_wg_set_expanding_w(QWidget *wid) {
   wid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
@@ -95,4 +104,9 @@ void ds_pushButton(QPushButton *button, int w, int h, QString imageName) {
 
 void ds_pushButton_removeBorder(QPushButton *button) {
   button->setStyleSheet("QPushButton { border: none; }");
+}
+
+void connectButtonClicked(QPushButton *button,
+                          const std::function<void()> &slot) {
+  QObject::connect(button, &QPushButton::clicked, slot);
 }

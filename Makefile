@@ -285,6 +285,60 @@ src/BChooseModeWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BChooseModeWindow.cpp.s
 .PHONY : src/BChooseModeWindow.cpp.s
 
+src/BDemo1Window.o: src/BDemo1Window.cpp.o
+
+.PHONY : src/BDemo1Window.o
+
+# target to build an object file
+src/BDemo1Window.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo1Window.cpp.o
+.PHONY : src/BDemo1Window.cpp.o
+
+src/BDemo1Window.i: src/BDemo1Window.cpp.i
+
+.PHONY : src/BDemo1Window.i
+
+# target to preprocess a source file
+src/BDemo1Window.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo1Window.cpp.i
+.PHONY : src/BDemo1Window.cpp.i
+
+src/BDemo1Window.s: src/BDemo1Window.cpp.s
+
+.PHONY : src/BDemo1Window.s
+
+# target to generate assembly for a file
+src/BDemo1Window.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo1Window.cpp.s
+.PHONY : src/BDemo1Window.cpp.s
+
+src/BDemo2Window.o: src/BDemo2Window.cpp.o
+
+.PHONY : src/BDemo2Window.o
+
+# target to build an object file
+src/BDemo2Window.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo2Window.cpp.o
+.PHONY : src/BDemo2Window.cpp.o
+
+src/BDemo2Window.i: src/BDemo2Window.cpp.i
+
+.PHONY : src/BDemo2Window.i
+
+# target to preprocess a source file
+src/BDemo2Window.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo2Window.cpp.i
+.PHONY : src/BDemo2Window.cpp.i
+
+src/BDemo2Window.s: src/BDemo2Window.cpp.s
+
+.PHONY : src/BDemo2Window.s
+
+# target to generate assembly for a file
+src/BDemo2Window.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BDemo2Window.cpp.s
+.PHONY : src/BDemo2Window.cpp.s
+
 src/BExpertWindow.o: src/BExpertWindow.cpp.o
 
 .PHONY : src/BExpertWindow.o
@@ -365,6 +419,60 @@ src/moc_BChooseModeWindow.s: src/moc_BChooseModeWindow.cpp.s
 src/moc_BChooseModeWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BChooseModeWindow.cpp.s
 .PHONY : src/moc_BChooseModeWindow.cpp.s
+
+src/moc_BDemo1Window.o: src/moc_BDemo1Window.cpp.o
+
+.PHONY : src/moc_BDemo1Window.o
+
+# target to build an object file
+src/moc_BDemo1Window.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo1Window.cpp.o
+.PHONY : src/moc_BDemo1Window.cpp.o
+
+src/moc_BDemo1Window.i: src/moc_BDemo1Window.cpp.i
+
+.PHONY : src/moc_BDemo1Window.i
+
+# target to preprocess a source file
+src/moc_BDemo1Window.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo1Window.cpp.i
+.PHONY : src/moc_BDemo1Window.cpp.i
+
+src/moc_BDemo1Window.s: src/moc_BDemo1Window.cpp.s
+
+.PHONY : src/moc_BDemo1Window.s
+
+# target to generate assembly for a file
+src/moc_BDemo1Window.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo1Window.cpp.s
+.PHONY : src/moc_BDemo1Window.cpp.s
+
+src/moc_BDemo2Window.o: src/moc_BDemo2Window.cpp.o
+
+.PHONY : src/moc_BDemo2Window.o
+
+# target to build an object file
+src/moc_BDemo2Window.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo2Window.cpp.o
+.PHONY : src/moc_BDemo2Window.cpp.o
+
+src/moc_BDemo2Window.i: src/moc_BDemo2Window.cpp.i
+
+.PHONY : src/moc_BDemo2Window.i
+
+# target to preprocess a source file
+src/moc_BDemo2Window.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo2Window.cpp.i
+.PHONY : src/moc_BDemo2Window.cpp.i
+
+src/moc_BDemo2Window.s: src/moc_BDemo2Window.cpp.s
+
+.PHONY : src/moc_BDemo2Window.s
+
+# target to generate assembly for a file
+src/moc_BDemo2Window.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BDemo2Window.cpp.s
+.PHONY : src/moc_BDemo2Window.cpp.s
 
 src/moc_BExpertWindow.o: src/moc_BExpertWindow.cpp.o
 
@@ -796,6 +904,12 @@ help:
 	@echo "... src/BChooseModeWindow.o"
 	@echo "... src/BChooseModeWindow.i"
 	@echo "... src/BChooseModeWindow.s"
+	@echo "... src/BDemo1Window.o"
+	@echo "... src/BDemo1Window.i"
+	@echo "... src/BDemo1Window.s"
+	@echo "... src/BDemo2Window.o"
+	@echo "... src/BDemo2Window.i"
+	@echo "... src/BDemo2Window.s"
 	@echo "... src/BExpertWindow.o"
 	@echo "... src/BExpertWindow.i"
 	@echo "... src/BExpertWindow.s"
@@ -805,6 +919,12 @@ help:
 	@echo "... src/moc_BChooseModeWindow.o"
 	@echo "... src/moc_BChooseModeWindow.i"
 	@echo "... src/moc_BChooseModeWindow.s"
+	@echo "... src/moc_BDemo1Window.o"
+	@echo "... src/moc_BDemo1Window.i"
+	@echo "... src/moc_BDemo1Window.s"
+	@echo "... src/moc_BDemo2Window.o"
+	@echo "... src/moc_BDemo2Window.i"
+	@echo "... src/moc_BDemo2Window.s"
 	@echo "... src/moc_BExpertWindow.o"
 	@echo "... src/moc_BExpertWindow.i"
 	@echo "... src/moc_BExpertWindow.s"

@@ -8,10 +8,10 @@
 #include "BChooseModeWindow.h"
 #include "utils/Helper.h"
 #include "widget/BHStackWidget.h"
-BMainWindow *BMainWindow::shared_mainwindow = nullptr;
+BMainWindow *BMainWindow::shared = nullptr;
 
 BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
-  BMainWindow::shared_mainwindow = this;
+  BMainWindow::shared = this;
   topPlaceHolder = unique_ptr<BHStackWidget>(new BHStackWidget(this));
   backButton = unique_ptr<QPushButton>(new QPushButton(this));
   topPlaceHolder.get()->addSubWidget(backButton.get());
@@ -58,7 +58,7 @@ void BMainWindow::pop_back() {
   cout << windows.size() << endl;
   stackedWidget.get()->removeWidget(last->self_widget());
   // delete last->self_widget();
-  // delete last;
+  delete last;
 
   if (windows.empty()) {
     titleLabel.get()->setText("{ BYE BYE ^_^ }");

@@ -26,7 +26,7 @@ class BMainWindow : public BVStackWidget {
   void push(BWindow *wd);
   void pop_back();
   BMainWindow(QWidget *parent);
-  static BMainWindow *shared_mainwindow;
+  static BMainWindow *shared;
 };
 
 #endif  // __BMAINWINDOWS_H__
