@@ -21,12 +21,14 @@ BDemo1Window::BDemo1Window(QWidget* parent) : QWidget(parent) {
   grid.get()->addWidget(btn_multiple.get(), 1, 1, 1, 1);
   grid.get()->addWidget(btn_one.get(), 1, 2, 1, 1);
   grid.get()->addItem(h_blank(), 1, 3, 1, 1);
+  grid.get()->addWidget(h_blankWidget(), 2, 0, 1, 1);
+  grid.get()->addWidget(h_blankWidget(), 3, 0, 1, 1);
 }
 
 BDemo1Window::~BDemo1Window() {}
 
-string BDemo1Window::title() {}
+string BDemo1Window::title() { return ""; }
 
-string BDemo1Window::description() {}
+string BDemo1Window::description() { return ""; }
 
-QWidget* BDemo1Window::self_widget() {}
+QWidget* BDemo1Window::self_widget() { return this; }
