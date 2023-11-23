@@ -1,13 +1,13 @@
 #ifndef __HELPER_H__
 #define __HELPER_H__
 
-#include <QtCore/QFile>
-#include <QtCore/QString>
-#include <QtCore/QJsonObject>
-#include <QPushButton>
 #include <QFont>
+#include <QPushButton>
 #include <QSpacerItem>
 #include <QWidget>
+#include <QtCore/QFile>
+#include <QtCore/QJsonObject>
+#include <QtCore/QString>
 
 QJsonObject loadRootJson(QString file);
 QFont font_default();
@@ -27,4 +27,4 @@ void ds_wg_set_fixed_w(QWidget *wid, int value);
 
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName);
 void ds_pushButton_removeBorder(QPushButton *button);
-#endif // __HELPER_H__
+#endif  // __HELPER_H__

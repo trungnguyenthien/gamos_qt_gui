@@ -1,21 +1,20 @@
 #ifndef BHStackWidget_H
 #define BHStackWidget_H
 
-#include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLayout>
+#include <QtWidgets/QWidget>
 
-class BHStackWidget : public QWidget
-{
-    Q_OBJECT
-private:
-    QHBoxLayout *mainLayout;
+class BHStackWidget : public QWidget {
+  Q_OBJECT
+ private:
+  QHBoxLayout *mainLayout;
 
-public:
-    BHStackWidget(QWidget *parent);
-    void addSubWidget(QWidget *widget);
-    void addSubLayout(QLayout *layout);
-    QHBoxLayout *getLayout();
+ public:
+  BHStackWidget(QWidget *parent);
+  void addSubWidget(QWidget *widget);
+  void addSubLayout(QLayout *layout);
+  QHBoxLayout *getLayout();
 };
 
 #endif

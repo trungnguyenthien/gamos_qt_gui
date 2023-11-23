@@ -1,21 +1,20 @@
 #ifndef BVStackWidget_H
 #define BVStackWidget_H
 
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLayout>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
-class BVStackWidget : public QWidget
-{
-    Q_OBJECT
-private:
-    QVBoxLayout *mainLayout;
+class BVStackWidget : public QWidget {
+  Q_OBJECT
+ private:
+  QVBoxLayout *mainLayout;
 
-public:
-    BVStackWidget(QWidget *parent);
-    void addSubWidget(QWidget *widget);
-    void addSubLayout(QLayout *layout);
-    QVBoxLayout *getLayout();
+ public:
+  BVStackWidget(QWidget *parent);
+  void addSubWidget(QWidget *widget);
+  void addSubLayout(QLayout *layout);
+  QVBoxLayout *getLayout();
 };
 
 #endif

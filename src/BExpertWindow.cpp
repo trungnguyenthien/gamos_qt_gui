@@ -1,43 +1,34 @@
 #include "BExpertWindow.h"
+
 #include <QtWidgets/QTabBar>
+
 #include "widget/BPhantomTab.h"
 
-BExpertWindow::BExpertWindow(QWidget *parent) : QTabWidget(parent)
-{
-    phantomLayout = new QWidget(parent);
-    sourceLayout = new QWidget(parent);
-    outputLayout = new QWidget(parent);
+BExpertWindow::BExpertWindow(QWidget *parent) : QTabWidget(parent) {
+  phantomLayout = new QWidget(parent);
+  sourceLayout = new QWidget(parent);
+  outputLayout = new QWidget(parent);
 
-    phantomLayout->setLayout(new BPhantomTab(parent));
+  phantomLayout->setLayout(new BPhantomTab(parent));
 
-    tabBar()->setDocumentMode(true);
-    tabBar()->setExpanding(true);
-    this->addTab(phantomLayout, "Phantom");
-    this->addTab(sourceLayout, "Source");
-    this->addTab(outputLayout, "Output");
+  tabBar()->setDocumentMode(true);
+  tabBar()->setExpanding(true);
+  this->addTab(phantomLayout, "Phantom");
+  this->addTab(sourceLayout, "Source");
+  this->addTab(outputLayout, "Output");
 }
 
-BExpertWindow::~BExpertWindow()
-{
-    delete phantomLayout;
-    delete sourceLayout;
-    delete outputLayout;
+BExpertWindow::~BExpertWindow() {
+  delete phantomLayout;
+  delete sourceLayout;
+  delete outputLayout;
 }
 
-string BExpertWindow::title()
-{
-    return "Expert Mode";
-}
+string BExpertWindow::title() { return "Expert Mode"; }
 
-string BExpertWindow::description()
-{
-    return "";
-}
+string BExpertWindow::description() { return ""; }
 
-QWidget *BExpertWindow::self_widget()
-{
-    return this;
-}
+QWidget *BExpertWindow::self_widget() { return this; }
 
 // QWidget* buildPhantomLayout() {
 

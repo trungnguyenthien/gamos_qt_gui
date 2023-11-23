@@ -1,8 +1,6 @@
 #ifndef __BJSONSIMPLEMODE_H__
 #define __BJSONSIMPLEMODE_H__
 
-struct BSmSituation
-{
-};
+struct BSmSituation {};
 
-#endif // __BJSONSIMPLEMODE_H__
+#endif  // __BJSONSIMPLEMODE_H__
