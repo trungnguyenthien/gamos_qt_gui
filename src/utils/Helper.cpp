@@ -95,6 +95,12 @@ void ds_wg_set_fixed_h(QWidget *wid, int value) { wid->setFixedHeight(value); }
 
 void ds_wg_set_fixed_w(QWidget *wid, int value) { wid->setFixedWidth(value); }
 
+void ds_label_align_right(QLabel *lb) { lb->setAlignment(Qt::AlignRight); }
+
+void ds_label_align_left(QLabel *lb) { lb->setAlignment(Qt::AlignLeft); }
+
+void ds_label_align_center(QLabel *lb) { lb->setAlignment(Qt::AlignCenter); }
+
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName) {
   QPixmap pixmap("./resources/img/" + imageName);
   QIcon ic(pixmap);
@@ -109,4 +115,10 @@ void ds_pushButton_removeBorder(QPushButton *button) {
 void connectButtonClicked(QPushButton *button,
                           const std::function<void()> &slot) {
   QObject::connect(button, &QPushButton::clicked, slot);
+}
+
+void connectCbbIndexChange(QComboBox *cbb,
+                           const std::function<void(int)> &slot) {
+  QObject::connect(cbb, QOverload<int>::of(&QComboBox::currentIndexChanged),
+                   [=](int index) { slot(index); });
 }

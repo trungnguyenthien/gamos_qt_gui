@@ -21,6 +21,7 @@ set(MOC_HEADERS
     "src/BExpertWindow.h"
     "src/BMainWindow.h"
     "src/widget/BComboBox.h"
+    "src/widget/BListCheckBox.h"
     "src/widget/BPhantomTab.h"
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"

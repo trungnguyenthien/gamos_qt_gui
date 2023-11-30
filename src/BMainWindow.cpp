@@ -7,6 +7,7 @@
 
 #include "BChooseModeWindow.h"
 #include "BDemo1Window.h"
+#include "BDemo2Window.h"
 #include "utils/Helper.h"
 #include "widget/BHStackWidget.h"
 BMainWindow *BMainWindow::shared = nullptr;
@@ -35,8 +36,9 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
 
   connectButtonClicked(backButton.get(), [this]() { this->pop_back(); });
 
-  //   push(new BDemo1Window(this));
-  push(new BChooseModeWindow(this));
+  push(new BDemo2Window(this, 1));
+  // push(new BDemo1Window(this));
+  // push(new BChooseModeWindow(this));
 }
 
 void BMainWindow::push(BWindow *wd) {

@@ -1,6 +1,8 @@
 #ifndef __BCOMBOBOX_H__
 #define __BCOMBOBOX_H__
 
+#include <QComboBox>
+#include <QLabel>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QWidget>
@@ -15,6 +17,6 @@ class BComboBox : public BHStackWidget {
   BComboBox(QWidget *parent, string title);
   unique_ptr<QComboBox> combobox;
   unique_ptr<QLabel> label;
-}
+};
 
 #endif  // __BCOMBOBOX_H__

@@ -1,7 +1,9 @@
 #ifndef __HELPER_H__
 #define __HELPER_H__
 
+#include <QComboBox>
 #include <QFont>
+#include <QLabel>
 #include <QPushButton>
 #include <QSpacerItem>
 #include <QWidget>
@@ -28,10 +30,16 @@ void ds_wg_set_expanding_h(QWidget *wid);
 void ds_wg_set_expanding_wh(QWidget *wid);
 void ds_wg_set_fixed_h(QWidget *wid, int value);
 void ds_wg_set_fixed_w(QWidget *wid, int value);
+void ds_label_align_right(QLabel *label);
+void ds_label_align_left(QLabel *label);
+void ds_label_align_center(QLabel *label);
 
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName);
 void ds_pushButton_removeBorder(QPushButton *button);
 
 void connectButtonClicked(QPushButton *button,
                           const std::function<void()> &slot);
+void connectCbbIndexChange(QComboBox *cbb,
+                           const std::function<void(int)> &slot);
+
 #endif  // __HELPER_H__
