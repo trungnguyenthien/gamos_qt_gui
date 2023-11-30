@@ -528,33 +528,6 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
-src/model/Types.o: src/model/Types.cpp.o
-
-.PHONY : src/model/Types.o
-
-# target to build an object file
-src/model/Types.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Types.cpp.o
-.PHONY : src/model/Types.cpp.o
-
-src/model/Types.i: src/model/Types.cpp.i
-
-.PHONY : src/model/Types.i
-
-# target to preprocess a source file
-src/model/Types.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Types.cpp.i
-.PHONY : src/model/Types.cpp.i
-
-src/model/Types.s: src/model/Types.cpp.s
-
-.PHONY : src/model/Types.s
-
-# target to generate assembly for a file
-src/model/Types.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Types.cpp.s
-.PHONY : src/model/Types.cpp.s
-
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
 .PHONY : src/utils/Helper.o
@@ -1066,9 +1039,6 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
-	@echo "... src/model/Types.o"
-	@echo "... src/model/Types.i"
-	@echo "... src/model/Types.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
