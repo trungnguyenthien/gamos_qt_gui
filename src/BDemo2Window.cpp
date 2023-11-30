@@ -33,7 +33,8 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
     for (auto item : radiation_source) {
       options.push_back(QString::fromStdString(RADIATION_text(item)));
     }
-    listRadiation = unique_ptr<BListCheckBox>(new BListCheckBox(this, options));
+    listRadiation =
+        unique_ptr<BListCheckBox>(new BListCheckBox(this, true, options));
     grid.get()->addWidget(listRadiation.get(), 1, 1, 1, 1);
   }
 

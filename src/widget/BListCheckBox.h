@@ -4,6 +4,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QLabel>
+#include <QPushButton>
 #include <QRadioButton>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLayout>
@@ -18,9 +19,9 @@ class BListCheckBox : public BVStackWidget {
   Q_OBJECT
  public:
   bool isSingleChoice;
-  BListCheckBox(QWidget *parent, bool isSingleChoice, vector<string> options);
+  BListCheckBox(QWidget *parent, bool isSingleChoice, vector<QString> options);
   vector<unique_ptr<QCheckBox>> vectorCheckBox;
-  vector<unique_ptr<QComboBox>> vectorRadioButton;
+  vector<unique_ptr<QRadioButton>> vectorRadioButton;
 
   vector<int> selectedIndices;
 };
