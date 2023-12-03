@@ -3,12 +3,11 @@
 #include <QButtonGroup>
 
 #include "../utils/Helper.h"
-BListCheckBox::BListCheckBox(QWidget *parent, string title, bool isSingleChoice,
-                             vector<QString> options)
-    : BVStackWidget(parent) {
-  this->isSingleChoice = isSingleChoice;
+BListCheckBox::BListCheckBox(QWidget *parent) : BVStackWidget(parent) {}
+
+void BListCheckBox::initUI() {
   label = unique_ptr<QLabel>(new QLabel(this));
-  label.get()->setText(QString::fromStdString(title));
+  label.get()->setText(title);
   label.get()->setFont(font_subHeader());
   addSubWidget(label.get());
   if (isSingleChoice) {

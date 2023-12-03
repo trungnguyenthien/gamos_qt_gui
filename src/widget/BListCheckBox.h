@@ -18,12 +18,16 @@ using namespace std;
 class BListCheckBox : public BVStackWidget {
   Q_OBJECT
  public:
+  // CONFIG VARIABLE
+  QString title;
   bool isSingleChoice;
-  BListCheckBox(QWidget *parent, string title, bool isSingleChoice,
-                vector<QString> options);
+  vector<QString> options;
+  //
+  BListCheckBox(QWidget *parent);
   vector<unique_ptr<QCheckBox>> vectorCheckBox;
   vector<unique_ptr<QRadioButton>> vectorRadioButton;
   unique_ptr<QLabel> label;
   vector<int> selectedIndices;
+  void initUI();
 };
 #endif  // __BLISTCHECKBOX_H__
