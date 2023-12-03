@@ -57,21 +57,34 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
 
   grid.get()->addWidget(cbbEnergy.get(), 2, 1, 1, 1);
 
-  btn_enter = unique_ptr<QPushButton>(new QPushButton(this));
-  // ds_wg_set_expanding_w(btn_enter.get());
-  // ds_wg_set_expanding_h(btn_enter.get());
-  btn_enter.get()->setText("ENTER");
-  grid.get()->addWidget(btn_enter.get(), 3, 1, 1, 1);
-
-  grid.get()->addWidget(h_blankWidget(), 3, 0);
-  grid.get()->addWidget(v_blankWidget(), 4, 1);
-  grid.get()->addWidget(h_blankWidget(), 3, 3);
-
   matter_source.push_back(MATTER::LEAD);
   matter_source.push_back(MATTER::ALUMIUM);
   matter_source.push_back(MATTER::PAPER);
   matter_source.push_back(MATTER::CONCRETE);
   matter_source.push_back(MATTER::WATER);
+  vector<QString> matterOptions;
+  for (auto item : matter_source) {
+    matterOptions.push_back(MATTER_text(item));
+  }
+
+  if (isMultiple) {
+    listMatterMutiple =
+        new BListCheckText(this, "THE MATTER", "Please input thickness",
+                           !isMultiple, matterOptions);
+    listMatterMutiple->initUI();
+    grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
+  } else {
+  }
+
+  btn_enter = unique_ptr<QPushButton>(new QPushButton(this));
+  // ds_wg_set_expanding_w(btn_enter.get());
+  // ds_wg_set_expanding_h(btn_enter.get());
+  btn_enter.get()->setText("ENTER");
+  grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
+
+  grid.get()->addWidget(h_blankWidget(), 4, 0);
+  grid.get()->addWidget(v_blankWidget(), 5, 1);
+  grid.get()->addWidget(h_blankWidget(), 4, 3);
 }
 
 BDemo2Window::~BDemo2Window() {}

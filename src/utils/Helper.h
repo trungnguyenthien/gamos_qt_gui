@@ -1,10 +1,12 @@
 #ifndef __HELPER_H__
 #define __HELPER_H__
 
+#include <QCheckBox>
 #include <QComboBox>
 #include <QFont>
 #include <QLabel>
 #include <QPushButton>
+#include <QRadioButton>
 #include <QSpacerItem>
 #include <QWidget>
 #include <QtCore/QFile>
@@ -41,5 +43,11 @@ void connectButtonClicked(QPushButton *button,
                           const std::function<void()> &slot);
 void connectCbbIndexChange(QComboBox *cbb,
                            const std::function<void(int)> &slot);
+
+void connectCheckBoxToggle(QCheckBox *cb,
+                           const std::function<void(bool)> &slot);
+
+void connectRadioButtonToggle(QRadioButton *rb,
+                              const std::function<void(bool)> &slot);
 
 #endif  // __HELPER_H__

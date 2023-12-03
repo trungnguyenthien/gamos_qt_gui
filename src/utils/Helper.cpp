@@ -55,7 +55,8 @@ QFont font_header() {
 
 QFont font_subHeader() {
   QFont def = font_default();
-  def.setPointSize(15);
+  def.setPointSize(14);
+  def.setBold(true);
   return def;
 }
 
@@ -121,4 +122,14 @@ void connectCbbIndexChange(QComboBox *cbb,
                            const std::function<void(int)> &slot) {
   QObject::connect(cbb, QOverload<int>::of(&QComboBox::currentIndexChanged),
                    [=](int index) { slot(index); });
+}
+
+void connectCheckBoxToggle(QCheckBox *cb,
+                           const std::function<void(bool)> &slot) {
+  QObject::connect(cb, &QCheckBox::toggled, slot);
+}
+
+void connectRadioButtonToggle(QRadioButton *rb,
+                              const std::function<void(bool)> &slot) {
+  QObject::connect(rb, &QRadioButton::toggled, slot);
 }

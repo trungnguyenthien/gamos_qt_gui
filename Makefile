@@ -690,6 +690,33 @@ src/widget/BListCheckBox.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BListCheckBox.cpp.s
 .PHONY : src/widget/BListCheckBox.cpp.s
 
+src/widget/BListCheckText.o: src/widget/BListCheckText.cpp.o
+
+.PHONY : src/widget/BListCheckText.o
+
+# target to build an object file
+src/widget/BListCheckText.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BListCheckText.cpp.o
+.PHONY : src/widget/BListCheckText.cpp.o
+
+src/widget/BListCheckText.i: src/widget/BListCheckText.cpp.i
+
+.PHONY : src/widget/BListCheckText.i
+
+# target to preprocess a source file
+src/widget/BListCheckText.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BListCheckText.cpp.i
+.PHONY : src/widget/BListCheckText.cpp.i
+
+src/widget/BListCheckText.s: src/widget/BListCheckText.cpp.s
+
+.PHONY : src/widget/BListCheckText.s
+
+# target to generate assembly for a file
+src/widget/BListCheckText.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BListCheckText.cpp.s
+.PHONY : src/widget/BListCheckText.cpp.s
+
 src/widget/BNumberInput.o: src/widget/BNumberInput.cpp.o
 
 .PHONY : src/widget/BNumberInput.o
@@ -1111,6 +1138,9 @@ help:
 	@echo "... src/widget/BListCheckBox.o"
 	@echo "... src/widget/BListCheckBox.i"
 	@echo "... src/widget/BListCheckBox.s"
+	@echo "... src/widget/BListCheckText.o"
+	@echo "... src/widget/BListCheckText.i"
+	@echo "... src/widget/BListCheckText.s"
 	@echo "... src/widget/BNumberInput.o"
 	@echo "... src/widget/BNumberInput.i"
 	@echo "... src/widget/BNumberInput.s"

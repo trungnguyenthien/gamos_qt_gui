@@ -13,6 +13,7 @@
 #include "virtual/BWindow.h"
 #include "widget/BComboBox.h"
 #include "widget/BListCheckBox.h"
+#include "widget/BListCheckText.h"
 
 using namespace std;
 class BDemo2Window : public QWidget, public BWindow {
@@ -30,6 +31,7 @@ class BDemo2Window : public QWidget, public BWindow {
   unique_ptr<BComboBox> cbbRadiation;
   unique_ptr<BListCheckBox> listRadiation;
   unique_ptr<BComboBox> cbbEnergy;
+  BListCheckText *listMatterMutiple;
   /// @brief Constructor
   /// @param parent
   /// @param mode 0 (mutiple), 1 (one)

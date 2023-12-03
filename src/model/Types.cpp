@@ -117,3 +117,48 @@ int ENERGY_value(ENERGY en) {
   }
   return 0;
 }
+
+QString MATTER_text(MATTER mat) {
+  switch (mat) {
+    case MATTER::LEAD:
+      return "lead";
+    case MATTER::ALUMIUM:
+      return "alumium";
+
+    case MATTER::PAPER:
+      return "paper";
+
+    case MATTER::CONCRETE:
+      return "concrete";
+
+    case MATTER::WATER:
+      return "water";
+
+    default:
+      break;
+  }
+  return "";
+}
+
+QString MATTER_g4_name(MATTER mat) {
+  switch (mat) {
+    case MATTER::LEAD:
+      return "G4_Pb";
+
+    case MATTER::ALUMIUM:
+      return "G4_Al";
+
+    case MATTER::PAPER:
+      return "G4_TISSUE_SOFT_ICRP";
+
+    case MATTER::CONCRETE:
+      return "G4_CONCRETE";
+
+    case MATTER::WATER:
+      return "G4_WATER";
+
+    default:
+      break;
+  }
+  return "";
+}

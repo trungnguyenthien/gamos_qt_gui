@@ -1,8 +1,8 @@
 #ifndef __TYPES_H__
 #define __TYPES_H__
 
-#include <iostream>
 #include <QString>
+#include <iostream>
 using namespace std;
 enum class RADIATION { NONE, GAMMA, E_NEGATIVE, E_POSITIVE, NEUTRON, ALPHA };
 string RADIATION_text(RADIATION r);
@@ -22,5 +22,7 @@ QString ENERGY_unit(ENERGY en);
 int ENERGY_value(ENERGY en);
 
 enum class MATTER { LEAD, ALUMIUM, PAPER, CONCRETE, WATER };
+QString MATTER_text(MATTER mat);
+QString MATTER_g4_name(MATTER mat);
 
 #endif  // __TYPES_H__
