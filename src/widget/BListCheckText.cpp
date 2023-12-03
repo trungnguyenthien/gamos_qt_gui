@@ -2,14 +2,7 @@
 
 #include "../utils/Helper.h"
 
-BListCheckText::BListCheckText(QWidget* parent, QString title, QString hintEdit,
-                               bool isSingleChoice, vector<QString> options)
-    : QWidget(parent) {
-  this->isSingleChoice = isSingleChoice;
-  this->title = title;
-  this->hintEdit = hintEdit;
-  this->options = options;
-}
+BListCheckText::BListCheckText(QWidget* parent) : QWidget(parent) {}
 
 void BListCheckText::initUI() {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
@@ -33,7 +26,7 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
   QLineEdit* edit = new QLineEdit(this);
   edit->setPlaceholderText(hintEdit);
   edit->setReadOnly(true);
-  edit->hide();
+  // edit->hide();
   int rowIndex = index + 1;
   const int rowHeight = 25;
   if (this->isSingleChoice) {
@@ -45,7 +38,9 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
     group->addButton(radioButton);
     grid->addWidget(radioButton, rowIndex, CHECK_COL);
     grid->addWidget(edit, rowIndex, TEXT_COL);
-
+    connectRadioButtonToggle(radioButton, [this, edit](bool checked) {
+      this->handleCheckBoxStateChange(checked, edit);
+    });
   } else {
     QCheckBox* checkBox = new QCheckBox(this);
     ds_wg_set_fixed_h(checkBox, rowHeight);
@@ -70,11 +65,16 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
 void BListCheckText::handleCheckBoxStateChange(bool isChecked,
                                                QLineEdit* edit) {
   edit->setReadOnly(!isChecked);
+  cout << "isChecked " << isChecked;
+  // edit->hide();
 
-  if (!isChecked) {
-    edit->setText("");
-    edit->hide();
-  } else {
+  if (isChecked && allowEdit) {
     edit->show();
+  }
+
+  if (isChecked) {
+    edit->setText(defaultValue);
+  } else {
+    edit->setText("");
   }
 }

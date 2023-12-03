@@ -36,7 +36,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
 
   connectButtonClicked(backButton.get(), [this]() { this->pop_back(); });
 
-  push(new BDemo2Window(this, 0));
+  push(new BDemo2Window(this, 1));
   // push(new BDemo1Window(this));
   // push(new BChooseModeWindow(this));
 }

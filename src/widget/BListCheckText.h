@@ -10,6 +10,7 @@
 #include <QLineEdit>
 #include <QRadioButton>
 #include <QWidget>
+#include <iostream>
 #include <memory>
 #include <unordered_map>
 #include <vector>
@@ -22,14 +23,15 @@ class BListCheckText : public QWidget {
   QLineEdit* makeCheck(int index, QString text, QString hintEdit,
                        QButtonGroup* group);
   void handleCheckBoxStateChange(bool isChecked, QLineEdit* edit);
-  QString hintEdit;
-  QString title;
-  vector<QString> options;
-  bool isSingleChoice;
 
  public:
-  BListCheckText(QWidget* parent, QString title, QString hintEdit,
-                 bool isSingleChoice, vector<QString> options);
+  QString hintEdit = "NO HINT";
+  QString title = "NO TITLE";
+  QString defaultValue = "";
+  vector<QString> options;
+  bool isSingleChoice = false;
+  bool allowEdit = true;
+  BListCheckText(QWidget* parent);
   void initUI();
   unordered_map<int, string> selectedValue();
   vector<unique_ptr<QLineEdit>> lineEdits;

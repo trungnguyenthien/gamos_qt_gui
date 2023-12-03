@@ -67,14 +67,15 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
     matterOptions.push_back(MATTER_text(item));
   }
 
-  if (isMultiple) {
-    listMatterMutiple =
-        new BListCheckText(this, "THE MATTER", "Please input thickness",
-                           !isMultiple, matterOptions);
-    listMatterMutiple->initUI();
-    grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
-  } else {
-  }
+  listMatterMutiple = new BListCheckText(this);
+  listMatterMutiple->title = "THE Matter";
+  listMatterMutiple->hintEdit = "Please input thickness";
+  listMatterMutiple->isSingleChoice = !isMultiple;
+  listMatterMutiple->allowEdit = isMultiple;
+  listMatterMutiple->defaultValue = "1";
+  listMatterMutiple->options = matterOptions;
+  listMatterMutiple->initUI();
+  grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
 
   btn_enter = unique_ptr<QPushButton>(new QPushButton(this));
   // ds_wg_set_expanding_w(btn_enter.get());
