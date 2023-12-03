@@ -23,6 +23,7 @@ class BListCheckText : public QWidget {
   QLineEdit* makeCheck(int index, QString text, QString hintEdit,
                        QButtonGroup* group);
   void handleCheckBoxStateChange(bool isChecked, QLineEdit* edit);
+  vector<QLineEdit*> lineEdits;
 
  public:
   QString hintEdit = "NO HINT";
@@ -33,9 +34,7 @@ class BListCheckText : public QWidget {
   bool allowEdit = true;
   BListCheckText(QWidget* parent);
   void initUI();
-  unordered_map<int, string> selectedValue();
-  vector<unique_ptr<QLineEdit>> lineEdits;
-  vector<int> selectedIndices;
+  unordered_map<int, QString> selectedValue();
 };
 
 #endif  // __BLISTCHECKTEXT_H__

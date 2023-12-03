@@ -18,12 +18,27 @@ void BListCheckText::initUI() {
   }
 }
 
+unordered_map<int, QString> BListCheckText::selectedValue() {
+  unordered_map<int, QString> output;
+  for (int i = 0; i < lineEdits.size(); i++) {
+    auto edit = lineEdits[i];
+    QString text = edit->text();
+
+    if (edit->isReadOnly()) {
+      continue;
+    }
+    output[i] = text;
+  }
+  return output;
+}
+
 QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
                                      QButtonGroup* group) {
   const int CHECK_COL = 0;
   const int TEXT_COL = 1;
   QLabel* label = new QLabel(this);
   QLineEdit* edit = new QLineEdit(this);
+  lineEdits.push_back(edit);
   edit->setPlaceholderText(hintEdit);
   edit->setReadOnly(true);
   // edit->hide();
@@ -53,10 +68,6 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
     connectCheckBoxToggle(checkBox, [this, edit](bool checked) {
       this->handleCheckBoxStateChange(checked, edit);
     });
-
-    // connectButtonClicked(btn_demo.get(), [this]() {
-    //   BMainWindow::shared->push(new BDemo1Window(this));
-    // });
   }
 
   return edit;

@@ -22,7 +22,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   radiation_source.push_back(RADIATION::ALPHA);
 
   if (isMultiple) {
-    cbbRadiation = unique_ptr<BComboBox>(new BComboBox(this, "The radiation"));
+    cbbRadiation = unique_ptr<BComboBox>(new BComboBox(this, "The Radiation"));
     ds_wg_set_expanding_w(cbbRadiation.get());
     for (auto item : radiation_source) {
       auto text = QString::fromStdString(RADIATION_text(item));
@@ -36,7 +36,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
       options.push_back(QString::fromStdString(RADIATION_text(item)));
     }
     listRadiation = unique_ptr<BListCheckBox>(
-        new BListCheckBox(this, "The radiation", true, options));
+        new BListCheckBox(this, "The Radiation", true, options));
     grid.get()->addWidget(listRadiation.get(), 1, 1, 1, 1);
   }
 
@@ -49,13 +49,15 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   energy_source.push_back(ENERGY::_10_MEV);
   energy_source.push_back(ENERGY::_100_MEV);
   cbbEnergy = unique_ptr<BComboBox>(new BComboBox(this, "The Energy"));
-  // vector<QString> energy_options;
+  cbbEnergy.get()->hide();
+
   for (auto item : energy_source) {
     cbbEnergy.get()->addItem(ENERGY_text(item));
-    // energy_options.push_back(QString::fromStdString(ENERGY_text(item)));
   }
-
-  grid.get()->addWidget(cbbEnergy.get(), 2, 1, 1, 1);
+  if (isMultiple) {
+    cbbEnergy.get()->show();
+    grid.get()->addWidget(cbbEnergy.get(), 2, 1, 1, 1);
+  }
 
   matter_source.push_back(MATTER::LEAD);
   matter_source.push_back(MATTER::ALUMIUM);
@@ -68,7 +70,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   }
 
   listMatterMutiple = new BListCheckText(this);
-  listMatterMutiple->title = "THE Matter";
+  listMatterMutiple->title = "The Matter";
   listMatterMutiple->hintEdit = "Please input thickness";
   listMatterMutiple->isSingleChoice = !isMultiple;
   listMatterMutiple->allowEdit = isMultiple;
