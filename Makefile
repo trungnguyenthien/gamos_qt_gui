@@ -582,6 +582,33 @@ src/utils/Helper.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.s
 .PHONY : src/utils/Helper.cpp.s
 
+src/utils/Terminal.o: src/utils/Terminal.cpp.o
+
+.PHONY : src/utils/Terminal.o
+
+# target to build an object file
+src/utils/Terminal.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.o
+.PHONY : src/utils/Terminal.cpp.o
+
+src/utils/Terminal.i: src/utils/Terminal.cpp.i
+
+.PHONY : src/utils/Terminal.i
+
+# target to preprocess a source file
+src/utils/Terminal.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.i
+.PHONY : src/utils/Terminal.cpp.i
+
+src/utils/Terminal.s: src/utils/Terminal.cpp.s
+
+.PHONY : src/utils/Terminal.s
+
+# target to generate assembly for a file
+src/utils/Terminal.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.s
+.PHONY : src/utils/Terminal.cpp.s
+
 src/widget/BComboBox.o: src/widget/BComboBox.cpp.o
 
 .PHONY : src/widget/BComboBox.o
@@ -1072,6 +1099,9 @@ help:
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
+	@echo "... src/utils/Terminal.o"
+	@echo "... src/utils/Terminal.i"
+	@echo "... src/utils/Terminal.s"
 	@echo "... src/widget/BComboBox.o"
 	@echo "... src/widget/BComboBox.i"
 	@echo "... src/widget/BComboBox.s"

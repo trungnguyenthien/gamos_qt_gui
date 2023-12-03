@@ -22,14 +22,14 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   radiation_source.push_back(RADIATION::ALPHA);
 
   if (isMultiple) {
-    ds_wg_set_expanding_w(cbbRadiation.get());
     cbbRadiation = unique_ptr<BComboBox>(new BComboBox(this, "The radiation"));
-    grid.get()->addWidget(cbbRadiation.get(), 1, 1, 1, 1);
-    QComboBox* cbb = cbbRadiation.get()->combobox.get();
-    for (int item = 0; item < radiation_source.size(); item++) {
-      cbb->addItem(
-          QString::fromStdString(RADIATION_text(radiation_source[item])));
+    ds_wg_set_expanding_w(cbbRadiation.get());
+    for (auto item : radiation_source) {
+      auto text = QString::fromStdString(RADIATION_text(item));
+      cbbRadiation.get()->addItem(text);
     }
+
+    grid.get()->addWidget(cbbRadiation.get(), 1, 1, 1, 1);
   } else {
     vector<QString> options;
     for (auto item : radiation_source) {
