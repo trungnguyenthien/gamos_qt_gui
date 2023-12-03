@@ -14,6 +14,7 @@ using namespace std;
 class BComboBox : public BVStackWidget {
   Q_OBJECT
  public:
+  void addItem(QString text);
   BComboBox(QWidget *parent, string title);
   unique_ptr<QComboBox> combobox;
   unique_ptr<QLabel> label;

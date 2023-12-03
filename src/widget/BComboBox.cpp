@@ -14,3 +14,5 @@ BComboBox::BComboBox(QWidget *parent, string title) : BVStackWidget(parent) {
   ds_wg_set_expanding_w(combobox.get());
   addSubWidget(combobox.get());
 }
+
+void BComboBox::addItem(QString text) { combobox.get()->addItem(text); }

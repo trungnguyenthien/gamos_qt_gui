@@ -41,7 +41,6 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   }
 
   /// SET UP ENERGY
-  cbbEnergy = unique_ptr<BComboBox>(new BComboBox(this, "The Energy"));
   energy_source.push_back(ENERGY::NONE);
   energy_source.push_back(ENERGY::_1_KEV);
   energy_source.push_back(ENERGY::_10_MEV);
@@ -49,6 +48,12 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   energy_source.push_back(ENERGY::_1_MEV);
   energy_source.push_back(ENERGY::_10_MEV);
   energy_source.push_back(ENERGY::_100_MEV);
+  cbbEnergy = unique_ptr<BComboBox>(new BComboBox(this, "The Energy"));
+  // vector<QString> energy_options;
+  for (auto item : energy_source) {
+    cbbEnergy.get()->addItem(ENERGY_text(item));
+    // energy_options.push_back(QString::fromStdString(ENERGY_text(item)));
+  }
 
   grid.get()->addWidget(cbbEnergy.get(), 2, 1, 1, 1);
 
