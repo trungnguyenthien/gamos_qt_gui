@@ -3,6 +3,7 @@
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QRadioButton>
@@ -15,15 +16,19 @@
 #include "BVStackWidget.h"
 
 using namespace std;
-class BListCheckBox : public BVStackWidget {
+class BListCheckBox : public QWidget {
   Q_OBJECT
+ private:
+  QGridLayout* grid;
+
  public:
   // CONFIG VARIABLE
   QString title;
   bool isSingleChoice;
   vector<QString> options;
+  int numberColumn = 2;
   //
-  BListCheckBox(QWidget *parent);
+  BListCheckBox(QWidget* parent);
   vector<unique_ptr<QCheckBox>> vectorCheckBox;
   vector<unique_ptr<QRadioButton>> vectorRadioButton;
   unique_ptr<QLabel> label;

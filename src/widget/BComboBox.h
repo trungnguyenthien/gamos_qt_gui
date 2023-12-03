@@ -2,22 +2,27 @@
 #define __BCOMBOBOX_H__
 
 #include <QComboBox>
+#include <QGridLayout>
 #include <QLabel>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QWidget>
 #include <memory>
 
-#include "BVStackWidget.h"
-
 using namespace std;
-class BComboBox : public BVStackWidget {
+class BComboBox : public QWidget {
   Q_OBJECT
+ private:
+  QGridLayout *grid;
+
  public:
+  QString title;
+  bool isTitleInLine = false;
   void addItem(QString text);
-  BComboBox(QWidget *parent, string title);
-  unique_ptr<QComboBox> combobox;
-  unique_ptr<QLabel> label;
+  void initUI();
+  BComboBox(QWidget *parent, QString title);
+  QComboBox *combobox;
+  QLabel *label;
 };
 
 #endif  // __BCOMBOBOX_H__

@@ -28,9 +28,8 @@ class BDemo2Window : public QWidget, public BWindow {
 
  public:
   unique_ptr<QPushButton> btn_enter;
-  unique_ptr<BComboBox> cbbRadiation;
-  unique_ptr<BListCheckBox> listRadiation;
-  unique_ptr<BComboBox> cbbEnergy;
+  BListCheckBox *listRadiation;
+  BComboBox *cbbEnergy;
   BListCheckText *listMatterMutiple;
   /// @brief Constructor
   /// @param parent

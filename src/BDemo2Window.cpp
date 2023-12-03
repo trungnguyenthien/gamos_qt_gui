@@ -10,38 +10,24 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   this->mode = mode;
   bool isMultiple = mode == 0;
   this->setLayout(grid.get());
-  /// SET UP RADIATION
 
-  if (isMultiple) {
-    radiation_source.push_back(RADIATION::NONE);
-  }
+  /// SET UP RADIATION
   radiation_source.push_back(RADIATION::GAMMA);
   radiation_source.push_back(RADIATION::E_NEGATIVE);
   radiation_source.push_back(RADIATION::E_POSITIVE);
   radiation_source.push_back(RADIATION::NEUTRON);
   radiation_source.push_back(RADIATION::ALPHA);
-
-  if (isMultiple) {
-    cbbRadiation = unique_ptr<BComboBox>(new BComboBox(this, "The Radiation"));
-    ds_wg_set_expanding_w(cbbRadiation.get());
-    for (auto item : radiation_source) {
-      auto text = QString::fromStdString(RADIATION_text(item));
-      cbbRadiation.get()->addItem(text);
-    }
-
-    grid.get()->addWidget(cbbRadiation.get(), 1, 1, 1, 1);
-  } else {
-    vector<QString> options;
-    for (auto item : radiation_source) {
-      options.push_back(QString::fromStdString(RADIATION_text(item)));
-    }
-    listRadiation = unique_ptr<BListCheckBox>(new BListCheckBox(this));
-    listRadiation.get()->isSingleChoice = true;
-    listRadiation.get()->title = "The Radiation";
-    listRadiation.get()->options = options;
-    listRadiation.get()->initUI();
-    grid.get()->addWidget(listRadiation.get(), 1, 1, 1, 1);
+  vector<QString> radiationOptions;
+  for (auto item : radiation_source) {
+    radiationOptions.push_back(QString::fromStdString(RADIATION_text(item)));
   }
+  listRadiation = new BListCheckBox(this);
+  listRadiation->numberColumn = 3;
+  listRadiation->isSingleChoice = isMultiple;
+  listRadiation->title = "The Radiation";
+  listRadiation->options = radiationOptions;
+  listRadiation->initUI();
+  grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
 
   /// SET UP ENERGY
   energy_source.push_back(ENERGY::NONE);
@@ -51,17 +37,20 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   energy_source.push_back(ENERGY::_1_MEV);
   energy_source.push_back(ENERGY::_10_MEV);
   energy_source.push_back(ENERGY::_100_MEV);
-  cbbEnergy = unique_ptr<BComboBox>(new BComboBox(this, "The Energy"));
-  cbbEnergy.get()->hide();
+  cbbEnergy = new BComboBox(this, "The Energy");
+  cbbEnergy->isTitleInLine = true;
+  cbbEnergy->hide();
 
   for (auto item : energy_source) {
-    cbbEnergy.get()->addItem(ENERGY_text(item));
+    cbbEnergy->addItem(ENERGY_text(item));
   }
+  cbbEnergy->initUI();
   if (isMultiple) {
-    cbbEnergy.get()->show();
-    grid.get()->addWidget(cbbEnergy.get(), 2, 1, 1, 1);
+    cbbEnergy->show();
+    grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
   }
 
+  /// SET UP MATTER
   matter_source.push_back(MATTER::LEAD);
   matter_source.push_back(MATTER::ALUMIUM);
   matter_source.push_back(MATTER::PAPER);
