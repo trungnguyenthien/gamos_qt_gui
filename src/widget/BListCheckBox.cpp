@@ -1,10 +1,16 @@
 #include "BListCheckBox.h"
 
 #include <QButtonGroup>
-BListCheckBox::BListCheckBox(QWidget *parent, bool isSingleChoice,
+
+#include "../utils/Helper.h"
+BListCheckBox::BListCheckBox(QWidget *parent, string title, bool isSingleChoice,
                              vector<QString> options)
     : BVStackWidget(parent) {
   this->isSingleChoice = isSingleChoice;
+  label = unique_ptr<QLabel>(new QLabel(this));
+  label.get()->setText(QString::fromStdString(title));
+  label.get()->setFont(font_subHeader());
+  addSubWidget(label.get());
   if (isSingleChoice) {
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     for (auto item : options) {

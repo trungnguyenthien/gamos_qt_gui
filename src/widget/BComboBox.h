@@ -8,10 +8,10 @@
 #include <QtWidgets/QWidget>
 #include <memory>
 
-#include "BHStackWidget.h"
+#include "BVStackWidget.h"
 
 using namespace std;
-class BComboBox : public BHStackWidget {
+class BComboBox : public BVStackWidget {
   Q_OBJECT
  public:
   BComboBox(QWidget *parent, string title);

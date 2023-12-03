@@ -19,10 +19,11 @@ class BListCheckBox : public BVStackWidget {
   Q_OBJECT
  public:
   bool isSingleChoice;
-  BListCheckBox(QWidget *parent, bool isSingleChoice, vector<QString> options);
+  BListCheckBox(QWidget *parent, string title, bool isSingleChoice,
+                vector<QString> options);
   vector<unique_ptr<QCheckBox>> vectorCheckBox;
   vector<unique_ptr<QRadioButton>> vectorRadioButton;
-
+  unique_ptr<QLabel> label;
   vector<int> selectedIndices;
 };
 #endif  // __BLISTCHECKBOX_H__
