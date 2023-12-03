@@ -29,6 +29,7 @@ class BListCheckText : public QWidget {
   QString hintEdit = "NO HINT";
   QString title = "NO TITLE";
   QString defaultValue = "";
+  int numberColumn = 2;
   vector<QString> options;
   bool isSingleChoice = false;
   bool allowEdit = true;

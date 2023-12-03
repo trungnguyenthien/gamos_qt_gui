@@ -1,5 +1,7 @@
 #include "BListCheckText.h"
 
+#include <cmath>
+
 #include "../utils/Helper.h"
 
 BListCheckText::BListCheckText(QWidget* parent) : QWidget(parent) {}
@@ -34,6 +36,10 @@ unordered_map<int, QString> BListCheckText::selectedValue() {
 
 QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
                                      QButtonGroup* group) {
+  int maxRowPerColumn = ceil((float)options.size() / numberColumn);
+  int row = index % maxRowPerColumn;
+  int column = index / maxRowPerColumn;
+
   const int CHECK_COL = 0;
   const int TEXT_COL = 1;
   QLabel* label = new QLabel(this);
@@ -42,7 +48,7 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
   edit->setPlaceholderText(hintEdit);
   edit->setReadOnly(true);
   // edit->hide();
-  int rowIndex = index + 1;
+  int rowIndex = row + 1;
   const int rowHeight = 25;
   if (this->isSingleChoice) {
     QRadioButton* radioButton = new QRadioButton(this);
@@ -51,8 +57,8 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
     radioButton->setStyleSheet(
         "QRadioButton::indicator { subcontrol-position: left; }");
     group->addButton(radioButton);
-    grid->addWidget(radioButton, rowIndex, CHECK_COL);
-    grid->addWidget(edit, rowIndex, TEXT_COL);
+    grid->addWidget(radioButton, rowIndex, (column) * 2 + CHECK_COL);
+    grid->addWidget(edit, rowIndex, (column) * 2 + TEXT_COL);
     connectRadioButtonToggle(radioButton, [this, edit](bool checked) {
       this->handleCheckBoxStateChange(checked, edit);
     });
@@ -62,8 +68,8 @@ QLineEdit* BListCheckText::makeCheck(int index, QString text, QString hintEdit,
     checkBox->setText(text);
     checkBox->setStyleSheet(
         "QCheckBox::indicator { subcontrol-position: left; }");
-    grid->addWidget(checkBox, rowIndex, CHECK_COL);
-    grid->addWidget(edit, rowIndex, TEXT_COL);
+    grid->addWidget(checkBox, rowIndex, (column) * 2 + CHECK_COL);
+    grid->addWidget(edit, rowIndex, (column) * 2 + TEXT_COL);
 
     connectCheckBoxToggle(checkBox, [this, edit](bool checked) {
       this->handleCheckBoxStateChange(checked, edit);

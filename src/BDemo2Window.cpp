@@ -63,7 +63,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
 
   listMatterMutiple = new BListCheckText(this);
   listMatterMutiple->title = "The Matter";
-  listMatterMutiple->hintEdit = "Please input thickness";
+  listMatterMutiple->hintEdit = "Input thickness";
   listMatterMutiple->isSingleChoice = !isMultiple;
   listMatterMutiple->allowEdit = isMultiple;
   listMatterMutiple->defaultValue = "1";
