@@ -582,33 +582,6 @@ src/utils/Helper.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.s
 .PHONY : src/utils/Helper.cpp.s
 
-src/utils/Terminal.o: src/utils/Terminal.cpp.o
-
-.PHONY : src/utils/Terminal.o
-
-# target to build an object file
-src/utils/Terminal.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.o
-.PHONY : src/utils/Terminal.cpp.o
-
-src/utils/Terminal.i: src/utils/Terminal.cpp.i
-
-.PHONY : src/utils/Terminal.i
-
-# target to preprocess a source file
-src/utils/Terminal.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.i
-.PHONY : src/utils/Terminal.cpp.i
-
-src/utils/Terminal.s: src/utils/Terminal.cpp.s
-
-.PHONY : src/utils/Terminal.s
-
-# target to generate assembly for a file
-src/utils/Terminal.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Terminal.cpp.s
-.PHONY : src/utils/Terminal.cpp.s
-
 src/widget/BComboBox.o: src/widget/BComboBox.cpp.o
 
 .PHONY : src/widget/BComboBox.o
@@ -851,6 +824,33 @@ src/widget/BVStackWidget.s: src/widget/BVStackWidget.cpp.s
 src/widget/BVStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.s
 .PHONY : src/widget/BVStackWidget.cpp.s
+
+src/widget/Terminal.o: src/widget/Terminal.cpp.o
+
+.PHONY : src/widget/Terminal.o
+
+# target to build an object file
+src/widget/Terminal.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.o
+.PHONY : src/widget/Terminal.cpp.o
+
+src/widget/Terminal.i: src/widget/Terminal.cpp.i
+
+.PHONY : src/widget/Terminal.i
+
+# target to preprocess a source file
+src/widget/Terminal.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.i
+.PHONY : src/widget/Terminal.cpp.i
+
+src/widget/Terminal.s: src/widget/Terminal.cpp.s
+
+.PHONY : src/widget/Terminal.s
+
+# target to generate assembly for a file
+src/widget/Terminal.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.s
+.PHONY : src/widget/Terminal.cpp.s
 
 src/widget/moc_BComboBox.o: src/widget/moc_BComboBox.cpp.o
 
@@ -1126,9 +1126,6 @@ help:
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
-	@echo "... src/utils/Terminal.o"
-	@echo "... src/utils/Terminal.i"
-	@echo "... src/utils/Terminal.s"
 	@echo "... src/widget/BComboBox.o"
 	@echo "... src/widget/BComboBox.i"
 	@echo "... src/widget/BComboBox.s"
@@ -1156,6 +1153,9 @@ help:
 	@echo "... src/widget/BVStackWidget.o"
 	@echo "... src/widget/BVStackWidget.i"
 	@echo "... src/widget/BVStackWidget.s"
+	@echo "... src/widget/Terminal.o"
+	@echo "... src/widget/Terminal.i"
+	@echo "... src/widget/Terminal.s"
 	@echo "... src/widget/moc_BComboBox.o"
 	@echo "... src/widget/moc_BComboBox.i"
 	@echo "... src/widget/moc_BComboBox.s"
