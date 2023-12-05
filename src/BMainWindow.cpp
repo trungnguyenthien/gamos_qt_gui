@@ -28,7 +28,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
 
   topPlaceHolder.get()->getLayout()->addWidget(titleLabel.get(), 1);
 
-  ds_pushButton(backButton.get(), 40, 40, "ic-back-button.png");
+  ds_pushButton(backButton.get(), 35, 35, "⬅");
   ds_pushButton_removeBorder(backButton.get());
 
   stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));

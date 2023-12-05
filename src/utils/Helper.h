@@ -20,6 +20,7 @@ QFont font_normal();
 QFont font_title();
 QFont font_header();
 QFont font_subHeader();
+QFont font_size(int size);
 
 QWidget *h_blankWidget();
 QWidget *v_blankWidget();

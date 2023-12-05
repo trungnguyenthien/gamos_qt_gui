@@ -1,10 +1,19 @@
 #include "AppData.h"
-QString AppData::gamosDir() { return AppData::setting.value("gamosDir", ""); }
 
-QString AppData::workingDir() {
-  return AppData::setting.value("workingDir", "");
+QSettings AppData::setting;
+
+QString AppData::gamosDir() {
+  return AppData::setting.value("gamosDir", "").toString();
 }
 
-void AppData::setGamosDir(QString dir) {}
+QString AppData::workingDir() {
+  return AppData::setting.value("workingDir", "").toString();
+}
 
-void AppData::setWorkingDir(QString dir) {}
+void AppData::setGamosDir(QString dir) {
+  AppData::setting.setValue("gamosDir", dir);
+}
+
+void AppData::setWorkingDir(QString dir) {
+  AppData::setting.setValue("workingDir", dir);
+}

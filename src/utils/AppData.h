@@ -6,8 +6,7 @@
 using namespace std;
 class AppData {
  private:
-  static QSettings setting =
-      QSettings(QSettings::IniFormat, QSettings::UserScope, "Bean", "GamosUI");
+  static QSettings setting;
 
  public:
   static QString gamosDir();

@@ -555,6 +555,33 @@ src/model/Types.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Types.cpp.s
 .PHONY : src/model/Types.cpp.s
 
+src/utils/AppData.o: src/utils/AppData.cpp.o
+
+.PHONY : src/utils/AppData.o
+
+# target to build an object file
+src/utils/AppData.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/AppData.cpp.o
+.PHONY : src/utils/AppData.cpp.o
+
+src/utils/AppData.i: src/utils/AppData.cpp.i
+
+.PHONY : src/utils/AppData.i
+
+# target to preprocess a source file
+src/utils/AppData.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/AppData.cpp.i
+.PHONY : src/utils/AppData.cpp.i
+
+src/utils/AppData.s: src/utils/AppData.cpp.s
+
+.PHONY : src/utils/AppData.s
+
+# target to generate assembly for a file
+src/utils/AppData.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/AppData.cpp.s
+.PHONY : src/utils/AppData.cpp.s
+
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
 .PHONY : src/utils/Helper.o
@@ -1150,6 +1177,9 @@ help:
 	@echo "... src/model/Types.o"
 	@echo "... src/model/Types.i"
 	@echo "... src/model/Types.s"
+	@echo "... src/utils/AppData.o"
+	@echo "... src/utils/AppData.i"
+	@echo "... src/utils/AppData.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"

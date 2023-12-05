@@ -60,6 +60,13 @@ QFont font_subHeader() {
   return def;
 }
 
+QFont font_size(int size) {
+  QFont def = font_default();
+  def.setPointSize(size);
+  def.setBold(true);
+  return def;
+}
+
 QWidget *h_blankWidget() {
   QWidget *spacer = new QWidget();
   spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -103,10 +110,18 @@ void ds_label_align_left(QLabel *lb) { lb->setAlignment(Qt::AlignLeft); }
 void ds_label_align_center(QLabel *lb) { lb->setAlignment(Qt::AlignCenter); }
 
 void ds_pushButton(QPushButton *button, int w, int h, QString imageName) {
-  QPixmap pixmap("./resources/img/" + imageName);
-  QIcon ic(pixmap);
-  button->setIcon(ic);
+  // QPixmap pixmap("./resources/img/" + imageName);
+  // QIcon ic(pixmap);
+  // button->setIcon(ic);
+  button->setStyleSheet(
+      "QPushButton { "
+      "border: 2px solid #000000; "  // Border color and width
+      "border-radius: 5px; "         // Border radius for round corners
+      "padding: 5px 10px; "          // Padding for content
+      "}");
   button->setIconSize(QSize(w, h));
+  button->setText(imageName);
+  button->setFont(font_size(w));
 }
 
 void ds_pushButton_removeBorder(QPushButton *button) {
