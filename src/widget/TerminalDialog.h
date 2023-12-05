@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QGridLayout>
+#include <QKeyEvent>
 #include <QProcess>
 #include <QString>
 #include <QStringList>
@@ -14,21 +15,33 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-class Terminal : public QDialog {
+class TerminalDialog : public QDialog {
   Q_OBJECT
  private:
   QGridLayout *grid;
   QStringList commandLines;
+  QStringList infoLines;
   //  private slots:
   //   void processFinished(int exitCode, QProcess::ExitStatus exitStatus);
   //   void readOutput();
 
  public:
   QProcess process;
+  QTextEdit *infomationText;
   QTextEdit *terminalOutput;
-  Terminal(QWidget *parent);
+  TerminalDialog(QWidget *parent);
   void setCurrentDir(QString dir);
   void addCommand(QString cmd);
+  void addInfo(QString info);
   void execute();
+
+ protected:
+  void keyPressEvent(QKeyEvent *event) override {
+    if (event->key() == Qt::Key_Escape) {
+      event->ignore();  // Ignore the Escape key press event
+    } else {
+      QDialog::keyPressEvent(event);
+    }
+  }
 };
 #endif  // __TERMINAL_H__

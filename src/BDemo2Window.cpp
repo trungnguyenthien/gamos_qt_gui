@@ -4,7 +4,7 @@
 #include <QVariant>
 
 #include "utils/Helper.h"
-#include "widget/Terminal.h"
+#include "widget/TerminalDialog.h"
 
 BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
@@ -77,7 +77,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   // ds_wg_set_expanding_h(btn_enter.get());
   btn_enter.get()->setText("ENTER");
   connectButtonClicked(btn_enter.get(), [this]() {
-    Terminal* ter = new Terminal(this);
+    TerminalDialog* ter = new TerminalDialog(this);
     ter->exec();
   });
   grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);

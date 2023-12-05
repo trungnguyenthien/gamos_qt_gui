@@ -825,32 +825,32 @@ src/widget/BVStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BVStackWidget.cpp.s
 .PHONY : src/widget/BVStackWidget.cpp.s
 
-src/widget/Terminal.o: src/widget/Terminal.cpp.o
+src/widget/TerminalDialog.o: src/widget/TerminalDialog.cpp.o
 
-.PHONY : src/widget/Terminal.o
+.PHONY : src/widget/TerminalDialog.o
 
 # target to build an object file
-src/widget/Terminal.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.o
-.PHONY : src/widget/Terminal.cpp.o
+src/widget/TerminalDialog.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/TerminalDialog.cpp.o
+.PHONY : src/widget/TerminalDialog.cpp.o
 
-src/widget/Terminal.i: src/widget/Terminal.cpp.i
+src/widget/TerminalDialog.i: src/widget/TerminalDialog.cpp.i
 
-.PHONY : src/widget/Terminal.i
+.PHONY : src/widget/TerminalDialog.i
 
 # target to preprocess a source file
-src/widget/Terminal.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.i
-.PHONY : src/widget/Terminal.cpp.i
+src/widget/TerminalDialog.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/TerminalDialog.cpp.i
+.PHONY : src/widget/TerminalDialog.cpp.i
 
-src/widget/Terminal.s: src/widget/Terminal.cpp.s
+src/widget/TerminalDialog.s: src/widget/TerminalDialog.cpp.s
 
-.PHONY : src/widget/Terminal.s
+.PHONY : src/widget/TerminalDialog.s
 
 # target to generate assembly for a file
-src/widget/Terminal.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/Terminal.cpp.s
-.PHONY : src/widget/Terminal.cpp.s
+src/widget/TerminalDialog.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/TerminalDialog.cpp.s
+.PHONY : src/widget/TerminalDialog.cpp.s
 
 src/widget/moc_BComboBox.o: src/widget/moc_BComboBox.cpp.o
 
@@ -1068,6 +1068,33 @@ src/widget/moc_BVStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BVStackWidget.cpp.s
 .PHONY : src/widget/moc_BVStackWidget.cpp.s
 
+src/widget/moc_TerminalDialog.o: src/widget/moc_TerminalDialog.cpp.o
+
+.PHONY : src/widget/moc_TerminalDialog.o
+
+# target to build an object file
+src/widget/moc_TerminalDialog.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_TerminalDialog.cpp.o
+.PHONY : src/widget/moc_TerminalDialog.cpp.o
+
+src/widget/moc_TerminalDialog.i: src/widget/moc_TerminalDialog.cpp.i
+
+.PHONY : src/widget/moc_TerminalDialog.i
+
+# target to preprocess a source file
+src/widget/moc_TerminalDialog.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_TerminalDialog.cpp.i
+.PHONY : src/widget/moc_TerminalDialog.cpp.i
+
+src/widget/moc_TerminalDialog.s: src/widget/moc_TerminalDialog.cpp.s
+
+.PHONY : src/widget/moc_TerminalDialog.s
+
+# target to generate assembly for a file
+src/widget/moc_TerminalDialog.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_TerminalDialog.cpp.s
+.PHONY : src/widget/moc_TerminalDialog.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1153,9 +1180,9 @@ help:
 	@echo "... src/widget/BVStackWidget.o"
 	@echo "... src/widget/BVStackWidget.i"
 	@echo "... src/widget/BVStackWidget.s"
-	@echo "... src/widget/Terminal.o"
-	@echo "... src/widget/Terminal.i"
-	@echo "... src/widget/Terminal.s"
+	@echo "... src/widget/TerminalDialog.o"
+	@echo "... src/widget/TerminalDialog.i"
+	@echo "... src/widget/TerminalDialog.s"
 	@echo "... src/widget/moc_BComboBox.o"
 	@echo "... src/widget/moc_BComboBox.i"
 	@echo "... src/widget/moc_BComboBox.s"
@@ -1180,6 +1207,9 @@ help:
 	@echo "... src/widget/moc_BVStackWidget.o"
 	@echo "... src/widget/moc_BVStackWidget.i"
 	@echo "... src/widget/moc_BVStackWidget.s"
+	@echo "... src/widget/moc_TerminalDialog.o"
+	@echo "... src/widget/moc_TerminalDialog.i"
+	@echo "... src/widget/moc_TerminalDialog.s"
 .PHONY : help
 
 
