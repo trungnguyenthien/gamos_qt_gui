@@ -60,6 +60,6 @@ void saveFile(QString outputDir, QString fileName, QStringList lines);
 
 /// Ví dụ, nếu thời gian hiện tại là 15:30:45 vào ngày 10 tháng 12 năm 2023, thì
 /// kết quả sẽ là chuỗi "20231210_153045".
-QString getCurrentDateTime()
+QString getCurrentDateTime();
 
 #endif  // __HELPER_H__

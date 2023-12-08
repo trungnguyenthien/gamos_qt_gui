@@ -609,6 +609,33 @@ src/utils/Helper.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.s
 .PHONY : src/utils/Helper.cpp.s
 
+src/widget/AppData.o: src/widget/AppData.cpp.o
+
+.PHONY : src/widget/AppData.o
+
+# target to build an object file
+src/widget/AppData.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/AppData.cpp.o
+.PHONY : src/widget/AppData.cpp.o
+
+src/widget/AppData.i: src/widget/AppData.cpp.i
+
+.PHONY : src/widget/AppData.i
+
+# target to preprocess a source file
+src/widget/AppData.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/AppData.cpp.i
+.PHONY : src/widget/AppData.cpp.i
+
+src/widget/AppData.s: src/widget/AppData.cpp.s
+
+.PHONY : src/widget/AppData.s
+
+# target to generate assembly for a file
+src/widget/AppData.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/AppData.cpp.s
+.PHONY : src/widget/AppData.cpp.s
+
 src/widget/BComboBox.o: src/widget/BComboBox.cpp.o
 
 .PHONY : src/widget/BComboBox.o
@@ -878,6 +905,33 @@ src/widget/TerminalDialog.s: src/widget/TerminalDialog.cpp.s
 src/widget/TerminalDialog.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/TerminalDialog.cpp.s
 .PHONY : src/widget/TerminalDialog.cpp.s
+
+src/widget/moc_AppData.o: src/widget/moc_AppData.cpp.o
+
+.PHONY : src/widget/moc_AppData.o
+
+# target to build an object file
+src/widget/moc_AppData.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_AppData.cpp.o
+.PHONY : src/widget/moc_AppData.cpp.o
+
+src/widget/moc_AppData.i: src/widget/moc_AppData.cpp.i
+
+.PHONY : src/widget/moc_AppData.i
+
+# target to preprocess a source file
+src/widget/moc_AppData.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_AppData.cpp.i
+.PHONY : src/widget/moc_AppData.cpp.i
+
+src/widget/moc_AppData.s: src/widget/moc_AppData.cpp.s
+
+.PHONY : src/widget/moc_AppData.s
+
+# target to generate assembly for a file
+src/widget/moc_AppData.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_AppData.cpp.s
+.PHONY : src/widget/moc_AppData.cpp.s
 
 src/widget/moc_BComboBox.o: src/widget/moc_BComboBox.cpp.o
 
@@ -1183,6 +1237,9 @@ help:
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
+	@echo "... src/widget/AppData.o"
+	@echo "... src/widget/AppData.i"
+	@echo "... src/widget/AppData.s"
 	@echo "... src/widget/BComboBox.o"
 	@echo "... src/widget/BComboBox.i"
 	@echo "... src/widget/BComboBox.s"
@@ -1213,6 +1270,9 @@ help:
 	@echo "... src/widget/TerminalDialog.o"
 	@echo "... src/widget/TerminalDialog.i"
 	@echo "... src/widget/TerminalDialog.s"
+	@echo "... src/widget/moc_AppData.o"
+	@echo "... src/widget/moc_AppData.i"
+	@echo "... src/widget/moc_AppData.s"
 	@echo "... src/widget/moc_BComboBox.o"
 	@echo "... src/widget/moc_BComboBox.i"
 	@echo "... src/widget/moc_BComboBox.s"
