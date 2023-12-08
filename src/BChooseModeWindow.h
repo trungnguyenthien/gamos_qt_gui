@@ -7,6 +7,9 @@
 #include <QtWidgets/QWidget>
 #include <memory>
 
+#include "BDemo1Window.h"
+#include "BMainWindow.h"
+#include "utils/Helper.h"
 #include "virtual/BWindow.h"
 
 using namespace std;

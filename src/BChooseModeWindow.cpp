@@ -1,9 +1,5 @@
 #include "BChooseModeWindow.h"
 
-#include "BDemo1Window.h"
-#include "BMainWindow.h"
-#include "utils/Helper.h"
-
 BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
   this->setLayout(grid.get());
