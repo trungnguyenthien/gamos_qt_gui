@@ -20,6 +20,7 @@ class BMainWindow : public BVStackWidget {
   unique_ptr<QStackedWidget> stackedWidget;
   unique_ptr<BHStackWidget> topPlaceHolder;
   unique_ptr<QPushButton> backButton;
+  QPushButton *settingButton;
   unique_ptr<QLabel> titleLabel;
 
   vector<BWindow *> windows;

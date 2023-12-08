@@ -19,8 +19,8 @@ BPhantomTab::BPhantomTab(QWidget *parent) : QHBoxLayout(parent) {
   number1->turnOnIntValidator(10, 77);
   left->addSubWidget(number1);
 
-  BPathInput *pathInput = new BPathInput(parent, "...");
-  left->addSubWidget(pathInput);
+  // BPathInput *pathInput = new BPathInput(parent, "...");
+  // left->addSubWidget(pathInput);
 
   // Render Right
   QLabel *lbl02 = new QLabel(parent);

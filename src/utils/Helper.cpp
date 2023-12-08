@@ -1,6 +1,7 @@
 #include "Helper.h"
 
 #include <QDebug>
+#include <QFileDialog>
 #include <QFont>
 #include <QFontDatabase>
 #include <QIcon>
@@ -79,6 +80,13 @@ QWidget *v_blankWidget() {
   return spacer;
 }
 
+QLabel *titleLabel(QString title, QWidget *parent) {
+  QLabel *label = new QLabel(parent);
+  label->setText(title);
+  label->setFont(font_subHeader());
+  return label;
+}
+
 QSpacerItem *h_blank() {
   return new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
@@ -109,17 +117,24 @@ void ds_label_align_left(QLabel *lb) { lb->setAlignment(Qt::AlignLeft); }
 
 void ds_label_align_center(QLabel *lb) { lb->setAlignment(Qt::AlignCenter); }
 
-void ds_pushButton(QPushButton *button, int w, int h, QString imageName) {
+void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
+                               QString imageName) {
   // QPixmap pixmap("./resources/img/" + imageName);
   // QIcon ic(pixmap);
   // button->setIcon(ic);
   button->setStyleSheet(
-      "QPushButton { "
-      "border: 2px solid #000000; "  // Border color and width
-      "border-radius: 5px; "         // Border radius for round corners
-      "padding: 5px 10px; "          // Padding for content
+      "QPushButton {"
+      "    border-radius: 10px;"        // Adjust the radius for roundness
+      "    border: 2px solid #8f8f91;"  // Border color and thickness
+      "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+      "                                  stop:0 #f6f7fa, stop:1 #dadbde);"
+      "    min-width: 40px;"  // Minimum width
+      "}"
+      "QPushButton:pressed {"
+      "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
+      "                                  stop:0 #dadbde, stop:1 #f6f7fa);"
       "}");
-  button->setIconSize(QSize(w, h));
+  // button->setIconSize(QSize(w, h));
   button->setText(imageName);
   button->setFont(font_size(w));
 }
@@ -147,4 +162,38 @@ void connectCheckBoxToggle(QCheckBox *cb,
 void connectRadioButtonToggle(QRadioButton *rb,
                               const std::function<void(bool)> &slot) {
   QObject::connect(rb, &QRadioButton::toggled, slot);
+}
+
+QString openDirectory(QWidget *parent, QString startDir, QString defaultDir) {
+  return QFileDialog::getExistingDirectory(
+      parent, "Select Directory", startDir.isEmpty() ? defaultDir : startDir,
+      QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+}
+
+void saveFile(QString outputDir, QString fileName, QStringList lines) {
+  // Kết hợp đường dẫn và tên tệp
+  QString filePath = outputDir + "/" + fileName;
+
+  // Tạo đối tượng QFile để tạo và ghi tệp
+  QFile file(filePath);
+
+  if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+    QTextStream out(&file);
+
+    // Ghi từng dòng từ QStringList vào tệp
+    foreach (const QString &line, lines) {
+      out << line << "\n";
+    }
+
+    file.close();
+    qDebug() << "Tệp đã được lưu tại: " << filePath;
+  } else {
+    qDebug() << "Không thể tạo hoặc ghi tệp.";
+  }
+}
+
+QString getCurrentDateTime() {
+  QDateTime currentDateTime = QDateTime::currentDateTime();
+  QString formattedDateTime = currentDateTime.toString("yyyyMMdd_HHmmss");
+  return formattedDateTime;
 }

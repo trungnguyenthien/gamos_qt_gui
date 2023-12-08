@@ -9,6 +9,7 @@
 #include "BDemo1Window.h"
 #include "BDemo2Window.h"
 #include "utils/Helper.h"
+#include "widget/AppData.h"
 #include "widget/BHStackWidget.h"
 BMainWindow *BMainWindow::shared = nullptr;
 
@@ -16,6 +17,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   BMainWindow::shared = this;
   topPlaceHolder = unique_ptr<BHStackWidget>(new BHStackWidget(this));
   backButton = unique_ptr<QPushButton>(new QPushButton(this));
+  settingButton = new QPushButton(this);
   topPlaceHolder.get()->addSubWidget(backButton.get());
 
   addSubWidget(topPlaceHolder.get());
@@ -27,14 +29,19 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
   topPlaceHolder.get()->getLayout()->addWidget(titleLabel.get(), 1);
+  topPlaceHolder.get()->addSubWidget(settingButton);
 
-  ds_pushButton(backButton.get(), 35, 35, "⬅");
-  ds_pushButton_removeBorder(backButton.get());
+  ds_pushButton_buttonStyle(backButton.get(), 20, 20, "⬅");
+  ds_pushButton_buttonStyle(settingButton, 20, 20, "⋯");
 
   stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
   getLayout()->addWidget(stackedWidget.get(), 1);
 
   connectButtonClicked(backButton.get(), [this]() { this->pop_back(); });
+  connectButtonClicked(settingButton, [this] {
+    AppDataDialog *settingDialog = new AppDataDialog(this);
+    settingDialog->exec();
+  });
 
   push(new BDemo2Window(this, 0));
   // push(new BDemo1Window(this));
