@@ -14,6 +14,7 @@
 #include "widget/BComboBox.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
+#include "widget/BPos3Input.h"
 
 using namespace std;
 class BDemo2Window : public QWidget, public BWindow {
@@ -25,6 +26,8 @@ class BDemo2Window : public QWidget, public BWindow {
   vector<ENERGY> energy_source;
   // vector<bool> radiation_check;
   vector<MATTER> matter_source;
+  BPos3Input *pos3Rad;
+  BPos3Input *pos3Mat;
 
  public:
   unique_ptr<QPushButton> btn_enter;

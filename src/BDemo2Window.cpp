@@ -4,6 +4,7 @@
 #include <QVariant>
 
 #include "utils/Helper.h"
+#include "widget/BVStackWidget.h"
 #include "widget/TerminalDialog.h"
 
 BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
@@ -11,6 +12,11 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   this->mode = mode;
   bool isMultiple = mode == 0;
   this->setLayout(grid.get());
+  BVStackWidget* column1 = new BVStackWidget(parent);
+  grid.get()->addWidget(column1, 0, 1);
+
+  BVStackWidget* column2 = new BVStackWidget(parent);
+  grid.get()->addWidget(column2, 0, 2);
 
   /// SET UP RADIATION
   radiation_source.push_back(RADIATION::GAMMA);
@@ -28,7 +34,8 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   listRadiation->title = "The Radiation";
   listRadiation->options = radiationOptions;
   listRadiation->initUI();
-  grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
+  // grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
+  column1->addSubWidget(listRadiation);
 
   /// SET UP ENERGY
   energy_source.push_back(ENERGY::NONE);
@@ -48,7 +55,8 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   cbbEnergy->initUI();
   if (isMultiple) {
     cbbEnergy->show();
-    grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
+    // grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
+    column1->addSubWidget(cbbEnergy);
   }
 
   /// SET UP MATTER
@@ -70,7 +78,16 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   listMatterMutiple->defaultValue = "1";
   listMatterMutiple->options = matterOptions;
   listMatterMutiple->initUI();
-  grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
+  // grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
+  column1->addSubWidget(listMatterMutiple);
+
+  pos3Rad = new BPos3Input(this, "Position of Radiation");
+  pos3Rad->initUI();
+  column2->addSubWidget(pos3Rad);
+
+  pos3Mat = new BPos3Input(this, "Position of Matterial");
+  pos3Mat->initUI();
+  column2->addSubWidget(pos3Mat);
 
   btn_enter = unique_ptr<QPushButton>(new QPushButton(this));
   // ds_wg_set_expanding_w(btn_enter.get());
@@ -80,7 +97,8 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
     TerminalDialog* ter = new TerminalDialog(this);
     ter->exec();
   });
-  grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
+  // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
+  column1->addSubWidget(btn_enter.get());
 
   grid.get()->addWidget(h_blankWidget(), 4, 0);
   grid.get()->addWidget(v_blankWidget(), 5, 1);

@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QFont>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QSpacerItem>
@@ -27,6 +28,9 @@ QFont font_size(int size);
 QWidget *h_blankWidget();
 QWidget *v_blankWidget();
 QLabel *titleLabel(QString title, QWidget *parent);
+QLabel *normalLabel(QString title, QWidget *parent);
+
+QLineEdit *makeNumberEdit(QString hint, float num, QWidget *parent);
 QSpacerItem *h_blank();
 QSpacerItem *v_blank();
 // Widget Util
@@ -61,5 +65,7 @@ void saveFile(QString outputDir, QString fileName, QStringList lines);
 /// Ví dụ, nếu thời gian hiện tại là 15:30:45 vào ngày 10 tháng 12 năm 2023, thì
 /// kết quả sẽ là chuỗi "20231210_153045".
 QString getCurrentDateTime();
+
+float toFloat(QString str);
 
 #endif  // __HELPER_H__

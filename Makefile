@@ -825,6 +825,33 @@ src/widget/BPhantomTab.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.s
 .PHONY : src/widget/BPhantomTab.cpp.s
 
+src/widget/BPos3Input.o: src/widget/BPos3Input.cpp.o
+
+.PHONY : src/widget/BPos3Input.o
+
+# target to build an object file
+src/widget/BPos3Input.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPos3Input.cpp.o
+.PHONY : src/widget/BPos3Input.cpp.o
+
+src/widget/BPos3Input.i: src/widget/BPos3Input.cpp.i
+
+.PHONY : src/widget/BPos3Input.i
+
+# target to preprocess a source file
+src/widget/BPos3Input.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPos3Input.cpp.i
+.PHONY : src/widget/BPos3Input.cpp.i
+
+src/widget/BPos3Input.s: src/widget/BPos3Input.cpp.s
+
+.PHONY : src/widget/BPos3Input.s
+
+# target to generate assembly for a file
+src/widget/BPos3Input.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPos3Input.cpp.s
+.PHONY : src/widget/BPos3Input.cpp.s
+
 src/widget/BStyleLabel.o: src/widget/BStyleLabel.cpp.o
 
 .PHONY : src/widget/BStyleLabel.o
@@ -1095,6 +1122,33 @@ src/widget/moc_BPhantomTab.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPhantomTab.cpp.s
 .PHONY : src/widget/moc_BPhantomTab.cpp.s
 
+src/widget/moc_BPos3Input.o: src/widget/moc_BPos3Input.cpp.o
+
+.PHONY : src/widget/moc_BPos3Input.o
+
+# target to build an object file
+src/widget/moc_BPos3Input.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPos3Input.cpp.o
+.PHONY : src/widget/moc_BPos3Input.cpp.o
+
+src/widget/moc_BPos3Input.i: src/widget/moc_BPos3Input.cpp.i
+
+.PHONY : src/widget/moc_BPos3Input.i
+
+# target to preprocess a source file
+src/widget/moc_BPos3Input.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPos3Input.cpp.i
+.PHONY : src/widget/moc_BPos3Input.cpp.i
+
+src/widget/moc_BPos3Input.s: src/widget/moc_BPos3Input.cpp.s
+
+.PHONY : src/widget/moc_BPos3Input.s
+
+# target to generate assembly for a file
+src/widget/moc_BPos3Input.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BPos3Input.cpp.s
+.PHONY : src/widget/moc_BPos3Input.cpp.s
+
 src/widget/moc_BStyleLabel.o: src/widget/moc_BStyleLabel.cpp.o
 
 .PHONY : src/widget/moc_BStyleLabel.o
@@ -1261,6 +1315,9 @@ help:
 	@echo "... src/widget/BPhantomTab.o"
 	@echo "... src/widget/BPhantomTab.i"
 	@echo "... src/widget/BPhantomTab.s"
+	@echo "... src/widget/BPos3Input.o"
+	@echo "... src/widget/BPos3Input.i"
+	@echo "... src/widget/BPos3Input.s"
 	@echo "... src/widget/BStyleLabel.o"
 	@echo "... src/widget/BStyleLabel.i"
 	@echo "... src/widget/BStyleLabel.s"
@@ -1291,6 +1348,9 @@ help:
 	@echo "... src/widget/moc_BPhantomTab.o"
 	@echo "... src/widget/moc_BPhantomTab.i"
 	@echo "... src/widget/moc_BPhantomTab.s"
+	@echo "... src/widget/moc_BPos3Input.o"
+	@echo "... src/widget/moc_BPos3Input.i"
+	@echo "... src/widget/moc_BPos3Input.s"
 	@echo "... src/widget/moc_BStyleLabel.o"
 	@echo "... src/widget/moc_BStyleLabel.i"
 	@echo "... src/widget/moc_BStyleLabel.s"

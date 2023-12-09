@@ -30,6 +30,7 @@ set(MOC_HEADERS
     "src/widget/BPathInput.h"
     "src/widget/TerminalDialog.h"
     "src/widget/AppData.h"
+    "src/widget/BPos3Input.h"
 )
 find_package(Coin COMPONENTS Coin4 REQUIRED)
 find_package(SoQt COMPONENTS SoQt REQUIRED)

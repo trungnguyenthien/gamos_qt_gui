@@ -87,6 +87,29 @@ QLabel *titleLabel(QString title, QWidget *parent) {
   return label;
 }
 
+QLabel *normalLabel(QString title, QWidget *parent) {
+  QLabel *label = new QLabel(parent);
+  label->setText(title);
+  label->setFont(font_default());
+  return label;
+}
+
+QLineEdit *makeNumberEdit(QString hint, float defaultNum, QWidget *parent) {
+  QLineEdit *edit = new QLineEdit(parent);
+  // Đặt placeholder text
+  edit->setPlaceholderText(hint);
+
+  // Tạo một QDoubleValidator để chỉ cho phép nhập giá trị số thực
+  QDoubleValidator *validator = new QDoubleValidator(edit);
+  validator->setNotation(QDoubleValidator::StandardNotation);
+  edit->setValidator(validator);
+
+  // Đặt giá trị mặc định
+  edit->setText(QString::number(defaultNum));
+  ds_wg_set_fixed_w(edit, 50);
+  return edit;
+}
+
 QSpacerItem *h_blank() {
   return new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
@@ -196,4 +219,19 @@ QString getCurrentDateTime() {
   QDateTime currentDateTime = QDateTime::currentDateTime();
   QString formattedDateTime = currentDateTime.toString("yyyyMMdd_HHmmss");
   return formattedDateTime;
+}
+
+float toFloat(QString str) {
+  // QString str = "3.14";  // Thay thế bằng chuỗi bạn muốn chuyển đổi
+  bool ok;  // Sử dụng để kiểm tra lỗi
+  float yourFloat = str.toFloat(&ok);
+  if (ok) {
+    // Chuyển đổi thành công
+    qDebug() << "Giá trị float: " << yourFloat;
+  } else {
+    // Có lỗi, trả về 0
+    qDebug() << "Lỗi: không thể chuyển đổi chuỗi thành float.";
+    yourFloat = 0.0f;  // Trả về 0
+  }
+  return yourFloat;
 }
