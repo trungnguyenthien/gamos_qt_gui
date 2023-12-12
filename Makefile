@@ -582,6 +582,33 @@ src/utils/AppData.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/AppData.cpp.s
 .PHONY : src/utils/AppData.cpp.s
 
+src/utils/BFileGen.o: src/utils/BFileGen.cpp.o
+
+.PHONY : src/utils/BFileGen.o
+
+# target to build an object file
+src/utils/BFileGen.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/BFileGen.cpp.o
+.PHONY : src/utils/BFileGen.cpp.o
+
+src/utils/BFileGen.i: src/utils/BFileGen.cpp.i
+
+.PHONY : src/utils/BFileGen.i
+
+# target to preprocess a source file
+src/utils/BFileGen.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/BFileGen.cpp.i
+.PHONY : src/utils/BFileGen.cpp.i
+
+src/utils/BFileGen.s: src/utils/BFileGen.cpp.s
+
+.PHONY : src/utils/BFileGen.s
+
+# target to generate assembly for a file
+src/utils/BFileGen.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/BFileGen.cpp.s
+.PHONY : src/utils/BFileGen.cpp.s
+
 src/utils/Helper.o: src/utils/Helper.cpp.o
 
 .PHONY : src/utils/Helper.o
@@ -1288,6 +1315,9 @@ help:
 	@echo "... src/utils/AppData.o"
 	@echo "... src/utils/AppData.i"
 	@echo "... src/utils/AppData.s"
+	@echo "... src/utils/BFileGen.o"
+	@echo "... src/utils/BFileGen.i"
+	@echo "... src/utils/BFileGen.s"
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"

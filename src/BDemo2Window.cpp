@@ -3,6 +3,7 @@
 #include <QComboBox>
 #include <QVariant>
 
+#include "utils/BFileGen.h"
 #include "utils/Helper.h"
 #include "widget/BVStackWidget.h"
 #include "widget/TerminalDialog.h"
@@ -94,8 +95,13 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   // ds_wg_set_expanding_h(btn_enter.get());
   btn_enter.get()->setText("ENTER");
   connectButtonClicked(btn_enter.get(), [this]() {
-    TerminalDialog* ter = new TerminalDialog(this);
-    ter->exec();
+    // TerminalDialog* ter = new TerminalDialog(this);
+    // ter->exec();
+    BFileGen* file = new BFileGen("test.in", ".");
+    file->lines << "Line 1";
+    file->lines << "Line 2";
+    file->lines << "Line 3";
+    file->write();
   });
   // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
   column1->addSubWidget(btn_enter.get());
