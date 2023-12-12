@@ -10,12 +10,12 @@
 #include <vector>
 
 #include "model/Types.h"
+#include "utils/BFileGen.h"
 #include "virtual/BWindow.h"
 #include "widget/BComboBox.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
 #include "widget/BPos3Input.h"
-
 using namespace std;
 class BDemo2Window : public QWidget, public BWindow {
  private:
@@ -28,6 +28,10 @@ class BDemo2Window : public QWidget, public BWindow {
   vector<MATTER> matter_source;
   BPos3Input *pos3Rad;
   BPos3Input *pos3Mat;
+  QString session_dir;
+
+  BFileGen genInFile();
+  BFileGen genGeomFile();
 
  public:
   unique_ptr<QPushButton> btn_enter;

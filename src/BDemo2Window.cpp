@@ -1,8 +1,10 @@
 #include "BDemo2Window.h"
 
 #include <QComboBox>
+#include <QStringList>
 #include <QVariant>
 
+#include "utils/AppData.h"
 #include "utils/BFileGen.h"
 #include "utils/Helper.h"
 #include "widget/BVStackWidget.h"
@@ -95,6 +97,7 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   // ds_wg_set_expanding_h(btn_enter.get());
   btn_enter.get()->setText("ENTER");
   connectButtonClicked(btn_enter.get(), [this]() {
+    this->session_dir = createSessionDir("DEMO");
     // TerminalDialog* ter = new TerminalDialog(this);
     // ter->exec();
     BFileGen* file = new BFileGen("test.in", ".");
@@ -124,3 +127,51 @@ string BDemo2Window::title() {
 string BDemo2Window::description() { return ""; }
 
 QWidget* BDemo2Window::self_widget() { return this; }
+
+BFileGen BDemo2Window::genInFile() {
+  QString FILE_GEOM = "myGeom.geom";
+  QString RADIATION;
+  QString ENERGY;
+  QString ENERGY_UNIT;
+  QString RAD_X;
+  QString RAD_Y;
+  QString RAD_Z;
+
+  QStringList lines;
+  lines << "/tracking/verbose 1";
+  lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
+  lines << "/gamos/geometry GmGeometryFromText";
+  lines << "/gamos/physicsList GmEMPhysics";
+  lines << "/gamos/physicsList GmEMExtendedPhysics";
+  lines << "";
+  lines << "/gamos/generator GmGenerator";
+  lines << "";
+  lines << "/run/initialize";
+  lines << "";
+  lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
+           "{ENERGY}.*{ENERGY_UNIT}";
+  lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
+           "{RAD_X} {RAD_Y} {RAD_Z}";
+  lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
+           "1. 0. 0.";
+  lines << "";
+  lines << "#/control/execute ../../../examples/visOGLIX.in";
+  lines << "/control/execute ../../../examples/visVRML2FILE.in";
+  lines << "#/control/execute ../../../examples/visDAWNFILE.in";
+  lines << "";
+  lines << "/run/beamOn 30";
+}
+
+BFileGen BDemo2Window::genGeomFile() {
+  QStringList lines;
+  lines << ":ROTM R00 0. 0. 0.";
+  lines << "";
+  lines << ":VOLU world BOX 300. 100. 100. G4_AIR";
+  lines << ":COLOR world 1. 1. 1. 1.";
+  lines << ":VIS world ON";
+  lines << "";
+  lines << ":SOLID my_matter BOX 100. 50. {THICKNESS_I}";
+  lines << ":VOLU my_matter my_matter {G4_MATTER_I}";
+  lines << ":COLOR my_matter 1. 1. 1.";
+  lines << ":PLACE my_matter 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
+}

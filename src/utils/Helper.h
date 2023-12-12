@@ -17,6 +17,8 @@
 #include <QtCore/QJsonObject>
 #include <QtCore/QString>
 #include <functional>
+
+#include "AppData.h"
 QJsonObject loadRootJson(QString file);
 QFont font_default();
 QFont font_normal();
@@ -67,5 +69,5 @@ void saveFile(QString outputDir, QString fileName, QStringList lines);
 QString getCurrentDateTime();
 
 float toFloat(QString str);
-
+QString createSessionDir(QString name);
 #endif  // __HELPER_H__

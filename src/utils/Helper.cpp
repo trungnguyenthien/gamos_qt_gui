@@ -235,3 +235,8 @@ float toFloat(QString str) {
   }
   return yourFloat;
 }
+
+QString createSessionDir(QString name) {
+  return AppData::workingDir() + QString("/") + getCurrentDateTime() + "_" +
+         name;
+}

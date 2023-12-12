@@ -1,5 +1,5 @@
-#ifndef __APPDATA_H__
-#define __APPDATA_H__
+#ifndef __APPDATA2_H__
+#define __APPDATA2_H__
 #include <QDialog>
 #include <QGridLayout>
 #include <QSettings>
