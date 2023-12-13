@@ -27,3 +27,5 @@ void BComboBox::initUI() {
     grid->addWidget(combobox, 1, 0, 1, 2);
   }
 }
+
+int BComboBox::selectedIndex() { return combobox->currentIndex(); }

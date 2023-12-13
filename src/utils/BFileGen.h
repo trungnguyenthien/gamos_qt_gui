@@ -9,7 +9,6 @@
 using namespace std;
 class BFileGen {
  public:
-  BFileGen(QString fileName, QString path);
   QString fileName;
   QStringList lines;
   QString path;

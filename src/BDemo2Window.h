@@ -7,6 +7,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 #include <memory>
+#include <unordered_map>
 #include <vector>
 
 #include "model/Types.h"
@@ -16,6 +17,7 @@
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
 #include "widget/BPos3Input.h"
+
 using namespace std;
 class BDemo2Window : public QWidget, public BWindow {
  private:
@@ -24,11 +26,14 @@ class BDemo2Window : public QWidget, public BWindow {
   vector<RADIATION> radiation_source;
   vector<int> radiation_check;
   vector<ENERGY> energy_source;
-  // vector<bool> radiation_check;
   vector<MATTER> matter_source;
   BPos3Input *pos3Rad;
   BPos3Input *pos3Mat;
   QString session_dir;
+  bool isMultiple = false;
+  vector<RADIATION> selectedRadiation();
+  ENERGY selecedEnergy();
+  unordered_map<MATTER, QString> selectedMatter();
 
   BFileGen genInFile();
   BFileGen genGeomFile();

@@ -10,6 +10,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QRegExp>
 #include <QSpacerItem>
 #include <QTextStream>
 #include <QWidget>
@@ -70,4 +71,6 @@ QString getCurrentDateTime();
 
 float toFloat(QString str);
 QString createSessionDir(QString name);
+void replaceRegex(QStringList *source, const QString &regex,
+                  const QString &value);
 #endif  // __HELPER_H__

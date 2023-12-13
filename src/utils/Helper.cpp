@@ -240,3 +240,16 @@ QString createSessionDir(QString name) {
   return AppData::workingDir() + QString("/") + getCurrentDateTime() + "_" +
          name;
 }
+
+void replaceRegex(QStringList *source, const QString &regex,
+                  const QString &value) {
+  if (!source) {
+    return;  // Kiểm tra nếu source là NULL
+  }
+
+  QRegExp expression(regex);
+
+  for (int i = 0; i < source->size(); ++i) {
+    (*source)[i].replace(expression, value);
+  }
+}

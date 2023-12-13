@@ -6,13 +6,36 @@
 #include "../utils/Helper.h"
 BListCheckBox::BListCheckBox(QWidget *parent) : QWidget(parent) {}
 
+vector<int> BListCheckBox::selectedIndices() {
+  vector<int> output;
+  if (isSingleChoice) {
+    // QButtonGroup *buttonGroup = new QButtonGroup(this);
+    int index = 0;
+    for (auto item : vectorRadioButton) {  // QRadioButton
+      if (item->isChecked()) {
+        output.push_back(index);
+      }
+      index++;
+    }
+  } else {
+    int index = 0;
+    for (auto item : vectorCheckBox) {  // QCheckBox
+      if (item->isChecked()) {
+        output.push_back(index);
+      }
+      index++;
+    }
+  }
+  return output;
+}
+
 void BListCheckBox::initUI() {
   grid = new QGridLayout(this);
   setLayout(grid);
-  label = unique_ptr<QLabel>(new QLabel(this));
-  label.get()->setText(title);
-  label.get()->setFont(font_subHeader());
-  grid->addWidget(label.get(), 0, 0, 1, 2);
+  label = new QLabel(this);
+  label->setText(title);
+  label->setFont(font_subHeader());
+  grid->addWidget(label, 0, 0, 1, 2);
   int maxRowPerColumn = ceil((float)options.size() / numberColumn);
 
   if (isSingleChoice) {
@@ -24,7 +47,7 @@ void BListCheckBox::initUI() {
       QRadioButton *radioButton = new QRadioButton(item, this);
       grid->addWidget(radioButton, row + 1, column);
       buttonGroup->addButton(radioButton);
-      vectorRadioButton.push_back(unique_ptr<QRadioButton>(radioButton));
+      vectorRadioButton.push_back(radioButton);
       index++;
     }
   } else {
@@ -33,7 +56,7 @@ void BListCheckBox::initUI() {
       int row = index % maxRowPerColumn;
       int column = index / maxRowPerColumn;
       QCheckBox *box = new QCheckBox(item, this);
-      vectorCheckBox.push_back(unique_ptr<QCheckBox>(box));
+      vectorCheckBox.push_back(box);
       grid->addWidget(box, row + 1, column);
       index++;
     }

@@ -13,7 +13,7 @@
 BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
   this->mode = mode;
-  bool isMultiple = mode == 0;
+  this->isMultiple = (mode == 0);
   this->setLayout(grid.get());
   BVStackWidget* column1 = new BVStackWidget(parent);
   grid.get()->addWidget(column1, 0, 1);
@@ -98,13 +98,10 @@ BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
   btn_enter.get()->setText("ENTER");
   connectButtonClicked(btn_enter.get(), [this]() {
     this->session_dir = createSessionDir("DEMO");
+    auto geomFile = genGeomFile();
+    auto inFile = genInFile();
     // TerminalDialog* ter = new TerminalDialog(this);
     // ter->exec();
-    BFileGen* file = new BFileGen("test.in", ".");
-    file->lines << "Line 1";
-    file->lines << "Line 2";
-    file->lines << "Line 3";
-    file->write();
   });
   // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
   column1->addSubWidget(btn_enter.get());
@@ -129,16 +126,11 @@ string BDemo2Window::description() { return ""; }
 QWidget* BDemo2Window::self_widget() { return this; }
 
 BFileGen BDemo2Window::genInFile() {
-  QString FILE_GEOM = "myGeom.geom";
-  QString RADIATION;
-  QString ENERGY;
-  QString ENERGY_UNIT;
-  QString RAD_X;
-  QString RAD_Y;
-  QString RAD_Z;
-
   QStringList lines;
-  lines << "/tracking/verbose 1";
+  if (isMultiple) {
+  } else {
+  }
+  if (isM) lines << "/tracking/verbose 1";
   lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
   lines << "/gamos/geometry GmGeometryFromText";
   lines << "/gamos/physicsList GmEMPhysics";
@@ -160,10 +152,15 @@ BFileGen BDemo2Window::genInFile() {
   lines << "#/control/execute ../../../examples/visDAWNFILE.in";
   lines << "";
   lines << "/run/beamOn 30";
+
+  replaceRegex(&lines, "{FILE_GEOM}", "myGeom.geom");
 }
 
 BFileGen BDemo2Window::genGeomFile() {
   QStringList lines;
+  if (isMultiple) {
+  } else {
+  }
   lines << ":ROTM R00 0. 0. 0.";
   lines << "";
   lines << ":VOLU world BOX 300. 100. 100. G4_AIR";
@@ -174,4 +171,29 @@ BFileGen BDemo2Window::genGeomFile() {
   lines << ":VOLU my_matter my_matter {G4_MATTER_I}";
   lines << ":COLOR my_matter 1. 1. 1.";
   lines << ":PLACE my_matter 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
+}
+
+vector<RADIATION> BDemo2Window::selectedRadiation() {
+  vector<RADIATION> out;
+  auto selectedIndices = listRadiation->selectedIndices();
+  for (auto index : selectedIndices) {
+    out.push_back(radiation_source[index]);
+  }
+  return out;
+}
+
+ENERGY BDemo2Window::selecedEnergy() {
+  auto index = cbbEnergy->selectedIndex();
+  return energy_source[index];
+}
+
+unordered_map<MATTER, QString> BDemo2Window::selectedMatter() {
+  unordered_map<MATTER, QString> out;
+  auto selectedValues = listMatterMutiple->selectedValue();
+  for (const auto kv : selectedValues) {
+    auto key = kv.first;
+    auto value = kv.second;
+    out[matter_source[key]] = value;
+  }
+  return out;
 }

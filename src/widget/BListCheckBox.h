@@ -29,10 +29,10 @@ class BListCheckBox : public QWidget {
   int numberColumn = 2;
   //
   BListCheckBox(QWidget* parent);
-  vector<unique_ptr<QCheckBox>> vectorCheckBox;
-  vector<unique_ptr<QRadioButton>> vectorRadioButton;
-  unique_ptr<QLabel> label;
-  vector<int> selectedIndices;
+  vector<QCheckBox*> vectorCheckBox;
+  vector<QRadioButton*> vectorRadioButton;
+  QLabel* label;
+  vector<int> selectedIndices();
   void initUI();
 };
 #endif  // __BLISTCHECKBOX_H__
