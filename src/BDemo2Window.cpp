@@ -130,7 +130,7 @@ BFileGen BDemo2Window::genInFile() {
   if (isMultiple) {
   } else {
   }
-  if (isM) lines << "/tracking/verbose 1";
+  lines << "/tracking/verbose 1";
   lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
   lines << "/gamos/geometry GmGeometryFromText";
   lines << "/gamos/physicsList GmEMPhysics";
