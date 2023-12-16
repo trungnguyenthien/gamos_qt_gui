@@ -73,4 +73,6 @@ float toFloat(QString str);
 QString createSessionDir(QString name);
 void replaceRegex(QStringList *source, const QString &regex,
                   const QString &value);
+
+void messageBox(QString message, QWidget *parent);
 #endif  // __HELPER_H__

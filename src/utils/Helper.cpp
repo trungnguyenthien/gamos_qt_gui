@@ -6,9 +6,11 @@
 #include <QFontDatabase>
 #include <QIcon>
 #include <QJsonDocument>
+#include <QMessageBox>
 #include <QPixmap>
 #include <QSize>
 #include <QSpacerItem>
+#include <QWidget>
 #include <QtCore/QByteArray>
 #include <QtCore/QJsonParseError>
 
@@ -252,4 +254,17 @@ void replaceRegex(QStringList *source, const QString &regex,
   for (int i = 0; i < source->size(); ++i) {
     (*source)[i].replace(expression, value);
   }
+}
+
+void messageBox(QString message, QWidget *parent = nullptr) {
+  // Tạo một hộp thoại thông báo với thông điệp và parent (nếu có).
+  QMessageBox msgBox(parent);
+  msgBox.setWindowTitle("Thông báo");  // Đặt tiêu đề của hộp thoại
+  msgBox.setText(message);             // Đặt nội dung thông điệp
+
+  // Thêm nút OK vào hộp thoại
+  msgBox.addButton(QMessageBox::Ok);
+
+  // Hiển thị hộp thoại và chờ người dùng tương tác
+  msgBox.exec();
 }

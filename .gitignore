@@ -32,7 +32,7 @@
 *.exe
 *.out
 *.app
-/.vscode
+# /.vscode
 /*_autogen
 gamos_gui
 cmake_install.cmake

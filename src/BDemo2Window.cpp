@@ -10,15 +10,15 @@
 #include "widget/BVStackWidget.h"
 #include "widget/TerminalDialog.h"
 
-BDemo2Window::BDemo2Window(QWidget* parent, int mode) : QWidget(parent) {
+BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
   this->mode = mode;
   this->isMultiple = (mode == 0);
   this->setLayout(grid.get());
-  BVStackWidget* column1 = new BVStackWidget(parent);
+  BVStackWidget *column1 = new BVStackWidget(parent);
   grid.get()->addWidget(column1, 0, 1);
 
-  BVStackWidget* column2 = new BVStackWidget(parent);
+  BVStackWidget *column2 = new BVStackWidget(parent);
   grid.get()->addWidget(column2, 0, 2);
 
   /// SET UP RADIATION
@@ -123,40 +123,59 @@ string BDemo2Window::title() {
 
 string BDemo2Window::description() { return ""; }
 
-QWidget* BDemo2Window::self_widget() { return this; }
+QWidget *BDemo2Window::self_widget() { return this; }
 
-BFileGen BDemo2Window::genInFile() {
+BFileGen *BDemo2Window::genInFile() {
+  vector<RADIATION> rads = selectedRadiation();
+  ENERGY en = selecedEnergy();
+
   QStringList lines;
   if (isMultiple) {
+    if (rads.empty()) {
+      messageBox("Vui long chon RADIATION", this);
+      return NULL;
+    }
+
+    if (ENERGY_value(en) == 0) {
+      messageBox("Vui long chon ENERGY", this);
+      return NULL;
+    }
+
+    lines << "/tracking/verbose 1";
+    lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
+    lines << "/gamos/geometry GmGeometryFromText";
+    lines << "/gamos/physicsList GmEMPhysics";
+    lines << "/gamos/physicsList GmEMExtendedPhysics";
+    lines << "";
+    lines << "/gamos/generator GmGenerator";
+    lines << "";
+    lines << "/run/initialize";
+    lines << "";
+    lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
+             "{ENERGY}.*{ENERGY_UNIT}";
+    lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
+             "{RAD_X} {RAD_Y} {RAD_Z}";
+    lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
+             "1. 0. 0.";
+    lines << "";
+    lines << "#/control/execute ../../../examples/visOGLIX.in";
+    lines << "/control/execute ../../../examples/visVRML2FILE.in";
+    lines << "#/control/execute ../../../examples/visDAWNFILE.in";
+    lines << "";
+    lines << "/run/beamOn 30";
+
+    replaceRegex(&lines, "{RADIATION}", "");
+    replaceRegex(&lines, "{ENERGY}", "");
+    replaceRegex(&lines, "{ENERGY_UNIT}", "");
+    replaceRegex(&lines, "{RADIATION}", "");
+    replaceRegex(&lines, "{RADIATION}", "");
   } else {
   }
-  lines << "/tracking/verbose 1";
-  lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
-  lines << "/gamos/geometry GmGeometryFromText";
-  lines << "/gamos/physicsList GmEMPhysics";
-  lines << "/gamos/physicsList GmEMExtendedPhysics";
-  lines << "";
-  lines << "/gamos/generator GmGenerator";
-  lines << "";
-  lines << "/run/initialize";
-  lines << "";
-  lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
-           "{ENERGY}.*{ENERGY_UNIT}";
-  lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
-           "{RAD_X} {RAD_Y} {RAD_Z}";
-  lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
-           "1. 0. 0.";
-  lines << "";
-  lines << "#/control/execute ../../../examples/visOGLIX.in";
-  lines << "/control/execute ../../../examples/visVRML2FILE.in";
-  lines << "#/control/execute ../../../examples/visDAWNFILE.in";
-  lines << "";
-  lines << "/run/beamOn 30";
 
   replaceRegex(&lines, "{FILE_GEOM}", "myGeom.geom");
 }
 
-BFileGen BDemo2Window::genGeomFile() {
+BFileGen *BDemo2Window::genGeomFile() {
   QStringList lines;
   if (isMultiple) {
   } else {

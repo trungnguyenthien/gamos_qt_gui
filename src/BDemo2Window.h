@@ -20,7 +20,7 @@
 
 using namespace std;
 class BDemo2Window : public QWidget, public BWindow {
- private:
+private:
   unique_ptr<QGridLayout> grid;
   int mode = 0;
   vector<RADIATION> radiation_source;
@@ -35,10 +35,10 @@ class BDemo2Window : public QWidget, public BWindow {
   ENERGY selecedEnergy();
   unordered_map<MATTER, QString> selectedMatter();
 
-  BFileGen genInFile();
-  BFileGen genGeomFile();
+  BFileGen *genInFile();
+  BFileGen *genGeomFile();
 
- public:
+public:
   unique_ptr<QPushButton> btn_enter;
   BListCheckBox *listRadiation;
   BComboBox *cbbEnergy;
