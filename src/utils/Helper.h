@@ -48,6 +48,7 @@ void ds_label_align_center(QLabel *label);
 
 void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
                                QString imageName);
+void ds_pushButton_button_text(QPushButton *button, QString title);
 void ds_pushButton_removeBorder(QPushButton *button);
 
 void connectButtonClicked(QPushButton *button,
@@ -79,4 +80,7 @@ void messageBox(QString message, QWidget *parent);
 // return: TRUE: Create dir success, FALSE: Create fail
 bool createDir(QString dir);
 bool setFullPermissions(const QString &path);
+void printStringList(QStringList list);
+
+void openDirectory(QString dir);
 #endif  // __HELPER_H__

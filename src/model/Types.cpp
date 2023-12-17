@@ -91,27 +91,27 @@ QString ENERGY_text(ENERGY en) {
 QString ENERGY_unit(ENERGY en) {
   switch (en) {
     case ENERGY::_1_KEV:
-      return "KeV";
+      return "keV";
       break;
 
     case ENERGY::_10_KEV:
-      return "KeV";
+      return "keV";
       break;
 
     case ENERGY::_100_KEV:
-      return "KeV";
+      return "keV";
       break;
 
     case ENERGY::_1_MEV:
-      return "MeV";
+      return "meV";
       break;
 
     case ENERGY::_10_MEV:
-      return "MeV";
+      return "meV";
       break;
 
     case ENERGY::_100_MEV:
-      return "MeV";
+      return "meV";
       break;
 
     default:

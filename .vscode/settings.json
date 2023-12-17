@@ -16,6 +16,8 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "variant": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "new": "cpp",
+        "fstream": "cpp"
     }
 }

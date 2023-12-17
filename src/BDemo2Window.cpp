@@ -104,8 +104,17 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
     cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
     auto geomFile = genGeomFile();
     auto inFile = genInFile();
-    // TerminalDialog* ter = new TerminalDialog(this);
-    // ter->exec();
+
+    TerminalDialog *ter = new TerminalDialog(this);
+    ter->setCurrentDir(this->session_dir);
+    ter->addBFile(inFile);
+    ter->addBFile(geomFile);
+    ter->showInfo();
+
+    ter->addCommand("source " + AppData::gamosDir() + "/config/confgamos.sh");
+    // ter->addCommand("cd " + this->session_dir);
+    ter->addCommand("gamos " + inFile->fileName);
+    ter->exec();
   });
   // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
   column1->addSubWidget(btn_enter.get());
@@ -163,7 +172,7 @@ BFileGen *BDemo2Window::genInFile() {
            "1. 0. 0.";
   lines << "";
   lines << "#/control/execute ../../../examples/visOGLIX.in";
-  lines << "/control/execute ../../../examples/visVRML2FILE.in";
+  lines << "#/control/execute ../../../examples/visVRML2FILE.in";
   lines << "#/control/execute ../../../examples/visDAWNFILE.in";
   lines << "";
   lines << "/run/beamOn 30";
@@ -216,7 +225,7 @@ BFileGen *BDemo2Window::genGeomFile() {
     QStringList matLines;
     matLines << "";
     matLines << ":SOLID {MY_MATER_I_NAME} BOX 100. 50. {THICKNESS_I}";
-    matLines << ":VOLU {MY_MATER_I_NAME} my_matter {G4_MATTER_I}";
+    matLines << ":VOLU {MY_MATER_I_NAME} {MY_MATER_I_NAME} {G4_MATTER_I}";
     matLines << ":COLOR {MY_MATER_I_NAME} 1. 1. 1.";
     matLines << ":PLACE {MY_MATER_I_NAME} 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
 

@@ -1,6 +1,7 @@
 #include "Helper.h"
 
 #include <QDebug>
+#include <QDesktopServices>
 #include <QDir>
 #include <QFileDevice>
 #include <QFileDialog>
@@ -14,6 +15,7 @@
 #include <QProcessEnvironment>
 #include <QSize>
 #include <QSpacerItem>
+#include <QUrl>
 #include <QWidget>
 #include <QtCore/QByteArray>
 #include <QtCore/QJsonParseError>
@@ -146,14 +148,10 @@ void ds_label_align_left(QLabel *lb) { lb->setAlignment(Qt::AlignLeft); }
 
 void ds_label_align_center(QLabel *lb) { lb->setAlignment(Qt::AlignCenter); }
 
-void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
-                               QString imageName) {
-  // QPixmap pixmap("./resources/img/" + imageName);
-  // QIcon ic(pixmap);
-  // button->setIcon(ic);
+void ds_pushButton_buttonStyle(QPushButton *button) {
   button->setStyleSheet(
       "QPushButton {"
-      "    border-radius: 10px;"        // Adjust the radius for roundness
+      "    border-radius: 5px;"         // Adjust the radius for roundness
       "    border: 2px solid #8f8f91;"  // Border color and thickness
       "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
       "                                  stop:0 #f6f7fa, stop:1 #dadbde);"
@@ -163,9 +161,20 @@ void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
       "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,"
       "                                  stop:0 #dadbde, stop:1 #f6f7fa);"
       "}");
-  // button->setIconSize(QSize(w, h));
+}
+void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
+                               QString imageName) {
+  ds_pushButton_buttonStyle(button);
   button->setText(imageName);
   button->setFont(font_size(w));
+}
+
+void ds_pushButton_button_text(QPushButton *button, QString title) {
+  ds_pushButton_buttonStyle(button);
+  button->setText(title);
+  button->setFont(font_normal());
+  ds_wg_set_expanding_w(button);
+  ds_wg_set_fixed_h(button, 40);
 }
 
 void ds_pushButton_removeBorder(QPushButton *button) {
@@ -298,4 +307,14 @@ bool setFullPermissions(const QString &path) {
 
   qDebug() << "Failed to set full permissions for: " << path;
   return false;
+}
+
+void printStringList(QStringList list) {
+  foreach (const QString &item, list) {
+    qDebug() << item;
+  }
+}
+
+void openDirectory(QString dir) {
+  QDesktopServices::openUrl(QUrl::fromLocalFile(dir));
 }
