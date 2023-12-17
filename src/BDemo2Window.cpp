@@ -172,11 +172,12 @@ BFileGen *BDemo2Window::genInFile() {
            "1. 0. 0.";
   lines << "";
   lines << "#/control/execute ../../../examples/visOGLIX.in";
-  lines << "#/control/execute ../../../examples/visVRML2FILE.in";
+  lines << "/control/execute {GAMOS_HOME}/examples/visVRML2FILE.in";
   lines << "#/control/execute ../../../examples/visDAWNFILE.in";
   lines << "";
   lines << "/run/beamOn 30";
 
+  replaceRegex(&lines, "{GAMOS_HOME}", AppData::gamosDir());
   replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
   replaceRegex(&lines, "{ENERGY}", QString::number(ENERGY_value(en)));
   replaceRegex(&lines, "{ENERGY_UNIT}", ENERGY_unit(en));

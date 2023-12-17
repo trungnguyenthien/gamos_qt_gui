@@ -103,15 +103,15 @@ QString ENERGY_unit(ENERGY en) {
       break;
 
     case ENERGY::_1_MEV:
-      return "meV";
+      return "MeV";
       break;
 
     case ENERGY::_10_MEV:
-      return "meV";
+      return "MeV";
       break;
 
     case ENERGY::_100_MEV:
-      return "meV";
+      return "MeV";
       break;
 
     default:
