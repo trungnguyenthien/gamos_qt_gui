@@ -6,6 +6,7 @@
 using namespace std;
 enum class RADIATION { NONE, GAMMA, E_NEGATIVE, E_POSITIVE, NEUTRON, ALPHA };
 string RADIATION_text(RADIATION r);
+QString RADIATION_value(RADIATION r);
 
 enum class ENERGY {
   NONE,

@@ -1,13 +1,17 @@
 #include "Helper.h"
 
 #include <QDebug>
+#include <QDir>
+#include <QFileDevice>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QFont>
 #include <QFontDatabase>
 #include <QIcon>
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QProcessEnvironment>
 #include <QSize>
 #include <QSpacerItem>
 #include <QWidget>
@@ -201,7 +205,7 @@ void saveFile(QString outputDir, QString fileName, QStringList lines) {
 
   // Tạo đối tượng QFile để tạo và ghi tệp
   QFile file(filePath);
-
+  qDebug() << "Toi muon luu file: " << filePath;
   if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
     QTextStream out(&file);
 
@@ -209,8 +213,8 @@ void saveFile(QString outputDir, QString fileName, QStringList lines) {
     foreach (const QString &line, lines) {
       out << line << "\n";
     }
-
     file.close();
+    setFullPermissions(filePath);
     qDebug() << "Tệp đã được lưu tại: " << filePath;
   } else {
     qDebug() << "Không thể tạo hoặc ghi tệp.";
@@ -219,19 +223,18 @@ void saveFile(QString outputDir, QString fileName, QStringList lines) {
 
 QString getCurrentDateTime() {
   QDateTime currentDateTime = QDateTime::currentDateTime();
-  QString formattedDateTime = currentDateTime.toString("yyyyMMdd_HHmmss");
+  QString formattedDateTime =
+      currentDateTime.toString("yyyy_MM_dd____hh_mm_ss");
   return formattedDateTime;
 }
 
 float toFloat(QString str) {
   // QString str = "3.14";  // Thay thế bằng chuỗi bạn muốn chuyển đổi
-  bool ok;  // Sử dụng để kiểm tra lỗi
+  bool ok;
   float yourFloat = str.toFloat(&ok);
   if (ok) {
-    // Chuyển đổi thành công
     qDebug() << "Giá trị float: " << yourFloat;
   } else {
-    // Có lỗi, trả về 0
     qDebug() << "Lỗi: không thể chuyển đổi chuỗi thành float.";
     yourFloat = 0.0f;  // Trả về 0
   }
@@ -246,13 +249,13 @@ QString createSessionDir(QString name) {
 void replaceRegex(QStringList *source, const QString &regex,
                   const QString &value) {
   if (!source) {
+    qDebug() << "Kiểm tra nếu source là NULL";
     return;  // Kiểm tra nếu source là NULL
   }
 
-  QRegExp expression(regex);
-
   for (int i = 0; i < source->size(); ++i) {
-    (*source)[i].replace(expression, value);
+    QString &currentText = (*source)[i];
+    currentText.replace(regex, value);
   }
 }
 
@@ -267,4 +270,32 @@ void messageBox(QString message, QWidget *parent = nullptr) {
 
   // Hiển thị hộp thoại và chờ người dùng tương tác
   msgBox.exec();
+}
+
+bool createDir(QString dir) {
+  QDir directory(dir);
+  // Check if the directory already exists
+  if (directory.exists()) {
+    return true;  // Directory already exists
+  }
+  auto result = directory.mkpath(dir);
+  return result;
+}
+
+bool setFullPermissions(const QString &path) {
+  QFileInfo fileInfo(path);
+
+  QFileDevice::Permissions permissions =
+      QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner |
+      QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ExeUser |
+      QFileDevice::ReadGroup | QFileDevice::WriteGroup | QFileDevice::ExeGroup |
+      QFileDevice::ReadOther | QFileDevice::WriteOther | QFileDevice::ExeOther;
+
+  QFile file(path);
+  if (file.setPermissions(permissions)) {
+    return true;
+  }
+
+  qDebug() << "Failed to set full permissions for: " << path;
+  return false;
 }

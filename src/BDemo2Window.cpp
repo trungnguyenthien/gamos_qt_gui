@@ -98,6 +98,10 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   btn_enter.get()->setText("ENTER");
   connectButtonClicked(btn_enter.get(), [this]() {
     this->session_dir = createSessionDir("DEMO");
+    createDir(this->session_dir);
+    setFullPermissions(this->session_dir);
+    cout << endl;
+    cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
     auto geomFile = genGeomFile();
     auto inFile = genInFile();
     // TerminalDialog* ter = new TerminalDialog(this);
@@ -130,49 +134,58 @@ BFileGen *BDemo2Window::genInFile() {
   ENERGY en = selecedEnergy();
 
   QStringList lines;
-  if (isMultiple) {
-    if (rads.empty()) {
-      messageBox("Vui long chon RADIATION", this);
-      return NULL;
-    }
-
-    if (ENERGY_value(en) == 0) {
-      messageBox("Vui long chon ENERGY", this);
-      return NULL;
-    }
-
-    lines << "/tracking/verbose 1";
-    lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
-    lines << "/gamos/geometry GmGeometryFromText";
-    lines << "/gamos/physicsList GmEMPhysics";
-    lines << "/gamos/physicsList GmEMExtendedPhysics";
-    lines << "";
-    lines << "/gamos/generator GmGenerator";
-    lines << "";
-    lines << "/run/initialize";
-    lines << "";
-    lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
-             "{ENERGY}.*{ENERGY_UNIT}";
-    lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
-             "{RAD_X} {RAD_Y} {RAD_Z}";
-    lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
-             "1. 0. 0.";
-    lines << "";
-    lines << "#/control/execute ../../../examples/visOGLIX.in";
-    lines << "/control/execute ../../../examples/visVRML2FILE.in";
-    lines << "#/control/execute ../../../examples/visDAWNFILE.in";
-    lines << "";
-    lines << "/run/beamOn 30";
-
-    replaceRegex(&lines, "{RADIATION}", "");
-    replaceRegex(&lines, "{ENERGY}", "");
-    replaceRegex(&lines, "{ENERGY_UNIT}", "");
-    replaceRegex(&lines, "{RADIATION}", "");
-    replaceRegex(&lines, "{RADIATION}", "");
-  } else {
+  // if (isMultiple) {
+  if (rads.empty()) {
+    messageBox("Vui long chon RADIATION", this);
+    return NULL;
   }
 
-  replaceRegex(&lines, "{FILE_GEOM}", "myGeom.geom");
+  if (ENERGY_value(en) == 0) {
+    messageBox("Vui long chon ENERGY", this);
+    return NULL;
+  }
+
+  lines << "/tracking/verbose 1";
+  lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
+  lines << "/gamos/geometry GmGeometryFromText";
+  lines << "/gamos/physicsList GmEMPhysics";
+  lines << "/gamos/physicsList GmEMExtendedPhysics";
+  lines << "";
+  lines << "/gamos/generator GmGenerator";
+  lines << "";
+  lines << "/run/initialize";
+  lines << "";
+  lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
+           "{ENERGY}.*{ENERGY_UNIT}";
+  lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
+           "{RAD_X} {RAD_Y} {RAD_Z}";
+  lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
+           "1. 0. 0.";
+  lines << "";
+  lines << "#/control/execute ../../../examples/visOGLIX.in";
+  lines << "/control/execute ../../../examples/visVRML2FILE.in";
+  lines << "#/control/execute ../../../examples/visDAWNFILE.in";
+  lines << "";
+  lines << "/run/beamOn 30";
+
+  replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
+  replaceRegex(&lines, "{ENERGY}", QString::number(ENERGY_value(en)));
+  replaceRegex(&lines, "{ENERGY_UNIT}", ENERGY_unit(en));
+
+  // } else {
+  // }
+  replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->posX()));
+  replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->posY()));
+  replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
+  replaceRegex(&lines, "{FILE_GEOM}", "my.geom");
+
+  BFileGen *file = new BFileGen();
+  file->fileName = "my.in";
+  file->lines = lines;
+  file->path = session_dir;
+
+  file->write();
+  return file;
 }
 
 BFileGen *BDemo2Window::genGeomFile() {
@@ -180,16 +193,48 @@ BFileGen *BDemo2Window::genGeomFile() {
   if (isMultiple) {
   } else {
   }
+  unordered_map<MATTER, QString> mats = selectedMatter();
+  if (mats.size() == 0) {
+    messageBox("Vui long chon it nhat 1 Matterial", this);
+    return NULL;
+  }
   lines << ":ROTM R00 0. 0. 0.";
   lines << "";
   lines << ":VOLU world BOX 300. 100. 100. G4_AIR";
   lines << ":COLOR world 1. 1. 1. 1.";
   lines << ":VIS world ON";
-  lines << "";
-  lines << ":SOLID my_matter BOX 100. 50. {THICKNESS_I}";
-  lines << ":VOLU my_matter my_matter {G4_MATTER_I}";
-  lines << ":COLOR my_matter 1. 1. 1.";
-  lines << ":PLACE my_matter 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
+
+  auto xmat = QString::number(pos3Mat->posX());
+  auto ymat = QString::number(pos3Mat->posY());
+  auto zmat = QString::number(pos3Mat->posZ());
+  int index = 0;
+  for (auto pair : mats) {
+    QString matter_name = "my_matter_" + QString::number(++index);
+    auto key = pair.first;
+    auto thickness = pair.second;
+    auto g4matter = MATTER_g4_name(key);
+    QStringList matLines;
+    matLines << "";
+    matLines << ":SOLID {MY_MATER_I_NAME} BOX 100. 50. {THICKNESS_I}";
+    matLines << ":VOLU {MY_MATER_I_NAME} my_matter {G4_MATTER_I}";
+    matLines << ":COLOR {MY_MATER_I_NAME} 1. 1. 1.";
+    matLines << ":PLACE {MY_MATER_I_NAME} 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
+
+    replaceRegex(&matLines, "{MY_MATER_I_NAME}", matter_name);
+    replaceRegex(&matLines, "{THICKNESS_I}", thickness);
+    replaceRegex(&matLines, "{G4_MATTER_I}", g4matter);
+    replaceRegex(&matLines, "{X_MAT}", xmat);
+    replaceRegex(&matLines, "{Y_MAT}", ymat);
+    replaceRegex(&matLines, "{Z_MAT}", zmat);
+    lines += matLines;
+  }
+
+  BFileGen *file = new BFileGen();
+  file->fileName = "my.geom";
+  file->lines = lines;
+  file->path = session_dir;
+  file->write();
+  return file;
 }
 
 vector<RADIATION> BDemo2Window::selectedRadiation() {

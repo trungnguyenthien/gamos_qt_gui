@@ -27,6 +27,35 @@ string RADIATION_text(RADIATION r) {
   }
 }
 
+QString RADIATION_value(RADIATION r) {
+  //(gamma,e-, e+, neutron, alpha)
+  switch (r) {
+    case RADIATION::NONE:
+      return "";
+      break;
+
+    case RADIATION::GAMMA:
+      return "gamma";
+      break;
+
+    case RADIATION::E_NEGATIVE:
+      return "e-";
+      break;
+
+    case RADIATION::E_POSITIVE:
+      return "e+";
+      break;
+
+    case RADIATION::NEUTRON:
+      return "neutron";
+      break;
+
+    case RADIATION::ALPHA:
+      return "alpha";
+      break;
+  }
+}
+
 QString ENERGY_text(ENERGY en) {
   switch (en) {
     case ENERGY::_1_KEV:
