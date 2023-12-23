@@ -2,7 +2,8 @@ sudo apt-get install -y libx11-dev
 sudo apt install -y libgl1-mesa-dev
 sudo apt install -y libglu1-mesa-dev
 # Install support tool
-sudo apt install -y git cmake g++ curl
+sudo dpkg --configure -a
+sudo apt install -y git cmake g++ curl unzip
 # Boost (1.71.0.0.ubuntu2)
 sudo apt install -y libboost-all-dev
 # Doxygen (1.8.17)
