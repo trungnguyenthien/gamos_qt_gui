@@ -13,7 +13,7 @@
 BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   grid = unique_ptr<QGridLayout>(new QGridLayout(this));
   this->mode = mode;
-  this->isMultiple = (mode == 0);
+  this->isMultipleMatter = (mode == 0);
   this->setLayout(grid.get());
   BVStackWidget *column1 = new BVStackWidget(parent);
   grid.get()->addWidget(column1, 0, 1);
@@ -33,7 +33,7 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   }
   listRadiation = new BListCheckBox(this);
   listRadiation->numberColumn = 3;
-  listRadiation->isSingleChoice = isMultiple;
+  listRadiation->isSingleChoice = isMultipleMatter;
   listRadiation->title = "The Radiation";
   listRadiation->options = radiationOptions;
   listRadiation->initUI();
@@ -56,11 +56,9 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
     cbbEnergy->addItem(ENERGY_text(item));
   }
   cbbEnergy->initUI();
-  if (isMultiple) {
-    cbbEnergy->show();
-    // grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
-    column1->addSubWidget(cbbEnergy);
-  }
+  cbbEnergy->show();
+  // grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
+  column1->addSubWidget(cbbEnergy);
 
   /// SET UP MATTER
   matter_source.push_back(MATTER::LEAD);
@@ -76,8 +74,8 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   listMatterMutiple = new BListCheckText(this);
   listMatterMutiple->title = "The Matter";
   listMatterMutiple->hintEdit = "Input thickness";
-  listMatterMutiple->isSingleChoice = !isMultiple;
-  listMatterMutiple->allowEdit = isMultiple;
+  listMatterMutiple->isSingleChoice = !isMultipleMatter;
+  listMatterMutiple->allowEdit = true;
   listMatterMutiple->defaultValue = "1";
   listMatterMutiple->options = matterOptions;
   listMatterMutiple->initUI();
@@ -128,9 +126,9 @@ BDemo2Window::~BDemo2Window() {}
 
 string BDemo2Window::title() {
   if (this->mode == 0) {
-    return "The interaction of a radiantion with multiple matters";
+    return "The interaction of ONE radiation with MULTIPLE matters";
   } else {
-    return "The interaction of a radiantion with one matters";
+    return "The interaction of MULTIPLE radiations with ONE matter";
   }
 }
 
@@ -154,39 +152,81 @@ BFileGen *BDemo2Window::genInFile() {
     return NULL;
   }
 
-  lines << "/tracking/verbose 1";
-  lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
-  lines << "/gamos/geometry GmGeometryFromText";
-  lines << "/gamos/physicsList GmEMPhysics";
-  lines << "/gamos/physicsList GmEMExtendedPhysics";
-  lines << "";
-  lines << "/gamos/generator GmGenerator";
-  lines << "";
-  lines << "/run/initialize";
-  lines << "";
-  lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
-           "{ENERGY}.*{ENERGY_UNIT}";
-  lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
-           "{RAD_X} {RAD_Y} {RAD_Z}";
-  lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
-           "1. 0. 0.";
-  lines << "";
-  lines << "#/control/execute ../../../examples/visOGLIX.in";
-  lines << "/control/execute {GAMOS_HOME}/examples/visVRML2FILE.in";
-  lines << "#/control/execute ../../../examples/visDAWNFILE.in";
-  lines << "";
-  lines << "/run/beamOn 30";
+  if (isMultipleMatter) {
+    lines << "/tracking/verbose 1";
+    lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
+    lines << "/gamos/geometry GmGeometryFromText";
+    lines << "/gamos/physicsList GmEMPhysics";
+    lines << "/gamos/physicsList GmEMExtendedPhysics";
+    lines << "";
+    lines << "/gamos/generator GmGenerator";
+    lines << "";
+    lines << "/run/initialize";
+    lines << "";
+    lines << "/gamos/generator/addSingleParticleSource source1 {RADIATION} "
+             "{ENERGY}.*{ENERGY_UNIT}";
+    lines << "/gamos/generator/positionDist source1 GmGenerDistPositionPoint "
+             "{RAD_X} {RAD_Y} {RAD_Z}";
+    lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
+             "1. 0. 0.";
+    lines << "";
+    lines << "#/control/execute ../../../examples/visOGLIX.in";
+    lines << "/control/execute {GAMOS_HOME}/examples/visVRML2FILE.in";
+    lines << "#/control/execute ../../../examples/visDAWNFILE.in";
+    lines << "";
+    lines << "/run/beamOn 30";
+
+    replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
+    replaceRegex(&lines, "{ENERGY}", QString::number(ENERGY_value(en)));
+    replaceRegex(&lines, "{ENERGY_UNIT}", ENERGY_unit(en));
+    replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->posX()));
+    replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->posY()));
+    replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
+  } else {
+    lines << "/tracking/verbose 1";
+    lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
+    lines << "/gamos/geometry GmGeometryFromText";
+    lines << "/gamos/physicsList GmEMPhysics";
+    lines << "/gamos/physicsList GmEMExtendedPhysics";
+    lines << "";
+    lines << "/gamos/generator GmGenerator";
+    lines << "";
+    lines << "/run/initialize";
+    int index = 0;
+    for (auto pair : rads) {
+      auto rad = rads[index];
+      QString source_name = "source_" + QString::number(index + 1);
+      QStringList radLines;
+
+      radLines << "";
+      radLines << "/gamos/generator/addSingleParticleSource {SOURCE_I} "
+                  "{RADIATION_I} "
+                  "{ENERGY}.*{ENERGY_UNIT}";
+      radLines << "/gamos/generator/positionDist {SOURCE_I} "
+                  "GmGenerDistPositionPoint "
+                  "{RAD_X} {RAD_Y} {RAD_Z}";
+      radLines << "/gamos/generator/directionDist {SOURCE_I} "
+                  "GmGenerDistDirectionConst "
+                  "1. 0. 0.";
+      replaceRegex(&radLines, "{RADIATION_I}", RADIATION_value(rad));
+      replaceRegex(&radLines, "{SOURCE_I}", source_name);
+      replaceRegex(&radLines, "{ENERGY}", QString::number(ENERGY_value(en)));
+      replaceRegex(&radLines, "{ENERGY_UNIT}", ENERGY_unit(en));
+      replaceRegex(&radLines, "{RAD_X}", QString::number(pos3Rad->posX()));
+      replaceRegex(&radLines, "{RAD_Y}", QString::number(pos3Rad->posY()));
+      replaceRegex(&radLines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
+
+      lines += radLines;
+      index++;
+    }
+
+    lines << "";
+    lines << "/control/execute {GAMOS_HOME}/examples/visVRML2FILE.in";
+    lines << "";
+    lines << "/run/beamOn 30";
+  }
 
   replaceRegex(&lines, "{GAMOS_HOME}", AppData::gamosDir());
-  replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
-  replaceRegex(&lines, "{ENERGY}", QString::number(ENERGY_value(en)));
-  replaceRegex(&lines, "{ENERGY_UNIT}", ENERGY_unit(en));
-
-  // } else {
-  // }
-  replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->posX()));
-  replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->posY()));
-  replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
   replaceRegex(&lines, "{FILE_GEOM}", "my.geom");
 
   BFileGen *file = new BFileGen();
@@ -200,7 +240,7 @@ BFileGen *BDemo2Window::genInFile() {
 
 BFileGen *BDemo2Window::genGeomFile() {
   QStringList lines;
-  if (isMultiple) {
+  if (isMultipleMatter) {
   } else {
   }
   unordered_map<MATTER, QString> mats = selectedMatter();

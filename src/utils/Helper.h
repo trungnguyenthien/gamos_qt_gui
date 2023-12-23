@@ -45,7 +45,7 @@ void ds_wg_set_fixed_w(QWidget *wid, int value);
 void ds_label_align_right(QLabel *label);
 void ds_label_align_left(QLabel *label);
 void ds_label_align_center(QLabel *label);
-
+void ds_pushButton_buttonStyle(QPushButton *button);
 void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
                                QString imageName);
 void ds_pushButton_button_text(QPushButton *button, QString title);

@@ -43,8 +43,8 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
     settingDialog->exec();
   });
 
-  push(new BDemo2Window(this, 0));
-  // push(new BDemo1Window(this));
+  // push(new BDemo2Window(this, 0));
+  push(new BDemo1Window(this));
   // push(new BChooseModeWindow(this));
 }
 

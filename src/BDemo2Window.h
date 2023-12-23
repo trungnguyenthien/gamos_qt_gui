@@ -30,7 +30,7 @@ private:
   BPos3Input *pos3Rad;
   BPos3Input *pos3Mat;
   QString session_dir;
-  bool isMultiple = false;
+  bool isMultipleMatter = false;
   vector<RADIATION> selectedRadiation();
   ENERGY selecedEnergy();
   unordered_map<MATTER, QString> selectedMatter();
