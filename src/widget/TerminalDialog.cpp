@@ -21,8 +21,9 @@ void TerminalDialog::addBFile(BFileGen *bfile) {
     return;
   }
 
-  addInfo("## --------------------------------------------------------- ##");
-  addInfo("## ----- " + bfile->path + "/" + bfile->fileName + " ------ ##");
+  addInfo("## --------------------------------------------");
+  addInfo("## FILE: " + bfile->path + "/" + bfile->fileName);
+  addInfo("");
 
   for (auto line : bfile->lines) {
     addInfo(line);

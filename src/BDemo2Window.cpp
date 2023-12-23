@@ -170,9 +170,7 @@ BFileGen *BDemo2Window::genInFile() {
     lines << "/gamos/generator/directionDist source1 GmGenerDistDirectionConst "
              "1. 0. 0.";
     lines << "";
-    lines << "#/control/execute ../../../examples/visOGLIX.in";
     lines << "/control/execute {GAMOS_HOME}/examples/visVRML2FILE.in";
-    lines << "#/control/execute ../../../examples/visDAWNFILE.in";
     lines << "";
     lines << "/run/beamOn 30";
 
