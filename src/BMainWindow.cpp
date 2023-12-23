@@ -44,8 +44,8 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   });
 
   // push(new BDemo2Window(this, 0));
-  push(new BDemo1Window(this));
-  // push(new BChooseModeWindow(this));
+  // push(new BDemo1Window(this));
+  push(new BChooseModeWindow(this));
 }
 
 void BMainWindow::push(BWindow *wd) {

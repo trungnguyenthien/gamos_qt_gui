@@ -14,15 +14,15 @@
 
 using namespace std;
 class BChooseModeWindow : public QWidget, public BWindow {
- private:
-  unique_ptr<QGridLayout> grid;
+private:
+  QGridLayout *grid;
 
- public:
-  unique_ptr<QLabel> lb_description;
-  unique_ptr<QLabel> lb_welcome;
-  unique_ptr<QPushButton> btn_demo;
-  unique_ptr<QPushButton> btn_simple;
-  unique_ptr<QPushButton> btn_expert;
+public:
+  QLabel *lb_description;
+  QLabel *lb_welcome;
+  QPushButton *btn_demo;
+  QPushButton *btn_simple;
+  QPushButton *btn_expert;
   BChooseModeWindow(QWidget *parent);
   ~BChooseModeWindow();
 

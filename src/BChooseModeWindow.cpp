@@ -1,46 +1,56 @@
 #include "BChooseModeWindow.h"
 
 BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
-  grid = unique_ptr<QGridLayout>(new QGridLayout(this));
-  this->setLayout(grid.get());
+  grid = new QGridLayout(this);
+  this->setLayout(grid);
 
-  lb_welcome = unique_ptr<QLabel>(new QLabel(this));
-  lb_welcome.get()->setText("WELCOME");
-  lb_welcome.get()->setAlignment(Qt::AlignCenter);
-  lb_welcome.get()->setFont(font_header());
+  lb_welcome = new QLabel(this);
+  lb_welcome->setText("WELCOME");
+  lb_welcome->setAlignment(Qt::AlignCenter);
+  lb_welcome->setFont(font_header());
 
-  lb_description = unique_ptr<QLabel>(new QLabel(this));
-  lb_description.get()->setText("Choose the mode:");
-  lb_description.get()->setAlignment(Qt::AlignCenter);
-  lb_description.get()->setFont(font_subHeader());
+  lb_description = new QLabel(this);
+  lb_description->setText("Choose the mode:");
+  lb_description->setAlignment(Qt::AlignCenter);
+  lb_description->setFont(font_subHeader());
 
-  btn_demo = unique_ptr<QPushButton>(new QPushButton(this));
-  btn_demo.get()->setText("Demo");
-  ds_wg_set_expanding_w(btn_demo.get());
-  ds_wg_set_fixed_h(btn_demo.get(), 50);
+  btn_demo = new QPushButton(this);
+  btn_demo->setText("Demo");
+  btn_demo->setFont(font_subHeader());
+  ds_wg_set_expanding_w(btn_demo);
+  ds_wg_set_fixed_h(btn_demo, 50);
+  ds_pushButton_buttonStyle(btn_demo);
 
-  btn_simple = unique_ptr<QPushButton>(new QPushButton(this));
-  btn_simple.get()->setText("Simple");
-  ds_wg_set_expanding_w(btn_simple.get());
-  ds_wg_set_fixed_h(btn_simple.get(), 50);
+  btn_simple = new QPushButton(this);
+  btn_simple->setText("Simple");
+  btn_simple->setFont(font_subHeader());
+  ds_wg_set_expanding_w(btn_simple);
+  ds_wg_set_fixed_h(btn_simple, 50);
+  ds_pushButton_buttonStyle(btn_simple);
 
-  btn_expert = unique_ptr<QPushButton>(new QPushButton(this));
-  btn_expert.get()->setText("Expert");
-  ds_wg_set_expanding_w(btn_expert.get());
-  ds_wg_set_fixed_h(btn_expert.get(), 50);
+  btn_expert = new QPushButton(this);
+  btn_expert->setText("Expert");
+  btn_expert->setFont(font_subHeader());
+  ds_wg_set_expanding_w(btn_expert);
+  ds_wg_set_fixed_h(btn_expert, 50);
+  ds_pushButton_buttonStyle(btn_expert);
 
-  grid.get()->addWidget(lb_welcome.get(), 0, 1, 1, 3);
-  grid.get()->addWidget(lb_description.get(), 1, 1, 1, 3);
-  grid.get()->addWidget(h_blankWidget(), 2, 0);
-  grid.get()->addWidget(btn_demo.get(), 2, 1);
-  grid.get()->addWidget(btn_simple.get(), 2, 2);
-  grid.get()->addWidget(btn_expert.get(), 2, 3);
-  grid.get()->addWidget(h_blankWidget(), 2, 4);
-  grid.get()->addWidget(v_blankWidget(), 3, 0);
-
-  connectButtonClicked(btn_demo.get(), [this]() {
+  grid->addWidget(lb_welcome, 0, 1, 1, 3);
+  grid->addWidget(lb_description, 1, 1, 1, 3);
+  grid->addWidget(h_blankWidget(), 2, 0);
+  grid->addWidget(btn_demo, 2, 1);
+  grid->addWidget(btn_simple, 2, 2);
+  grid->addWidget(btn_expert, 2, 3);
+  grid->addWidget(h_blankWidget(), 2, 4);
+  grid->addWidget(v_blankWidget(), 3, 0);
+  connectButtonClicked(btn_demo, [this]() {
     BMainWindow::shared->push(new BDemo1Window(this));
   });
+
+  connectButtonClicked(
+      btn_simple, [this]() { messageBox("Chức năng đang phát triển.", this); });
+  connectButtonClicked(
+      btn_expert, [this]() { messageBox("Chức năng đang phát triển.", this); });
 }
 
 BChooseModeWindow::~BChooseModeWindow() {}

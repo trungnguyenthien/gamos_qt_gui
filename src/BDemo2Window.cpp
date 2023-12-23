@@ -11,15 +11,15 @@
 #include "widget/TerminalDialog.h"
 
 BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
-  grid = unique_ptr<QGridLayout>(new QGridLayout(this));
+  grid = new QGridLayout(this);
   this->mode = mode;
   this->isMultipleMatter = (mode == 0);
-  this->setLayout(grid.get());
+  this->setLayout(grid);
   BVStackWidget *column1 = new BVStackWidget(parent);
-  grid.get()->addWidget(column1, 0, 1);
+  grid->addWidget(column1, 0, 1);
 
   BVStackWidget *column2 = new BVStackWidget(parent);
-  grid.get()->addWidget(column2, 0, 2);
+  grid->addWidget(column2, 0, 2);
 
   /// SET UP RADIATION
   radiation_source.push_back(RADIATION::GAMMA);
@@ -49,7 +49,7 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   energy_source.push_back(ENERGY::_10_MEV);
   energy_source.push_back(ENERGY::_100_MEV);
   cbbEnergy = new BComboBox(this, "The Energy");
-  cbbEnergy->isTitleInLine = true;
+  cbbEnergy->isTitleInLine = false;
   cbbEnergy->hide();
 
   for (auto item : energy_source) {
@@ -58,7 +58,7 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   cbbEnergy->initUI();
   cbbEnergy->show();
   // grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
-  column1->addSubWidget(cbbEnergy);
+  column2->addSubWidget(cbbEnergy);
 
   /// SET UP MATTER
   matter_source.push_back(MATTER::LEAD);
@@ -90,18 +90,24 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
   pos3Mat->initUI();
   column2->addSubWidget(pos3Mat);
 
-  btn_enter = unique_ptr<QPushButton>(new QPushButton(this));
-  // ds_wg_set_expanding_w(btn_enter.get());
-  // ds_wg_set_expanding_h(btn_enter.get());
-  btn_enter.get()->setText("ENTER");
-  connectButtonClicked(btn_enter.get(), [this]() {
+  btn_enter = new QPushButton(this);
+  ds_wg_set_fixed_h(btn_enter, 40);
+  btn_enter->setText("ENTER");
+
+  connectButtonClicked(btn_enter, [this]() {
     this->session_dir = createSessionDir("DEMO");
     createDir(this->session_dir);
     setFullPermissions(this->session_dir);
     cout << endl;
     cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
     auto geomFile = genGeomFile();
+    if (geomFile == NULL) {
+      return;
+    }
     auto inFile = genInFile();
+    if (inFile == NULL) {
+      return;
+    }
 
     TerminalDialog *ter = new TerminalDialog(this);
     ter->setCurrentDir(this->session_dir);
@@ -115,11 +121,11 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
     ter->exec();
   });
   // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
-  column1->addSubWidget(btn_enter.get());
+  column2->addSubWidget(btn_enter);
 
-  grid.get()->addWidget(h_blankWidget(), 4, 0);
-  grid.get()->addWidget(v_blankWidget(), 5, 1);
-  grid.get()->addWidget(h_blankWidget(), 4, 3);
+  grid->addWidget(h_blankWidget(), 4, 0);
+  grid->addWidget(v_blankWidget(), 5, 1);
+  grid->addWidget(h_blankWidget(), 4, 3);
 }
 
 BDemo2Window::~BDemo2Window() {}
@@ -143,12 +149,12 @@ BFileGen *BDemo2Window::genInFile() {
   QStringList lines;
   // if (isMultiple) {
   if (rads.empty()) {
-    messageBox("Vui long chon RADIATION", this);
+    messageBox("Please select RADIATION", this);
     return NULL;
   }
 
   if (ENERGY_value(en) == 0) {
-    messageBox("Vui long chon ENERGY", this);
+    messageBox("Please select ENERGY", this);
     return NULL;
   }
 
@@ -238,12 +244,9 @@ BFileGen *BDemo2Window::genInFile() {
 
 BFileGen *BDemo2Window::genGeomFile() {
   QStringList lines;
-  if (isMultipleMatter) {
-  } else {
-  }
   unordered_map<MATTER, QString> mats = selectedMatter();
   if (mats.size() == 0) {
-    messageBox("Vui long chon it nhat 1 Matterial", this);
+    messageBox("Please select MATTERIAL", this);
     return NULL;
   }
   lines << ":ROTM R00 0. 0. 0.";
