@@ -1,26 +1,29 @@
-Yêu cầu cấu hình:
+Configuration Requirements:
 - Ubuntu >= 20
-- Máy đã được cài Gamos >= 6.0
+- System with Gamos >= 6.0 installed
 
-Để cài công cụ `gamos_gui` cần thực hiện 2 bước sau:
+To install the `gamos_gui` tool, follow these 2 steps:
 
-## B1 - Cài đặt công cụ đi kèm
-Bước này chỉ cần thực hiện 1 lần duy nhất, những lần nâng version sau của `gamos_gui` không cần chạy lại.
-Mở Terminal thực hiện lệnh dưới đây:
+## Step 1 - Install Accompanying Tools
+This step needs to be performed only once. Subsequent version upgrades of `gamos_gui` do not require a repeat of this process.
+Open Terminal and execute the following command:
 ```sh
 wget -qO- https://raw.githubusercontent.com/trungnguyenthien/gamos_qt_gui/main/scripts/install.sh | sudo bash -s
 ```
 
-## B2.1 - Cài đặt (Hoặc Update) Gamos_Gui
+## Step 2.1 - Install (Or Update) Gamos_Gui
 
-Xác định version sẽ cài hoặc update. Ví dụ, để cài gamos_gui `1.0.0` thì chạy lệnh dưới đây:
+Determine the version you wish to install or update. For example, to install gamos_gui version `1.0.0`, run the command below:
 ```sh
 wget -qO- https://raw.githubusercontent.com/trungnguyenthien/gamos_qt_gui/main/scripts/update.sh | sudo bash -s -- "1.0.0"
 ```
-Lưu ý, tham số "1.0.0" có thể thay đổi tùy theo version muốn cài.
+Note, the "1.0.0" parameter can be changed depending on the version you want to install.
 
-## B2.2 - Start `gamos_gui`
-Mở Terminal và thực hiện lệnh
+## Step 2.2 - Start `gamos_gui`
+Open Terminal and execute the command:
 ```sh
 gamos_gui
 ```
+
+# Released Versions
+Refer to: https://github.com/trungnguyenthien/gamos_qt_gui/releases
