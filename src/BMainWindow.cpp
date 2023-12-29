@@ -39,7 +39,7 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   ds_pushButton_buttonStyle(settingButton, 20, 20, "⋯");
 
   ds_pushButton_buttonStyle(vrmlButton);
-  vrmlButton->setText("VRML");
+  vrmlButton->setText(" VRML ");
   vrmlButton->setFont(font_subHeader());
   ds_wg_set_fixed_h(vrmlButton, 36);
   ds_wg_set_fixed_w(vrmlButton, 140);

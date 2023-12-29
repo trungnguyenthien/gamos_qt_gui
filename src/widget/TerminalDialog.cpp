@@ -6,6 +6,8 @@
 #include <QTextStream>
 
 #include "../utils/Helper.h"
+#include "../utils/VrmlViewer.h"
+#include "BHStackWidget.h"
 void TerminalDialog::setCurrentDir(QString dir) {
   currentDir = dir;
   process.setWorkingDirectory(dir);
@@ -73,6 +75,17 @@ TerminalDialog::TerminalDialog(QWidget *parent) : QDialog(parent) {
     openDirectory(this->currentDir);
   });
 
+  QPushButton *vrmlButton = new QPushButton(this);
+  ds_pushButton_buttonStyle(vrmlButton);
+  vrmlButton->setText(" VRML ");
+  vrmlButton->setFont(font_subHeader());
+  ds_wg_set_fixed_h(vrmlButton, 40);
+  ds_wg_set_fixed_w(vrmlButton, 140);
+  connectButtonClicked(vrmlButton, [this]() {
+    // Open VRML at Working Directory
+    openVrmlViewerDialog(currentDir, this);
+  });
+
   QPushButton *startButton = new QPushButton(this);
   ds_pushButton_button_text(startButton, "Execute");
   connectButtonClicked(startButton, [this] {
@@ -81,7 +94,11 @@ TerminalDialog::TerminalDialog(QWidget *parent) : QDialog(parent) {
   });
 
   setLayout(grid);
-  grid->addWidget(openCurrentDir, 0, 0);
+  BHStackWidget *leftButtonsLayout = new BHStackWidget(this);
+  leftButtonsLayout->addSubWidget(openCurrentDir);
+  leftButtonsLayout->addSubWidget(vrmlButton);
+
+  grid->addWidget(leftButtonsLayout, 0, 0);
   grid->addWidget(infomationText, 1, 0);
   grid->addWidget(startButton, 0, 1);
   grid->addWidget(terminalOutput, 1, 1);
