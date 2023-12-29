@@ -13,7 +13,6 @@
 #include "Helper.h"
 
 void openVrmlViewer(QString file, QWidget *parent) {
-  qDebug() << "openVrmlViewer FILE: " << file.toStdString().c_str() << endl;
   SoInput in;
   SbBool ok = in.openFile(file.toStdString().c_str());
   if (!ok) {
@@ -28,34 +27,27 @@ void openVrmlViewer(QString file, QWidget *parent) {
   }
   qDebug() << "openVrmlViewer 1";
   root->ref();
-  qDebug() << "openVrmlViewer 2";
   // Use the ExaminerViewer, for a nice interface for 3D model
   // inspection.
   QWidget *mainwin = SoQt::init("", "");
-  SoQtExaminerViewer *viewer = new SoQtExaminerViewer(mainwin);
-  qDebug() << "openVrmlViewer 3";
+  SoQtExaminerViewer *viewer =
+      new SoQtExaminerViewer(mainwin, file.toStdString().c_str());
+  viewer->setTitle(file.toStdString().c_str());
   viewer->setSceneGraph(root);
-  qDebug() << "openVrmlViewer 4";
   viewer->show();
-  qDebug() << "openVrmlViewer 5";
 }
 
 QString openVrmlFileSelection(QString dir, QWidget *parent) {
-  // Mở cửa sổ chọn file với thư mục được open ban đầu là `dir`
-  // Chỉ cho chọn file có đuôi .vrml, .wrl
   QString filter = "VRML files (*.vrml *.wrl)";
-  QString fileSelected =
-      QFileDialog::getOpenFileName(parent, "Select VRML file", dir, filter);
-  qDebug() << "openVrmlFileSelection FILE: " << fileSelected << endl;
-  // Trả về đường dẫn file mà user chọn.
-  // Nếu user không chọn thì trả về empty ""
-  return fileSelected;
+  QString title = "Select VRML file";
+  QString selected = QFileDialog::getOpenFileName(parent, title, dir, filter);
+  qDebug() << "openVrmlFileSelection FILE: " << selected << endl;
+  return selected;
 }
 
 void openVrmlViewerDialog(QString dir, QWidget *parent) {
   QString selectFile = openVrmlFileSelection(dir, parent);
   if (selectFile.isEmpty()) {
-    messageBox("Ban chua chon file VRML", parent);
     return;
   }
 
