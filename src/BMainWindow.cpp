@@ -5,6 +5,7 @@
 #include <QSizePolicy>
 #include <iostream>
 
+#include "./utils/VrmlViewer.h"
 #include "BChooseModeWindow.h"
 #include "BDemo1Window.h"
 #include "BDemo2Window.h"
@@ -18,6 +19,8 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   topPlaceHolder = unique_ptr<BHStackWidget>(new BHStackWidget(this));
   backButton = unique_ptr<QPushButton>(new QPushButton(this));
   settingButton = new QPushButton(this);
+  QPushButton *vrmlButton = new QPushButton(this);
+
   topPlaceHolder.get()->addSubWidget(backButton.get());
 
   addSubWidget(topPlaceHolder.get());
@@ -29,10 +32,17 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
   topPlaceHolder.get()->getLayout()->addWidget(titleLabel.get(), 1);
+  topPlaceHolder.get()->addSubWidget(vrmlButton);
   topPlaceHolder.get()->addSubWidget(settingButton);
 
   ds_pushButton_buttonStyle(backButton.get(), 20, 20, "⬅");
   ds_pushButton_buttonStyle(settingButton, 20, 20, "⋯");
+
+  ds_pushButton_buttonStyle(vrmlButton);
+  vrmlButton->setText("VRML");
+  vrmlButton->setFont(font_subHeader());
+  ds_wg_set_fixed_h(vrmlButton, 36);
+  ds_wg_set_fixed_w(vrmlButton, 140);
 
   stackedWidget = unique_ptr<QStackedWidget>(new QStackedWidget(this));
   getLayout()->addWidget(stackedWidget.get(), 1);
@@ -41,6 +51,10 @@ BMainWindow::BMainWindow(QWidget *parent) : BVStackWidget(parent) {
   connectButtonClicked(settingButton, [this] {
     AppDataDialog *settingDialog = new AppDataDialog(this);
     settingDialog->exec();
+  });
+
+  connectButtonClicked(vrmlButton, [this]() {
+    openVrmlViewerDialog(AppData::workingDir(), this);
   });
 
   // push(new BDemo2Window(this, 0));

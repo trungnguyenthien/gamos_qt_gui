@@ -636,6 +636,33 @@ src/utils/Helper.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/Helper.cpp.s
 .PHONY : src/utils/Helper.cpp.s
 
+src/utils/VrmlViewer.o: src/utils/VrmlViewer.cpp.o
+
+.PHONY : src/utils/VrmlViewer.o
+
+# target to build an object file
+src/utils/VrmlViewer.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/VrmlViewer.cpp.o
+.PHONY : src/utils/VrmlViewer.cpp.o
+
+src/utils/VrmlViewer.i: src/utils/VrmlViewer.cpp.i
+
+.PHONY : src/utils/VrmlViewer.i
+
+# target to preprocess a source file
+src/utils/VrmlViewer.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/VrmlViewer.cpp.i
+.PHONY : src/utils/VrmlViewer.cpp.i
+
+src/utils/VrmlViewer.s: src/utils/VrmlViewer.cpp.s
+
+.PHONY : src/utils/VrmlViewer.s
+
+# target to generate assembly for a file
+src/utils/VrmlViewer.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/utils/VrmlViewer.cpp.s
+.PHONY : src/utils/VrmlViewer.cpp.s
+
 src/widget/AppData.o: src/widget/AppData.cpp.o
 
 .PHONY : src/widget/AppData.o
@@ -1321,6 +1348,9 @@ help:
 	@echo "... src/utils/Helper.o"
 	@echo "... src/utils/Helper.i"
 	@echo "... src/utils/Helper.s"
+	@echo "... src/utils/VrmlViewer.o"
+	@echo "... src/utils/VrmlViewer.i"
+	@echo "... src/utils/VrmlViewer.s"
 	@echo "... src/widget/AppData.o"
 	@echo "... src/widget/AppData.i"
 	@echo "... src/widget/AppData.s"
