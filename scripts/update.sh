@@ -41,5 +41,5 @@ mv -f gamos_qt_gui-$1 gamos_qt_gui
 cd gamos_qt_gui
 bash _clean.sh
 bash _build.sh
-sudo mv /usr/gamos_qt_gui/dist/gamosgui.desktop /usr/share/applications/
+sudo mv /usr/gamos_qt_gui/gamosgui.desktop /usr/share/applications/
 # sudo mv gamosgui.desktop /usr/share/applications/

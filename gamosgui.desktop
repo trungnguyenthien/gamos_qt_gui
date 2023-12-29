@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=GAMOS GUI
+Comment=User Interface of Gamos Tool
+Exec=gamos_gui
+TryExec=gamos_gui
+Icon=/usr/gamos_qt_gui/icon.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Utility;Application;
