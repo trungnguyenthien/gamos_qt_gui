@@ -8,10 +8,16 @@
 
 class BExpertWindow : public QTabWidget, public BWindow {
   Q_OBJECT
- public:
+private:
   QWidget *phantomLayout;
   QWidget *sourceLayout;
   QWidget *outputLayout;
+  void initPhantomLayout();
+  void initSourceLayout();
+  void initOutputLayout();
+
+public:
+
   BExpertWindow(QWidget *parent);
   ~BExpertWindow();
 

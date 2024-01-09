@@ -852,33 +852,6 @@ src/widget/BPathInput.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPathInput.cpp.s
 .PHONY : src/widget/BPathInput.cpp.s
 
-src/widget/BPhantomTab.o: src/widget/BPhantomTab.cpp.o
-
-.PHONY : src/widget/BPhantomTab.o
-
-# target to build an object file
-src/widget/BPhantomTab.cpp.o:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.o
-.PHONY : src/widget/BPhantomTab.cpp.o
-
-src/widget/BPhantomTab.i: src/widget/BPhantomTab.cpp.i
-
-.PHONY : src/widget/BPhantomTab.i
-
-# target to preprocess a source file
-src/widget/BPhantomTab.cpp.i:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.i
-.PHONY : src/widget/BPhantomTab.cpp.i
-
-src/widget/BPhantomTab.s: src/widget/BPhantomTab.cpp.s
-
-.PHONY : src/widget/BPhantomTab.s
-
-# target to generate assembly for a file
-src/widget/BPhantomTab.cpp.s:
-	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BPhantomTab.cpp.s
-.PHONY : src/widget/BPhantomTab.cpp.s
-
 src/widget/BPos3Input.o: src/widget/BPos3Input.cpp.o
 
 .PHONY : src/widget/BPos3Input.o
@@ -1372,9 +1345,6 @@ help:
 	@echo "... src/widget/BPathInput.o"
 	@echo "... src/widget/BPathInput.i"
 	@echo "... src/widget/BPathInput.s"
-	@echo "... src/widget/BPhantomTab.o"
-	@echo "... src/widget/BPhantomTab.i"
-	@echo "... src/widget/BPhantomTab.s"
 	@echo "... src/widget/BPos3Input.o"
 	@echo "... src/widget/BPos3Input.i"
 	@echo "... src/widget/BPos3Input.s"

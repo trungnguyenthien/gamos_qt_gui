@@ -10,122 +10,32 @@
 #include "widget/BVStackWidget.h"
 #include "widget/TerminalDialog.h"
 
-BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QWidget(parent) {
-  grid = new QGridLayout(this);
+BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QTabWidget(parent) {
+  phantomLayout = new QWidget(parent);
+  sourceLayout = new QWidget(parent);
+  outputLayout = new QWidget(parent);
+
+  tabBar()->setDocumentMode(true);
+  tabBar()->setExpanding(true);
+  this->addTab(phantomLayout, "Phantom");
+  this->addTab(sourceLayout, "Source");
+  this->addTab(outputLayout, "Output");
+
+  initPhantomLayout();
+  initSourceLayout();
+  initOutputLayout();
+
+  // grid = new QGridLayout(this);
   this->mode = mode;
   this->isMultipleMatter = (mode == 0);
-  this->setLayout(grid);
-  BVStackWidget *column1 = new BVStackWidget(parent);
-  grid->addWidget(column1, 0, 1);
+  // this->setLayout(grid);
+  // BVStackWidget *column1 = new BVStackWidget(parent);
+  // grid->addWidget(column1, 0, 1);
 
-  BVStackWidget *column2 = new BVStackWidget(parent);
-  grid->addWidget(column2, 0, 2);
+  // BVStackWidget *column2 = new BVStackWidget(parent);
+  // grid->addWidget(column2, 0, 2);
 
   /// SET UP RADIATION
-  radiation_source.push_back(RADIATION::GAMMA);
-  radiation_source.push_back(RADIATION::E_NEGATIVE);
-  radiation_source.push_back(RADIATION::E_POSITIVE);
-  radiation_source.push_back(RADIATION::NEUTRON);
-  radiation_source.push_back(RADIATION::ALPHA);
-  vector<QString> radiationOptions;
-  for (auto item : radiation_source) {
-    radiationOptions.push_back(QString::fromStdString(RADIATION_text(item)));
-  }
-  listRadiation = new BListCheckBox(this);
-  listRadiation->numberColumn = 3;
-  listRadiation->isSingleChoice = isMultipleMatter;
-  listRadiation->title = "The Radiation";
-  listRadiation->options = radiationOptions;
-  listRadiation->initUI();
-  // grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
-  column1->addSubWidget(listRadiation);
-
-  /// SET UP ENERGY
-  energy_source.push_back(ENERGY::NONE);
-  energy_source.push_back(ENERGY::_1_KEV);
-  energy_source.push_back(ENERGY::_10_MEV);
-  energy_source.push_back(ENERGY::_100_KEV);
-  energy_source.push_back(ENERGY::_1_MEV);
-  energy_source.push_back(ENERGY::_10_MEV);
-  energy_source.push_back(ENERGY::_100_MEV);
-  cbbEnergy = new BComboBox(this, "The Energy");
-  cbbEnergy->isTitleInLine = false;
-  cbbEnergy->hide();
-
-  for (auto item : energy_source) {
-    cbbEnergy->addItem(ENERGY_text(item));
-  }
-  cbbEnergy->initUI();
-  cbbEnergy->show();
-  // grid.get()->addWidget(cbbEnergy, 2, 1, 1, 1);
-  column2->addSubWidget(cbbEnergy);
-
-  /// SET UP MATTER
-  matter_source.push_back(MATTER::LEAD);
-  matter_source.push_back(MATTER::ALUMIUM);
-  matter_source.push_back(MATTER::PAPER);
-  matter_source.push_back(MATTER::CONCRETE);
-  matter_source.push_back(MATTER::WATER);
-  vector<QString> matterOptions;
-  for (auto item : matter_source) {
-    matterOptions.push_back(MATTER_text(item));
-  }
-
-  listMatterMutiple = new BListCheckText(this);
-  listMatterMutiple->title = "The Matter";
-  listMatterMutiple->hintEdit = "Input thickness";
-  listMatterMutiple->isSingleChoice = !isMultipleMatter;
-  listMatterMutiple->allowEdit = true;
-  listMatterMutiple->defaultValue = "1";
-  listMatterMutiple->options = matterOptions;
-  listMatterMutiple->initUI();
-  // grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
-  column1->addSubWidget(listMatterMutiple);
-
-  pos3Rad = new BPos3Input(this, "Position of Radiation");
-  pos3Rad->initUI();
-  column2->addSubWidget(pos3Rad);
-
-  pos3Mat = new BPos3Input(this, "Position of Matterial");
-  pos3Mat->initUI();
-  column2->addSubWidget(pos3Mat);
-
-  btn_enter = new QPushButton(this);
-  ds_wg_set_fixed_h(btn_enter, 40);
-  btn_enter->setText("ENTER");
-
-  connectButtonClicked(btn_enter, [this]() {
-    this->session_dir = createSessionDir("DEMO");
-    createDir(this->session_dir);
-    setFullPermissions(this->session_dir);
-    cout << endl;
-    cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
-    auto geomFile = genGeomFile();
-    if (geomFile == NULL) {
-      return;
-    }
-    auto inFile = genInFile();
-    if (inFile == NULL) {
-      return;
-    }
-
-    TerminalDialog *ter = new TerminalDialog(this);
-    ter->setCurrentDir(this->session_dir);
-    ter->addBFile(inFile);
-    ter->addBFile(geomFile);
-    ter->showInfo();
-
-    ter->addCommand("source " + AppData::gamosDir() + "/config/confgamos.sh");
-    // ter->addCommand("cd " + this->session_dir);
-    ter->addCommand("gamos " + inFile->fileName);
-    ter->exec();
-  });
-  // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
-  column2->addSubWidget(btn_enter);
-
-  grid->addWidget(h_blankWidget(), 4, 0);
-  grid->addWidget(v_blankWidget(), 5, 1);
-  grid->addWidget(h_blankWidget(), 4, 3);
 }
 
 BDemo2Window::~BDemo2Window() {}
@@ -286,6 +196,152 @@ BFileGen *BDemo2Window::genGeomFile() {
   file->path = session_dir;
   file->write();
   return file;
+}
+
+void BDemo2Window::initPhantomLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
+  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
+  phantomLayout->setLayout(grid);
+
+  grid->addWidget(leftStack, 0, 2);
+  grid->addWidget(rightStack, 0, 3);
+
+  radiation_source.push_back(RADIATION::GAMMA);
+  radiation_source.push_back(RADIATION::E_NEGATIVE);
+  radiation_source.push_back(RADIATION::E_POSITIVE);
+  radiation_source.push_back(RADIATION::NEUTRON);
+  radiation_source.push_back(RADIATION::ALPHA);
+  vector<QString> radiationOptions;
+  for (auto item : radiation_source) {
+    radiationOptions.push_back(QString::fromStdString(RADIATION_text(item)));
+  }
+  listRadiation = new BListCheckBox(this);
+  listRadiation->numberColumn = 3;
+  listRadiation->isSingleChoice = isMultipleMatter;
+  listRadiation->title = "The Radiation";
+  listRadiation->options = radiationOptions;
+  listRadiation->initUI();
+  // grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
+  leftStack->addSubWidget(listRadiation);
+
+  /// SET UP MATTER
+  matter_source.push_back(MATTER::LEAD);
+  matter_source.push_back(MATTER::ALUMIUM);
+  matter_source.push_back(MATTER::PAPER);
+  matter_source.push_back(MATTER::CONCRETE);
+  matter_source.push_back(MATTER::WATER);
+  vector<QString> matterOptions;
+  for (auto item : matter_source) {
+    matterOptions.push_back(MATTER_text(item));
+  }
+
+  listMatterMutiple = new BListCheckText(this);
+  listMatterMutiple->title = "The Matter";
+  listMatterMutiple->hintEdit = "Input thickness";
+  listMatterMutiple->isSingleChoice = !isMultipleMatter;
+  listMatterMutiple->allowEdit = true;
+  listMatterMutiple->defaultValue = "1";
+  listMatterMutiple->options = matterOptions;
+  listMatterMutiple->initUI();
+  // grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
+  rightStack->addSubWidget(listMatterMutiple);
+
+  pos3Rad = new BPos3Input(this, "Position of Radiation");
+  pos3Rad->initUI();
+  leftStack->addSubWidget(pos3Rad);
+
+  pos3Mat = new BPos3Input(this, "Position of Matterial");
+  pos3Mat->initUI();
+  rightStack->addSubWidget(pos3Mat);
+}
+
+void BDemo2Window::initSourceLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
+  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
+  sourceLayout->setLayout(grid);
+
+  grid->addWidget(leftStack, 0, 2);
+  grid->addWidget(rightStack, 0, 3);
+
+  /// SET UP ENERGY
+  energy_source.push_back(ENERGY::NONE);
+  energy_source.push_back(ENERGY::_1_KEV);
+  energy_source.push_back(ENERGY::_10_MEV);
+  energy_source.push_back(ENERGY::_100_KEV);
+  energy_source.push_back(ENERGY::_1_MEV);
+  energy_source.push_back(ENERGY::_10_MEV);
+  energy_source.push_back(ENERGY::_100_MEV);
+  cbbEnergy = new BComboBox(this, "The Energy");
+  cbbEnergy->isTitleInLine = false;
+  cbbEnergy->hide();
+
+  for (auto item : energy_source) {
+    cbbEnergy->addItem(ENERGY_text(item));
+  }
+  cbbEnergy->initUI();
+  cbbEnergy->show();
+  leftStack->addSubWidget(cbbEnergy);
+}
+
+void BDemo2Window::initOutputLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
+  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
+  outputLayout->setLayout(grid);
+
+  grid->addWidget(leftStack, 0, 2);
+  grid->addWidget(rightStack, 0, 3);
+
+  btn_enter = new QPushButton(this);
+  ds_wg_set_fixed_h(btn_enter, 40);
+  btn_enter->setText("ENTER");
+
+  connectButtonClicked(btn_enter, [this]() {
+    this->session_dir = createSessionDir("DEMO");
+    createDir(this->session_dir);
+    setFullPermissions(this->session_dir);
+    cout << endl;
+    cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
+    auto geomFile = genGeomFile();
+    if (geomFile == NULL) {
+      return;
+    }
+    auto inFile = genInFile();
+    if (inFile == NULL) {
+      return;
+    }
+
+    TerminalDialog *ter = new TerminalDialog(this);
+    ter->setCurrentDir(this->session_dir);
+    ter->addBFile(inFile);
+    ter->addBFile(geomFile);
+    ter->showInfo();
+
+    ter->addCommand("source " + AppData::gamosDir() + "/config/confgamos.sh");
+    // ter->addCommand("cd " + this->session_dir);
+    ter->addCommand("gamos " + inFile->fileName);
+    ter->exec();
+  });
+  // grid.get()->addWidget(btn_enter.get(), 4, 1, 1, 1);
+  leftStack->addSubWidget(btn_enter);
+
+  // grid->addWidget(h_blankWidget(), 4, 0);
+  // grid->addWidget(v_blankWidget(), 5, 1);
+  // grid->addWidget(h_blankWidget(), 4, 3);
 }
 
 vector<RADIATION> BDemo2Window::selectedRadiation() {

@@ -5,6 +5,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 #include <memory>
 #include <unordered_map>
@@ -19,9 +20,16 @@
 #include "widget/BPos3Input.h"
 
 using namespace std;
-class BDemo2Window : public QWidget, public BWindow {
+class BDemo2Window : public QTabWidget, public BWindow {
 private:
-  QGridLayout *grid;
+  QWidget *phantomLayout;
+  QWidget *sourceLayout;
+  QWidget *outputLayout;
+  void initPhantomLayout();
+  void initSourceLayout();
+  void initOutputLayout();
+
+  // QGridLayout *grid;
   int mode = 0;
   vector<RADIATION> radiation_source;
   vector<int> radiation_check;

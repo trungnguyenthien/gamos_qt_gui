@@ -22,7 +22,6 @@ set(MOC_HEADERS
     "src/BMainWindow.h"
     "src/widget/BComboBox.h"
     "src/widget/BListCheckBox.h"
-    "src/widget/BPhantomTab.h"
     "src/widget/BHStackWidget.h"
     "src/widget/BVStackWidget.h"
     "src/widget/BStyleLabel.h"

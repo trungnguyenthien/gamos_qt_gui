@@ -1,5 +1,7 @@
 #include "BChooseModeWindow.h"
 
+#include "BExpertWindow.h"
+
 BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
   grid = new QGridLayout(this);
   this->setLayout(grid);
@@ -49,8 +51,10 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
 
   connectButtonClicked(
       btn_simple, [this]() { messageBox("Chức năng đang phát triển.", this); });
-  connectButtonClicked(
-      btn_expert, [this]() { messageBox("Chức năng đang phát triển.", this); });
+
+  connectButtonClicked(btn_expert, [this]() {
+    BMainWindow::shared->push(new BExpertWindow(this));
+  });
 }
 
 BChooseModeWindow::~BChooseModeWindow() {}
