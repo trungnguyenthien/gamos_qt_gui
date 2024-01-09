@@ -191,3 +191,59 @@ QString MATTER_g4_name(MATTER mat) {
   }
   return "";
 }
+
+QString PARTICLE_text(PARTICLE par) {
+  switch (par) {
+    case PARTICLE::NONE:
+      return "";
+      break;
+
+    case PARTICLE::GAMMA:
+      return "GAMMA";
+      break;
+
+    case PARTICLE::E_NEGATIVE:
+      return "e-";
+      break;
+
+    case PARTICLE::E_POSITIVE:
+      return "e+";
+      break;
+
+    case PARTICLE::NEUTRON:
+      return "NEUTRON";
+      break;
+
+    case PARTICLE::ALPHA:
+      return "ALPHA";
+      break;
+  }
+}
+
+QString PARTICLE_value(PARTICLE par) {
+  switch (par) {
+    case PARTICLE::NONE:
+      return "";
+      break;
+
+    case PARTICLE::GAMMA:
+      return "gamma";
+      break;
+
+    case PARTICLE::E_NEGATIVE:
+      return "e-";
+      break;
+
+    case PARTICLE::E_POSITIVE:
+      return "e+";
+      break;
+
+    case PARTICLE::NEUTRON:
+      return "neutron";
+      break;
+
+    case PARTICLE::ALPHA:
+      return "alpha";
+      break;
+  }
+}

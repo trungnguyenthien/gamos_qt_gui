@@ -202,14 +202,17 @@ void BDemo2Window::initPhantomLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
-  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
-  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
   phantomLayout->setLayout(grid);
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 3);
+  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(3, 1);
 
-  grid->addWidget(leftStack, 0, 2);
-  grid->addWidget(rightStack, 0, 3);
+  ds_wg_set_fixed_w(leftStack, 400);
+  ds_wg_set_fixed_w(rightStack, 400);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
 
   radiation_source.push_back(RADIATION::GAMMA);
   radiation_source.push_back(RADIATION::E_NEGATIVE);
@@ -264,14 +267,39 @@ void BDemo2Window::initSourceLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
-  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
-  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
   sourceLayout->setLayout(grid);
 
-  grid->addWidget(leftStack, 0, 2);
-  grid->addWidget(rightStack, 0, 3);
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 3);
+  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(3, 1);
+
+  ds_wg_set_fixed_w(leftStack, 400);
+  ds_wg_set_fixed_w(rightStack, 400);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
+
+  particle_source.push_back(PARTICLE::E_POSITIVE);
+  particle_source.push_back(PARTICLE::ALPHA);
+  particle_source.push_back(PARTICLE::GAMMA);
+  particle_source.push_back(PARTICLE::NEUTRON);
+  particle_source.push_back(PARTICLE::E_NEGATIVE);
+
+  vector<QString> particleOptions;
+  for (auto item : particle_source) {
+    particleOptions.push_back(PARTICLE_text(item));
+  }
+  cbbParticle = new BComboBox(this, "The Particle");
+  cbbParticle->isTitleInLine = true;
+  cbbParticle->hide();
+
+  for (auto item : particle_source) {
+    cbbParticle->addItem(PARTICLE_text(item));
+  }
+  cbbParticle->initUI();
+  cbbParticle->show();
+  leftStack->addSubWidget(cbbParticle);
 
   /// SET UP ENERGY
   energy_source.push_back(ENERGY::NONE);
@@ -282,7 +310,7 @@ void BDemo2Window::initSourceLayout() {
   energy_source.push_back(ENERGY::_10_MEV);
   energy_source.push_back(ENERGY::_100_MEV);
   cbbEnergy = new BComboBox(this, "The Energy");
-  cbbEnergy->isTitleInLine = false;
+  cbbEnergy->isTitleInLine = true;
   cbbEnergy->hide();
 
   for (auto item : energy_source) {
@@ -297,14 +325,18 @@ void BDemo2Window::initOutputLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
-  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
-  grid->setColumnStretch(1, 2);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
   outputLayout->setLayout(grid);
 
-  grid->addWidget(leftStack, 0, 2);
-  grid->addWidget(rightStack, 0, 3);
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 3);
+  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(3, 1);
+
+  ds_wg_set_fixed_w(leftStack, 400);
+  ds_wg_set_fixed_w(rightStack, 400);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
 
   btn_enter = new QPushButton(this);
   ds_wg_set_fixed_h(btn_enter, 40);

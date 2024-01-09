@@ -26,4 +26,8 @@ enum class MATTER { LEAD, ALUMIUM, PAPER, CONCRETE, WATER };
 QString MATTER_text(MATTER mat);
 QString MATTER_g4_name(MATTER mat);
 
+enum class PARTICLE { NONE, GAMMA, E_NEGATIVE, E_POSITIVE, NEUTRON, ALPHA };
+QString PARTICLE_text(PARTICLE par);
+QString PARTICLE_value(PARTICLE par);
+
 #endif  // __TYPES_H__
