@@ -256,10 +256,12 @@ void BDemo2Window::initPhantomLayout() {
 
   pos3Rad = new BPos3Input(this, "Position of Radiation");
   pos3Rad->initUI();
+  pos3Rad->hide();
   leftStack->addSubWidget(pos3Rad);
 
   pos3Mat = new BPos3Input(this, "Position of Matterial");
   pos3Mat->initUI();
+  pos3Mat->hide();
   rightStack->addSubWidget(pos3Mat);
 }
 
@@ -280,6 +282,7 @@ void BDemo2Window::initSourceLayout() {
   grid->addWidget(leftStack, 0, 1);
   grid->addWidget(rightStack, 0, 2);
 
+  particle_source.push_back(PARTICLE::NONE);
   particle_source.push_back(PARTICLE::E_POSITIVE);
   particle_source.push_back(PARTICLE::ALPHA);
   particle_source.push_back(PARTICLE::GAMMA);
@@ -323,23 +326,23 @@ void BDemo2Window::initSourceLayout() {
 
 void BDemo2Window::initOutputLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
-  BVStackWidget *rightStack = new BVStackWidget(this);
+  // BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
   outputLayout->setLayout(grid);
 
   grid->setColumnStretch(0, 1);
   grid->setColumnStretch(1, 3);
-  grid->setColumnStretch(2, 3);
-  grid->setColumnStretch(3, 1);
+  grid->setColumnStretch(2, 1);
 
   ds_wg_set_fixed_w(leftStack, 400);
-  ds_wg_set_fixed_w(rightStack, 400);
+  // ds_wg_set_fixed_w(rightStack, 400);
 
   grid->addWidget(leftStack, 0, 1);
-  grid->addWidget(rightStack, 0, 2);
+  // grid->addWidget(rightStack, 0, 2);
 
   btn_enter = new QPushButton(this);
   ds_wg_set_fixed_h(btn_enter, 40);
+  ds_wg_set_expanding_w(btn_enter);
   btn_enter->setText("ENTER");
 
   connectButtonClicked(btn_enter, [this]() {

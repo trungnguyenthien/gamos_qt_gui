@@ -6,14 +6,16 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QWidget>
 
+#include "../model/Types.h"
 #include "BHStackWidget.h"
 
 class BNumberInput : public BHStackWidget {
   Q_OBJECT
- private:
- public:
+private:
+public:
   QLineEdit *content;
   BNumberInput(QWidget *parent, const QString &label, const QString &hint);
+  BNumberInput(QWidget *parent, NumberInputValue inputValue);
   void turnOnIntValidator(int min, int max);
   void turnOnDoubleValidator(int min, int max, int decimals);
 };

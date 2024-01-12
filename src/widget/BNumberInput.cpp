@@ -19,6 +19,12 @@ BNumberInput::BNumberInput(QWidget *parent, const QString &labelText,
   setStyleSheet("background-color:#EAEAEA;");
 }
 
+BNumberInput::BNumberInput(QWidget *parent, NumberInputValue inputValue)
+    : BNumberInput(parent, inputValue.label) {
+  this->content.setText(inputValue.value);
+  this->turnOnDoubleValidator(0, 99999999, 4);
+}
+
 void BNumberInput::turnOnIntValidator(int min, int max) {
   content->setValidator(new QIntValidator(min, max, this));
 }
