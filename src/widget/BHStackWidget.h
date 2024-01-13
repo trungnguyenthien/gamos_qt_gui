@@ -7,10 +7,10 @@
 
 class BHStackWidget : public QWidget {
   Q_OBJECT
- private:
+private:
   QHBoxLayout *mainLayout;
 
- public:
+public:
   BHStackWidget(QWidget *parent);
   void addSubWidget(QWidget *widget);
   /// @brief Add widget with custom width

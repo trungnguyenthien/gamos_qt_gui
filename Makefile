@@ -744,6 +744,33 @@ src/widget/BComboBox.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BComboBox.cpp.s
 .PHONY : src/widget/BComboBox.cpp.s
 
+src/widget/BGroupNumberInput.o: src/widget/BGroupNumberInput.cpp.o
+
+.PHONY : src/widget/BGroupNumberInput.o
+
+# target to build an object file
+src/widget/BGroupNumberInput.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BGroupNumberInput.cpp.o
+.PHONY : src/widget/BGroupNumberInput.cpp.o
+
+src/widget/BGroupNumberInput.i: src/widget/BGroupNumberInput.cpp.i
+
+.PHONY : src/widget/BGroupNumberInput.i
+
+# target to preprocess a source file
+src/widget/BGroupNumberInput.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BGroupNumberInput.cpp.i
+.PHONY : src/widget/BGroupNumberInput.cpp.i
+
+src/widget/BGroupNumberInput.s: src/widget/BGroupNumberInput.cpp.s
+
+.PHONY : src/widget/BGroupNumberInput.s
+
+# target to generate assembly for a file
+src/widget/BGroupNumberInput.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BGroupNumberInput.cpp.s
+.PHONY : src/widget/BGroupNumberInput.cpp.s
+
 src/widget/BHStackWidget.o: src/widget/BHStackWidget.cpp.o
 
 .PHONY : src/widget/BHStackWidget.o
@@ -1041,6 +1068,33 @@ src/widget/moc_BComboBox.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BComboBox.cpp.s
 .PHONY : src/widget/moc_BComboBox.cpp.s
 
+src/widget/moc_BGroupNumberInput.o: src/widget/moc_BGroupNumberInput.cpp.o
+
+.PHONY : src/widget/moc_BGroupNumberInput.o
+
+# target to build an object file
+src/widget/moc_BGroupNumberInput.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BGroupNumberInput.cpp.o
+.PHONY : src/widget/moc_BGroupNumberInput.cpp.o
+
+src/widget/moc_BGroupNumberInput.i: src/widget/moc_BGroupNumberInput.cpp.i
+
+.PHONY : src/widget/moc_BGroupNumberInput.i
+
+# target to preprocess a source file
+src/widget/moc_BGroupNumberInput.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BGroupNumberInput.cpp.i
+.PHONY : src/widget/moc_BGroupNumberInput.cpp.i
+
+src/widget/moc_BGroupNumberInput.s: src/widget/moc_BGroupNumberInput.cpp.s
+
+.PHONY : src/widget/moc_BGroupNumberInput.s
+
+# target to generate assembly for a file
+src/widget/moc_BGroupNumberInput.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BGroupNumberInput.cpp.s
+.PHONY : src/widget/moc_BGroupNumberInput.cpp.s
+
 src/widget/moc_BHStackWidget.o: src/widget/moc_BHStackWidget.cpp.o
 
 .PHONY : src/widget/moc_BHStackWidget.o
@@ -1333,6 +1387,9 @@ help:
 	@echo "... src/widget/BComboBox.o"
 	@echo "... src/widget/BComboBox.i"
 	@echo "... src/widget/BComboBox.s"
+	@echo "... src/widget/BGroupNumberInput.o"
+	@echo "... src/widget/BGroupNumberInput.i"
+	@echo "... src/widget/BGroupNumberInput.s"
 	@echo "... src/widget/BHStackWidget.o"
 	@echo "... src/widget/BHStackWidget.i"
 	@echo "... src/widget/BHStackWidget.s"
@@ -1366,6 +1423,9 @@ help:
 	@echo "... src/widget/moc_BComboBox.o"
 	@echo "... src/widget/moc_BComboBox.i"
 	@echo "... src/widget/moc_BComboBox.s"
+	@echo "... src/widget/moc_BGroupNumberInput.o"
+	@echo "... src/widget/moc_BGroupNumberInput.i"
+	@echo "... src/widget/moc_BGroupNumberInput.s"
 	@echo "... src/widget/moc_BHStackWidget.o"
 	@echo "... src/widget/moc_BHStackWidget.i"
 	@echo "... src/widget/moc_BHStackWidget.s"
