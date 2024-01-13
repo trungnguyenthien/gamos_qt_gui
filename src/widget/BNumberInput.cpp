@@ -29,7 +29,7 @@ BNumberInput::BNumberInput(QWidget *parent, NumberInputValue inputValue) : BHSta
   addSubWidget(content);
   addSubWidget(label);
 
-  setStyleSheet("background-color:#EAEAEA;");
+  // setStyleSheet("background-color:#EAEAEA;");
   this->numberInputValue = inputValue;
   this->content->setText(inputValue.value);
   this->turnOnDoubleValidator(0, 99999999, 4);

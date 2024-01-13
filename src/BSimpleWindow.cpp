@@ -146,10 +146,10 @@ void BSimpleWindow::initPhantomLayout() {
   cbbGeom->isTitleInLine = true;
 
   cbbGeom->initUI();
-  connectCbbIndexChange(cbbGeom->combobox, [this, bGroupNumberInput](int index) {
-    bGroupNumberInput->removeAll();
+  connectCbbIndexChange(cbbGeom->combobox, [this](int index) {
+    this->bGroupNumberInput->removeAll();
     GroupNumberInputValue selectGroup = this->group_geom_source[index];
-    bGroupNumberInput->initUI(selectGroup);
+    this->bGroupNumberInput->initUI(selectGroup);
   });
 
   leftStack->addSubWidget(cbbGeom);
