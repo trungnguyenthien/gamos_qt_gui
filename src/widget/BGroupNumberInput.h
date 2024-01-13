@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+#include "../model/Types.h"
 #include "../utils/Helper.h"
 
 using namespace std;
@@ -22,6 +23,10 @@ public:
     this->setLayout(grid);
     ds_wg_set_expanding_w(this);
   }
+  GroupNumberInputValue groupNumberInputValue;
+  void initUI(GroupNumberInputValue groupNumberInputValue);
+  void removeAll();
+  GroupNumberInputValue values();
 };
 
 #endif  // WIDGET_BGROUPNUMBERINPUT_H_

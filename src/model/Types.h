@@ -58,6 +58,14 @@ struct NumberInputValue {
   QString value;
   QString valueUnit;
 
+  NumberInputValue() {
+    label = "";
+    isRequired = false;
+    name = "";
+    value = "";
+    valueUnit = "";
+  }
+
   NumberInputValue(QString label, QString name, QString value, QString valueUnit)
       : label(label), name(name), value(value), valueUnit(valueUnit), isRequired(true) {}
 };

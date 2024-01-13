@@ -1,5 +1,7 @@
 #include "BSimpleWindow.h"
 
+#include "utils/Helper.h"
+
 BSimpleWindow::BSimpleWindow(QWidget *parent) : QTabWidget(parent) {
   phantomLayout = new QWidget(parent);
   sourceLayout = new QWidget(parent);
@@ -23,7 +25,23 @@ string BSimpleWindow::description() { return ""; }
 QWidget *BSimpleWindow::self_widget() { return this; }
 
 void BSimpleWindow::initPhantomLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  phantomLayout->setLayout(grid);
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 1);
+  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(3, 1);
+
+  //   ds_wg_set_fixed_w(leftStack, 400);
+  //   ds_wg_set_fixed_w(rightStack, 400);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
+
   group_geom_source = {
+      GroupNumberInputValue(),
       makeGroupNumberInputValue("BOX", "BOX",
                                 {
                                     NumberInputValue("X_HALF_LENGTH", "X_HALF_LENGTH", "1", "mm"),
@@ -118,6 +136,24 @@ void BSimpleWindow::initPhantomLayout() {
           }),
 
   };
+
+  cbbGeom = new BComboBox(this, "Geometry");
+  bGroupNumberInput = new BGroupNumberInput(this);
+  for (auto group : group_geom_source) {
+    QString label = group.label;
+    cbbGeom->addItem(label);
+  }
+  cbbGeom->isTitleInLine = true;
+
+  cbbGeom->initUI();
+  connectCbbIndexChange(cbbGeom->combobox, [this, bGroupNumberInput](int index) {
+    bGroupNumberInput->removeAll();
+    GroupNumberInputValue selectGroup = this->group_geom_source[index];
+    bGroupNumberInput->initUI(selectGroup);
+  });
+
+  leftStack->addSubWidget(cbbGeom);
+  rightStack->addSubWidget(bGroupNumberInput);
 }
 
 void BSimpleWindow::initSourceLayout() {}

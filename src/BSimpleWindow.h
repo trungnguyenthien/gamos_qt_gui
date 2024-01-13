@@ -16,6 +16,7 @@
 #include "utils/BFileGen.h"
 #include "virtual/BWindow.h"
 #include "widget/BComboBox.h"
+#include "widget/BGroupNumberInput.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
 #include "widget/BPos3Input.h"
@@ -26,6 +27,7 @@ private:
   QWidget *phantomLayout;
   QWidget *sourceLayout;
   QWidget *outputLayout;
+
   void initPhantomLayout();
   void initSourceLayout();
   void initOutputLayout();
@@ -33,6 +35,7 @@ private:
   // QGridLayout *grid;
   vector<GroupNumberInputValue> group_geom_source;
   GroupNumberInputValue groupNumberInputValue;
+  BGroupNumberInput *bGroupNumberInput;
 
   // vector<RADIATION> radiation_source;
   // vector<int> radiation_check;
@@ -51,6 +54,8 @@ private:
   BFileGen *genGeomFile();
 
 public:
+  BComboBox *cbbGeom;
+
   // QPushButton *btn_enter;
   // BListCheckBox *listRadiation;
   // BComboBox *cbbEnergy;

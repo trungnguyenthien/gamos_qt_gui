@@ -19,6 +19,8 @@
         "iostream": "cpp",
         "new": "cpp",
         "fstream": "cpp",
-        "initializer_list": "cpp"
+        "initializer_list": "cpp",
+        "deque": "cpp",
+        "vector": "cpp"
     }
 }

@@ -14,6 +14,7 @@ class BNumberInput : public BHStackWidget {
 private:
 public:
   QLineEdit *content;
+  NumberInputValue numberInputValue;
   BNumberInput(QWidget *parent, const QString &label, const QString &hint);
   BNumberInput(QWidget *parent, NumberInputValue inputValue);
   void turnOnIntValidator(int min, int max);

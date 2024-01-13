@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QFont>
 #include <QLabel>
+#include <QLayout>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
@@ -46,21 +47,16 @@ void ds_label_align_right(QLabel *label);
 void ds_label_align_left(QLabel *label);
 void ds_label_align_center(QLabel *label);
 void ds_pushButton_buttonStyle(QPushButton *button);
-void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
-                               QString imageName);
+void ds_pushButton_buttonStyle(QPushButton *button, int w, int h, QString imageName);
 void ds_pushButton_button_text(QPushButton *button, QString title);
 void ds_pushButton_removeBorder(QPushButton *button);
 
-void connectButtonClicked(QPushButton *button,
-                          const std::function<void()> &slot);
-void connectCbbIndexChange(QComboBox *cbb,
-                           const std::function<void(int)> &slot);
+void connectButtonClicked(QPushButton *button, const std::function<void()> &slot);
+void connectCbbIndexChange(QComboBox *cbb, const std::function<void(int)> &slot);
 
-void connectCheckBoxToggle(QCheckBox *cb,
-                           const std::function<void(bool)> &slot);
+void connectCheckBoxToggle(QCheckBox *cb, const std::function<void(bool)> &slot);
 
-void connectRadioButtonToggle(QRadioButton *rb,
-                              const std::function<void(bool)> &slot);
+void connectRadioButtonToggle(QRadioButton *rb, const std::function<void(bool)> &slot);
 
 QString openDirectory(QWidget *parent, QString startDir, QString defaultDir);
 
@@ -72,8 +68,7 @@ QString getCurrentDateTime();
 
 float toFloat(QString str);
 QString createSessionDir(QString name);
-void replaceRegex(QStringList *source, const QString &regex,
-                  const QString &value);
+void replaceRegex(QStringList *source, const QString &regex, const QString &value);
 
 void messageBox(QString message, QWidget *parent);
 
@@ -83,4 +78,9 @@ bool setFullPermissions(const QString &path);
 void printStringList(QStringList list);
 
 void openDirectory(QString dir);
+
+void grid_layout_clear(QGridLayout *layout);
+
+/// Get all children widget in Layout
+vector<QWidget *> layout_getChildren(QLayout *layout);
 #endif  // __HELPER_H__

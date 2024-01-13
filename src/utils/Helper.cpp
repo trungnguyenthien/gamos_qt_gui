@@ -10,6 +10,7 @@
 #include <QFontDatabase>
 #include <QIcon>
 #include <QJsonDocument>
+#include <QLayoutItem>
 #include <QMessageBox>
 #include <QPixmap>
 #include <QProcessEnvironment>
@@ -38,8 +39,7 @@ QJsonObject loadRootJson(QString fileName) {
 }
 
 QFont font_default() {
-  QString defaultFontFamily =
-      QFontDatabase::systemFont(QFontDatabase::GeneralFont).family();
+  QString defaultFontFamily = QFontDatabase::systemFont(QFontDatabase::GeneralFont).family();
   return QFont(defaultFontFamily);
 }
 
@@ -118,13 +118,9 @@ QLineEdit *makeNumberEdit(QString hint, float defaultNum, QWidget *parent) {
   return edit;
 }
 
-QSpacerItem *h_blank() {
-  return new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
-}
+QSpacerItem *h_blank() { return new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed); }
 
-QSpacerItem *v_blank() {
-  return new QSpacerItem(0, 0, QSizePolicy::Fixed, QSizePolicy::Expanding);
-}
+QSpacerItem *v_blank() { return new QSpacerItem(0, 0, QSizePolicy::Fixed, QSizePolicy::Expanding); }
 
 void ds_wg_set_expanding_w(QWidget *wid) {
   wid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -162,8 +158,7 @@ void ds_pushButton_buttonStyle(QPushButton *button) {
       "                                  stop:0 #dadbde, stop:1 #f6f7fa);"
       "}");
 }
-void ds_pushButton_buttonStyle(QPushButton *button, int w, int h,
-                               QString imageName) {
+void ds_pushButton_buttonStyle(QPushButton *button, int w, int h, QString imageName) {
   ds_pushButton_buttonStyle(button);
   button->setText(imageName);
   button->setFont(font_size(w));
@@ -181,24 +176,20 @@ void ds_pushButton_removeBorder(QPushButton *button) {
   button->setStyleSheet("QPushButton { border: none; }");
 }
 
-void connectButtonClicked(QPushButton *button,
-                          const std::function<void()> &slot) {
+void connectButtonClicked(QPushButton *button, const std::function<void()> &slot) {
   QObject::connect(button, &QPushButton::clicked, slot);
 }
 
-void connectCbbIndexChange(QComboBox *cbb,
-                           const std::function<void(int)> &slot) {
+void connectCbbIndexChange(QComboBox *cbb, const std::function<void(int)> &slot) {
   QObject::connect(cbb, QOverload<int>::of(&QComboBox::currentIndexChanged),
                    [=](int index) { slot(index); });
 }
 
-void connectCheckBoxToggle(QCheckBox *cb,
-                           const std::function<void(bool)> &slot) {
+void connectCheckBoxToggle(QCheckBox *cb, const std::function<void(bool)> &slot) {
   QObject::connect(cb, &QCheckBox::toggled, slot);
 }
 
-void connectRadioButtonToggle(QRadioButton *rb,
-                              const std::function<void(bool)> &slot) {
+void connectRadioButtonToggle(QRadioButton *rb, const std::function<void(bool)> &slot) {
   QObject::connect(rb, &QRadioButton::toggled, slot);
 }
 
@@ -232,8 +223,7 @@ void saveFile(QString outputDir, QString fileName, QStringList lines) {
 
 QString getCurrentDateTime() {
   QDateTime currentDateTime = QDateTime::currentDateTime();
-  QString formattedDateTime =
-      currentDateTime.toString("yyyy_MM_dd____hh_mm_ss");
+  QString formattedDateTime = currentDateTime.toString("yyyy_MM_dd____hh_mm_ss");
   return formattedDateTime;
 }
 
@@ -251,12 +241,10 @@ float toFloat(QString str) {
 }
 
 QString createSessionDir(QString name) {
-  return AppData::workingDir() + QString("/") + getCurrentDateTime() + "_" +
-         name;
+  return AppData::workingDir() + QString("/") + getCurrentDateTime() + "_" + name;
 }
 
-void replaceRegex(QStringList *source, const QString &regex,
-                  const QString &value) {
+void replaceRegex(QStringList *source, const QString &regex, const QString &value) {
   if (!source) {
     qDebug() << "Kiểm tra nếu source là NULL";
     return;  // Kiểm tra nếu source là NULL
@@ -315,6 +303,30 @@ void printStringList(QStringList list) {
   }
 }
 
-void openDirectory(QString dir) {
-  QDesktopServices::openUrl(QUrl::fromLocalFile(dir));
+void openDirectory(QString dir) { QDesktopServices::openUrl(QUrl::fromLocalFile(dir)); }
+
+void grid_layout_clear(QGridLayout *layout) {
+  QLayoutItem *item;
+  while ((item = layout->takeAt(0)) != nullptr) {
+    if (item->widget()) {
+      delete item->widget();  // Nếu là widget, xóa widget
+    } else if (item->spacerItem()) {
+      delete item->spacerItem();  // Nếu là spacer, xóa spacer
+    }
+    delete item;  // Xóa QLayoutItem
+  }
+}
+
+vector<QWidget *> layout_getChildren(QLayout *layout) {
+  vector<QWidget *> widgets;
+  if (layout == nullptr) {
+    return widgets;
+  }
+  for (int i = 0; i < layout->count(); ++i) {
+    QLayoutItem *item = layout->itemAt(i);
+    if (item && item->widget()) {
+      widgets.push_back(item->widget());
+    }
+  }
+  return widgets;
 }

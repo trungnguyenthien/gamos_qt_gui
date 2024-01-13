@@ -1,6 +1,7 @@
 #include "BChooseModeWindow.h"
 
 #include "BExpertWindow.h"
+#include "BSimpleWindow.h"
 
 BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
   grid = new QGridLayout(this);
@@ -45,16 +46,13 @@ BChooseModeWindow::BChooseModeWindow(QWidget *parent) : QWidget(parent) {
   grid->addWidget(btn_expert, 2, 3);
   grid->addWidget(h_blankWidget(), 2, 4);
   grid->addWidget(v_blankWidget(), 3, 0);
-  connectButtonClicked(btn_demo, [this]() {
-    BMainWindow::shared->push(new BDemo1Window(this));
-  });
+  connectButtonClicked(btn_demo, [this]() { BMainWindow::shared->push(new BDemo1Window(this)); });
 
-  connectButtonClicked(
-      btn_simple, [this]() { messageBox("Chức năng đang phát triển.", this); });
+  connectButtonClicked(btn_simple,
+                       [this]() { BMainWindow::shared->push(new BSimpleWindow(this)); });
 
-  connectButtonClicked(btn_expert, [this]() {
-    BMainWindow::shared->push(new BExpertWindow(this));
-  });
+  connectButtonClicked(btn_expert,
+                       [this]() { BMainWindow::shared->push(new BExpertWindow(this)); });
 }
 
 BChooseModeWindow::~BChooseModeWindow() {}
