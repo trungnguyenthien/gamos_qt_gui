@@ -393,6 +393,33 @@ src/BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BMainWindow.cpp.s
 .PHONY : src/BMainWindow.cpp.s
 
+src/BSimpleWindow.o: src/BSimpleWindow.cpp.o
+
+.PHONY : src/BSimpleWindow.o
+
+# target to build an object file
+src/BSimpleWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BSimpleWindow.cpp.o
+.PHONY : src/BSimpleWindow.cpp.o
+
+src/BSimpleWindow.i: src/BSimpleWindow.cpp.i
+
+.PHONY : src/BSimpleWindow.i
+
+# target to preprocess a source file
+src/BSimpleWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BSimpleWindow.cpp.i
+.PHONY : src/BSimpleWindow.cpp.i
+
+src/BSimpleWindow.s: src/BSimpleWindow.cpp.s
+
+.PHONY : src/BSimpleWindow.s
+
+# target to generate assembly for a file
+src/BSimpleWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/BSimpleWindow.cpp.s
+.PHONY : src/BSimpleWindow.cpp.s
+
 src/moc_BChooseModeWindow.o: src/moc_BChooseModeWindow.cpp.o
 
 .PHONY : src/moc_BChooseModeWindow.o
@@ -1267,6 +1294,9 @@ help:
 	@echo "... src/BMainWindow.o"
 	@echo "... src/BMainWindow.i"
 	@echo "... src/BMainWindow.s"
+	@echo "... src/BSimpleWindow.o"
+	@echo "... src/BSimpleWindow.i"
+	@echo "... src/BSimpleWindow.s"
 	@echo "... src/moc_BChooseModeWindow.o"
 	@echo "... src/moc_BChooseModeWindow.i"
 	@echo "... src/moc_BChooseModeWindow.s"

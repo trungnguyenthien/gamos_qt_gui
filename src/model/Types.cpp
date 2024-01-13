@@ -25,6 +25,7 @@ string RADIATION_text(RADIATION r) {
       return "ALPHA";
       break;
   }
+  return "";
 }
 
 QString RADIATION_value(RADIATION r) {
@@ -54,6 +55,7 @@ QString RADIATION_value(RADIATION r) {
       return "alpha";
       break;
   }
+  return "";
 }
 
 QString ENERGY_text(ENERGY en) {
@@ -224,6 +226,7 @@ QString PARTICLE_text(PARTICLE par) {
       return "ALPHA";
       break;
   }
+  return "";
 }
 
 QString PARTICLE_value(PARTICLE par) {
@@ -252,6 +255,7 @@ QString PARTICLE_value(PARTICLE par) {
       return "alpha";
       break;
   }
+  return "";
 }
 
 QString GEOM_SITUATION_text(GEOM_SITUATION gs) {
@@ -265,6 +269,7 @@ QString GEOM_SITUATION_text(GEOM_SITUATION gs) {
     default:
       return "";
   }
+  return "";
 }
 
 QString GEOM_SITUATION_value(GEOM_SITUATION gs) {
@@ -278,6 +283,7 @@ QString GEOM_SITUATION_value(GEOM_SITUATION gs) {
     default:
       return "";
   }
+  return "";
 }
 
 QString SHIELDING_GEOM_text(SHIELDING_GEOM sg) {
@@ -291,6 +297,7 @@ QString SHIELDING_GEOM_text(SHIELDING_GEOM sg) {
     default:
       return "";
   }
+  return "";
 }
 
 QString SHIELDING_GEOM_value(SHIELDING_GEOM sg) {
@@ -304,6 +311,7 @@ QString SHIELDING_GEOM_value(SHIELDING_GEOM sg) {
     default:
       return "";
   }
+  return "";
 }
 
 QString SIZE_THICK_PATTERN_text(SIZE_THICK_PATTERN stp) {
@@ -319,6 +327,7 @@ QString SIZE_THICK_PATTERN_text(SIZE_THICK_PATTERN stp) {
     default:
       return "";
   }
+  return "";
 }
 
 SizeThickness SIZE_THICK_PATTERN_value(SIZE_THICK_PATTERN stp) {
@@ -334,4 +343,17 @@ SizeThickness SIZE_THICK_PATTERN_value(SIZE_THICK_PATTERN stp) {
     default:
       return SizeThickness(0, 0, 0, 0);
   }
+  return SizeThickness(0, 0, 0, 0);
+}
+
+GroupNumberInputValue makeGroupNumberInputValue(QString label, QString name,
+                                                std::initializer_list<NumberInputValue> values) {
+  GroupNumberInputValue group;
+  group.label = label;
+  group.name = name;
+  group.values = values;
+  // for (const auto value : values) {
+  //   group.values.push_back(value);
+  // }
+  return group;
 }

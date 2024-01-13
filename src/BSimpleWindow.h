@@ -7,6 +7,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
+#include <initializer_list>
 #include <memory>
 #include <unordered_map>
 #include <vector>
@@ -20,7 +21,7 @@
 #include "widget/BPos3Input.h"
 
 using namespace std;
-class BSimpleWindows : public QTabWidget, public BWindow {
+class BSimpleWindow : public QTabWidget, public BWindow {
 private:
   QWidget *phantomLayout;
   QWidget *sourceLayout;
@@ -30,8 +31,8 @@ private:
   void initOutputLayout();
 
   // QGridLayout *grid;
-  vector<NumberInputValue> geom_source;
-  NumberInputValue geom_select;
+  vector<GroupNumberInputValue> group_geom_source;
+  GroupNumberInputValue groupNumberInputValue;
 
   vector<RADIATION> radiation_source;
   vector<int> radiation_check;
@@ -58,8 +59,7 @@ public:
   /// @brief Constructor
   /// @param parent
   /// @param mode 0 (mutiple), 1 (one)
-  BDemo2Window(QWidget *parent, int mode = 0);
-  ~BDemo2Window();
+  BSimpleWindow(QWidget *parent);
 
   // Virtual class BWindow
   string title() override;
