@@ -19,8 +19,8 @@
 #include "widget/BGroupNumberInput.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
+#include "widget/BNumberInput.h"
 #include "widget/BPos3Input.h"
-
 using namespace std;
 class BSimpleWindow : public QTabWidget, public BWindow {
 private:
@@ -31,6 +31,16 @@ private:
   void initPhantomLayout();
   void initSourceLayout();
   void initOutputLayout();
+  BComboBox *cbbSourceTypes;
+  vector<SOURCETYPE> sourceTypes;
+
+  BComboBox *cbbIsotopes;
+  vector<ISOTOPE> isotopes;
+
+  BComboBox *cbbParticles;
+  vector<PARTICLE> particles;
+
+  BNumberInput *numberEngergy;
 
   // QGridLayout *grid;
   vector<GroupNumberInputValue> group_geom_source;

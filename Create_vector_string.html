@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mixt Extractor Tool</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .textarea-container {
+            flex: 1;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        textarea {
+            width: 90%;
+            height: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 16px;
+        }
+
+        .textarea-header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #left-textarea {
+            margin-right: 5px;
+            /* Khoảng cách 5px */
+        }
+
+        #right-textarea {
+            margin-left: 5px;
+            /* Khoảng cách 5px */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="textarea-container" id="left-textarea">
+        <h2 class="textarea-header">Input</h2>
+        <textarea id="inputArea" placeholder="Nhập dữ liệu ở đây" oninput="updateOutput()"></textarea>
+    </div>
+    <div class="textarea-container" id="right-textarea">
+        <h2 class="textarea-header">Output</h2>
+        <textarea id="outputArea" placeholder="Dữ liệu kết quả sẽ hiển thị ở đây"></textarea>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#inputArea').on('input', function () {
+                var inputData = $(this).val();
+                var outputData = convertToVectorFormat(inputData);
+                $('#outputArea').val(outputData);
+            });
+        });
+
+        function convertToVectorFormat(data) {
+            var lines = data.split('\n');
+            var result = "#include <QString>\n#include <initializer_list>\n#include <vector> \n vector<QString> sources = {\n";
+
+            lines.forEach(function (line) {
+                result += '\t"' + line.trim() + '",\n'; // Thêm dòng và dấu phẩy
+            });
+
+            result += "};";
+            return result;
+        }
+
+    </script>
+</body>
+
+</html>

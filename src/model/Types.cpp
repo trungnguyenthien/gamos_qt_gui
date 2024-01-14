@@ -258,6 +258,54 @@ QString PARTICLE_value(PARTICLE par) {
   return "";
 }
 
+QString ISOTOPE_text(ISOTOPE value) {
+  // NONE,
+
+  switch (value) {
+    case ISOTOPE::Am241:
+      return "Am241";
+    case ISOTOPE::Ba133:
+      return "Ba133";
+    case ISOTOPE::Cs137:
+      return "Cs137";
+    case ISOTOPE::Co57:
+      return "Co57";
+    case ISOTOPE::Co60:
+      return "Co60";
+    case ISOTOPE::Cs134:
+      return "Cs134";
+    case ISOTOPE::Na22:
+      return "Na22";
+    case ISOTOPE::F18:
+      return "F18";
+    case ISOTOPE::V48:
+      return "V48";
+    case ISOTOPE::Sc44:
+      return "Sc44";
+    case ISOTOPE::Mn54:
+      return "Mn54";
+    case ISOTOPE::Co58:
+      return "Co58";
+    case ISOTOPE::Sb125:
+      return "Sb125";
+    case ISOTOPE::I123:
+      return "I123";
+    case ISOTOPE::I125:
+      return "I125";
+    case ISOTOPE::I131:
+      return "I131";
+    case ISOTOPE::Ga68:
+      return "Ga68";
+    case ISOTOPE::Tc99m:
+      return "Tc99m";
+    case ISOTOPE::Xx999:
+      return "Xx999";
+  }
+  return "";
+}
+
+QString ISOTOPE_value(ISOTOPE value) { return ISOTOPE_text(value); }
+
 QString GEOM_SITUATION_text(GEOM_SITUATION gs) {
   switch (gs) {
     case GEOM_SITUATION::NONE:
@@ -356,4 +404,28 @@ GroupNumberInputValue makeGroupNumberInputValue(QString label, QString name,
   //   group.values.push_back(value);
   // }
   return group;
+}
+
+QString SOURCETYPE_text(SOURCETYPE value) {
+  switch (value) {
+    case SOURCETYPE::ISOTOPES:
+      return "ISOTOPES";
+    case SOURCETYPE::PARTICLES:
+      return "PARTICLES";
+    default:
+      return "";
+  }
+  return "";
+}
+
+QString SOURCETYPE_value(SOURCETYPE value) {
+  switch (value) {
+    case SOURCETYPE::ISOTOPES:
+      return "ISOTOPES";
+    case SOURCETYPE::PARTICLES:
+      return "PARTICLES";
+    default:
+      return "";
+  }
+  return "";
 }

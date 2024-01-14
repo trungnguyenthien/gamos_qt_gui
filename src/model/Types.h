@@ -25,6 +25,31 @@ enum class PARTICLE { NONE, GAMMA, E_NEGATIVE, E_POSITIVE, NEUTRON, ALPHA };
 QString PARTICLE_text(PARTICLE par);
 QString PARTICLE_value(PARTICLE par);
 
+enum class ISOTOPE {
+  NONE,
+  Am241,
+  Ba133,
+  Cs137,
+  Co57,
+  Co60,
+  Cs134,
+  Na22,
+  F18,
+  V48,
+  Sc44,
+  Mn54,
+  Co58,
+  Sb125,
+  I123,
+  I125,
+  I131,
+  Ga68,
+  Tc99m,
+  Xx999
+};
+QString ISOTOPE_text(ISOTOPE value);
+QString ISOTOPE_value(ISOTOPE value);
+
 enum class GEOM_SITUATION { NONE, SHIELDING, DISTANCE };
 
 QString GEOM_SITUATION_text(GEOM_SITUATION gs);
@@ -98,4 +123,7 @@ struct GroupNumberInputValue {
 GroupNumberInputValue makeGroupNumberInputValue(QString label, QString name,
                                                 std::initializer_list<NumberInputValue> values);
 
+enum class SOURCETYPE { NONE, ISOTOPES, PARTICLES };
+QString SOURCETYPE_text(SOURCETYPE value);
+QString SOURCETYPE_value(SOURCETYPE value);
 #endif  // __TYPES_H__
