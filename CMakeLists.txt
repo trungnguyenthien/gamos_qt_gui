@@ -20,6 +20,8 @@ set(MOC_HEADERS
     "src/BChooseModeWindow.h"
     "src/BExpertWindow.h"
     "src/BMainWindow.h"
+    "src/widget/BComboboxCompleter.h"
+    "src/widget/BLineEditCompleter.h"
     "src/widget/BGroupNumberInput.h"
     "src/widget/BComboBox.h"
     "src/widget/BListCheckBox.h"
