@@ -9,12 +9,8 @@ BVStackWidget::BVStackWidget(QWidget *parent) : QWidget(parent) {
   mainLayout->setMargin(0);
 }
 
-void BVStackWidget::addSubLayout(QLayout *layout) {
-  mainLayout->addLayout(layout);
-}
+void BVStackWidget::addSubLayout(QLayout *layout) { mainLayout->addLayout(layout); }
 
 QVBoxLayout *BVStackWidget::getLayout() { return this->mainLayout; }
 
-void BVStackWidget::addSubWidget(QWidget *widget) {
-  mainLayout->addWidget(widget);
-}
+void BVStackWidget::addSubWidget(QWidget *widget) { mainLayout->addWidget(widget); }

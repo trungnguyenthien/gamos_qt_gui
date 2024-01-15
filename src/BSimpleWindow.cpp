@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 
+#include "model/Isotope.h"
 #include "utils/Helper.h"
 
 BSimpleWindow::BSimpleWindow(QWidget *parent) : QTabWidget(parent) {
@@ -165,11 +166,15 @@ void BSimpleWindow::initSourceLayout() {
   sourceLayout->setLayout(grid);
   grid->setColumnStretch(0, 1);
   grid->setColumnStretch(1, 1);
-  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(2, 1);
   grid->setColumnStretch(3, 1);
 
   //   ds_wg_set_fixed_w(leftStack, 400);
   //   ds_wg_set_fixed_w(rightStack, 400);
+  grid->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+  grid->setSpacing(5);
+  grid->setContentsMargins(0, 0, 0, 0);
+  grid->setMargin(0);
 
   grid->addWidget(leftStack, 0, 1);
   grid->addWidget(rightStack, 0, 2);
@@ -179,21 +184,15 @@ void BSimpleWindow::initSourceLayout() {
   for (SOURCETYPE type : sourceTypes) {
     cbbSourceTypes->addItem(SOURCETYPE_text(type));
   }
-  cbbSourceTypes->initUI();
   cbbSourceTypes->isTitleInLine = true;
+  cbbSourceTypes->initUI();
   leftStack->addSubWidget(cbbSourceTypes);
 
-  cbbIsotopes = new BComboBox(this, "Isotopes");
-  isotopes = {ISOTOPE::NONE, ISOTOPE::Am241, ISOTOPE::Ba133, ISOTOPE::Cs137, ISOTOPE::Co57,
-              ISOTOPE::Co60, ISOTOPE::Cs134, ISOTOPE::Na22,  ISOTOPE::F18,   ISOTOPE::V48,
-              ISOTOPE::Sc44, ISOTOPE::Mn54,  ISOTOPE::Co58,  ISOTOPE::Sb125, ISOTOPE::I123,
-              ISOTOPE::I125, ISOTOPE::I131,  ISOTOPE::Ga68,  ISOTOPE::Tc99m, ISOTOPE::Xx999};
-  for (ISOTOPE item : isotopes) {
-    cbbIsotopes->addItem(ISOTOPE_text(item));
-  }
-  cbbIsotopes->initUI();
+  cbbIsotopes = new BLineEditCompleter(this, "Isotopes");
   cbbIsotopes->isTitleInLine = true;
-  cbbIsotopes->hide();
+  cbbIsotopes->setSuggestKeywords(isotope_sources);
+  cbbIsotopes->initUI();
+  //   cbbIsotopes->hide();
   leftStack->addSubWidget(cbbIsotopes);
 
   cbbParticles = new BComboBox(this, "Particles");
@@ -202,13 +201,14 @@ void BSimpleWindow::initSourceLayout() {
   for (PARTICLE item : particles) {
     cbbParticles->addItem(PARTICLE_text(item));
   }
-  cbbParticles->initUI();
   cbbParticles->isTitleInLine = true;
-  cbbParticles->hide();
+  cbbParticles->initUI();
+  //   cbbParticles->hide();
   leftStack->addSubWidget(cbbParticles);
 
-  numberEngergy = new BNumberInput(this, new NumberInputValue("Energy", "Energy", "1", ""));
-  numberEngergy->hide();
+  numberEngergy = new BNumberInput(this, NumberInputValue("Energy", "Energy", "1", ""));
+  numberEngergy->initUI(true, false);
+  //   numberEngergy->hide();
   leftStack->addSubWidget(numberEngergy);
 }
 

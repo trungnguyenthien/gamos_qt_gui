@@ -7,6 +7,7 @@ void BGroupNumberInput::initUI(GroupNumberInputValue groupNumberInputValue) {
   int row = 0;
   for (NumberInputValue value : groupNumberInputValue.values) {
     BNumberInput *bNumberInput = new BNumberInput(this, value);
+    bNumberInput->initUI(true, true);
     this->grid->addWidget(bNumberInput, row, 0);
     row++;
   }

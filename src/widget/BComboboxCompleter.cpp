@@ -1,6 +1,7 @@
 #include "BComboboxCompleter.h"
 
 #include <QStringList>
+#include <QStringListModel>
 
 BComboboxCompleter::BComboboxCompleter(QWidget *parent)
     : QComboBox(parent), completer(new QCompleter(this)) {

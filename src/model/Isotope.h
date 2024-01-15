@@ -3,6 +3,8 @@
 #include <QString>
 #include <initializer_list>
 #include <vector>
+using namespace std;
+
 vector<QString> isotope_sources = {
     "H1",    "H2",    "H3",    "H4",    "H5",    "H6",    "He3",   "He4",   "He5",   "He6",
     "He7",   "He8",   "He9",   "He10",  "Li4",   "Li5",   "Li6",   "Li7",   "Li8",   "Li9",

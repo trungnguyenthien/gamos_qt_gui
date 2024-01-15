@@ -555,6 +555,33 @@ src/moc_BMainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/moc_BMainWindow.cpp.s
 .PHONY : src/moc_BMainWindow.cpp.s
 
+src/model/B10ItemModel.o: src/model/B10ItemModel.cpp.o
+
+.PHONY : src/model/B10ItemModel.o
+
+# target to build an object file
+src/model/B10ItemModel.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/B10ItemModel.cpp.o
+.PHONY : src/model/B10ItemModel.cpp.o
+
+src/model/B10ItemModel.i: src/model/B10ItemModel.cpp.i
+
+.PHONY : src/model/B10ItemModel.i
+
+# target to preprocess a source file
+src/model/B10ItemModel.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/B10ItemModel.cpp.i
+.PHONY : src/model/B10ItemModel.cpp.i
+
+src/model/B10ItemModel.s: src/model/B10ItemModel.cpp.s
+
+.PHONY : src/model/B10ItemModel.s
+
+# target to generate assembly for a file
+src/model/B10ItemModel.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/B10ItemModel.cpp.s
+.PHONY : src/model/B10ItemModel.cpp.s
+
 src/model/Types.o: src/model/Types.cpp.o
 
 .PHONY : src/model/Types.o
@@ -744,6 +771,33 @@ src/widget/BComboBox.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BComboBox.cpp.s
 .PHONY : src/widget/BComboBox.cpp.s
 
+src/widget/BComboboxCompleter.o: src/widget/BComboboxCompleter.cpp.o
+
+.PHONY : src/widget/BComboboxCompleter.o
+
+# target to build an object file
+src/widget/BComboboxCompleter.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BComboboxCompleter.cpp.o
+.PHONY : src/widget/BComboboxCompleter.cpp.o
+
+src/widget/BComboboxCompleter.i: src/widget/BComboboxCompleter.cpp.i
+
+.PHONY : src/widget/BComboboxCompleter.i
+
+# target to preprocess a source file
+src/widget/BComboboxCompleter.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BComboboxCompleter.cpp.i
+.PHONY : src/widget/BComboboxCompleter.cpp.i
+
+src/widget/BComboboxCompleter.s: src/widget/BComboboxCompleter.cpp.s
+
+.PHONY : src/widget/BComboboxCompleter.s
+
+# target to generate assembly for a file
+src/widget/BComboboxCompleter.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BComboboxCompleter.cpp.s
+.PHONY : src/widget/BComboboxCompleter.cpp.s
+
 src/widget/BGroupNumberInput.o: src/widget/BGroupNumberInput.cpp.o
 
 .PHONY : src/widget/BGroupNumberInput.o
@@ -797,6 +851,33 @@ src/widget/BHStackWidget.s: src/widget/BHStackWidget.cpp.s
 src/widget/BHStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BHStackWidget.cpp.s
 .PHONY : src/widget/BHStackWidget.cpp.s
+
+src/widget/BLineEditCompleter.o: src/widget/BLineEditCompleter.cpp.o
+
+.PHONY : src/widget/BLineEditCompleter.o
+
+# target to build an object file
+src/widget/BLineEditCompleter.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BLineEditCompleter.cpp.o
+.PHONY : src/widget/BLineEditCompleter.cpp.o
+
+src/widget/BLineEditCompleter.i: src/widget/BLineEditCompleter.cpp.i
+
+.PHONY : src/widget/BLineEditCompleter.i
+
+# target to preprocess a source file
+src/widget/BLineEditCompleter.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BLineEditCompleter.cpp.i
+.PHONY : src/widget/BLineEditCompleter.cpp.i
+
+src/widget/BLineEditCompleter.s: src/widget/BLineEditCompleter.cpp.s
+
+.PHONY : src/widget/BLineEditCompleter.s
+
+# target to generate assembly for a file
+src/widget/BLineEditCompleter.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/BLineEditCompleter.cpp.s
+.PHONY : src/widget/BLineEditCompleter.cpp.s
 
 src/widget/BListCheckBox.o: src/widget/BListCheckBox.cpp.o
 
@@ -1068,6 +1149,33 @@ src/widget/moc_BComboBox.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BComboBox.cpp.s
 .PHONY : src/widget/moc_BComboBox.cpp.s
 
+src/widget/moc_BComboboxCompleter.o: src/widget/moc_BComboboxCompleter.cpp.o
+
+.PHONY : src/widget/moc_BComboboxCompleter.o
+
+# target to build an object file
+src/widget/moc_BComboboxCompleter.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BComboboxCompleter.cpp.o
+.PHONY : src/widget/moc_BComboboxCompleter.cpp.o
+
+src/widget/moc_BComboboxCompleter.i: src/widget/moc_BComboboxCompleter.cpp.i
+
+.PHONY : src/widget/moc_BComboboxCompleter.i
+
+# target to preprocess a source file
+src/widget/moc_BComboboxCompleter.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BComboboxCompleter.cpp.i
+.PHONY : src/widget/moc_BComboboxCompleter.cpp.i
+
+src/widget/moc_BComboboxCompleter.s: src/widget/moc_BComboboxCompleter.cpp.s
+
+.PHONY : src/widget/moc_BComboboxCompleter.s
+
+# target to generate assembly for a file
+src/widget/moc_BComboboxCompleter.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BComboboxCompleter.cpp.s
+.PHONY : src/widget/moc_BComboboxCompleter.cpp.s
+
 src/widget/moc_BGroupNumberInput.o: src/widget/moc_BGroupNumberInput.cpp.o
 
 .PHONY : src/widget/moc_BGroupNumberInput.o
@@ -1121,6 +1229,33 @@ src/widget/moc_BHStackWidget.s: src/widget/moc_BHStackWidget.cpp.s
 src/widget/moc_BHStackWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BHStackWidget.cpp.s
 .PHONY : src/widget/moc_BHStackWidget.cpp.s
+
+src/widget/moc_BLineEditCompleter.o: src/widget/moc_BLineEditCompleter.cpp.o
+
+.PHONY : src/widget/moc_BLineEditCompleter.o
+
+# target to build an object file
+src/widget/moc_BLineEditCompleter.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BLineEditCompleter.cpp.o
+.PHONY : src/widget/moc_BLineEditCompleter.cpp.o
+
+src/widget/moc_BLineEditCompleter.i: src/widget/moc_BLineEditCompleter.cpp.i
+
+.PHONY : src/widget/moc_BLineEditCompleter.i
+
+# target to preprocess a source file
+src/widget/moc_BLineEditCompleter.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BLineEditCompleter.cpp.i
+.PHONY : src/widget/moc_BLineEditCompleter.cpp.i
+
+src/widget/moc_BLineEditCompleter.s: src/widget/moc_BLineEditCompleter.cpp.s
+
+.PHONY : src/widget/moc_BLineEditCompleter.s
+
+# target to generate assembly for a file
+src/widget/moc_BLineEditCompleter.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/widget/moc_BLineEditCompleter.cpp.s
+.PHONY : src/widget/moc_BLineEditCompleter.cpp.s
 
 src/widget/moc_BListCheckBox.o: src/widget/moc_BListCheckBox.cpp.o
 
@@ -1366,6 +1501,9 @@ help:
 	@echo "... src/moc_BMainWindow.o"
 	@echo "... src/moc_BMainWindow.i"
 	@echo "... src/moc_BMainWindow.s"
+	@echo "... src/model/B10ItemModel.o"
+	@echo "... src/model/B10ItemModel.i"
+	@echo "... src/model/B10ItemModel.s"
 	@echo "... src/model/Types.o"
 	@echo "... src/model/Types.i"
 	@echo "... src/model/Types.s"
@@ -1387,12 +1525,18 @@ help:
 	@echo "... src/widget/BComboBox.o"
 	@echo "... src/widget/BComboBox.i"
 	@echo "... src/widget/BComboBox.s"
+	@echo "... src/widget/BComboboxCompleter.o"
+	@echo "... src/widget/BComboboxCompleter.i"
+	@echo "... src/widget/BComboboxCompleter.s"
 	@echo "... src/widget/BGroupNumberInput.o"
 	@echo "... src/widget/BGroupNumberInput.i"
 	@echo "... src/widget/BGroupNumberInput.s"
 	@echo "... src/widget/BHStackWidget.o"
 	@echo "... src/widget/BHStackWidget.i"
 	@echo "... src/widget/BHStackWidget.s"
+	@echo "... src/widget/BLineEditCompleter.o"
+	@echo "... src/widget/BLineEditCompleter.i"
+	@echo "... src/widget/BLineEditCompleter.s"
 	@echo "... src/widget/BListCheckBox.o"
 	@echo "... src/widget/BListCheckBox.i"
 	@echo "... src/widget/BListCheckBox.s"
@@ -1423,12 +1567,18 @@ help:
 	@echo "... src/widget/moc_BComboBox.o"
 	@echo "... src/widget/moc_BComboBox.i"
 	@echo "... src/widget/moc_BComboBox.s"
+	@echo "... src/widget/moc_BComboboxCompleter.o"
+	@echo "... src/widget/moc_BComboboxCompleter.i"
+	@echo "... src/widget/moc_BComboboxCompleter.s"
 	@echo "... src/widget/moc_BGroupNumberInput.o"
 	@echo "... src/widget/moc_BGroupNumberInput.i"
 	@echo "... src/widget/moc_BGroupNumberInput.s"
 	@echo "... src/widget/moc_BHStackWidget.o"
 	@echo "... src/widget/moc_BHStackWidget.i"
 	@echo "... src/widget/moc_BHStackWidget.s"
+	@echo "... src/widget/moc_BLineEditCompleter.o"
+	@echo "... src/widget/moc_BLineEditCompleter.i"
+	@echo "... src/widget/moc_BLineEditCompleter.s"
 	@echo "... src/widget/moc_BListCheckBox.o"
 	@echo "... src/widget/moc_BListCheckBox.i"
 	@echo "... src/widget/moc_BListCheckBox.s"

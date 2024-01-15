@@ -8,7 +8,9 @@
 #include <memory>
 
 #include "BDemo1Window.h"
+#include "BExpertWindow.h"
 #include "BMainWindow.h"
+#include "BSimpleWindow.h"
 #include "utils/Helper.h"
 #include "virtual/BWindow.h"
 

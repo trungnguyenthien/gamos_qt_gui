@@ -17,6 +17,7 @@
 #include "virtual/BWindow.h"
 #include "widget/BComboBox.h"
 #include "widget/BGroupNumberInput.h"
+#include "widget/BLineEditCompleter.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
 #include "widget/BNumberInput.h"
@@ -34,8 +35,8 @@ private:
   BComboBox *cbbSourceTypes;
   vector<SOURCETYPE> sourceTypes;
 
-  BComboBox *cbbIsotopes;
-  vector<ISOTOPE> isotopes;
+  BLineEditCompleter *cbbIsotopes;
+  // vector<ISOTOPE> isotopes;
 
   BComboBox *cbbParticles;
   vector<PARTICLE> particles;
