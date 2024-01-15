@@ -8,6 +8,10 @@
 BPos3Input::BPos3Input(QWidget *parent, QString title) : QWidget(parent) {
   this->title = title;
   grid = new QGridLayout(this);
+  grid->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+  grid->setSpacing(5);
+  grid->setContentsMargins(0, 0, 0, 0);
+  grid->setMargin(0);
   setLayout(grid);
 }
 

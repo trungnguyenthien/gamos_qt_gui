@@ -137,18 +137,43 @@ void BSimpleWindow::initPhantomLayout() {
               NumberInputValue("DELTA_PHI_ANGLE_OF_SEGMENT", "DELTA_PHI_ANGLE_OF_SEGMENT", "1",
                                "°"),
           }),
+      makeGroupNumberInputValue("ELLIPTICALTUBE", "ELLIPTICALTUBE",
+                                {
+                                    NumberInputValue("HALF_LENGTH_X", "HALF_LENGTH_X", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Y", "HALF_LENGTH_Y", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Z", "HALF_LENGTH_Z", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "ELLIPSOID", "ELLIPSOID",
+          {
+              NumberInputValue("SEMIAXIS_X", "SEMIAXIS_X", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Y", "SEMIAXIS_Y", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Z", "SEMIAXIS_Z", "1", "mm"),
+              NumberInputValue("LOWER_CUT_PLANE_LEVEL_Z", "LOWER_CUT_PLANE_LEVEL_Z", "1", "mm"),
+              NumberInputValue("UPPER_CUT_PLANE_LEVEL_Z", "UPPER_CUT_PLANE_LEVEL_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "TET", "TET",
+          {
+              NumberInputValue("ANCHOR_POINT", "ANCHOR_POINT", "1", "mm"),
+              NumberInputValue("POINT_2", "POINT_2", "1", "mm"),
+              NumberInputValue("POINT_3", "POINT_3", "1", "mm"),
+              NumberInputValue("POINT_4", "POINT_4", "1", "mm"),
+              NumberInputValue("FLAG_INDICATING_DEGENERACY_OF_POINTS",
+                               "FLAG_INDICATING_DEGENERACY_OF_POINTS", "1", "mm"),
+          }),
 
   };
 
   cbbGeom = new BComboBox(this, "Geometry");
-  bGroupNumberInput = new BGroupNumberInput(this);
   for (auto group : group_geom_source) {
     QString label = group.label;
     cbbGeom->addItem(label);
   }
   cbbGeom->isTitleInLine = true;
-
   cbbGeom->initUI();
+
+  bGroupNumberInput = new BGroupNumberInput(this);
   connectCbbIndexChange(cbbGeom->combobox, [this](int index) {
     this->bGroupNumberInput->removeAll();
     GroupNumberInputValue selectGroup = this->group_geom_source[index];
@@ -171,10 +196,10 @@ void BSimpleWindow::initSourceLayout() {
 
   //   ds_wg_set_fixed_w(leftStack, 400);
   //   ds_wg_set_fixed_w(rightStack, 400);
-  grid->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-  grid->setSpacing(5);
-  grid->setContentsMargins(0, 0, 0, 0);
-  grid->setMargin(0);
+  //   grid->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+  //   grid->setSpacing(5);
+  //   grid->setContentsMargins(0, 0, 0, 0);
+  //   grid->setMargin(0);
 
   grid->addWidget(leftStack, 0, 1);
   grid->addWidget(rightStack, 0, 2);
@@ -208,8 +233,98 @@ void BSimpleWindow::initSourceLayout() {
 
   numberEngergy = new BNumberInput(this, NumberInputValue("Energy", "Energy", "1", ""));
   numberEngergy->initUI(true, false);
-  //   numberEngergy->hide();
+
+  posXYZ = new BPos3Input(this, "Position");
+  posXYZ->initUI();
+  //   pos3Rad->hide();
+  rightStack->addSubWidget(posXYZ);
+
+  cbbDirectDistribution = new BComboBox(this, "Direct Distribution");
+  group_direction_source = {
+      GroupNumberInputValue(),
+      makeGroupNumberInputValue("Random Distribution", "Random", {}),
+      makeGroupNumberInputValue("Constant Distribution", "Constant",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue("Cone Distribution", "Cone",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                    NumberInputValue("OPEN_ANGLE", "OPEN_ANGLE", "1", "°"),
+                                }),
+      makeGroupNumberInputValue(
+          "Cone With Gaussion Angle", "ConeGaussian",
+          {
+              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+              NumberInputValue("ANGLE_GAUSSIAN_SIGMA", "ANGLE_GAUSSIAN_SIGMA", "1", "°"),
+          }),
+      makeGroupNumberInputValue(
+          "Cone With Gaussion Angle in 2 Dimens", "ConeGaussian2Dim",
+          {
+              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+              NumberInputValue("ANGLE_GAUSSIAN_SIGMA_Y", "ANGLE_GAUSSIAN_SIGMA_Y", "1", "°"),
+          }),
+      makeGroupNumberInputValue("Gaussion Along An Axis", "GaussianAlong2Axis",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                    NumberInputValue("SIGMA_Y", "SIGMA_Y", "1", "°"),
+                                    NumberInputValue("SIGMA_Z", "SIGMA_Z", "1", "°"),
+                                }),
+  };
+  for (auto group : group_direction_source) {
+    QString label = group.label;
+    cbbDirectDistribution->addItem(label);
+  }
+  cbbDirectDistribution->isTitleInLine = true;
+  cbbDirectDistribution->initUI();
+  rightStack->addSubWidget(cbbDirectDistribution);
+
+  bGroupDirectDistribution = new BGroupNumberInput(this);
+  connectCbbIndexChange(cbbDirectDistribution->combobox, [this](int index) {
+    this->bGroupDirectDistribution->removeAll();
+    GroupNumberInputValue selectGroup = this->group_direction_source[index];
+    this->bGroupDirectDistribution->initUI(selectGroup);
+  });
+  rightStack->addSubWidget(bGroupDirectDistribution);
+
   leftStack->addSubWidget(numberEngergy);
+  cbbSourceTypes->combobox->setCurrentIndex(0);
+  this->cbbIsotopes->hide();
+  this->cbbParticles->hide();
+  this->numberEngergy->hide();
+
+  connectCbbIndexChange(cbbSourceTypes->combobox, [this](int index) {
+    this->cbbIsotopes->hide();
+    this->cbbParticles->hide();
+    this->numberEngergy->hide();
+    SOURCETYPE selectSource = this->sourceTypes[index];
+    switch (selectSource) {
+      case SOURCETYPE::NONE:
+        break;
+
+      case SOURCETYPE::ISOTOPES:
+        this->cbbIsotopes->show();
+        this->cbbIsotopes->lineEdit->setText("");
+        break;
+
+      case SOURCETYPE::PARTICLES:
+        this->cbbParticles->show();
+        this->cbbParticles->combobox->setCurrentIndex(0);
+        this->numberEngergy->show();
+        this->numberEngergy->content->setText("");
+        break;
+    }
+  });
 }
 
 void BSimpleWindow::initOutputLayout() {}

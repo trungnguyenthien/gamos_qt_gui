@@ -48,6 +48,12 @@ private:
   GroupNumberInputValue groupNumberInputValue;
   BGroupNumberInput *bGroupNumberInput;
 
+  BPos3Input *posXYZ;
+
+  BComboBox *cbbDirectDistribution;
+  vector<GroupNumberInputValue> group_direction_source;
+  BGroupNumberInput *bGroupDirectDistribution;
+
   // vector<RADIATION> radiation_source;
   // vector<int> radiation_check;
   // vector<ENERGY> energy_source;
