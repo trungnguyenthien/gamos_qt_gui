@@ -12,7 +12,7 @@ void BNumberInput::initUI(bool isTitleInLine, bool isNormalFont) {
 
   QGridLayout *grid = new QGridLayout(this);
   grid->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-  grid->setSpacing(5);
+  // grid->setSpacing(0);
   // grid->setContentsMargins(0, 0, 0, 0);
   // grid->setMargin(0);
   setLayout(grid);

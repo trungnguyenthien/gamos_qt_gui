@@ -4,6 +4,10 @@
 BComboBox::BComboBox(QWidget *parent, QString title) : QWidget(parent) {
   this->title = title;
   grid = new QGridLayout(this);
+  grid->setSpacing(0);
+  grid->setContentsMargins(0, 0, 0, 0);
+  grid->setMargin(0);
+  setLayout(grid);
   setLayout(grid);
   combobox = new QComboBox(this);
   label = new QLabel(this);
