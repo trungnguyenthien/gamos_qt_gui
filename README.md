@@ -25,6 +25,7 @@ Open Terminal and execute the command:
 gamos_gui
 ```
 Or, open in menu...
-<img src="doc_assets/open_in_app_launcher.jpg" width="30%"/>
+
+<img src="doc_assets/open_in_app_launcher.jpg" width="50%"/>
 # Released Versions
 Refer to: https://github.com/trungnguyenthien/gamos_qt_gui/releases
