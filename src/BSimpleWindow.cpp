@@ -40,11 +40,47 @@ void BSimpleWindow::initPhantomLayout() {
   phantomLayout->setLayout(grid);
   grid->setColumnStretch(0, 1);
   grid->setColumnStretch(1, 1);
-  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(2, 2);
   grid->setColumnStretch(3, 1);
 
   grid->addWidget(leftStack, 0, 1);
   grid->addWidget(rightStack, 0, 2);
+
+  matter_source.push_back(MATTER::LEAD);
+  matter_source.push_back(MATTER::ALUMIUM);
+  matter_source.push_back(MATTER::PAPER);
+  matter_source.push_back(MATTER::CONCRETE);
+  matter_source.push_back(MATTER::WATER);
+  matter_source.push_back(MATTER::AIR);
+  matter_source.push_back(MATTER::COMPACT_BONE);
+  matter_source.push_back(MATTER::CORTICAL_BONE);
+  matter_source.push_back(MATTER::BRAIN);
+  matter_source.push_back(MATTER::EYE_LENS);
+  matter_source.push_back(MATTER::GLASS_LEAD);
+  matter_source.push_back(MATTER::GLUCOSE);
+  matter_source.push_back(MATTER::LUNG);
+  matter_source.push_back(MATTER::SKELETAL_MUSCLE);
+  matter_source.push_back(MATTER::STRIATED_MUSCLE);
+  matter_source.push_back(MATTER::PARAFFIN);
+  matter_source.push_back(MATTER::SKIN);
+  matter_source.push_back(MATTER::TESTES);
+  matter_source.push_back(MATTER::GRAPHITE);
+  matter_source.push_back(MATTER::ADULT_THYROID);
+  matter_source.push_back(MATTER::ADULT_SPLEEN);
+  matter_source.push_back(MATTER::ADULT_HEART);
+  matter_source.push_back(MATTER::ADULT_KIDNEY);
+  matter_source.push_back(MATTER::ADULT_LIVER);
+  matter_source.push_back(MATTER::ADULT_OVARY);
+  matter_source.push_back(MATTER::ADULT_PANCREAS);
+
+  cbbMatter = new BComboBox(this, "Matterial");
+  for (MATTER matter : matter_source) {
+    cbbMatter->addItem(MATTER_text(matter));
+  }
+  cbbMatter->isTitleInLine = false;
+  cbbMatter->initUI();
+  ds_wg_set_expanding_w(cbbMatter);
+  leftStack->addSubWidget(cbbMatter);
 
   group_geom_source = {
       GroupNumberInputValue(),
@@ -184,7 +220,7 @@ void BSimpleWindow::initPhantomLayout() {
     this->bGroupNumberInput->initUI(selectGroup);
   });
 
-  leftStack->addSubWidget(cbbGeom);
+  rightStack->addSubWidget(cbbGeom);
   rightStack->addSubWidget(bGroupNumberInput);
 }
 

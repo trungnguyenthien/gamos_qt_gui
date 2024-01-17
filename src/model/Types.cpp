@@ -168,6 +168,69 @@ QString MATTER_text(MATTER mat) {
     case MATTER::TUNGSEN_VONFRAM:
       return "Tungsten/Vonfram​";
 
+    case MATTER::AIR:
+      return "Air";
+
+    case MATTER::COMPACT_BONE:
+      return "Compact Bone";
+
+    case MATTER::CORTICAL_BONE:
+      return "Cortical Bone";
+
+    case MATTER::BRAIN:
+      return "Brain";
+
+    case MATTER::EYE_LENS:
+      return "Eye Lens";
+
+    case MATTER::GLASS_LEAD:
+      return "Glass Lead";
+
+    case MATTER::GLUCOSE:
+      return "Glucose";
+
+    case MATTER::LUNG:
+      return "Lung";
+
+    case MATTER::SKELETAL_MUSCLE:
+      return "Skeletal Muscle";
+
+    case MATTER::STRIATED_MUSCLE:
+      return "Striated Muscle";
+
+    case MATTER::PARAFFIN:
+      return "Paraffin";
+
+    case MATTER::SKIN:
+      return "Skin";
+
+    case MATTER::TESTES:
+      return "Testes";
+
+    case MATTER::GRAPHITE:
+      return "Graphite";
+
+    case MATTER::ADULT_THYROID:
+      return "Adult Thyroid";
+
+    case MATTER::ADULT_SPLEEN:
+      return "Adult Spleen";
+
+    case MATTER::ADULT_HEART:
+      return "Adult Heart";
+
+    case MATTER::ADULT_KIDNEY:
+      return "Adult Kidney";
+
+    case MATTER::ADULT_LIVER:
+      return "Adult Liver";
+
+    case MATTER::ADULT_OVARY:
+      return "Adult Ovary";
+
+    case MATTER::ADULT_PANCREAS:
+      return "Adult Pancreas";
+
     default:
       break;
   }

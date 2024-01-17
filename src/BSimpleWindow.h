@@ -44,7 +44,9 @@ private:
 
   BNumberInput *numberEngergy;
 
-  // QGridLayout *grid;
+  vector<MATTER> matter_source;
+  BComboBox *cbbMatter;
+
   vector<GroupNumberInputValue> group_geom_source;
   GroupNumberInputValue groupNumberInputValue;
   BGroupNumberInput *bGroupNumberInput;
