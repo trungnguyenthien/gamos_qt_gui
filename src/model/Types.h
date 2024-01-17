@@ -17,6 +17,57 @@ QString ENERGY_text(ENERGY en);
 QString ENERGY_unit(ENERGY en);
 int ENERGY_value(ENERGY en);
 // Tungsten/Vonfram​
+
+// G4_Al
+
+// G4_Pb
+
+// G4_W
+
+// G4_AIR
+
+// G4_BONE_COMPACT_ICRU
+
+// G4_BONE_CORTICAL_ICRP
+
+// G4_BRAIN_ICRP
+
+// G4_CONCRETE
+
+// G4_EYE_LENS_ICRP
+
+// G4_GLASS_LEAD
+
+// G4_GLUCOSE
+
+// G4_LUNG_ICRP
+
+// G4_MUSCLE_SKELETAL_ICRP
+
+// G4_MUSCLE_STRIATED_ICRU
+
+// G4_PARAFFIN
+
+// G4_SKIN_ICRP
+
+// G4_TESTES_ICRP
+
+// G4_TISSUE_SOFT_ICRP
+
+// G4_WATER
+
+// G4_GRAPHITE
+
+// ICRU46_Thyroid Adult
+
+// ICRU46_Spleen Adult
+
+// ICRU46_Heart Adult (healthy)
+
+// ICRU46_Kidney Adult
+
+// ICRU46_Liver Adult (healthy)
+
 enum class MATTER { LEAD, ALUMIUM, PAPER, CONCRETE, WATER, TUNGSEN_VONFRAM };
 QString MATTER_text(MATTER mat);
 QString MATTER_g4_name(MATTER mat);

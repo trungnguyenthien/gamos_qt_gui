@@ -1,6 +1,7 @@
 #ifndef BSIMPLEWINDOW_H_
 #define BSIMPLEWINDOW_H_
 
+#include <QCheckBox>
 #include <QPushButton>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -53,6 +54,10 @@ private:
   BComboBox *cbbDirectDistribution;
   vector<GroupNumberInputValue> group_direction_source;
   BGroupNumberInput *bGroupDirectDistribution;
+
+  QCheckBox *ckPartidePropagating;
+  QCheckBox *ckDoseMap;
+  QCheckBox *ckEnergyDositionMap;
 
   // vector<RADIATION> radiation_source;
   // vector<int> radiation_check;

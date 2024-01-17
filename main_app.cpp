@@ -2,11 +2,10 @@
 // #include "src/BExpertWindow.h"
 #include "src/BMainWindow.h"
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   QApplication a(argc, argv);
   BMainWindow *mainWidget = new BMainWindow(nullptr);
-  mainWidget->setWindowTitle("APPLICATION TITLE");
+  mainWidget->setWindowTitle("VIRMG4");
   // widget.adjustSize();
   mainWidget->setWindowState(Qt::WindowMaximized);
   // widget.move(QApplication::desktop()->screen()->rect().center() - widget.rect().center());
@@ -18,8 +17,8 @@ int main(int argc, char **argv)
 
 #include <Inventor/Qt/SoQt.h>
 #include <Inventor/Qt/viewers/SoQtExaminerViewer.h>
-#include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoCone.h>
+#include <Inventor/nodes/SoSeparator.h>
 
 int main(int argc, char** argv)
 {
