@@ -192,7 +192,70 @@ QString MATTER_g4_name(MATTER mat) {
       return "G4_WATER";
 
     case MATTER::TUNGSEN_VONFRAM:
-      return "Tungsten/Vonfram​";  // TODO: Request G4 NAME
+      return "G4_W";
+
+    case MATTER::AIR:
+      return "G4_AIR";
+
+    case MATTER::COMPACT_BONE:
+      return "G4_BONE_COMPACT_ICRU";
+
+    case MATTER::CORTICAL_BONE:
+      return "G4_BONE_CORTICAL_ICRP";
+
+    case MATTER::BRAIN:
+      return "G4_BRAIN_ICRP";
+
+    case MATTER::EYE_LENS:
+      return "G4_EYE_LENS_ICRP";
+
+    case MATTER::GLASS_LEAD:
+      return "G4_GLASS_LEAD";
+
+    case MATTER::GLUCOSE:
+      return "G4_GLUCOSE";
+
+    case MATTER::LUNG:
+      return "G4_LUNG_ICRP";
+
+    case MATTER::SKELETAL_MUSCLE:
+      return "G4_MUSCLE_SKELETAL_ICRP";
+
+    case MATTER::STRIATED_MUSCLE:
+      return "G4_MUSCLE_STRIATED_ICRU";
+
+    case MATTER::PARAFFIN:
+      return "G4_PARAFFIN";
+
+    case MATTER::SKIN:
+      return "G4_SKIN_ICRP";
+
+    case MATTER::TESTES:
+      return "G4_TESTES_ICRP";
+
+    case MATTER::GRAPHITE:
+      return "G4_GRAPHITE";
+
+    case MATTER::ADULT_THYROID:
+      return "ICRU46_Thyroid";
+
+    case MATTER::ADULT_SPLEEN:
+      return "ICRU46_Spleen";
+
+    case MATTER::ADULT_HEART:
+      return "ICRU46_Heart";
+
+    case MATTER::ADULT_KIDNEY:
+      return "ICRU46_Kidney";
+
+    case MATTER::ADULT_LIVER:
+      return "ICRU46_Liver";
+
+    case MATTER::ADULT_OVARY:
+      return "ICRU46_Ovary";
+
+    case MATTER::ADULT_PANCREAS:
+      return "ICRU46_Pancreas";
 
     default:
       break;
