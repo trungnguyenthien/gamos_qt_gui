@@ -12,12 +12,15 @@
 #include "widget/TerminalDialog.h"
 
 BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QTabWidget(parent) {
-  phantomLayout = new QWidget(parent);
-  sourceLayout = new QWidget(parent);
-  outputLayout = new QWidget(parent);
+  this->mode = mode;
+  this->isMultipleMatter = (mode == 0);
 
   tabBar()->setDocumentMode(true);
   tabBar()->setExpanding(true);
+
+  phantomLayout = new QWidget(parent);
+  sourceLayout = new QWidget(parent);
+  outputLayout = new QWidget(parent);
   this->addTab(phantomLayout, "Phantom");
   this->addTab(sourceLayout, "Source");
   this->addTab(outputLayout, "Output");
@@ -25,18 +28,6 @@ BDemo2Window::BDemo2Window(QWidget *parent, int mode) : QTabWidget(parent) {
   initPhantomLayout();
   initSourceLayout();
   initOutputLayout();
-
-  // grid = new QGridLayout(this);
-  this->mode = mode;
-  this->isMultipleMatter = (mode == 0);
-  // this->setLayout(grid);
-  // BVStackWidget *column1 = new BVStackWidget(parent);
-  // grid->addWidget(column1, 0, 1);
-
-  // BVStackWidget *column2 = new BVStackWidget(parent);
-  // grid->addWidget(column2, 0, 2);
-
-  /// SET UP RADIATION
 }
 
 BDemo2Window::~BDemo2Window() {}
@@ -55,20 +46,13 @@ QWidget *BDemo2Window::self_widget() { return this; }
 
 BFileGen *BDemo2Window::genInFile() {
   vector<RADIATION> rads = selectedRadiation();
-  // ENERGY en = selecedEnergy();
   NumberInputValue en = numEnergy->currentInputValue();
 
   QStringList lines;
-  // if (isMultiple) {
   if (rads.empty()) {
     messageBox("Please select RADIATION", this);
     return NULL;
   }
-
-  // if (ENERGY_value(en) == 0) {
-  //   messageBox("Please select ENERGY", this);
-  //   return NULL;
-  // }
 
   if (isMultipleMatter) {
     lines << "/tracking/verbose 1";
@@ -284,27 +268,27 @@ void BDemo2Window::initSourceLayout() {
   grid->addWidget(leftStack, 0, 1);
   grid->addWidget(rightStack, 0, 2);
 
-  particle_source.push_back(PARTICLE::NONE);
-  particle_source.push_back(PARTICLE::E_POSITIVE);
-  particle_source.push_back(PARTICLE::ALPHA);
-  particle_source.push_back(PARTICLE::GAMMA);
-  particle_source.push_back(PARTICLE::NEUTRON);
-  particle_source.push_back(PARTICLE::E_NEGATIVE);
+  // particle_source.push_back(PARTICLE::NONE);
+  // particle_source.push_back(PARTICLE::E_POSITIVE);
+  // particle_source.push_back(PARTICLE::ALPHA);
+  // particle_source.push_back(PARTICLE::GAMMA);
+  // particle_source.push_back(PARTICLE::NEUTRON);
+  // particle_source.push_back(PARTICLE::E_NEGATIVE);
 
-  vector<QString> particleOptions;
-  for (auto item : particle_source) {
-    particleOptions.push_back(PARTICLE_text(item));
-  }
-  cbbParticle = new BComboBox(this, "The Particle");
-  cbbParticle->isTitleInLine = true;
-  cbbParticle->hide();
+  // vector<QString> particleOptions;
+  // for (auto item : particle_source) {
+  //   particleOptions.push_back(PARTICLE_text(item));
+  // }
+  // cbbParticle = new BComboBox(this, "The Particle");
+  // cbbParticle->isTitleInLine = true;
+  // cbbParticle->hide();
 
-  for (auto item : particle_source) {
-    cbbParticle->addItem(PARTICLE_text(item));
-  }
-  cbbParticle->initUI();
-  cbbParticle->show();
-  leftStack->addSubWidget(cbbParticle);
+  // for (auto item : particle_source) {
+  //   cbbParticle->addItem(PARTICLE_text(item));
+  // }
+  // cbbParticle->initUI();
+  // cbbParticle->show();
+  // leftStack->addSubWidget(cbbParticle);
 
   /// SET UP ENERGY
   // energy_source.push_back(ENERGY::NONE);

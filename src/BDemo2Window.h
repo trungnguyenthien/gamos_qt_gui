@@ -35,15 +35,13 @@ private:
   int mode = 0;
   vector<RADIATION> radiation_source;
   vector<int> radiation_check;
-  // vector<ENERGY> energy_source;
-  vector<PARTICLE> particle_source;
+  // vector<PARTICLE> particle_source;
   vector<MATTER> matter_source;
   BPos3Input *pos3Rad;
   BPos3Input *pos3Mat;
   QString session_dir;
   bool isMultipleMatter = false;
   vector<RADIATION> selectedRadiation();
-  // ENERGY selecedEnergy();
   unordered_map<MATTER, QString> selectedMatter();
   BNumberInput *numEnergy;
 
@@ -58,7 +56,7 @@ public:
   QPushButton *btn_enter;
   BListCheckBox *listRadiation;
   // BComboBox *cbbEnergy;
-  BComboBox *cbbParticle;
+  // BComboBox *cbbParticle;
   BListCheckText *listMatterMutiple;
   /// @brief Constructor
   /// @param parent
