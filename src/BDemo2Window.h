@@ -1,6 +1,7 @@
 #ifndef __BDEMO2WINDOW_H__
 #define __BDEMO2WINDOW_H__
 
+#include <QCheckBox>
 #include <QPushButton>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -17,6 +18,7 @@
 #include "widget/BComboBox.h"
 #include "widget/BListCheckBox.h"
 #include "widget/BListCheckText.h"
+#include "widget/BNumberInput.h"
 #include "widget/BPos3Input.h"
 
 using namespace std;
@@ -33,7 +35,7 @@ private:
   int mode = 0;
   vector<RADIATION> radiation_source;
   vector<int> radiation_check;
-  vector<ENERGY> energy_source;
+  // vector<ENERGY> energy_source;
   vector<PARTICLE> particle_source;
   vector<MATTER> matter_source;
   BPos3Input *pos3Rad;
@@ -41,8 +43,13 @@ private:
   QString session_dir;
   bool isMultipleMatter = false;
   vector<RADIATION> selectedRadiation();
-  ENERGY selecedEnergy();
+  // ENERGY selecedEnergy();
   unordered_map<MATTER, QString> selectedMatter();
+  BNumberInput *numEnergy;
+
+  QCheckBox *ckPartidePropagating;
+  QCheckBox *ckDoseMap;
+  QCheckBox *ckEnergyDositionMap;
 
   BFileGen *genInFile();
   BFileGen *genGeomFile();
@@ -50,7 +57,7 @@ private:
 public:
   QPushButton *btn_enter;
   BListCheckBox *listRadiation;
-  BComboBox *cbbEnergy;
+  // BComboBox *cbbEnergy;
   BComboBox *cbbParticle;
   BListCheckText *listMatterMutiple;
   /// @brief Constructor

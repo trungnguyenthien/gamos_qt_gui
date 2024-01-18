@@ -384,7 +384,7 @@ void BSimpleWindow::initOutputLayout() {
 
   ckPartidePropagating = new QCheckBox("Partide propagating", this);
   ckDoseMap = new QCheckBox("Dose Map", this);
-  ckEnergyDositionMap = new QCheckBox("Energy Dosition Map", this);
+  ckEnergyDositionMap = new QCheckBox("Energy Position Map", this);
 
   leftStack->addSubWidget(ckPartidePropagating);
   leftStack->addSubWidget(ckDoseMap);

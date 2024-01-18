@@ -19,6 +19,7 @@ public:
   QLineEdit *content;
   QString hint = "";
   NumberInputValue numberInputValue;
+  NumberInputValue currentInputValue();
   void initUI(bool isTitleInLine, bool isNormalFont);
   BNumberInput(QWidget *parent, const QString &label, const QString &hint);
   BNumberInput(QWidget *parent, NumberInputValue inputValue);

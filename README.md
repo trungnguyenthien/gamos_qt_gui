@@ -26,6 +26,6 @@ gamos_gui
 ```
 Or, open in menu...
 
-<img src="doc_assets/open_in_app_launcher.jpg" width="50%"/>
+<img src="doc_assets/open_in_app_launcher.jpg" width="5jn0%"/>
 # Released Versions
 Refer to: https://github.com/trungnguyenthien/gamos_qt_gui/releases

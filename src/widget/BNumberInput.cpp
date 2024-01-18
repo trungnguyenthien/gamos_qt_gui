@@ -5,6 +5,11 @@
 
 #include "../utils/Helper.h"
 
+NumberInputValue BNumberInput::currentInputValue() {
+  return NumberInputValue(numberInputValue.label, numberInputValue.name, content->text(),
+                          numberInputValue.valueUnit);
+}
+
 void BNumberInput::initUI(bool isTitleInLine, bool isNormalFont) {
   // this->content->setFixedWidth(50);
   this->content->setPlaceholderText(hint);

@@ -4,6 +4,7 @@
 #include <QStringList>
 #include <QVariant>
 
+#include "model/Types.h"
 #include "utils/AppData.h"
 #include "utils/BFileGen.h"
 #include "utils/Helper.h"
@@ -54,7 +55,8 @@ QWidget *BDemo2Window::self_widget() { return this; }
 
 BFileGen *BDemo2Window::genInFile() {
   vector<RADIATION> rads = selectedRadiation();
-  ENERGY en = selecedEnergy();
+  // ENERGY en = selecedEnergy();
+  NumberInputValue en = numEnergy->currentInputValue();
 
   QStringList lines;
   // if (isMultiple) {
@@ -63,10 +65,10 @@ BFileGen *BDemo2Window::genInFile() {
     return NULL;
   }
 
-  if (ENERGY_value(en) == 0) {
-    messageBox("Please select ENERGY", this);
-    return NULL;
-  }
+  // if (ENERGY_value(en) == 0) {
+  //   messageBox("Please select ENERGY", this);
+  //   return NULL;
+  // }
 
   if (isMultipleMatter) {
     lines << "/tracking/verbose 1";
@@ -91,8 +93,8 @@ BFileGen *BDemo2Window::genInFile() {
     lines << "/run/beamOn 30";
 
     replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
-    replaceRegex(&lines, "{ENERGY}", QString::number(ENERGY_value(en)));
-    replaceRegex(&lines, "{ENERGY_UNIT}", ENERGY_unit(en));
+    replaceRegex(&lines, "{ENERGY}", en.value);
+    replaceRegex(&lines, "{ENERGY_UNIT}", en.valueUnit);
     replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->posX()));
     replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->posY()));
     replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
@@ -124,8 +126,8 @@ BFileGen *BDemo2Window::genInFile() {
                   "1. 0. 0.";
       replaceRegex(&radLines, "{RADIATION_I}", RADIATION_value(rad));
       replaceRegex(&radLines, "{SOURCE_I}", source_name);
-      replaceRegex(&radLines, "{ENERGY}", QString::number(ENERGY_value(en)));
-      replaceRegex(&radLines, "{ENERGY_UNIT}", ENERGY_unit(en));
+      replaceRegex(&radLines, "{ENERGY}", en.value);
+      replaceRegex(&radLines, "{ENERGY_UNIT}", en.valueUnit);
       replaceRegex(&radLines, "{RAD_X}", QString::number(pos3Rad->posX()));
       replaceRegex(&radLines, "{RAD_Y}", QString::number(pos3Rad->posY()));
       replaceRegex(&radLines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
@@ -305,42 +307,50 @@ void BDemo2Window::initSourceLayout() {
   leftStack->addSubWidget(cbbParticle);
 
   /// SET UP ENERGY
-  energy_source.push_back(ENERGY::NONE);
-  energy_source.push_back(ENERGY::_1_KEV);
-  energy_source.push_back(ENERGY::_10_MEV);
-  energy_source.push_back(ENERGY::_100_KEV);
-  energy_source.push_back(ENERGY::_1_MEV);
-  energy_source.push_back(ENERGY::_10_MEV);
-  energy_source.push_back(ENERGY::_100_MEV);
-  cbbEnergy = new BComboBox(this, "The Energy");
-  cbbEnergy->isTitleInLine = true;
-  cbbEnergy->hide();
+  // energy_source.push_back(ENERGY::NONE);
+  // energy_source.push_back(ENERGY::_1_KEV);
+  // energy_source.push_back(ENERGY::_10_MEV);
+  // energy_source.push_back(ENERGY::_100_KEV);
+  // energy_source.push_back(ENERGY::_1_MEV);
+  // energy_source.push_back(ENERGY::_10_MEV);
+  // energy_source.push_back(ENERGY::_100_MEV);
+  // cbbEnergy = new BComboBox(this, "The Energy");
+  // cbbEnergy->isTitleInLine = true;
+  // cbbEnergy->hide();
 
-  for (auto item : energy_source) {
-    cbbEnergy->addItem(ENERGY_text(item));
-  }
-  cbbEnergy->initUI();
-  cbbEnergy->show();
-  leftStack->addSubWidget(cbbEnergy);
+  // for (auto item : energy_source) {
+  //   cbbEnergy->addItem(ENERGY_text(item));
+  // }
+  // cbbEnergy->initUI();
+  // cbbEnergy->show();
+
+  numEnergy = new BNumberInput(this, NumberInputValue("Energy (keV)", "energy", "1", "keV"));
+  numEnergy->initUI(true, false);
+  leftStack->addSubWidget(numEnergy);
 }
 
 void BDemo2Window::initOutputLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
-  // BVStackWidget *rightStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
   outputLayout->setLayout(grid);
-
-  grid->setColumnStretch(0, 1);
-  grid->setColumnStretch(1, 3);
+  grid->setColumnStretch(0, 3);
+  grid->setColumnStretch(1, 1);
   grid->setColumnStretch(2, 1);
-
-  ds_wg_set_fixed_w(leftStack, 400);
-  // ds_wg_set_fixed_w(rightStack, 400);
+  grid->setColumnStretch(3, 3);
 
   grid->addWidget(leftStack, 0, 1);
-  // grid->addWidget(rightStack, 0, 2);
+  grid->addWidget(rightStack, 0, 2);
 
-  btn_enter = new QPushButton(this);
+  ckPartidePropagating = new QCheckBox("Partide propagating", this);
+  ckDoseMap = new QCheckBox("Dose Map", this);
+  ckEnergyDositionMap = new QCheckBox("Energy Position Map", this);
+
+  leftStack->addSubWidget(ckPartidePropagating);
+  leftStack->addSubWidget(ckDoseMap);
+  leftStack->addSubWidget(ckEnergyDositionMap);
+
+  QPushButton *btn_enter = new QPushButton(this);
   ds_wg_set_fixed_h(btn_enter, 40);
   ds_wg_set_expanding_w(btn_enter);
   btn_enter->setText("ENTER");
@@ -388,10 +398,10 @@ vector<RADIATION> BDemo2Window::selectedRadiation() {
   return out;
 }
 
-ENERGY BDemo2Window::selecedEnergy() {
-  auto index = cbbEnergy->selectedIndex();
-  return energy_source[index];
-}
+// ENERGY BDemo2Window::selecedEnergy() {
+//   auto index = cbbEnergy->selectedIndex();
+//   return energy_source[index];
+// }
 
 unordered_map<MATTER, QString> BDemo2Window::selectedMatter() {
   unordered_map<MATTER, QString> out;
