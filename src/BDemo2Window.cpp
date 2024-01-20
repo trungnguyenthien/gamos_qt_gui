@@ -162,7 +162,7 @@ BFileGen *BDemo2Window::genGeomFile() {
     auto g4matter = MATTER_g4_name(key);
     QStringList matLines;
     matLines << "";
-    matLines << ":SOLID {MY_MATER_I_NAME} BOX 100. 50. {THICKNESS_I}";
+    matLines << ":SOLID {MY_MATER_I_NAME} BOX {THICKNESS_I}. 150. 150. ";
     matLines << ":VOLU {MY_MATER_I_NAME} {MY_MATER_I_NAME} {G4_MATTER_I}";
     matLines << ":COLOR {MY_MATER_I_NAME} 1. 1. 1.";
     matLines << ":PLACE {MY_MATER_I_NAME} 1 world R00 {X_MAT} {Y_MAT} {Z_MAT}";
@@ -189,6 +189,56 @@ void BDemo2Window::initPhantomLayout() {
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
   phantomLayout->setLayout(grid);
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 1);
+  grid->setColumnStretch(2, 3);
+  grid->setColumnStretch(3, 2);
+
+  ds_wg_set_fixed_w(leftStack, 400);
+  ds_wg_set_fixed_w(rightStack, 400);
+
+  // grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
+
+  /// SET UP MATTER
+  matter_source.push_back(MATTER::LEAD);
+  matter_source.push_back(MATTER::ALUMIUM);
+  matter_source.push_back(MATTER::PAPER);
+  matter_source.push_back(MATTER::CONCRETE);
+  matter_source.push_back(MATTER::WATER);
+  vector<QString> matterOptions;
+  for (auto item : matter_source) {
+    matterOptions.push_back(MATTER_text(item));
+  }
+
+  listMatterMutiple = new BListCheckText(this);
+  listMatterMutiple->title = "The Matter";
+  listMatterMutiple->hintEdit = "Input thickness";
+  listMatterMutiple->isSingleChoice = !isMultipleMatter;
+  listMatterMutiple->allowEdit = true;
+  listMatterMutiple->defaultValue = "1";
+  listMatterMutiple->options = matterOptions;
+  listMatterMutiple->initUI();
+  // grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
+  rightStack->addSubWidget(listMatterMutiple);
+
+  pos3Rad = new BPos3Input(this, "Position of Radiation");
+  pos3Rad->initUI();
+  pos3Rad->hide();
+  // leftStack->addSubWidget(pos3Rad);
+
+  pos3Mat = new BPos3Input(this, "Position of Matterial");
+  pos3Mat->initUI();
+  pos3Mat->hide();
+  // rightStack->addSubWidget(pos3Mat);
+}
+
+void BDemo2Window::initSourceLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  sourceLayout->setLayout(grid);
+
   grid->setColumnStretch(0, 1);
   grid->setColumnStretch(1, 3);
   grid->setColumnStretch(2, 3);
@@ -217,56 +267,6 @@ void BDemo2Window::initPhantomLayout() {
   listRadiation->initUI();
   // grid.get()->addWidget(listRadiation, 1, 1, 1, 1);
   leftStack->addSubWidget(listRadiation);
-
-  /// SET UP MATTER
-  matter_source.push_back(MATTER::LEAD);
-  matter_source.push_back(MATTER::ALUMIUM);
-  matter_source.push_back(MATTER::PAPER);
-  matter_source.push_back(MATTER::CONCRETE);
-  matter_source.push_back(MATTER::WATER);
-  vector<QString> matterOptions;
-  for (auto item : matter_source) {
-    matterOptions.push_back(MATTER_text(item));
-  }
-
-  listMatterMutiple = new BListCheckText(this);
-  listMatterMutiple->title = "The Matter";
-  listMatterMutiple->hintEdit = "Input thickness";
-  listMatterMutiple->isSingleChoice = !isMultipleMatter;
-  listMatterMutiple->allowEdit = true;
-  listMatterMutiple->defaultValue = "1";
-  listMatterMutiple->options = matterOptions;
-  listMatterMutiple->initUI();
-  // grid.get()->addWidget(listMatterMutiple, 3, 1, 1, 1);
-  rightStack->addSubWidget(listMatterMutiple);
-
-  pos3Rad = new BPos3Input(this, "Position of Radiation");
-  pos3Rad->initUI();
-  pos3Rad->hide();
-  leftStack->addSubWidget(pos3Rad);
-
-  pos3Mat = new BPos3Input(this, "Position of Matterial");
-  pos3Mat->initUI();
-  pos3Mat->hide();
-  rightStack->addSubWidget(pos3Mat);
-}
-
-void BDemo2Window::initSourceLayout() {
-  BVStackWidget *leftStack = new BVStackWidget(this);
-  BVStackWidget *rightStack = new BVStackWidget(this);
-  QGridLayout *grid = new QGridLayout(this);
-  sourceLayout->setLayout(grid);
-
-  grid->setColumnStretch(0, 1);
-  grid->setColumnStretch(1, 3);
-  grid->setColumnStretch(2, 3);
-  grid->setColumnStretch(3, 1);
-
-  ds_wg_set_fixed_w(leftStack, 400);
-  ds_wg_set_fixed_w(rightStack, 400);
-
-  grid->addWidget(leftStack, 0, 1);
-  grid->addWidget(rightStack, 0, 2);
 
   // particle_source.push_back(PARTICLE::NONE);
   // particle_source.push_back(PARTICLE::E_POSITIVE);
