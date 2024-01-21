@@ -205,4 +205,6 @@ GroupNumberInputValue makeGroupNumberInputValue(QString label, QString name,
 enum class SOURCETYPE { NONE, ISOTOPES, PARTICLES };
 QString SOURCETYPE_text(SOURCETYPE value);
 QString SOURCETYPE_value(SOURCETYPE value);
+
+vector<GroupNumberInputValue> full_group_geom_source();
 #endif  // __TYPES_H__

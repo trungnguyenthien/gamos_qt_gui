@@ -1,10 +1,30 @@
 #ifndef BExpertWindow_H
 #define BExpertWindow_H
 
+#include <QCheckBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
+#include <initializer_list>
+#include <memory>
+#include <unordered_map>
+#include <vector>
 
+#include "model/Types.h"
+#include "utils/BFileGen.h"
 #include "virtual/BWindow.h"
+#include "widget/BComboBox.h"
+#include "widget/BGroupNumberInput.h"
+#include "widget/BLineEditCompleter.h"
+#include "widget/BListCheckBox.h"
+#include "widget/BListCheckText.h"
+#include "widget/BNumberInput.h"
+#include "widget/BPathInput.h"
+#include "widget/BPos3Input.h"
 
 class BExpertWindow : public QTabWidget, public BWindow {
   Q_OBJECT
@@ -16,8 +36,18 @@ private:
   void initSourceLayout();
   void initOutputLayout();
 
-public:
+  vector<GroupNumberInputValue> group_geom_source;
+  GroupNumberInputValue groupNumberInputValue;
+  BGroupNumberInput *bGroupNumberInput;
+  BComboBox *cbbGeom;
 
+  vector<MATTER> matter_source;
+  BComboBox *cbbMatter;
+
+  BPathInput *pathPhantomVoxel, *pathMessPhantom;
+  BPos3Input *posXYZ, *angXYZ;
+
+public:
   BExpertWindow(QWidget *parent);
   ~BExpertWindow();
 

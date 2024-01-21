@@ -79,9 +79,9 @@ BFileGen *BDemo2Window::genInFile() {
     replaceRegex(&lines, "{RADIATION}", RADIATION_value(rads[0]));
     replaceRegex(&lines, "{ENERGY}", en.value);
     replaceRegex(&lines, "{ENERGY_UNIT}", en.valueUnit);
-    replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->posX()));
-    replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->posY()));
-    replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
+    replaceRegex(&lines, "{RAD_X}", QString::number(pos3Rad->valueX()));
+    replaceRegex(&lines, "{RAD_Y}", QString::number(pos3Rad->valueY()));
+    replaceRegex(&lines, "{RAD_Z}", QString::number(pos3Rad->valueZ()));
   } else {
     lines << "/tracking/verbose 1";
     lines << "/gamos/setParam GmGeometryFromText:FileName {FILE_GEOM}";
@@ -112,9 +112,9 @@ BFileGen *BDemo2Window::genInFile() {
       replaceRegex(&radLines, "{SOURCE_I}", source_name);
       replaceRegex(&radLines, "{ENERGY}", en.value);
       replaceRegex(&radLines, "{ENERGY_UNIT}", en.valueUnit);
-      replaceRegex(&radLines, "{RAD_X}", QString::number(pos3Rad->posX()));
-      replaceRegex(&radLines, "{RAD_Y}", QString::number(pos3Rad->posY()));
-      replaceRegex(&radLines, "{RAD_Z}", QString::number(pos3Rad->posZ()));
+      replaceRegex(&radLines, "{RAD_X}", QString::number(pos3Rad->valueX()));
+      replaceRegex(&radLines, "{RAD_Y}", QString::number(pos3Rad->valueY()));
+      replaceRegex(&radLines, "{RAD_Z}", QString::number(pos3Rad->valueZ()));
 
       lines += radLines;
       index++;
@@ -151,9 +151,9 @@ BFileGen *BDemo2Window::genGeomFile() {
   lines << ":COLOR world 1. 1. 1. 1.";
   lines << ":VIS world ON";
 
-  auto xmat = QString::number(pos3Mat->posX());
-  auto ymat = QString::number(pos3Mat->posY());
-  auto zmat = QString::number(pos3Mat->posZ());
+  auto xmat = QString::number(pos3Mat->valueX());
+  auto ymat = QString::number(pos3Mat->valueY());
+  auto zmat = QString::number(pos3Mat->valueZ());
   int index = 0;
   for (auto pair : mats) {
     QString matter_name = "my_matter_" + QString::number(++index);
@@ -223,12 +223,12 @@ void BDemo2Window::initPhantomLayout() {
   rightStack->addSubWidget(listMatterMutiple);
 
   pos3Rad = new BPos3Input(this, "Position of Radiation");
-  pos3Rad->initUI();
+  pos3Rad->initUI("POS_X", "POS_Y", "POS_Z");
   pos3Rad->hide();
   // leftStack->addSubWidget(pos3Rad);
 
   pos3Mat = new BPos3Input(this, "Position of Matterial");
-  pos3Mat->initUI();
+  pos3Mat->initUI("POS_X", "POS_Y", "POS_Z");
   pos3Mat->hide();
   // rightStack->addSubWidget(pos3Mat);
 }

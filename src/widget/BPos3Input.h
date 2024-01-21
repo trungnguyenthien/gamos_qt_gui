@@ -12,16 +12,16 @@
 using namespace std;
 class BPos3Input : public QWidget {
   Q_OBJECT
- private:
+private:
   QGridLayout *grid;
 
- public:
+public:
   QLineEdit *px, *py, *pz;
-  float posX();
-  float posY();
-  float posZ();
+  float valueX();
+  float valueY();
+  float valueZ();
   QString title;
-  void initUI();
+  void initUI(QString xLabel, QString yLabel, QString zLabel);
   BPos3Input(QWidget *parent, QString title);
   QLabel *label;
 };

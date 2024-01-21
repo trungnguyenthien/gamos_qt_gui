@@ -1,4 +1,6 @@
 #include "Types.h"
+
+#include <initializer_list>
 string RADIATION_text(RADIATION r) {
   switch (r) {
     case RADIATION::NONE:
@@ -554,4 +556,128 @@ QString SOURCETYPE_value(SOURCETYPE value) {
       return "";
   }
   return "";
+}
+
+vector<GroupNumberInputValue> full_group_geom_source() {
+  return {
+      GroupNumberInputValue(),
+      makeGroupNumberInputValue("BOX", "BOX",
+                                {
+                                    NumberInputValue("X_HALF_LENGTH", "X_HALF_LENGTH", "1", "mm"),
+                                    NumberInputValue("Y_HALF_LENGTH", "Y_HALF_LENGTH", "1", "mm"),
+                                    NumberInputValue("Z_HALF_LENGTH", "Z_HALF_LENGTH", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "TUBE", "TUBE",
+          {
+              NumberInputValue("INNER_RADIUS", "INNER_RADIUS", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "TUBS", "TUBS",
+          {
+              NumberInputValue("INNER_RADIUS", "INNER_RADIUS", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+              NumberInputValue("STARTING_PHI_ANGLE", "STARTING_PHI_ANGLE", "1", "°"),
+              NumberInputValue("DELTA_PHI_ANGLE_OF_SEGMENT", "DELTA_PHI_ANGLE_OF_SEGMENT", "1",
+                               "°"),
+          }),
+      makeGroupNumberInputValue(
+          "CONE", "CONE",
+          {
+              NumberInputValue("INNER_RADIUS-FDZ", "INNER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS-FDZ", "OUTER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("INNER_RADIUS+FDZ", "INNER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS+FDZ", "OUTER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "CONS", "CONS",
+          {
+              NumberInputValue("INNER_RADIUS-FDZ", "INNER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS-FDZ", "OUTER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("INNER_RADIUS+FDZ", "INNER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS+FDZ", "OUTER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+              NumberInputValue("STARTING_PHI_ANGLE", "STARTING_PHI_ANGLE", "1", "°"),
+              NumberInputValue("DELTA_PHI_ANGLE_OF_SEGMENT", "DELTA_PHI_ANGLE_OF_SEGMENT", "1",
+                               "°"),
+          }),
+      makeGroupNumberInputValue(
+          "CONE", "CONE",
+          {
+              NumberInputValue("INNER_RADIUS-FDZ", "INNER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS-FDZ", "OUTER_RADIUS-FDZ", "1", "mm"),
+              NumberInputValue("INNER_RADIUS+FDZ", "INNER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS+FDZ", "OUTER_RADIUS+FDZ", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "TRD", "TRD",
+          {
+              NumberInputValue("HAFT_LENGTH_ALONG_X_AT_THE_SURFACE_POSITIONED_AT-DZ",
+                               "HAFT_LENGTH_ALONG_X_AT_THE_SURFACE_POSITIONED_AT-DZ", "1", "mm"),
+              NumberInputValue("HAFT_LENGTH_ALONG_X_AT_THE_SURFACE_POSITIONED_AT+DZ",
+                               "HAFT_LENGTH_ALONG_X_AT_THE_SURFACE_POSITIONED_AT+DZ", "1", "mm"),
+              NumberInputValue("HAFT_LENGTH_ALONG_Y_AT_THE_SURFACE_POSITIONED_AT-DZ",
+                               "HAFT_LENGTH_ALONG_Y_AT_THE_SURFACE_POSITIONED_AT-DZ", "1", "mm"),
+              NumberInputValue("HAFT_LENGTH_ALONG_Y_AT_THE_SURFACE_POSITIONED_AT+DZ",
+                               "HAFT_LENGTH_ALONG_Y_AT_THE_SURFACE_POSITIONED_AT+DZ", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_ALONG_Z_AXIS", "HALF_LENGTH_ALONG_Z_AXIS", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "SPHERE", "SPHERE",
+          {
+              NumberInputValue("INNER_RADIUS", "INNER_RADIUS", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+              NumberInputValue("STARTING_PHI_ANGLE", "STARTING_PHI_ANGLE", "1", "°"),
+              NumberInputValue("DELTA_PHI_ANGLE_OF_SEGMENT", "DELTA_PHI_ANGLE_OF_SEGMENT", "1",
+                               "°"),
+              NumberInputValue("STARTING_THETA_ANGLE", "STARTING_THETA_ANGLE", "1", "°"),
+              NumberInputValue("DELTA_THETA_ANGLE_OF_SEGMENT", "DELTA_THETA_ANGLE_OF_SEGMENT", "1",
+                               "°"),
+          }),
+      makeGroupNumberInputValue("ORB", "ORB",
+                                {
+                                    NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "TORUS", "TORUS",
+          {
+              NumberInputValue("INNER_RADIUS", "INNER_RADIUS", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+              NumberInputValue("SWEPT_RADIUS_OF_TORUS", "SWEPT_RADIUS_OF_TORUS", "1", "°"),
+              NumberInputValue("STARTING_PHI_ANGLE", "STARTING_PHI_ANGLE", "1", "°"),
+              NumberInputValue("DELTA_PHI_ANGLE_OF_SEGMENT", "DELTA_PHI_ANGLE_OF_SEGMENT", "1",
+                               "°"),
+          }),
+      makeGroupNumberInputValue("ELLIPTICALTUBE", "ELLIPTICALTUBE",
+                                {
+                                    NumberInputValue("HALF_LENGTH_X", "HALF_LENGTH_X", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Y", "HALF_LENGTH_Y", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Z", "HALF_LENGTH_Z", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "ELLIPSOID", "ELLIPSOID",
+          {
+              NumberInputValue("SEMIAXIS_X", "SEMIAXIS_X", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Y", "SEMIAXIS_Y", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Z", "SEMIAXIS_Z", "1", "mm"),
+              NumberInputValue("LOWER_CUT_PLANE_LEVEL_Z", "LOWER_CUT_PLANE_LEVEL_Z", "1", "mm"),
+              NumberInputValue("UPPER_CUT_PLANE_LEVEL_Z", "UPPER_CUT_PLANE_LEVEL_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "TET", "TET",
+          {
+              NumberInputValue("ANCHOR_POINT", "ANCHOR_POINT", "1", "mm"),
+              NumberInputValue("POINT_2", "POINT_2", "1", "mm"),
+              NumberInputValue("POINT_3", "POINT_3", "1", "mm"),
+              NumberInputValue("POINT_4", "POINT_4", "1", "mm"),
+              NumberInputValue("FLAG_INDICATING_DEGENERACY_OF_POINTS",
+                               "FLAG_INDICATING_DEGENERACY_OF_POINTS", "1", "mm"),
+          }),
+
+  };
 }
