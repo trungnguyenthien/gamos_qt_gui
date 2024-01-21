@@ -16,7 +16,7 @@ BPos3Input::BPos3Input(QWidget *parent, QString title) : QWidget(parent) {
 }
 
 void BPos3Input::initUI(QString xLabel, QString yLabel, QString zLabel) {
-  if (this->title.empty() == false) {
+  if (this->title.isEmpty() == false) {
     grid->addWidget(titleLabel(title, this), 0, 0, 1, 6);
   }
 
