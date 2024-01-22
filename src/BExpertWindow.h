@@ -70,6 +70,11 @@ private:
 
   BPathInput *pathNmImage;
 
+  QCheckBox *ckPartidePropagating;
+  QCheckBox *ckDoseMap;
+  QCheckBox *ckEnergyDositionMap;
+  QString session_dir;
+
 public:
   BExpertWindow(QWidget *parent);
   ~BExpertWindow();
@@ -78,6 +83,9 @@ public:
   string title() override;
   string description() override;
   QWidget *self_widget() override;
+
+  BFileGen *genInFile();
+  BFileGen *genGeomFile();
 };
 
 #endif

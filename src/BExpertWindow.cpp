@@ -3,7 +3,9 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QTabBar>
 
+#include "utils/Helper.h"
 #include "widget/BVStackWidget.h"
+#include "widget/TerminalDialog.h"
 
 void BExpertWindow::initPhantomLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
@@ -98,10 +100,10 @@ void BExpertWindow::initSourceLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
-  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
-  grid->setColumnStretch(1, 1);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 1);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(0, 1);
+  grid->setColumnStretch(1, 1);
+  grid->setColumnStretch(2, 1);
+  grid->setColumnStretch(3, 1);
   sourceLayout->setLayout(grid);
 
   grid->addWidget(leftStack, 0, 1);
@@ -236,7 +238,60 @@ void BExpertWindow::initSourceLayout() {
   });
 }
 
-void BExpertWindow::initOutputLayout() {}
+void BExpertWindow::initOutputLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  outputLayout->setLayout(grid);
+  grid->setColumnStretch(0, 3);
+  grid->setColumnStretch(1, 1);
+  grid->setColumnStretch(2, 1);
+  grid->setColumnStretch(3, 3);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
+
+  ckPartidePropagating = new QCheckBox("Partide propagating", this);
+  ckDoseMap = new QCheckBox("Dose Map", this);
+  ckEnergyDositionMap = new QCheckBox("Energy Position Map", this);
+
+  leftStack->addSubWidget(ckPartidePropagating);
+  leftStack->addSubWidget(ckDoseMap);
+  leftStack->addSubWidget(ckEnergyDositionMap);
+
+  QPushButton *btn_enter = new QPushButton(this);
+  ds_wg_set_fixed_h(btn_enter, 40);
+  ds_wg_set_expanding_w(btn_enter);
+  btn_enter->setText("ENTER");
+
+  connectButtonClicked(btn_enter, [this]() {
+    this->session_dir = createSessionDir("SIMPLE");
+    createDir(this->session_dir);
+    setFullPermissions(this->session_dir);
+    cout << endl;
+    cout << "SESSION DIR " << this->session_dir.toStdString() << endl;
+    auto geomFile = genGeomFile();
+    if (geomFile == NULL) {
+      return;
+    }
+    auto inFile = genInFile();
+    if (inFile == NULL) {
+      return;
+    }
+
+    TerminalDialog *ter = new TerminalDialog(this);
+    ter->setCurrentDir(this->session_dir);
+    ter->addBFile(inFile);
+    ter->addBFile(geomFile);
+    ter->showInfo();
+
+    ter->addCommand("source " + AppData::gamosDir() + "/config/confgamos.sh");
+    // ter->addCommand("cd " + this->session_dir);
+    ter->addCommand("gamos " + inFile->fileName);
+    ter->exec();
+  });
+  rightStack->addSubWidget(btn_enter);
+}
 
 BExpertWindow::BExpertWindow(QWidget *parent) : QTabWidget(parent) {
   phantomLayout = new QWidget(parent);
@@ -261,6 +316,10 @@ string BExpertWindow::title() { return "Expert Mode"; }
 string BExpertWindow::description() { return ""; }
 
 QWidget *BExpertWindow::self_widget() { return this; }
+
+BFileGen *BExpertWindow::genInFile() { return nullptr; }
+
+BFileGen *BExpertWindow::genGeomFile() { return nullptr; }
 
 // QWidget* buildPhantomLayout() {
 
