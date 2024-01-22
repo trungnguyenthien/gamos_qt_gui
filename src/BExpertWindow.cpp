@@ -203,6 +203,37 @@ void BExpertWindow::initSourceLayout() {
 
   rightStack->addSubWidget(cbbShape);
   rightStack->addSubWidget(bGroupShapeInput);
+
+  pathNmImage = new BPathInput(this, "NM Image", "");
+  rightStack->addSubWidget(pathNmImage);
+
+  this->cbbOrganType->hide();
+  this->cbbShape->hide();
+  this->bGroupShapeInput->hide();
+
+  connectCbbIndexChange(cbbDistributionType->combobox, [this](int index) {
+    this->cbbOrganType->hide();
+    this->cbbShape->hide();
+    this->bGroupShapeInput->hide();
+    qDebug() << "connectCbbIndexChange(cbbDistributionType->combobox " << index;
+
+    switch (distributions[index]) {
+      case DISTRIBUTIONTYPE::ORGANS:
+        this->cbbOrganType->show();
+        this->cbbOrganType->combobox->setCurrentIndex(0);
+        this->cbbShape->combobox->setCurrentIndex(0);
+        this->bGroupShapeInput->removeAll();
+        break;
+
+      case DISTRIBUTIONTYPE::SHAPES:
+        this->cbbShape->show();
+        this->bGroupShapeInput->show();
+        this->cbbOrganType->combobox->setCurrentIndex(0);
+        this->cbbShape->combobox->setCurrentIndex(0);
+        this->bGroupShapeInput->removeAll();
+        break;
+    }
+  });
 }
 
 void BExpertWindow::initOutputLayout() {}

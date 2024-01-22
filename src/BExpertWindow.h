@@ -68,7 +68,7 @@ private:
   BComboBox *cbbOrganType;
   vector<ORGANTYPE> organs;
 
-  BComboBox *cbbShapeType;
+  BPathInput *pathNmImage;
 
 public:
   BExpertWindow(QWidget *parent);

@@ -743,6 +743,16 @@ vector<GroupNumberInputValue> full_group_shape_source() {
               NumberInputValue("HALF_Z​", "HALF_Z​", "1", "mm"),
           }),
       makeGroupNumberInputValue(
+          "TETRAHEDRON", "TETRAHEDRON",
+          {
+              NumberInputValue("ANCHOR_POINT​​", "ANCHOR_POINT​", "1", "mm"),
+              NumberInputValue("POINT_2​​​", "POINT_2​​", "1", "mm"),
+              NumberInputValue("POINT_3​​", "POINT_3​​", "1", "mm"),
+              NumberInputValue("POINT_4​​​", "POINT_4​​​", "1", "mm"),
+              NumberInputValue("FLAG_INDICATING_DEGENERACY_OF_POINTS",
+                               "FLAG_INDICATING_DEGENERACY_OF_POINTS​​", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
           "TORUS", "TORUS",
           {
               NumberInputValue("IN_RAD​", "IN_RAD​​", "1", "mm"),
