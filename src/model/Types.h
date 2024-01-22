@@ -207,4 +207,25 @@ QString SOURCETYPE_text(SOURCETYPE value);
 QString SOURCETYPE_value(SOURCETYPE value);
 
 vector<GroupNumberInputValue> full_group_geom_source();
+vector<GroupNumberInputValue> full_group_shape_source();
+
+enum class ORGANTYPE {
+  NONE,
+  THYROID,
+  LIVER,
+  HEART,
+  LUNG,
+  BONE,
+  KIDNEY,
+  BRAIN,
+  STOMACH_WALL,
+  PANCREAS,
+  GALLBLADDER
+};
+QString ORGANTYPE_text(ORGANTYPE value);
+QString ORGANTYPE_value(ORGANTYPE value);
+
+enum class DISTRIBUTIONTYPE { NONE, ORGANS, SHAPES };
+QString DISTRIBUTIONTYPE_text(DISTRIBUTIONTYPE value);
+// QString DISTRIBUTIONTYPE_value(DISTRIBUTIONTYPE value);
 #endif  // __TYPES_H__

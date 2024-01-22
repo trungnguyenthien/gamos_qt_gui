@@ -135,7 +135,7 @@ void BSimpleWindow::initSourceLayout() {
 
   cbbIsotopes = new BLineEditCompleter(this, "Isotopes");
   cbbIsotopes->isTitleInLine = true;
-  cbbIsotopes->setSuggestKeywords(isotope_sources);
+  cbbIsotopes->setSuggestKeywords(isotope_sources());
   cbbIsotopes->initUI();
   //   cbbIsotopes->hide();
   leftStack->addSubWidget(cbbIsotopes);

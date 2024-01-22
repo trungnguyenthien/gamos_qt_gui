@@ -42,6 +42,11 @@ private:
   BGroupNumberInput *bGroupNumberInput;
   BComboBox *cbbGeom;
 
+  vector<GroupNumberInputValue> group_shape_source;
+  BComboBox *cbbShape;
+  GroupNumberInputValue groupShapeInputValue;
+  BGroupNumberInput *bGroupShapeInput;
+
   vector<MATTER> matter_source;
   BComboBox *cbbMatter;
 
@@ -55,6 +60,15 @@ private:
   BPos3Input *distributionPosXYZ, *distributionAngXYZ, *directionDirXYZ;
 
   BLineEditCompleter *cbbIsotopes;
+  BNumberInput *numberActivity;
+
+  BComboBox *cbbDistributionType;
+  vector<DISTRIBUTIONTYPE> distributions;
+
+  BComboBox *cbbOrganType;
+  vector<ORGANTYPE> organs;
+
+  BComboBox *cbbShapeType;
 
 public:
   BExpertWindow(QWidget *parent);

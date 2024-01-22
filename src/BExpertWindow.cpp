@@ -143,10 +143,66 @@ void BExpertWindow::initSourceLayout() {
 
   cbbIsotopes = new BLineEditCompleter(this, "Isotopes");
   cbbIsotopes->isTitleInLine = true;
-  cbbIsotopes->setSuggestKeywords(isotope_sources);
+  cbbIsotopes->setSuggestKeywords(isotope_sources());
   cbbIsotopes->initUI();
   //   cbbIsotopes->hide();
   rightStack->addSubWidget(cbbIsotopes);
+
+  numberActivity = new BNumberInput(this, NumberInputValue("Activity", "Activity", "1", ""));
+  numberActivity->initUI(true, false);
+  rightStack->addSubWidget(numberActivity);
+
+  distributions.push_back(DISTRIBUTIONTYPE::NONE);
+  distributions.push_back(DISTRIBUTIONTYPE::ORGANS);
+  distributions.push_back(DISTRIBUTIONTYPE::SHAPES);
+  cbbDistributionType = new BComboBox(this, "Distribution");
+  for (DISTRIBUTIONTYPE dis : distributions) {
+    cbbDistributionType->addItem(DISTRIBUTIONTYPE_text(dis));
+  }
+  cbbDistributionType->isTitleInLine = true;
+  cbbDistributionType->initUI();
+  rightStack->addSubWidget(cbbDistributionType);
+
+  organs.push_back(ORGANTYPE::NONE);
+  organs.push_back(ORGANTYPE::THYROID);
+  organs.push_back(ORGANTYPE::LIVER);
+  organs.push_back(ORGANTYPE::HEART);
+  organs.push_back(ORGANTYPE::LUNG);
+  organs.push_back(ORGANTYPE::BONE);
+  organs.push_back(ORGANTYPE::KIDNEY);
+  organs.push_back(ORGANTYPE::BRAIN);
+  organs.push_back(ORGANTYPE::STOMACH_WALL);
+  organs.push_back(ORGANTYPE::PANCREAS);
+  organs.push_back(ORGANTYPE::GALLBLADDER);
+  cbbOrganType = new BComboBox(this, "Organs");
+  for (ORGANTYPE org : organs) {
+    cbbOrganType->addItem(ORGANTYPE_text(org));
+  }
+  cbbOrganType->isTitleInLine = true;
+  cbbOrganType->initUI();
+  rightStack->addSubWidget(cbbOrganType);
+
+  group_shape_source = full_group_shape_source();
+
+  // GEOMETRY
+  cbbShape = new BComboBox(this, "Shape");
+  for (auto group : group_shape_source) {
+    QString label = group.label;
+    cbbShape->addItem(label);
+  }
+  cbbShape->isTitleInLine = true;
+  ds_wg_set_expanding_w(cbbShape);
+  cbbShape->initUI();
+
+  bGroupShapeInput = new BGroupNumberInput(this);
+  connectCbbIndexChange(cbbShape->combobox, [this](int index) {
+    this->bGroupShapeInput->removeAll();
+    GroupNumberInputValue selectGroup = this->group_shape_source[index];
+    this->bGroupShapeInput->initUI(selectGroup);
+  });
+
+  rightStack->addSubWidget(cbbShape);
+  rightStack->addSubWidget(bGroupShapeInput);
 }
 
 void BExpertWindow::initOutputLayout() {}

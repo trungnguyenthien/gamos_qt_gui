@@ -582,6 +582,33 @@ src/model/B10ItemModel.cpp.s:
 	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/B10ItemModel.cpp.s
 .PHONY : src/model/B10ItemModel.cpp.s
 
+src/model/Isotope.o: src/model/Isotope.cpp.o
+
+.PHONY : src/model/Isotope.o
+
+# target to build an object file
+src/model/Isotope.cpp.o:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Isotope.cpp.o
+.PHONY : src/model/Isotope.cpp.o
+
+src/model/Isotope.i: src/model/Isotope.cpp.i
+
+.PHONY : src/model/Isotope.i
+
+# target to preprocess a source file
+src/model/Isotope.cpp.i:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Isotope.cpp.i
+.PHONY : src/model/Isotope.cpp.i
+
+src/model/Isotope.s: src/model/Isotope.cpp.s
+
+.PHONY : src/model/Isotope.s
+
+# target to generate assembly for a file
+src/model/Isotope.cpp.s:
+	$(MAKE) -f CMakeFiles/gamos_gui.dir/build.make CMakeFiles/gamos_gui.dir/src/model/Isotope.cpp.s
+.PHONY : src/model/Isotope.cpp.s
+
 src/model/Types.o: src/model/Types.cpp.o
 
 .PHONY : src/model/Types.o
@@ -1504,6 +1531,9 @@ help:
 	@echo "... src/model/B10ItemModel.o"
 	@echo "... src/model/B10ItemModel.i"
 	@echo "... src/model/B10ItemModel.s"
+	@echo "... src/model/Isotope.o"
+	@echo "... src/model/Isotope.i"
+	@echo "... src/model/Isotope.s"
 	@echo "... src/model/Types.o"
 	@echo "... src/model/Types.i"
 	@echo "... src/model/Types.s"

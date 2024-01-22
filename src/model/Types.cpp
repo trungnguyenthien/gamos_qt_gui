@@ -681,3 +681,121 @@ vector<GroupNumberInputValue> full_group_geom_source() {
 
   };
 }
+
+vector<GroupNumberInputValue> full_group_shape_source() {
+  return {
+      GroupNumberInputValue(),
+      makeGroupNumberInputValue("BOX", "BOX",
+                                {
+                                    NumberInputValue("X_HALF_LENGTH", "X_HALF_LENGTH", "1", "mm"),
+                                    NumberInputValue("Y_HALF_LENGTH", "Y_HALF_LENGTH", "1", "mm"),
+                                    NumberInputValue("Z_HALF_LENGTH", "Z_HALF_LENGTH", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "TUBE", "TUBE",
+          {
+              NumberInputValue("INNER_RADIUS", "INNER_RADIUS", "1", "mm"),
+              NumberInputValue("OUTER_RADIUS", "OUTER_RADIUS", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue("SPHERE", "SPHERE",
+                                {
+                                    NumberInputValue("RADIUS", "RADIUS", "1", "mm"),
+                                }),
+
+      makeGroupNumberInputValue(
+          "FULL SOLID SPHERE", "FULL_SOLID_SPHERE",
+          {
+              NumberInputValue("OUTTER_RADIUS​", "OUTTER_RADIUS​", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "ELLIPSOID", "ELLIPSOID",
+          {
+              NumberInputValue("SEMIAXIS_X​", "SEMIAXIS_X​", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Y​", "SEMIAXIS_Y", "1", "mm"),
+              NumberInputValue("SEMIAXIS_Z​", "SEMIAXIS_Z", "1", "mm"),
+              NumberInputValue("LOWER_CUT_PLANE_LEVEL, Z", "LOWER_CUT_PLANE_LEVEL, Z", "1", "mm"),
+              NumberInputValue("UPPER_CUT_PLANE_LEVEL, Z", "UPPER_CUT_PLANE_LEVEL, Z", "1", "mm"),
+          }),
+      makeGroupNumberInputValue("ELLIPTICAL TUBE", "ELLIPTICALTUBE",
+                                {
+                                    NumberInputValue("HALF_LENGTH_X", "HALF_LENGTH_X", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Y", "HALF_LENGTH_Y", "1", "mm"),
+                                    NumberInputValue("HALF_LENGTH_Z", "HALF_LENGTH_Z", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue(
+          "CONE", "CONE",
+          {
+              NumberInputValue("IN_RAD_AT -Z", "IN_RAD_AT -Z", "1", "mm"),
+              NumberInputValue("OUT_RAD_AT -Z​", "OUT_RAD_AT -Z​", "1", "mm"),
+              NumberInputValue("IN_RAD_AT +Z", "IN_RAD_AT +Z", "1", "mm"),
+              NumberInputValue("OUT_RAD_AT +Z​", "OUT_RAD_AT +Z​", "1", "mm"),
+              NumberInputValue("HALF_LENGTH_IN_Z", "HALF_LENGTH_IN_Z", "1", "mm"),
+          }),
+
+      makeGroupNumberInputValue(
+          "TRAPEZOID", "TRAPEZOID",
+          {
+              NumberInputValue("HALF_X_AT -Z​", "HALF_X_AT -Z​", "1", "mm"),
+              NumberInputValue("HALF_X_AT+Z​​", "HALF_X_AT+Z​​", "1", "mm"),
+              NumberInputValue("HALF_Y_AT -Z​", "HALF_Y_AT -Z​", "1", "mm"),
+              NumberInputValue("HALF_Y_AT +Z​​", "HALF_Y_AT +Z​​", "1", "mm"),
+              NumberInputValue("HALF_Z​", "HALF_Z​", "1", "mm"),
+          }),
+      makeGroupNumberInputValue(
+          "TORUS", "TORUS",
+          {
+              NumberInputValue("IN_RAD​", "IN_RAD​​", "1", "mm"),
+              NumberInputValue("OUT_RAD​​", "OUT_RAD​​​", "1", "mm"),
+              NumberInputValue("SWEPT_RAD_OF_TORUS​​", "SWEPT_RAD_OF_TORUS​", "1", "mm"),
+              NumberInputValue("STARTING_PHI_ANGLE​​", "STARTING_PHI_ANGLE​​​", "1",
+                               "mm"),
+              NumberInputValue("DELTA_PHI_ANGLE_OF_THE_SEGMENT​",
+                               "DELTA_PHI_ANGLE_OF_THE_SEGMENT​", "1", "mm"),
+          }),
+
+  };
+}
+
+QString ORGANTYPE_text(ORGANTYPE value) {
+  switch (value) {
+    case ORGANTYPE::THYROID:
+      return "THYROID";
+    case ORGANTYPE::LIVER:
+      return "LIVER";
+    case ORGANTYPE::HEART:
+      return "HEART";
+    case ORGANTYPE::LUNG:
+      return "LUNG";
+    case ORGANTYPE::BONE:
+      return "BONE";
+    case ORGANTYPE::KIDNEY:
+      return "KIDNEY";
+    case ORGANTYPE::BRAIN:
+      return "BRAIN";
+    case ORGANTYPE::STOMACH_WALL:
+      return "STOMACH_WALL";
+    case ORGANTYPE::PANCREAS:
+      return "PANCREAS";
+    case ORGANTYPE::GALLBLADDER:
+      return "GALLBLADDER";
+
+    default:
+      return "";
+  }
+  return "";
+}
+
+QString ORGANTYPE_value(ORGANTYPE value) { return ORGANTYPE_text(value); }
+
+QString DISTRIBUTIONTYPE_text(DISTRIBUTIONTYPE value) {
+  switch (value) {
+    case DISTRIBUTIONTYPE::ORGANS:
+      return "ORGANS";
+    case DISTRIBUTIONTYPE::SHAPES:
+      return "SHAPES";
+    default:
+      return "";
+  }
+  return "";
+}
