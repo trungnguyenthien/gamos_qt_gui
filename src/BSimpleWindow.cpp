@@ -3,7 +3,6 @@
 #include <QPushButton>
 #include <initializer_list>
 
-#include "model/Isotope.h"
 #include "utils/Helper.h"
 #include "widget/TerminalDialog.h"
 

@@ -13,6 +13,7 @@
 #include <unordered_map>
 #include <vector>
 
+#include "model/Isotope.h"
 #include "model/Types.h"
 #include "utils/BFileGen.h"
 #include "virtual/BWindow.h"

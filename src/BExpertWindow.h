@@ -14,6 +14,7 @@
 #include <unordered_map>
 #include <vector>
 
+#include "model/Isotope.h"
 #include "model/Types.h"
 #include "utils/BFileGen.h"
 #include "virtual/BWindow.h"
@@ -45,7 +46,15 @@ private:
   BComboBox *cbbMatter;
 
   BPathInput *pathPhantomVoxel, *pathMessPhantom;
-  BPos3Input *posXYZ, *angXYZ;
+  BPos3Input *phantomPosXYZ, *phantomAngXYZ;
+
+  BComboBox *cbbParticles;
+  vector<PARTICLE> particles;
+
+  BNumberInput *numberEngergy;
+  BPos3Input *distributionPosXYZ, *distributionAngXYZ, *directionDirXYZ;
+
+  BLineEditCompleter *cbbIsotopes;
 
 public:
   BExpertWindow(QWidget *parent);

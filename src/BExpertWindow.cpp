@@ -10,8 +10,8 @@ void BExpertWindow::initPhantomLayout() {
   BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
   grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
-  grid->setColumnStretch(1, 3);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 3);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(1, 1);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(2, 1);  // Cột phải với hệ số co giãn là 3
   grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
   phantomLayout->setLayout(grid);
 
@@ -85,16 +85,69 @@ void BExpertWindow::initPhantomLayout() {
   phantomPosLabel->setFont(font_subHeader());
   rightStack->addSubWidget(phantomPosLabel);
 
-  posXYZ = new BPos3Input(this, "");
-  posXYZ->initUI("POS_X", "POS_Y", "POS_Z");
-  rightStack->addSubWidget(posXYZ);
+  phantomPosXYZ = new BPos3Input(this, "");
+  phantomPosXYZ->initUI("POS_X", "POS_Y", "POS_Z");
+  rightStack->addSubWidget(phantomPosXYZ);
 
-  angXYZ = new BPos3Input(this, "");
-  angXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
-  rightStack->addSubWidget(angXYZ);
+  phantomAngXYZ = new BPos3Input(this, "");
+  phantomAngXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
+  rightStack->addSubWidget(phantomAngXYZ);
 }
 
-void BExpertWindow::initSourceLayout() {}
+void BExpertWindow::initSourceLayout() {
+  BVStackWidget *leftStack = new BVStackWidget(this);
+  BVStackWidget *rightStack = new BVStackWidget(this);
+  QGridLayout *grid = new QGridLayout(this);
+  grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
+  grid->setColumnStretch(1, 1);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(2, 1);  // Cột phải với hệ số co giãn là 3
+  grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
+  sourceLayout->setLayout(grid);
+
+  grid->addWidget(leftStack, 0, 1);
+  grid->addWidget(rightStack, 0, 2);
+
+  cbbParticles = new BComboBox(this, "Particles");
+  particles = {PARTICLE::NONE,       PARTICLE::ALPHA, PARTICLE::E_NEGATIVE,
+               PARTICLE::E_POSITIVE, PARTICLE::GAMMA, PARTICLE::NEUTRON};
+  for (PARTICLE item : particles) {
+    cbbParticles->addItem(PARTICLE_text(item));
+  }
+  cbbParticles->isTitleInLine = true;
+  cbbParticles->initUI();
+  //   cbbParticles->hide();
+  leftStack->addSubWidget(cbbParticles);
+
+  numberEngergy = new BNumberInput(this, NumberInputValue("Energy", "Energy", "1", ""));
+  numberEngergy->initUI(true, false);
+  leftStack->addSubWidget(numberEngergy);
+
+  QLabel *positionDistributionLabel = new QLabel("Position Distribution", this);
+  positionDistributionLabel->setFont(font_subHeader());
+  leftStack->addSubWidget(positionDistributionLabel);
+
+  distributionPosXYZ = new BPos3Input(this, "");
+  distributionPosXYZ->initUI("POS_X", "POS_Y", "POS_Z");
+  leftStack->addSubWidget(distributionPosXYZ);
+
+  distributionAngXYZ = new BPos3Input(this, "");
+  distributionAngXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
+  leftStack->addSubWidget(distributionAngXYZ);
+
+  QLabel *directionDistributionLabel = new QLabel("Direction Distribution", this);
+  directionDistributionLabel->setFont(font_subHeader());
+  leftStack->addSubWidget(directionDistributionLabel);
+  directionDirXYZ = new BPos3Input(this, "");
+  directionDirXYZ->initUI("DIR_X", "DIR_Y", "DIR_Z");
+  leftStack->addSubWidget(directionDirXYZ);
+
+  cbbIsotopes = new BLineEditCompleter(this, "Isotopes");
+  cbbIsotopes->isTitleInLine = true;
+  cbbIsotopes->setSuggestKeywords(isotope_sources);
+  cbbIsotopes->initUI();
+  //   cbbIsotopes->hide();
+  rightStack->addSubWidget(cbbIsotopes);
+}
 
 void BExpertWindow::initOutputLayout() {}
 

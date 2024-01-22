@@ -12,6 +12,7 @@ BPos3Input::BPos3Input(QWidget *parent, QString title) : QWidget(parent) {
   grid->setSpacing(5);
   grid->setContentsMargins(0, 0, 0, 0);
   grid->setMargin(0);
+  ds_wg_set_fixed_w(this, 300);
   setLayout(grid);
 }
 
