@@ -767,6 +767,50 @@ vector<GroupNumberInputValue> full_group_shape_source() {
   };
 }
 
+vector<GroupNumberInputValue> full_group_direction_source() {
+  return {
+      GroupNumberInputValue(),
+      makeGroupNumberInputValue("Random Distribution", "Random", {}),
+      makeGroupNumberInputValue("Constant Distribution", "Constant",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                }),
+      makeGroupNumberInputValue("Cone Distribution", "Cone",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                    NumberInputValue("OPEN_ANGLE", "OPEN_ANGLE", "1", "°"),
+                                }),
+      makeGroupNumberInputValue(
+          "Cone With Gaussion Angle", "ConeGaussian",
+          {
+              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+              NumberInputValue("ANGLE_GAUSSIAN_SIGMA", "ANGLE_GAUSSIAN_SIGMA", "1", "°"),
+          }),
+      makeGroupNumberInputValue(
+          "Cone With Gaussion Angle in 2 Dimens", "ConeGaussian2Dim",
+          {
+              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+              NumberInputValue("ANGLE_GAUSSIAN_SIGMA_Y", "ANGLE_GAUSSIAN_SIGMA_Y", "1", "°"),
+          }),
+      makeGroupNumberInputValue("Gaussion Along An Axis", "GaussianAlong2Axis",
+                                {
+                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
+                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
+                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
+                                    NumberInputValue("SIGMA_Y", "SIGMA_Y", "1", "°"),
+                                    NumberInputValue("SIGMA_Z", "SIGMA_Z", "1", "°"),
+                                }),
+  };
+}
+
 QString ORGANTYPE_text(ORGANTYPE value) {
   switch (value) {
     case ORGANTYPE::THYROID:

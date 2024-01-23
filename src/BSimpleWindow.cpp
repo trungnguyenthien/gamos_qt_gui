@@ -160,47 +160,7 @@ void BSimpleWindow::initSourceLayout() {
   rightStack->addSubWidget(posXYZ);
 
   cbbDirectDistribution = new BComboBox(this, "Direct Distribution");
-  group_direction_source = {
-      GroupNumberInputValue(),
-      makeGroupNumberInputValue("Random Distribution", "Random", {}),
-      makeGroupNumberInputValue("Constant Distribution", "Constant",
-                                {
-                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
-                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
-                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
-                                }),
-      makeGroupNumberInputValue("Cone Distribution", "Cone",
-                                {
-                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
-                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
-                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
-                                    NumberInputValue("OPEN_ANGLE", "OPEN_ANGLE", "1", "°"),
-                                }),
-      makeGroupNumberInputValue(
-          "Cone With Gaussion Angle", "ConeGaussian",
-          {
-              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
-              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
-              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
-              NumberInputValue("ANGLE_GAUSSIAN_SIGMA", "ANGLE_GAUSSIAN_SIGMA", "1", "°"),
-          }),
-      makeGroupNumberInputValue(
-          "Cone With Gaussion Angle in 2 Dimens", "ConeGaussian2Dim",
-          {
-              NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
-              NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
-              NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
-              NumberInputValue("ANGLE_GAUSSIAN_SIGMA_Y", "ANGLE_GAUSSIAN_SIGMA_Y", "1", "°"),
-          }),
-      makeGroupNumberInputValue("Gaussion Along An Axis", "GaussianAlong2Axis",
-                                {
-                                    NumberInputValue("DIR_X", "DIR_X", "1", "mm"),
-                                    NumberInputValue("DIR_Y", "DIR_Y", "1", "mm"),
-                                    NumberInputValue("DIR_Z", "DIR_Z", "1", "mm"),
-                                    NumberInputValue("SIGMA_Y", "SIGMA_Y", "1", "°"),
-                                    NumberInputValue("SIGMA_Z", "SIGMA_Z", "1", "°"),
-                                }),
-  };
+  group_direction_source = full_group_direction_source();
   for (auto group : group_direction_source) {
     QString label = group.label;
     cbbDirectDistribution->addItem(label);

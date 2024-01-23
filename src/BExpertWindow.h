@@ -27,6 +27,21 @@
 #include "widget/BPathInput.h"
 #include "widget/BPos3Input.h"
 
+enum class POSITION_DISTRIBUTION {
+  NONE,
+  AT_POINT,
+  USER_DEF_VOLUME,
+  USER_DEF_VOLUME_SURFACE,
+  STEP_ALONG_LINE,
+  IN_SQUARE,
+  IN_RECT,
+  IN_DISC,
+  IN_DISC_WITH_GAUSSIAN_DISTRIBUTION,
+  IN_VOXEL_PHANTOM_FILE
+};
+QString POSITION_DISTRIBUTION_text(POSITION_DISTRIBUTION value);
+// QString POSITION_DISTRIBUTION_value(POSITION_DISTRIBUTION value);
+
 class BExpertWindow : public QTabWidget, public BWindow {
   Q_OBJECT
 private:
@@ -37,27 +52,23 @@ private:
   void initSourceLayout();
   void initOutputLayout();
 
-  vector<GroupNumberInputValue> group_geom_source;
-  GroupNumberInputValue groupNumberInputValue;
-  BGroupNumberInput *bGroupNumberInput;
-  BComboBox *cbbGeom;
-
   vector<GroupNumberInputValue> group_shape_source;
   BComboBox *cbbShape;
   GroupNumberInputValue groupShapeInputValue;
   BGroupNumberInput *bGroupShapeInput;
 
-  vector<MATTER> matter_source;
-  BComboBox *cbbMatter;
-
   BPathInput *pathPhantomVoxel, *pathMessPhantom;
-  BPos3Input *phantomPosXYZ, *phantomAngXYZ;
+  BPos3Input *phantomPosXYZ;
 
   BComboBox *cbbParticles;
   vector<PARTICLE> particles;
 
   BNumberInput *numberEngergy;
-  BPos3Input *distributionPosXYZ, *distributionAngXYZ, *directionDirXYZ;
+  // BPos3Input *distributionPosXYZ, *distributionAngXYZ, *directionDirXYZ;
+
+  BComboBox *cbbDirectDistribution;
+  vector<GroupNumberInputValue> group_direction_source;
+  BGroupNumberInput *bGroupDirectDistribution;
 
   BLineEditCompleter *cbbIsotopes;
   BNumberInput *numberActivity;

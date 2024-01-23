@@ -208,6 +208,7 @@ QString SOURCETYPE_value(SOURCETYPE value);
 
 vector<GroupNumberInputValue> full_group_geom_source();
 vector<GroupNumberInputValue> full_group_shape_source();
+vector<GroupNumberInputValue> full_group_direction_source();
 
 enum class ORGANTYPE {
   NONE,

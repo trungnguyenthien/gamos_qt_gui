@@ -9,91 +9,91 @@
 
 void BExpertWindow::initPhantomLayout() {
   BVStackWidget *leftStack = new BVStackWidget(this);
-  BVStackWidget *rightStack = new BVStackWidget(this);
+  // BVStackWidget *rightStack = new BVStackWidget(this);
   QGridLayout *grid = new QGridLayout(this);
   grid->setColumnStretch(0, 1);  // Cột trái với hệ số co giãn là 2
   grid->setColumnStretch(1, 1);  // Cột phải với hệ số co giãn là 3
-  grid->setColumnStretch(2, 1);  // Cột phải với hệ số co giãn là 3
+  // grid->setColumnStretch(2, 1);  // Cột phải với hệ số co giãn là 3
   grid->setColumnStretch(3, 1);  // Cột phải với hệ số co giãn là 3
   phantomLayout->setLayout(grid);
 
   grid->addWidget(leftStack, 0, 1);
-  grid->addWidget(rightStack, 0, 2);
+  // grid->addWidget(rightStack, 0, 2);
 
-  group_geom_source = full_group_geom_source();
+  // group_geom_source = full_group_geom_source();
 
   // GEOMETRY
-  cbbGeom = new BComboBox(this, "Mathematical Phantom");
-  for (auto group : group_geom_source) {
-    QString label = group.label;
-    cbbGeom->addItem(label);
-  }
-  cbbGeom->isTitleInLine = false;
-  ds_wg_set_expanding_w(cbbGeom);
-  cbbGeom->initUI();
+  // cbbGeom = new BComboBox(this, "Mathematical Phantom");
+  // for (auto group : group_geom_source) {
+  //   QString label = group.label;
+  //   cbbGeom->addItem(label);
+  // }
+  // cbbGeom->isTitleInLine = false;
+  // ds_wg_set_expanding_w(cbbGeom);
+  // cbbGeom->initUI();
 
-  bGroupNumberInput = new BGroupNumberInput(this);
-  connectCbbIndexChange(cbbGeom->combobox, [this](int index) {
-    this->bGroupNumberInput->removeAll();
-    GroupNumberInputValue selectGroup = this->group_geom_source[index];
-    this->bGroupNumberInput->initUI(selectGroup);
-  });
+  // bGroupNumberInput = new BGroupNumberInput(this);
+  // connectCbbIndexChange(cbbGeom->combobox, [this](int index) {
+  //   this->bGroupNumberInput->removeAll();
+  //   GroupNumberInputValue selectGroup = this->group_geom_source[index];
+  //   this->bGroupNumberInput->initUI(selectGroup);
+  // });
 
-  leftStack->addSubWidget(cbbGeom);
-  leftStack->addSubWidget(bGroupNumberInput);
+  // leftStack->addSubWidget(cbbGeom);
+  // leftStack->addSubWidget(bGroupNumberInput);
 
-  matter_source.push_back(MATTER::LEAD);
-  matter_source.push_back(MATTER::ALUMIUM);
-  matter_source.push_back(MATTER::PAPER);
-  matter_source.push_back(MATTER::CONCRETE);
-  matter_source.push_back(MATTER::WATER);
-  matter_source.push_back(MATTER::AIR);
-  matter_source.push_back(MATTER::COMPACT_BONE);
-  matter_source.push_back(MATTER::CORTICAL_BONE);
-  matter_source.push_back(MATTER::BRAIN);
-  matter_source.push_back(MATTER::EYE_LENS);
-  matter_source.push_back(MATTER::GLASS_LEAD);
-  matter_source.push_back(MATTER::GLUCOSE);
-  matter_source.push_back(MATTER::LUNG);
-  matter_source.push_back(MATTER::SKELETAL_MUSCLE);
-  matter_source.push_back(MATTER::STRIATED_MUSCLE);
-  matter_source.push_back(MATTER::PARAFFIN);
-  matter_source.push_back(MATTER::SKIN);
-  matter_source.push_back(MATTER::TESTES);
-  matter_source.push_back(MATTER::GRAPHITE);
-  matter_source.push_back(MATTER::ADULT_THYROID);
-  matter_source.push_back(MATTER::ADULT_SPLEEN);
-  matter_source.push_back(MATTER::ADULT_HEART);
-  matter_source.push_back(MATTER::ADULT_KIDNEY);
-  matter_source.push_back(MATTER::ADULT_LIVER);
-  matter_source.push_back(MATTER::ADULT_OVARY);
-  matter_source.push_back(MATTER::ADULT_PANCREAS);
+  // matter_source.push_back(MATTER::LEAD);
+  // matter_source.push_back(MATTER::ALUMIUM);
+  // matter_source.push_back(MATTER::PAPER);
+  // matter_source.push_back(MATTER::CONCRETE);
+  // matter_source.push_back(MATTER::WATER);
+  // matter_source.push_back(MATTER::AIR);
+  // matter_source.push_back(MATTER::COMPACT_BONE);
+  // matter_source.push_back(MATTER::CORTICAL_BONE);
+  // matter_source.push_back(MATTER::BRAIN);
+  // matter_source.push_back(MATTER::EYE_LENS);
+  // matter_source.push_back(MATTER::GLASS_LEAD);
+  // matter_source.push_back(MATTER::GLUCOSE);
+  // matter_source.push_back(MATTER::LUNG);
+  // matter_source.push_back(MATTER::SKELETAL_MUSCLE);
+  // matter_source.push_back(MATTER::STRIATED_MUSCLE);
+  // matter_source.push_back(MATTER::PARAFFIN);
+  // matter_source.push_back(MATTER::SKIN);
+  // matter_source.push_back(MATTER::TESTES);
+  // matter_source.push_back(MATTER::GRAPHITE);
+  // matter_source.push_back(MATTER::ADULT_THYROID);
+  // matter_source.push_back(MATTER::ADULT_SPLEEN);
+  // matter_source.push_back(MATTER::ADULT_HEART);
+  // matter_source.push_back(MATTER::ADULT_KIDNEY);
+  // matter_source.push_back(MATTER::ADULT_LIVER);
+  // matter_source.push_back(MATTER::ADULT_OVARY);
+  // matter_source.push_back(MATTER::ADULT_PANCREAS);
 
-  cbbMatter = new BComboBox(this, "Matterial");
-  for (MATTER matter : matter_source) {
-    cbbMatter->addItem(MATTER_text(matter));
-  }
-  cbbMatter->isTitleInLine = false;
-  cbbMatter->initUI();
-  ds_wg_set_expanding_w(cbbMatter);
-  leftStack->addSubWidget(cbbMatter);
+  // cbbMatter = new BComboBox(this, "Matterial");
+  // for (MATTER matter : matter_source) {
+  //   cbbMatter->addItem(MATTER_text(matter));
+  // }
+  // cbbMatter->isTitleInLine = false;
+  // cbbMatter->initUI();
+  // ds_wg_set_expanding_w(cbbMatter);
+  // leftStack->addSubWidget(cbbMatter);
 
   pathPhantomVoxel = new BPathInput(this, "PhantomVoxel", "");
-  rightStack->addSubWidget(pathPhantomVoxel);
+  leftStack->addSubWidget(pathPhantomVoxel);
   pathMessPhantom = new BPathInput(this, "MessPhantom", "");
-  rightStack->addSubWidget(pathMessPhantom);
+  leftStack->addSubWidget(pathMessPhantom);
 
   QLabel *phantomPosLabel = new QLabel("Phantom's position", this);
   phantomPosLabel->setFont(font_subHeader());
-  rightStack->addSubWidget(phantomPosLabel);
+  leftStack->addSubWidget(phantomPosLabel);
 
   phantomPosXYZ = new BPos3Input(this, "");
   phantomPosXYZ->initUI("POS_X", "POS_Y", "POS_Z");
-  rightStack->addSubWidget(phantomPosXYZ);
+  leftStack->addSubWidget(phantomPosXYZ);
 
-  phantomAngXYZ = new BPos3Input(this, "");
-  phantomAngXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
-  rightStack->addSubWidget(phantomAngXYZ);
+  // phantomAngXYZ = new BPos3Input(this, "");
+  // phantomAngXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
+  // rightStack->addSubWidget(phantomAngXYZ);
 }
 
 void BExpertWindow::initSourceLayout() {
@@ -124,24 +124,24 @@ void BExpertWindow::initSourceLayout() {
   numberEngergy->initUI(true, false);
   leftStack->addSubWidget(numberEngergy);
 
-  QLabel *positionDistributionLabel = new QLabel("Position Distribution", this);
-  positionDistributionLabel->setFont(font_subHeader());
-  leftStack->addSubWidget(positionDistributionLabel);
+  cbbDirectDistribution = new BComboBox(this, "Direct Distribution");
+  group_direction_source = full_group_direction_source();
+  for (auto group : group_direction_source) {
+    QString label = group.label;
+    cbbDirectDistribution->addItem(label);
+  }
+  cbbDirectDistribution->isTitleInLine = false;
+  ds_wg_set_expanding_w(cbbDirectDistribution);
+  cbbDirectDistribution->initUI();
+  leftStack->addSubWidget(cbbDirectDistribution);
 
-  distributionPosXYZ = new BPos3Input(this, "");
-  distributionPosXYZ->initUI("POS_X", "POS_Y", "POS_Z");
-  leftStack->addSubWidget(distributionPosXYZ);
-
-  distributionAngXYZ = new BPos3Input(this, "");
-  distributionAngXYZ->initUI("ANG_X", "ANG_Y", "ANG_Z");
-  leftStack->addSubWidget(distributionAngXYZ);
-
-  QLabel *directionDistributionLabel = new QLabel("Direction Distribution", this);
-  directionDistributionLabel->setFont(font_subHeader());
-  leftStack->addSubWidget(directionDistributionLabel);
-  directionDirXYZ = new BPos3Input(this, "");
-  directionDirXYZ->initUI("DIR_X", "DIR_Y", "DIR_Z");
-  leftStack->addSubWidget(directionDirXYZ);
+  bGroupDirectDistribution = new BGroupNumberInput(this);
+  connectCbbIndexChange(cbbDirectDistribution->combobox, [this](int index) {
+    this->bGroupDirectDistribution->removeAll();
+    GroupNumberInputValue selectGroup = this->group_direction_source[index];
+    this->bGroupDirectDistribution->initUI(selectGroup);
+  });
+  leftStack->addSubWidget(bGroupDirectDistribution);
 
   cbbIsotopes = new BLineEditCompleter(this, "Isotopes");
   cbbIsotopes->isTitleInLine = true;
@@ -324,3 +324,32 @@ BFileGen *BExpertWindow::genGeomFile() { return nullptr; }
 // QWidget* buildPhantomLayout() {
 
 // }
+
+QString POSITION_DISTRIBUTION_text(POSITION_DISTRIBUTION value) {
+  switch (value) {
+    case POSITION_DISTRIBUTION::NONE:
+      return "";
+    case POSITION_DISTRIBUTION::AT_POINT:
+      return "Position at a point";
+    case POSITION_DISTRIBUTION::USER_DEF_VOLUME:
+      return "Position in a user defined volume";
+    case POSITION_DISTRIBUTION::USER_DEF_VOLUME_SURFACE:
+      return "Position in a user defined volume surface";
+    case POSITION_DISTRIBUTION::STEP_ALONG_LINE:
+      return "Position in steps along a line";
+    case POSITION_DISTRIBUTION::IN_SQUARE:
+      return "Position in a square";
+    case POSITION_DISTRIBUTION::IN_RECT:
+      return " Position in a rectangle";
+    case POSITION_DISTRIBUTION::IN_DISC:
+      return "Position in a disc";
+    case POSITION_DISTRIBUTION::IN_DISC_WITH_GAUSSIAN_DISTRIBUTION:
+      return "Position in a disc with gaussian distribution";
+    case POSITION_DISTRIBUTION::IN_VOXEL_PHANTOM_FILE:
+      return "Position in the voxels of a phantom file";
+
+    default:
+      return "";
+  }
+  return "";
+}
