@@ -314,6 +314,45 @@ void BExpertWindow::initSourceLayout() {
   stack3->addSubWidget(bGroupDirectDistribution);
 
   // STACK 4 ========================================================
+  timeDistributionSource.push_back(TIME_DISTRIBUTION::NONE);
+  timeDistributionSource.push_back(TIME_DISTRIBUTION::CONSTANT);
+  timeDistributionSource.push_back(TIME_DISTRIBUTION::INTERVAL);
+  cbbTimeDistribution = new BComboBox(this, "Time Distribution");
+  cbbTimeDistribution->isTitleInLine = false;
+  for (TIME_DISTRIBUTION time : timeDistributionSource) {
+    cbbTimeDistribution->addItem(TIME_DISTRIBUTION_text(time));
+  }
+  cbbTimeDistribution->initUI();
+  stack4->addSubWidget(cbbTimeDistribution);
+
+  numberTimeConstant = new BNumberInput(this, "TIME_CONSTANT", "");
+  numberTimeConstant->initUI(true, true);
+  numberTimeConstant->hide();
+  stack4->addSubWidget(numberTimeConstant);
+  bGroupTimeInterval = new BGroupNumberInput(this);
+  bGroupTimeInterval->initUI(
+      makeGroupNumberInputValue("SOURCE_TIME", "SOURCE_TIME",
+                                {
+                                    NumberInputValue("TIME_INTERVAL", "TIME_INTERVAL", "1", ""),
+                                    NumberInputValue("TIME_OFFSET", "TIME_OFFSET", "1", ""),
+                                }));
+  bGroupTimeInterval->hide();
+  stack4->addSubWidget(bGroupTimeInterval);
+
+  connectCbbIndexChange(cbbTimeDistribution->combobox, [this](int index) {
+    this->bGroupTimeInterval->hide();
+    this->numberTimeConstant->hide();
+
+    switch (this->timeDistributionSource[index]) {
+      case TIME_DISTRIBUTION::CONSTANT:
+        this->numberTimeConstant->show();
+        break;
+
+      case TIME_DISTRIBUTION::INTERVAL:
+        this->bGroupTimeInterval->show();
+        break;
+    }
+  });
 }
 
 void BExpertWindow::initOutputLayout() {
@@ -485,6 +524,22 @@ QString POSITION_DISTRIBUTION_text(POSITION_DISTRIBUTION value) {
 
     default:
       return "";
+  }
+  return "";
+}
+
+QString TIME_DISTRIBUTION_text(TIME_DISTRIBUTION value) {
+  switch (value) {
+    case TIME_DISTRIBUTION::NONE:
+      return "";
+    case TIME_DISTRIBUTION::CONSTANT:
+      return "Constant time";
+
+    case TIME_DISTRIBUTION::INTERVAL:
+      return "Time changing at constant interval";
+
+    default:
+      break;
   }
   return "";
 }

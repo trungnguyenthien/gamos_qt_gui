@@ -42,6 +42,10 @@ enum class POSITION_DISTRIBUTION {
 QString POSITION_DISTRIBUTION_text(POSITION_DISTRIBUTION value);
 // QString POSITION_DISTRIBUTION_value(POSITION_DISTRIBUTION value);
 
+enum class TIME_DISTRIBUTION { NONE, CONSTANT, INTERVAL };
+QString TIME_DISTRIBUTION_text(TIME_DISTRIBUTION value);
+// QString TIME_DISTRIBUTION_value(TIME_DISTRIBUTION  value);
+
 class BExpertWindow : public QTabWidget, public BWindow {
   Q_OBJECT
 private:
@@ -86,6 +90,11 @@ private:
   BGroupNumberInput *bGroupPositionInDisc;
   BGroupNumberInput *bGroupPositionInDiscGauss;
   BGroupNumberInput *bGroupPositionInVoxel;
+
+  vector<TIME_DISTRIBUTION> timeDistributionSource;
+  BComboBox *cbbTimeDistribution;
+  BNumberInput *numberTimeConstant;
+  BGroupNumberInput *bGroupTimeInterval;
 
   QCheckBox *ckPartidePropagating;
   QCheckBox *ckDoseMap;
