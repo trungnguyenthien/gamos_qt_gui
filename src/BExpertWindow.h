@@ -64,7 +64,6 @@ private:
   vector<PARTICLE> particles;
 
   BNumberInput *numberEngergy;
-  // BPos3Input *distributionPosXYZ, *distributionAngXYZ, *directionDirXYZ;
 
   BComboBox *cbbDirectDistribution;
   vector<GroupNumberInputValue> group_direction_source;
@@ -73,18 +72,27 @@ private:
   BLineEditCompleter *cbbIsotopes;
   BNumberInput *numberActivity;
 
-  BComboBox *cbbDistributionType;
-  vector<DISTRIBUTIONTYPE> distributions;
-
-  BComboBox *cbbOrganType;
-  vector<ORGANTYPE> organs;
-
   BPathInput *pathNmImage;
+
+  vector<POSITION_DISTRIBUTION> positionDirectionSource;
+  BComboBox *cbbPositionDirection;
+
+  BPos3Input *pos3AtPoint;
+  BPos3Input *pos3PositionOfShape;
+
+  BGroupNumberInput *bGroupStepAlongLine;
+  BGroupNumberInput *bGroupPositionInSquare;
+  BGroupNumberInput *bGroupPositionInRect;
+  BGroupNumberInput *bGroupPositionInDisc;
+  BGroupNumberInput *bGroupPositionInDiscGauss;
+  BGroupNumberInput *bGroupPositionInVoxel;
 
   QCheckBox *ckPartidePropagating;
   QCheckBox *ckDoseMap;
   QCheckBox *ckEnergyDositionMap;
   QString session_dir;
+
+  void showPositionDistribution(POSITION_DISTRIBUTION pd);
 
 public:
   BExpertWindow(QWidget *parent);
