@@ -152,7 +152,7 @@ void BExpertWindow::initSourceLayout() {
   positionDirectionSource.push_back(POSITION_DISTRIBUTION::IN_DISC);
   positionDirectionSource.push_back(POSITION_DISTRIBUTION::IN_DISC_WITH_GAUSSIAN_DISTRIBUTION);
   positionDirectionSource.push_back(POSITION_DISTRIBUTION::IN_VOXEL_PHANTOM_FILE);
-  cbbPositionDirection = new BComboBox(this, "Position Direction");
+  cbbPositionDirection = new BComboBox(this, "Position Distribution");
   cbbPositionDirection->isTitleInLine = false;
   for (POSITION_DISTRIBUTION pd : positionDirectionSource) {
     cbbPositionDirection->addItem(POSITION_DISTRIBUTION_text(pd));
